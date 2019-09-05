@@ -53,6 +53,7 @@ Top-level keys are sorted according to a style commonly seen in the packages of 
   'author',
   'homepage',
   'bugs',
+  'main',
   'engines',
   'scripts',
   'files',
