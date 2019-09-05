@@ -34,6 +34,12 @@ npm install prettier prettier-plugin-package --save-dev
 
 ## Usage
 
+Once installed, [Prettier plugins](https://prettier.io/docs/en/plugins.html) should be automatically recognized by Prettier. To use this plugin, confirm that it's installed and run Prettier using your preferred method. For example:
+
+```console
+$ npx prettier --write package.json
+```
+
 ## Rules
 
 This plugin enforces its own set of opinionated rules:
