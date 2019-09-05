@@ -48,14 +48,21 @@ $ npx prettier --write package.json
 
 This plugin enforces its own set of opinionated rules:
 
+### Scripts
+
+Keys in `scripts` are ordered alphabetically. Use prefixes wisely to properly order child scripts. e.g. `lint`, `lint:ts`.
+
 ### Sorting
 
 Top-level keys are sorted according to a style commonly seen in the packages of [@sindresorhus](https://github.com/sindresorhus). Known keys, and their order are:
 
 ```js
 [
+  // meta
   'name',
   'version',
+  'flat',
+  'private',
   'publishConfig',
   'description',
   'license',
@@ -63,19 +70,32 @@ Top-level keys are sorted according to a style commonly seen in the packages of 
   'author',
   'homepage',
   'bugs',
+
+  // entry
   'main',
+  'bin',
+
+  // constraints
   'engines',
+  'cpu',
+  'os',
+
+  // content and util
   'scripts',
   'files',
   'keywords',
-  'peerDependencies',
+
+  // dependencies
+  'bundledDependencies',
   'optionalDependencies',
+  'peerDependencies',
   'dependencies',
-  'devDependencies'
+  'devDependencies',
+  'resolutions'
 ]
 ```
 
-Unknown keys, or keys not part of the list above, will be alphabetically sorted and added to the end of the file.
+Unknown keys, or keys not part of the list above, will be alphabetically sorted and added to the end of the file. Note that this list takes into account both `npm` and `yarn` keys.
 
 ### Forthcoming
 
@@ -85,7 +105,6 @@ Forthcoming rules include:
 - [ ] Engines format
 - [ ] Files order and content
 - [ ] Repository format
-- [ ] Scripts order
 
 ## Meta
 
