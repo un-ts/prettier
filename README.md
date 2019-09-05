@@ -16,6 +16,10 @@ Prettier is an opinionated code formatter. It enforces a consistent style by par
 
 This plugin adds support for `package.json` files used within NPM modules.
 
+## Requirements
+
+`prettier-plugin-package` is an evergreen module. 🌲 This module requires an [LTS](https://github.com/nodejs/Release) Node version (v8.0.0+).
+
 ## Install
 
 Using npm:
@@ -71,12 +75,6 @@ Forthcoming rules include:
 - [ ] Files order and content
 - [ ] Repository format
 - [ ] Scripts order
-
-## Requirements
-
-`prettier-plugin-package` is an evergreen module. 🌲 This module requires an [LTS](https://github.com/nodejs/Release) Node version (v8.0.0+).
-
-## 
 
 ## Meta
 
