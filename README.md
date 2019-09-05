@@ -7,6 +7,8 @@
 [size]: https://packagephobia.now.sh/badge?p=prettier-plugin-package
 [size-url]: https://packagephobia.now.sh/result?p=prettier-plugin-package
 
+![banner](https://raw.githubusercontent.com/shellscape/prettier-plugin-package/master/assets/banner.svg?sanitize=true)
+
 # prettier-plugin-package [![tests][tests]][tests-url] [![cover][cover]][cover-url] [![size][size]][size-url] [![libera manifesto](https://img.shields.io/badge/libera-manifesto-lightgrey.svg)](https://liberamanifesto.com)
 
 
@@ -31,6 +33,8 @@ npm install prettier prettier-plugin-package --save-dev
 <a href="https://www.patreon.com/shellscape">
   <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
 </a>
+
+_Please consider donating if you find this project useful._
 
 ## Usage
 
