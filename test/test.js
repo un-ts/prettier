@@ -3,7 +3,7 @@ const { join } = require('path');
 const test = require('ava');
 const prettier = require('prettier');
 
-const pkg = require('../package.json');
+const pkg = require('./fixtures/fixture.json');
 
 const shuffle = (arr) => {
   const result = arr.slice();
