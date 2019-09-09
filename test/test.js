@@ -1,10 +1,11 @@
+const { readFileSync } = require('fs');
 const { join } = require('path');
 
 const test = require('ava');
 const prettier = require('prettier');
 
 const pkg = require('./fixtures/fixture.json');
-
+//
 const shuffle = (arr) => {
   const result = arr.slice();
   for (let i = result.length - 1; i > 0; i--) {
@@ -69,4 +70,17 @@ test('not package.json', (t) => {
   const output = prettier.format(input, options);
 
   t.is(input.trim(), output.trim());
+});
+
+test('broken json', (t) => {
+  const options = {
+    filepath: 'broken.json',
+    parser: 'json-stringify',
+    plugins: ['.']
+  };
+
+  const broken = readFileSync(join(__dirname, './fixtures/broken.json'), 'utf-8');
+  const fail = () => prettier.format(broken, options);
+
+  t.throws(fail);
 });
