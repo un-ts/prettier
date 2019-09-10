@@ -48,6 +48,38 @@ $ npx prettier --write package.json
 
 This plugin enforces its own set of opinionated rules:
 
+### Engines
+
+Keys in `engines` are ordered alphabetically.
+
+#### Options
+
+`enginesNode`<br>
+Type: `string`
+
+Asserts an `engines.node` property value. e.g. `{ enginesNode: '>= 10.0.0' }`. If this option is set and no `node` key exists in `engines`, it will be created.
+
+`enginesNpm`<br>
+Type: `string`
+
+Asserts an `engines.npm` property value. e.g. `{ enginesNpm: '>= 10.0.0' }`. If this option is set and no `npm` key exists in `engines`, it will be created.
+
+### Files
+
+Keys in `files` are ordered alphabetically. Additionally, `LICENSE` and `README.md` are added to `files` if they are missing. This plugin prefers implicit declaration of those files, even though they are included in a package automatically by `npm`.
+
+#### Options
+
+`filesLicense`<br>
+Type: `boolean`
+
+To prevent `LICENSE` from being added to `files`, set this option to `false`.
+
+`filesReadme`<br>
+Type: `boolean`
+
+To prevent `README.md` from being added to `files`, set this option to `false`.
+
 ### Scripts
 
 Keys in `scripts` are ordered alphabetically. Use prefixes wisely to properly order child scripts. e.g. `lint`, `lint:ts`.
@@ -102,8 +134,6 @@ Unknown keys, or keys not part of the list above, will be alphabetically sorted 
 Forthcoming rules include:
 
 - [ ] Author format
-- [ ] Engines format
-- [ ] Files order and content
 - [ ] Repository format
 
 ## Meta

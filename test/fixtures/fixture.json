@@ -25,9 +25,10 @@
     "lint-staged": "lint-staged"
   },
   "files": [
-    "lib/",
     "README.md",
-    "LICENSE"
+    "lib/",
+    "LICENSE",
+    "index.js"
   ],
   "keywords": [
     "package",

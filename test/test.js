@@ -19,8 +19,7 @@ test('randomize', (t) => {
   const options = {
     filepath: join(__dirname, 'package.json'),
     parser: 'json-stringify',
-    plugins: ['.'],
-    shit: 'balls'
+    plugins: ['.']
   };
   const keys = shuffle(Object.keys(pkg));
   const fixture = {};
