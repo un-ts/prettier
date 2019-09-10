@@ -54,9 +54,7 @@ Keys in `engines` are ordered alphabetically.
 
 ### Files
 
-Keys in `files` are ordered alphabetically.
-
-To prevent `README.md` from being added to `files`, set this option to `false`.
+Keys in `files` are ordered alphabetically, followed by `README.md` and `LICENSE` if they exist in the array.
 
 ### Scripts
 
