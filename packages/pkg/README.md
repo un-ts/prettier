@@ -1,4 +1,4 @@
-![banner](https://raw.githubusercontent.com/rx-ts/prettier-plugin-pkg/master/assets/banner.svg?sanitize=true)
+![banner](https://raw.githubusercontent.com/rx-ts/prettier/master/assets/banner.svg?sanitize=true)
 
 # prettier-plugin-pkg ![npm bundle size](https://img.shields.io/bundlephobia/min/prettier-plugin-pkg) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/prettier-plugin-pkg)
 

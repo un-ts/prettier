@@ -2,7 +2,7 @@ const { join } = require('path')
 
 const prettier = require('prettier')
 
-const pkg = require('../package.json')
+const pkg = require('./fixtures/fixture.json')
 
 const shuffle = arr => {
   const result = arr.slice()
@@ -76,7 +76,7 @@ test('broken json', () => {
 
   const broken = `{
   "name": "prettier-plugin-pkg",
-  "batmam": {]
+  "batman": {]
 }`
 
   expect(() => prettier.format(broken, options)).toThrow()

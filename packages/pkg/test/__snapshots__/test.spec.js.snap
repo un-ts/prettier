@@ -2,7 +2,7 @@
 
 exports[`preprocess 1`] = `
 "{
-  \\"name\\": \\"prettier-plugin-pkg\\",
+  \\"name\\": \\"@rxts/prettier-plugin-pkg\\",
   \\"version\\": \\"0.0.0\\",
   \\"description\\": \\"An opinionated package.json formatter plugin for Prettier\\",
   \\"license\\": \\"MPL-2.0\\",
@@ -36,7 +36,7 @@ exports[`preprocess 1`] = `
 
 exports[`randomize 1`] = `
 "{
-  \\"name\\": \\"prettier-plugin-pkg\\",
+  \\"name\\": \\"@rxts/prettier-plugin-pkg\\",
   \\"version\\": \\"0.0.0\\",
   \\"description\\": \\"An opinionated package.json formatter plugin for Prettier\\",
   \\"license\\": \\"MPL-2.0\\",
