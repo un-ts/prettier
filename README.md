@@ -1,7 +1,7 @@
 # prettier
 
 [![Travis](https://img.shields.io/travis/com/rx-ts/prettier.svg)](https://travis-ci.com/rx-ts/prettier)
-[![Codacy Grade](https://img.shields.io/codacy/grade/d5c50fcc41d54224a4730998c41c058)](https://www.codacy.com/app/JounQin/prettier)
+[![Codacy Grade](https://img.shields.io/codacy/grade/d5c50fcc41d54224a4730998c41c0588)](https://www.codacy.com/app/JounQin/prettier)
 [![Codecov](https://img.shields.io/codecov/c/gh/rx-ts/prettier)](https://codecov.io/gh/rx-ts/prettier)
 [![type-coverage](https://img.shields.io/badge/dynamic/json.svg?label=type-coverage&prefix=%E2%89%A5&suffix=%&query=$.typeCoverage.atLeast&uri=https%3A%2F%2Fraw.githubusercontent.com%2Frx-ts%2Fprettier%2Fmaster%2Fpackage.json)](https://github.com/plantain-00/type-coverage)
 [![GitHub release](https://img.shields.io/github/release/rx-ts/prettier)](https://github.com/rx-ts/prettier/releases)
