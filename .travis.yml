@@ -1,0 +1,50 @@
+language: node_js
+
+node_js: --lts
+
+cache:
+  - yarn
+  - directories:
+      - .changelog
+
+before_install:
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - export PATH="$HOME/.yarn/bin:$PATH"
+  - git config --global user.name "JounQin"
+  - git config --global user.email "admin@1stg.me"
+
+install: yarn --frozen-lockfile
+
+script:
+  - yarn build
+  - yarn lint
+  - yarn test
+  # - yarn type-coverage
+
+after_success:
+  - yarn global add codecov codacy-coverage
+  - codecov
+  - cat ./coverage/lcov.info | codacy-coverage
+
+before_deploy:
+  - npm set //registry.npmjs.org/:_authToken $NPM_TOKEN
+  - git remote set-url origin https://user:$GH_TOKEN@github.com/$TRAVIS_REPO_SLUG.git
+  - git fetch origin $TRAVIS_BRANCH:$TRAVIS_BRANCH
+  - git checkout $TRAVIS_BRANCH
+  - yarn lerna-changelog
+
+deploy:
+  - provider: script
+    skip_cleanup: true
+    script: yarn lerna publish --create-release github --yes
+    on:
+      branch: master
+  - provider: script
+    skip_cleanup: true
+    script: yarn lerna publish --canary --conventional-prerelease --force-publish --preid beta --pre-dist-tag beta --yes
+    on:
+      branch: develop
+
+after_script:
+  - yarn add -D @codechecks/client @codechecks/build-size-watcher @codechecks/type-coverage-watcher -W
+  - yarn codechecks

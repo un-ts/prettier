@@ -1,8 +1,4 @@
 {
-  "extends": "shellscape",
-  "globals": {
-    "document": true,
-    "WebSocket": true,
-    "window": true
-  }
+  "root": true,
+  "extends": "@1stg/eslint-config/recommended"
 }

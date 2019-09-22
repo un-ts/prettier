@@ -1,119 +1,16 @@
-[tests]: 	https://img.shields.io/circleci/project/github/shellscape/prettier-plugin-package.svg
-[tests-url]: https://circleci.com/gh/shellscape/prettier-plugin-package
+# prettier
 
-[cover]: https://codecov.io/gh/shellscape/prettier-plugin-package/branch/master/graph/badge.svg
-[cover-url]: https://codecov.io/gh/shellscape/prettier-plugin-package
+[![Travis](https://img.shields.io/travis/com/rx-ts/prettier.svg)](https://travis-ci.com/rx-ts/prettier)
+[![Codacy Grade](https://img.shields.io/codacy/grade/d5c50fcc41d54224a4730998c41c058)](https://www.codacy.com/app/JounQin/prettier)
+[![Codecov](https://img.shields.io/codecov/c/gh/rx-ts/prettier)](<https://codecov.io/gh/rx-ts/prettier>
+[![type-coverage](https://img.shields.io/badge/dynamic/json.svg?label=type-coverage&prefix=%E2%89%A5&suffix=%&query=$.typeCoverage.atLeast&uri=https%3A%2F%2Fraw.githubusercontent.com%2Frx-ts%2Fprettier%2Fmaster%2Fpackage.json)](https://github.com/plantain-00/type-coverage)
+[![GitHub release](https://img.shields.io/github/release/rx-ts/prettier)](https://github.com/rx-ts/prettier/releases)
+[![David Dev](https://img.shields.io/david/dev/rx-ts/prettier.svg)](https://david-dm.org/rx-ts/prettier?type=dev)
 
-[size]: https://packagephobia.now.sh/badge?p=prettier-plugin-package
-[size-url]: https://packagephobia.now.sh/result?p=prettier-plugin-package
+[![Conventional Commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org)
+[![codechecks.io](https://raw.githubusercontent.com/codechecks/docs/master/images/badges/badge-default.svg?sanitize=true)](https://codechecks.io)
 
-![banner](https://raw.githubusercontent.com/shellscape/prettier-plugin-package/master/assets/banner.svg?sanitize=true)
-
-# prettier-plugin-package [![tests][tests]][tests-url] [![cover][cover]][cover-url] [![size][size]][size-url] [![libera manifesto](https://img.shields.io/badge/libera-manifesto-lightgrey.svg)](https://liberamanifesto.com)
-
-
-An opinionated `package.json` formatter plugin for [Prettier](https://prettier.io)
-
-Prettier is an opinionated code formatter. It enforces a consistent style by parsing your code and re-printing, taking various rules into account.
-
-This plugin adds support for `package.json` files used within NPM modules.
-
-## Requirements
-
-`prettier-plugin-package` is an evergreen module. 🌲 This module requires an [LTS](https://github.com/nodejs/Release) Node version (v8.0.0+).
-
-## Install
-
-Using npm:
-
-```console
-npm install prettier prettier-plugin-package --save-dev
-```
-
-<a href="https://www.patreon.com/shellscape">
-  <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
-</a>
-
-_Please consider donating if you find this project useful._
-
-## Usage
-
-Once installed, [Prettier plugins](https://prettier.io/docs/en/plugins.html) should be automatically recognized by Prettier. To use this plugin, confirm that it's installed and run Prettier using your preferred method. For example:
-
-```console
-$ npx prettier --write package.json
-```
-
-## Rules
-
-This plugin enforces its own set of opinionated rules:
-
-### Engines
-
-Keys in `engines` are ordered alphabetically.
-
-### Files
-
-Keys in `files` are ordered alphabetically, followed by `README.md` and `LICENSE` if they exist in the array.
-
-### Scripts
-
-Keys in `scripts` are ordered alphabetically. Use prefixes wisely to properly order child scripts. e.g. `lint`, `lint:ts`.
-
-### Sorting
-
-Top-level keys are sorted according to a style commonly seen in the packages of [@sindresorhus](https://github.com/sindresorhus). Known keys, and their order are:
-
-```js
-[
-  // meta
-  'name',
-  'version',
-  'flat',
-  'private',
-  'publishConfig',
-  'description',
-  'license',
-  'repository',
-  'author',
-  'homepage',
-  'bugs',
-
-  // entry
-  'main',
-  'bin',
-
-  // constraints
-  'engines',
-  'cpu',
-  'os',
-
-  // content and util
-  'scripts',
-  'files',
-  'keywords',
-
-  // dependencies
-  'bundledDependencies',
-  'optionalDependencies',
-  'peerDependencies',
-  'dependencies',
-  'devDependencies',
-  'resolutions'
-]
-```
-
-Unknown keys, or keys not part of the list above, will be alphabetically sorted and added to the end of the file. Note that this list takes into account both `npm` and `yarn` keys.
-
-### Forthcoming
-
-Forthcoming rules include:
-
-- [ ] Author format
-- [ ] Repository format
-
-## Meta
-
-[CONTRIBUTING](./.github/CONTRIBUTING.md)
-
-[LICENSE (Mozilla Public License)](./LICENSE)
+> Opinionated but Incredible Prettier plugins.

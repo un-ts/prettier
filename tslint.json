@@ -1,0 +1,6 @@
+{
+  "extends": "@1stg/tslint-config",
+  "linterOptions": {
+    "exclude": ["node_modules/**", "**/lib/**"]
+  }
+}

@@ -1,73 +1,61 @@
 {
-  "name": "prettier-plugin-package",
-  "version": "0.3.1",
-  "description": "An opinionated package.json formatter plugin for Prettier",
-  "license": "MPL-2.0",
-  "repository": "shellscape/prettier-plugin-package",
-  "author": "shellscape",
-  "homepage": "https://github.com/shellscape/prettier-plugin-package",
-  "bugs": "https://github.com/shellscape/prettier-plugin-package/issues",
-  "main": "lib/index.js",
-  "engines": {
-    "node": ">= 8.0.0"
-  },
+  "name": "@rxts/prettier",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Opinionated but Incredible Prettier plugins.",
+  "license": "MIT",
+  "repository": "git@github.com:rx-ts/prettier.git",
+  "author": "JounQin <admin@1stg.me>",
   "scripts": {
-    "ci:coverage": "nyc npm run ci:test && nyc report --reporter=text-lcov > coverage.lcov",
-    "ci:lint": "npm run lint && npm run security",
-    "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
-    "ci:test": "npm run test -- --verbose",
-    "commitlint": "commitlint",
-    "commitmsg": "commitlint -e $GIT_PARAMS",
-    "lint": "eslint --fix --cache lib test && prettier --write package.json",
-    "lint-staged": "lint-staged",
-    "prepublishOnly": "npm run lint",
-    "security": "npm audit",
-    "test": "ava"
+    "build": "r",
+    "lint": "run-p lint:*",
+    "lint:es": "eslint . --ext js,md,ts -f friendly",
+    "lint:ts": "tslint -p . -t stylish",
+    "test": "jest"
   },
-  "files": [
-    "lib/",
-    "README.md",
-    "LICENSE"
-  ],
-  "keywords": [
-    "package",
-    "package.json",
-    "plugin",
-    "prettier"
-  ],
-  "peerDependencies": {
-    "prettier": "^1.18.2"
-  },
-  "dependencies": {},
   "devDependencies": {
-    "@commitlint/cli": "^8.1.0",
-    "@commitlint/config-conventional": "^8.1.0",
-    "ava": "^2.2.0",
-    "eslint-config-shellscape": "^2.0.2",
-    "execa": "^2.0.3",
-    "lint-staged": "^9.2.0",
-    "nyc": "^14.1.0",
-    "pre-commit": "^1.2.2",
-    "prettier": "^1.18.2"
+    "@1stg/babel-preset": "^0.7.0",
+    "@1stg/commitlint-config": "^0.1.0",
+    "@1stg/eslint-config": "^0.12.10",
+    "@1stg/husky-config": "^0.3.0",
+    "@1stg/lint-staged": "^0.7.4",
+    "@1stg/prettier-config": "^0.2.0",
+    "@1stg/remark-config": "^0.2.1",
+    "@1stg/rollup-config": "^0.9.5",
+    "@1stg/tsconfig": "^0.5.1",
+    "@1stg/tslint-config": "^0.3.3",
+    "@babel/core": "^7.6.0",
+    "@commitlint/cli": "^8.2.0",
+    "eslint": "^6.4.0",
+    "husky": "^3.0.5",
+    "jest": "^24.9.0",
+    "lerna": "^3.16.4",
+    "lerna-changelog": "^0.8.2",
+    "lint-staged": "^9.3.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.18.2",
+    "react": "^16.9.0",
+    "rollup": "^1.21.4",
+    "tslint": "^5.20.0",
+    "typescript": "^3.6.3"
   },
-  "ava": {
-    "files": [
-      "!**/fixtures/**"
+  "resolutions": {
+    "babel-eslint": "^10.0.3"
+  },
+  "commitlint": {
+    "extends": [
+      "@1stg"
     ]
   },
-  "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ]
+  "eslintIgnore": [
+    "CHANGELOG.md",
+    "lib",
+    "!/.*.js"
+  ],
+  "typeCoverage": {
+    "atLeast": 100
   },
-  "nyc": {
-    "include": [
-      "lib/*.js"
-    ],
-    "exclude": [
-      "test/"
-    ]
-  },
-  "pre-commit": "lint-staged"
+  "workspaces": [
+    "packages/*"
+  ]
 }
