@@ -2,14 +2,18 @@
   "name": "prettier-plugin-pkg",
   "version": "0.2.1",
   "description": "An opinionated package.json formatter plugin for Prettier",
-  "license": "MPL-2.0",
   "repository": "git@github.com/rx-ts/prettier.git",
-  "author": "JounQin <admin@1stg.me>",
   "homepage": "https://github.com/rx-ts/prettier/blob/master/packages/pkg",
-  "main": "lib/cjs",
+  "author": "JounQin <admin@1stg.me>",
+  "license": "MPL-2.0",
   "engines": {
     "node": ">= 8.0.0"
   },
+  "main": "lib/cjs",
+  "module": "lib",
+  "es2015": "lib/es2015",
+  "fesm5": "lib/esm",
+  "types": "lib",
   "files": [
     "lib"
   ],
@@ -23,8 +27,5 @@
   ],
   "peerDependencies": {
     "prettier": "^1.18.2"
-  },
-  "es2015": "lib/es2015",
-  "fesm5": "lib/esm",
-  "module": "lib"
+  }
 }

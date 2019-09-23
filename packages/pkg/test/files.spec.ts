@@ -1,4 +1,5 @@
 import prettier from 'prettier'
+import PkgPlugin from 'prettier-plugin-pkg'
 
 test('files', () => {
   const fixture = {
@@ -9,7 +10,7 @@ test('files', () => {
   const output = prettier.format(input, {
     filepath: 'package.json',
     parser: 'json-stringify',
-    plugins: ['prettier-plugin-pkg'],
+    plugins: [PkgPlugin],
   })
 
   expect(output).toMatchSnapshot()

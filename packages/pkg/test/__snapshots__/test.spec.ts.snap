@@ -5,14 +5,16 @@ exports[`preprocess 1`] = `
   \\"name\\": \\"@rxts/prettier-plugin-pkg\\",
   \\"version\\": \\"0.0.0\\",
   \\"description\\": \\"An opinionated package.json formatter plugin for Prettier\\",
-  \\"license\\": \\"MPL-2.0\\",
   \\"repository\\": \\"git@github.com/rx-ts/prettier.git\\",
-  \\"author\\": \\"JounQin <admin@1stg.me>\\",
   \\"homepage\\": \\"https://github.com/rx-ts/prettier/blob/master/packages/pkg\\",
-  \\"main\\": \\"lib/cjs\\",
+  \\"author\\": \\"JounQin <admin@1stg.me>\\",
+  \\"license\\": \\"MPL-2.0\\",
   \\"engines\\": {
     \\"node\\": \\">= 8.0.0\\"
   },
+  \\"main\\": \\"lib/cjs\\",
+  \\"module\\": \\"lib/esm\\",
+  \\"es2015\\": \\"lib/es2015\\",
   \\"files\\": [
     \\"lib\\",
     \\"rules\\"
@@ -27,9 +29,7 @@ exports[`preprocess 1`] = `
   ],
   \\"peerDependencies\\": {
     \\"prettier\\": \\"^1.18.2\\"
-  },
-  \\"es2015\\": \\"lib/es2015\\",
-  \\"module\\": \\"lib/esm\\"
+  }
 }
 "
 `;
@@ -39,14 +39,16 @@ exports[`randomize 1`] = `
   \\"name\\": \\"@rxts/prettier-plugin-pkg\\",
   \\"version\\": \\"0.0.0\\",
   \\"description\\": \\"An opinionated package.json formatter plugin for Prettier\\",
-  \\"license\\": \\"MPL-2.0\\",
   \\"repository\\": \\"git@github.com/rx-ts/prettier.git\\",
-  \\"author\\": \\"JounQin <admin@1stg.me>\\",
   \\"homepage\\": \\"https://github.com/rx-ts/prettier/blob/master/packages/pkg\\",
-  \\"main\\": \\"lib/cjs\\",
+  \\"author\\": \\"JounQin <admin@1stg.me>\\",
+  \\"license\\": \\"MPL-2.0\\",
   \\"engines\\": {
     \\"node\\": \\">= 8.0.0\\"
   },
+  \\"main\\": \\"lib/cjs\\",
+  \\"module\\": \\"lib/esm\\",
+  \\"es2015\\": \\"lib/es2015\\",
   \\"files\\": [
     \\"lib\\",
     \\"rules\\"
@@ -61,9 +63,7 @@ exports[`randomize 1`] = `
   ],
   \\"peerDependencies\\": {
     \\"prettier\\": \\"^1.18.2\\"
-  },
-  \\"es2015\\": \\"lib/es2015\\",
-  \\"module\\": \\"lib/esm\\"
+  }
 }
 "
 `;

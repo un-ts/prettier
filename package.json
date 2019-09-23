@@ -1,11 +1,14 @@
 {
   "name": "@rxts/prettier",
   "version": "0.0.0",
-  "private": true,
   "description": "Opinionated but Incredible Prettier plugins.",
-  "license": "MIT",
   "repository": "git@github.com:rx-ts/prettier.git",
   "author": "JounQin <admin@1stg.me>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "build": "run-p build:*",
     "build:bundle": "r",
@@ -63,12 +66,15 @@
   ],
   "jest": {
     "preset": "ts-jest",
-    "collectCoverage": true
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "<rootDir>/packages/*/src/**"
+    ],
+    "moduleNameMapper": {
+      "^prettier-plugin-pkg$": "<rootDir>/packages/pkg/src"
+    }
   },
   "typeCoverage": {
     "atLeast": 100
-  },
-  "workspaces": [
-    "packages/*"
-  ]
+  }
 }
