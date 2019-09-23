@@ -1,7 +1,11 @@
 {
   "extends": "./tsconfig.base",
   "compilerOptions": {
+    "baseUrl": ".",
     "incremental": false,
+    "paths": {
+      "prettier-plugin-pkg": ["packages/pkg/src"]
+    },
     "noEmit": true
   },
   "references": [

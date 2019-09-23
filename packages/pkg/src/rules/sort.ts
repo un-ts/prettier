@@ -1,40 +1,58 @@
 import { ObjectProperty } from '@babel/types'
 
+// rederence: https://docs.npmjs.com/files/package.json#people-fields-author-contributors
 const primary = [
   // meta
   'name',
   'version',
-  'flat',
-  'private',
-  'publishConfig',
   'description',
-  'license',
   'repository',
-  'author',
   'homepage',
   'bugs',
-
-  // entry
-  'main',
-  'bin',
+  'author',
+  'contributors',
+  'license',
+  'private',
+  'workspaces',
 
   // constraints
   'engines',
   'cpu',
   'os',
 
+  // entry
+  'man',
+  'bin',
+  'main',
+  'module',
+  'esnext',
+  'es2015',
+  'esm',
+  'fesm5',
+  'fesm2015',
+  'browser',
+  'umd',
+  'jsdelivr',
+  'unpkg',
+  'types',
+  'typings',
+
   // content and util
-  'scripts',
+  'directories',
   'files',
   'keywords',
+  'scripts',
+  'config',
 
   // dependencies
   'bundledDependencies',
-  'optionalDependencies',
   'peerDependencies',
   'dependencies',
+  'optionalDependencies',
   'devDependencies',
+  'publishConfig',
   'resolutions',
+  'sideEffects',
 ]
 
 export const sort = (props: ObjectProperty[]) => {
