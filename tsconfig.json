@@ -1,6 +1,12 @@
 {
-  "extends": "@1stg/tsconfig/tsconfig",
+  "extends": "./tsconfig.base",
   "compilerOptions": {
-    "baseUrl": "."
-  }
+    "incremental": false,
+    "noEmit": true
+  },
+  "references": [
+    {
+      "path": "packages/pkg"
+    }
+  ]
 }

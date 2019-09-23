@@ -11,8 +11,7 @@
     "node": ">= 8.0.0"
   },
   "files": [
-    "lib",
-    "rules"
+    "lib"
   ],
   "keywords": [
     "package",
@@ -26,5 +25,6 @@
     "prettier": "^1.18.2"
   },
   "es2015": "lib/es2015",
-  "module": "lib/esm"
+  "fesm5": "lib/esm",
+  "module": "lib"
 }

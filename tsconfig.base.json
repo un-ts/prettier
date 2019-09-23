@@ -1,0 +1,7 @@
+{
+  "extends": "@1stg/tsconfig/tsconfig",
+  "compilerOptions": {
+    "strictFunctionTypes": false,
+    "strictNullChecks": false
+  }
+}
