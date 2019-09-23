@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/rx-ts/prettier/compare/prettier-plugin-pkg@0.2.1...prettier-plugin-pkg@0.3.0) (2019-09-23)
+
+
+### Features
+
+* update primary keys list ([#3](https://github.com/rx-ts/prettier/issues/3)) ([bb13d0b](https://github.com/rx-ts/prettier/commit/bb13d0b))
+
+
+
+
+
 ## [0.2.1](https://github.com/rx-ts/prettier/compare/prettier-plugin-pkg@0.2.0...prettier-plugin-pkg@0.2.1) (2019-09-23)
 
 **Note:** Version bump only for package prettier-plugin-pkg
