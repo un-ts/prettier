@@ -1,22 +1,15 @@
-/*
-  Copyright © 2019 Andrew Powell
+import { ArrayExpression, ObjectProperty, StringLiteral } from '@babel/types'
 
-  This Source Code Form is subject to the terms of the Mozilla Public
-  License, v. 2.0. If a copy of the MPL was not distributed with this
-  file, You can obtain one at http://mozilla.org/MPL/2.0/.
-
-  The above copyright notice and this permission notice shall be
-  included in all copies or substantial portions of this Source Code Form.
-*/
-const process = props => {
+const process = (props: ObjectProperty[]) => {
   const filesIndex = props.findIndex(prop => prop.key.value === 'files')
 
   if (filesIndex >= 0) {
     const [filesNode] = props.splice(filesIndex, 1)
 
-    let readme
-    let license
-    let { elements } = filesNode.value
+    let readme: StringLiteral
+    let license: StringLiteral
+    let elements = (filesNode.value as ArrayExpression)
+      .elements as StringLiteral[]
 
     elements = elements
       .filter(node => {
@@ -45,7 +38,7 @@ const process = props => {
       elements.push(license)
     }
 
-    filesNode.value.elements = elements
+    ;(filesNode.value as ArrayExpression).elements = elements
 
     props.splice(filesIndex, 0, filesNode)
   }
@@ -53,4 +46,4 @@ const process = props => {
   return props
 }
 
-module.exports = { files: process }
+export { process as files }
