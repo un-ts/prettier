@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/rx-ts/prettier/compare/prettier-plugin-pkg@0.1.1...prettier-plugin-pkg@0.2.0) (2019-09-23)
+
+
+### Features
+
+* **prettier-plugin-pkg:** change code base to typescript ([#1](https://github.com/rx-ts/prettier/issues/1)) ([ea0c0a6](https://github.com/rx-ts/prettier/commit/ea0c0a6))
+
+
+
+
+
 ## [0.1.1](https://github.com/rx-ts/prettier/compare/prettier-plugin-pkg@0.1.0...prettier-plugin-pkg@0.1.1) (2019-09-22)
 
 
