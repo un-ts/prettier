@@ -24,17 +24,17 @@
     "@1stg/commitlint-config": "^0.1.0",
     "@1stg/eslint-config": "^0.12.12",
     "@1stg/husky-config": "^0.3.0",
-    "@1stg/lint-staged": "^0.7.4",
-    "@1stg/prettier-config": "^0.2.0",
+    "@1stg/lint-staged": "^0.8.0",
+    "@1stg/prettier-config": "^0.3.0",
     "@1stg/remark-config": "^0.2.1",
-    "@1stg/rollup-config": "^0.9.6",
-    "@1stg/tsconfig": "^0.5.3",
-    "@1stg/tslint-config": "^0.3.4",
-    "@babel/core": "^7.6.0",
+    "@1stg/rollup-config": "^0.10.1",
+    "@1stg/tsconfig": "^0.6.0",
+    "@1stg/tslint-config": "^0.4.0",
+    "@babel/core": "^7.6.2",
     "@babel/types": "^7.6.1",
     "@commitlint/cli": "^8.2.0",
     "@types/jest": "^24.0.18",
-    "@types/lodash": "^4.14.138",
+    "@types/lodash": "^4.14.139",
     "@types/prettier": "^1.18.2",
     "eslint": "^6.4.0",
     "husky": "^3.0.5",
@@ -73,6 +73,10 @@
     "moduleNameMapper": {
       "^prettier-plugin-pkg$": "<rootDir>/packages/pkg/src"
     }
+  },
+  "prettier": "@1stg/prettier-config",
+  "renovate": {
+    "extends": "@1stg"
   },
   "typeCoverage": {
     "atLeast": 100

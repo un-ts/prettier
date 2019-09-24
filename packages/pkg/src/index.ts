@@ -1,14 +1,15 @@
 import { ObjectProperty } from '@babel/types'
 import { Plugin } from 'prettier'
-import _ from 'prettier/parser-babylon'
+import { parsers } from 'prettier/parser-babylon'
 
 import { engines } from './rules/engines'
 import { files } from './rules/files'
 import { scripts } from './rules/scripts'
 import { sort } from './rules/sort'
 
-const { 'json-stringify': parser } = _.parsers
-const { parse } = parser
+const {
+  json: { parse },
+} = parsers
 
 const format = (properties: ObjectProperty[]) => {
   let props = sort(properties)
@@ -22,7 +23,7 @@ export default {
   name: 'prettier-plugin-pkg',
   parsers: {
     'json-stringify': {
-      ...parser,
+      ...parsers['json-stringify'],
       parse(...args) {
         const [, , options] = args
         const { filepath } = options

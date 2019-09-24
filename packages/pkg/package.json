@@ -6,9 +6,6 @@
   "homepage": "https://github.com/rx-ts/prettier/blob/master/packages/pkg",
   "author": "JounQin <admin@1stg.me>",
   "license": "MPL-2.0",
-  "engines": {
-    "node": ">= 8.0.0"
-  },
   "main": "lib/cjs",
   "module": "lib",
   "es2015": "lib/es2015",
