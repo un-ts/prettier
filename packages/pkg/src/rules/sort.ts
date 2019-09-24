@@ -1,4 +1,4 @@
-import { StringMapperProperty } from '../types'
+import { ObjectProperty } from '../types'
 
 // reference: https://docs.npmjs.com/files/package.json#people-fields-author-contributors
 const primary = [
@@ -55,8 +55,8 @@ const primary = [
   'sideEffects',
 ]
 
-export const sort = (props: StringMapperProperty[]) => {
-  const others: StringMapperProperty[] = []
+export const sort = (props: ObjectProperty[]) => {
+  const others: ObjectProperty[] = []
   const known = props.filter(prop => {
     if (primary.includes(prop.key.value)) {
       return true
