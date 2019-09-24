@@ -3,16 +3,21 @@ import { join } from 'path'
 import prettier, { Options } from 'prettier'
 import PkgPlugin from 'prettier-plugin-pkg'
 
-import pkg from './fixtures/fixture.json'
+import pkg1 from './fixtures/fixture1.json'
+import pkg2 from './fixtures/fixture2.json'
 
-const createFixture = () =>
-  shuffle(Object.keys(pkg)).reduce(
+const pkgs = [pkg1, pkg2]
+
+const createFixture = (index: 0 | 1 = 0) => {
+  const pkg = pkgs[index]
+  return shuffle(Object.keys(pkg)).reduce(
     (acc, key: keyof typeof pkg) =>
       Object.assign(acc, {
         [key]: pkg[key],
       }),
     {} as typeof pkg,
   )
+}
 
 test('randomize', () => {
   const input = JSON.stringify(createFixture(), null, 2)
@@ -26,13 +31,13 @@ test('randomize', () => {
 })
 
 test('preprocess', () => {
-  const input = JSON.stringify(createFixture(), null, 2)
+  const input = JSON.stringify(createFixture(1), null, 2)
   const output = prettier.format(input, {
     filepath: join('package.json'),
     parser: 'json-stringify',
     plugins: [PkgPlugin],
     preprocess(content: string) {
-      const { version, repository }: typeof pkg = JSON.parse(content)
+      const { version, repository }: typeof pkg1 = JSON.parse(content)
       const result = { repository, version }
       return result
     },
