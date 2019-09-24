@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://github.com/rx-ts/prettier/compare/prettier-plugin-pkg@0.4.0...prettier-plugin-pkg@0.4.1) (2019-09-24)
+
+
+### Bug Fixes
+
+* **prettier-plugin-pkg:** better types support, add type-coverage guard ([b1e72fd](https://github.com/rx-ts/prettier/commit/b1e72fd))
+
+
+
+
+
 # [0.4.0](https://github.com/rx-ts/prettier/compare/prettier-plugin-pkg@0.3.0...prettier-plugin-pkg@0.4.0) (2019-09-24)
 
 
