@@ -22,8 +22,8 @@
     },
     "publish": {
       "ignoreChanges": [
-        "test",
-        "*.md"
+        "**/test/**",
+        "**/*.md"
       ]
     }
   }

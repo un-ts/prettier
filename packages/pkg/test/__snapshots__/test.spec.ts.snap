@@ -69,7 +69,17 @@ exports[`randomize 1`] = `
   ],
   \\"peerDependencies\\": {
     \\"prettier\\": \\"^1.18.2\\"
-  }
+  },
+  \\"commitlint\\": {
+    \\"extends\\": [
+      \\"@1stg\\"
+    ]
+  },
+  \\"eslintIgnore\\": [
+    \\"CHANGELOG.md\\",
+    \\"lib\\",
+    \\"!.*.js\\"
+  ]
 }
 "
 `;
