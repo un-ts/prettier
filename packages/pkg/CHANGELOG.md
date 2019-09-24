@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/rx-ts/prettier/compare/prettier-plugin-pkg@0.3.0...prettier-plugin-pkg@0.4.0) (2019-09-24)
+
+
+### Features
+
+* **prettier-plugin-pkg:** add umd format output for browser usage ([a34ab85](https://github.com/rx-ts/prettier/commit/a34ab85))
+* **prettier-plugin-pkg:** parse json with json parser but replace json-stringify formatter ([f87d30c](https://github.com/rx-ts/prettier/commit/f87d30c))
+
+
+
+
+
 # [0.3.0](https://github.com/rx-ts/prettier/compare/prettier-plugin-pkg@0.2.1...prettier-plugin-pkg@0.3.0) (2019-09-23)
 
 
