@@ -1,6 +1,8 @@
-import { ArrayExpression, ObjectProperty, StringLiteral } from '@babel/types'
+import { StringLiteral } from '@babel/types'
 
-const process = (props: ObjectProperty[]) => {
+import { StringArrayProperty, StringMapperProperty } from '../types'
+
+const process = (props: StringMapperProperty[]) => {
   const filesIndex = props.findIndex(prop => prop.key.value === 'files')
 
   if (filesIndex >= 0) {
@@ -8,8 +10,8 @@ const process = (props: ObjectProperty[]) => {
 
     let readme: StringLiteral
     let license: StringLiteral
-    let elements = (filesNode.value as ArrayExpression)
-      .elements as StringLiteral[]
+    // FIXME: should not use unknown casting
+    let { elements } = (filesNode.value as unknown) as StringArrayProperty
 
     elements = elements
       .filter(node => {
@@ -38,7 +40,7 @@ const process = (props: ObjectProperty[]) => {
       elements.push(license)
     }
 
-    ;(filesNode.value as ArrayExpression).elements = elements
+    ;((filesNode.value as unknown) as StringArrayProperty).elements = elements
 
     props.splice(filesIndex, 0, filesNode)
   }

@@ -1,12 +1,12 @@
-import { ObjectExpression, ObjectProperty } from '@babel/types'
+import { StringMapperProperty } from '../types'
 
-const process = (props: ObjectProperty[]) => {
+const process = (props: StringMapperProperty[]) => {
   const enginesIndex = props.findIndex(prop => prop.key.value === 'engines')
 
   if (enginesIndex >= 0) {
     const [engines] = props.splice(enginesIndex, 1)
-    const value = engines.value as ObjectExpression
-    const properties = value.properties as ObjectProperty[]
+    const { value } = engines
+    const { properties } = value
 
     properties.sort((a, b) =>
       a.key.value > b.key.value ? 1 : a.key.value < b.key.value ? -1 : 0,

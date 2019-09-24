@@ -1,7 +1,3 @@
 {
-  "extends": "@1stg/tsconfig/tsconfig",
-  "compilerOptions": {
-    "strictFunctionTypes": false,
-    "strictNullChecks": false
-  }
+  "extends": "@1stg/tsconfig/loose"
 }
