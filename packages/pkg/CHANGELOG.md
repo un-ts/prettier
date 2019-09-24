@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.3](https://github.com/rx-ts/prettier/compare/prettier-plugin-pkg@0.4.2...prettier-plugin-pkg@0.4.3) (2019-09-24)
+
+**Note:** Version bump only for package prettier-plugin-pkg
+
+
+
+
+
 ## [0.4.2](https://github.com/rx-ts/prettier/compare/prettier-plugin-pkg@0.4.1...prettier-plugin-pkg@0.4.2) (2019-09-24)
 
 
