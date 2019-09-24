@@ -1,6 +1,6 @@
 import { ObjectProperty } from '@babel/types'
 
-// rederence: https://docs.npmjs.com/files/package.json#people-fields-author-contributors
+// reference: https://docs.npmjs.com/files/package.json#people-fields-author-contributors
 const primary = [
   // meta
   'name',

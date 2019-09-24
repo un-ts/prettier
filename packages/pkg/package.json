@@ -10,6 +10,8 @@
   "module": "lib",
   "es2015": "lib/es2015",
   "fesm5": "lib/esm",
+  "jsdelivr": "lib/umd",
+  "unpkg": "lib/umd",
   "types": "lib",
   "files": [
     "lib"
