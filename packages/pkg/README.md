@@ -16,7 +16,7 @@ This plugin adds support for `package.json` files used within NPM modules.
 
 Using npm:
 
-```console
+```sh
 # npm
 npm i -D prettier prettier-plugin-pkg
 
@@ -28,7 +28,7 @@ yarn add -D prettier prettier-plugin-pkg
 
 Once installed, [Prettier plugins](https://prettier.io/docs/en/plugins.html) should be automatically recognized by Prettier. To use this plugin, confirm that it's installed and run Prettier using your preferred method. For example:
 
-```console
+```sh
 # npx
 npx prettier --write package.json
 
@@ -56,42 +56,59 @@ Keys in `scripts` are ordered alphabetically. Use prefixes wisely to properly or
 
 Top-level keys are sorted according to a style commonly seen in the packages of [@JounQin](https://github.com/JounQin), [@1stG](https://github.com/1stG) and [@RxTS](https://github.com/rx-ts). Known keys, and their order are
 
-```js
-;[
+```jsonc
+[
   // meta
-  'name',
-  'version',
-  'flat',
-  'private',
-  'publishConfig',
-  'description',
-  'license',
-  'repository',
-  'author',
-  'homepage',
-  'bugs',
-
-  // entry
-  'main',
-  'bin',
+  "name",
+  "version",
+  "description",
+  "repository",
+  "homepage",
+  "bugs",
+  "author",
+  "contributors",
+  "license",
+  "private",
+  "workspaces",
 
   // constraints
-  'engines',
-  'cpu',
-  'os',
+  "engines",
+  "cpu",
+  "os",
+
+  // entry
+  "man",
+  "bin",
+  "main",
+  "module",
+  "esnext",
+  "es2015",
+  "esm",
+  "fesm5",
+  "fesm2015",
+  "browser",
+  "umd",
+  "jsdelivr",
+  "unpkg",
+  "types",
+  "typings",
 
   // content and util
-  'scripts',
-  'files',
-  'keywords',
+  "directories",
+  "files",
+  "keywords",
+  "scripts",
+  "config",
 
   // dependencies
-  'bundledDependencies',
-  'optionalDependencies',
-  'peerDependencies',
-  'dependencies',
-  'devDependencies',
-  'resolutions',
+  "bundledDependencies",
+  "peerDependencies",
+  "dependencies",
+  "optionalDependencies",
+  "devDependencies",
+  "publishConfig",
+  "resolutions",
+  "sideEffects"
 ]
 ```
 

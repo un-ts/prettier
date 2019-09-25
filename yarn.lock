@@ -10524,6 +10524,11 @@ tslint-angular@^3.0.2:
   resolved "https://registry.yarnpkg.com/tslint-angular/-/tslint-angular-3.0.2.tgz#6f7480cc34f26fcc03df18d7ec3d5ce364b65064"
   integrity sha512-UgeGO776Z7VvzCnW6pOsbL3qs7PwzZatKkk2OzQO45H9Zf4T+bNBz87nFkB96W/swyCHmpK2M0vl61n0biFVTQ==
 
+tslint-config-eslint@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/tslint-config-eslint/-/tslint-config-eslint-0.1.0.tgz#b0b81fd6958fc8515d42d60e44f84e89f5ff3af8"
+  integrity sha512-pn7pbmP5rHGc3uaDD99hNijeaF776f5i8YydEwwiwr7v5n094cO1/MWrMfAzQ0hvrW5ez6XIClOnYiEAK0AR/Q==
+
 tslint-config-prettier@^1.18.0:
   version "1.18.0"
   resolved "https://registry.yarnpkg.com/tslint-config-prettier/-/tslint-config-prettier-1.18.0.tgz#75f140bde947d35d8f0d238e0ebf809d64592c37"
