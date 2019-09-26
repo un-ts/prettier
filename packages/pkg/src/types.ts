@@ -5,37 +5,11 @@ import {
   StringLiteral,
 } from '@babel/types'
 
-export interface StringMapperProperty extends _ObjectProperty {
-  key: {
-    value: string
-  }
-  value: StringMapperExpression
-}
-
-export interface StringMapperExpression extends _ObjectExpression {
-  properties: StringMapperProperty[]
-}
-
-export interface StringArrayProperty extends _ObjectProperty {
-  key: {
-    value: string
-  }
-  value: StringArrayExpression
-}
-
-export interface StringArrayExpression extends _ArrayExpression {
-  elements: StringLiteral[]
-}
-
 export interface ObjectProperty extends _ObjectProperty {
   key: {
     value: string
   }
-  value:
-    | ArrayExpression
-    | ObjectExpression
-    | StringArrayExpression
-    | StringMapperExpression
+  value: ArrayExpression | ObjectExpression
 }
 
 export interface ObjectExpression extends _ObjectExpression {
@@ -43,10 +17,27 @@ export interface ObjectExpression extends _ObjectExpression {
 }
 
 export interface ArrayExpression extends _ArrayExpression {
-  elements: Array<
-    | ArrayExpression
-    | ObjectExpression
-    | StringArrayExpression
-    | StringMapperExpression
-  >
+  elements: Array<ArrayExpression | ObjectExpression | StringLiteral>
+}
+
+export interface StringMapProperty extends ObjectProperty {
+  key: {
+    value: string
+  }
+  value: StringMapExpression
+}
+
+export interface StringMapExpression extends ObjectExpression {
+  properties: StringMapProperty[]
+}
+
+export interface StringArrayProperty extends ObjectProperty {
+  key: {
+    value: string
+  }
+  value: StringArrayExpression
+}
+
+export interface StringArrayExpression extends ArrayExpression {
+  elements: StringLiteral[]
 }

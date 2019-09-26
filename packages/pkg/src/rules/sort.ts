@@ -1,17 +1,28 @@
 import { ObjectProperty } from '../types'
+import { sortObject } from '../utils'
 
-// reference: https://docs.npmjs.com/files/package.json#people-fields-author-contributors
+/**
+ * reference:
+ * npm - https://docs.npmjs.com/files/package.json
+ * yarn - https://yarnpkg.com/docs/package-json
+ * vscode - https://code.visualstudio.com/api/references/extension-manifest
+ */
 const primary = [
   // meta
   'name',
   'version',
+  'flat',
+  'displayName',
   'description',
+  'categories',
   'repository',
   'homepage',
   'bugs',
   'author',
+  'publisher',
   'contributors',
   'license',
+  'preview',
   'private',
   'workspaces',
 
@@ -27,7 +38,6 @@ const primary = [
   'module',
   'esnext',
   'es2015',
-  'esm',
   'fesm5',
   'fesm2015',
   'browser',
@@ -53,6 +63,16 @@ const primary = [
   'publishConfig',
   'resolutions',
   'sideEffects',
+
+  // vscode spec
+  'icon',
+  'galleryBanner',
+  'activationEvents',
+  'contributes',
+  'markdown',
+  'qna',
+  'extensionPack',
+  'extensionDependencies',
 ]
 
 export const sort = (props: ObjectProperty[]) => {
@@ -70,9 +90,7 @@ export const sort = (props: ObjectProperty[]) => {
     const bIndex = primary.indexOf(b.key.value)
     return aIndex > bIndex ? 1 : aIndex < bIndex ? -1 : 0
   })
-  others.sort((a, b) =>
-    a.key.value > b.key.value ? 1 : a.key.value < b.key.value ? -1 : 0,
-  )
+  others.sort(sortObject)
 
   return known.concat(others)
 }

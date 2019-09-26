@@ -1,6 +1,7 @@
 import { StringLiteral } from '@babel/types'
 
 import { ObjectProperty, StringArrayExpression } from '../types'
+import { sortStringArray } from '../utils'
 
 const process = (props: ObjectProperty[]) => {
   const filesIndex = props.findIndex(prop => prop.key.value === 'files')
@@ -28,7 +29,7 @@ const process = (props: ObjectProperty[]) => {
 
         return true
       })
-      .sort((a, b) => (a.value > b.value ? 1 : a.value < b.value ? -1 : 0))
+      .sort(sortStringArray)
 
     if (readme) {
       elements.push(readme)

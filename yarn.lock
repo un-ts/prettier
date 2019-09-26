@@ -26,10 +26,10 @@
     "@commitlint/config-conventional" "^8.2.0"
     "@commitlint/config-lerna-scopes" "^8.2.0"
 
-"@1stg/eslint-config@^0.12.12":
-  version "0.12.12"
-  resolved "https://registry.yarnpkg.com/@1stg/eslint-config/-/eslint-config-0.12.12.tgz#20abfc37e8739a0908b30f46cd8dda66f376b947"
-  integrity sha512-b0CrcWUf9npBjt8dpZKHwXKFUtEucVkdMcsyFxwi5wEXliTGvNYotzVDt+foCZq8bEInotldYGziB/Zv3Pc5ww==
+"@1stg/eslint-config@^0.12.13":
+  version "0.12.13"
+  resolved "https://registry.yarnpkg.com/@1stg/eslint-config/-/eslint-config-0.12.13.tgz#4884be6b993ab233b557b9a3665650aaf4a6c666"
+  integrity sha512-dXI58e2XElGUrY/OC1IawJ5CYDocVf5OgdTg9kiHWDKs1fSnrnk2L8j2sDyJna5HAALNl2kaTt4bq4knyvzKnA==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^2.3.0"
     "@typescript-eslint/eslint-plugin-tslint" "^2.3.0"
@@ -67,34 +67,34 @@
     "@prettier/plugin-pug" "^1.0.3"
     prettier-plugin-toml "^0.3.1"
 
-"@1stg/prettier-config@^0.3.1":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@1stg/prettier-config/-/prettier-config-0.3.1.tgz#60b64c5de03f6e051d9f90de0a6b4ccadf460590"
-  integrity sha512-1xqTarH9CEoPBVzicjarkO0p1+xm8uUWeGs1EQ7AGLpR811PZdDH4tzAdgtV35fqcvPyBzqkQGNrnwCW/laGwA==
+"@1stg/prettier-config@^0.3.2":
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@1stg/prettier-config/-/prettier-config-0.3.2.tgz#d010873a5d22cf47be2984f1ad67973dfafa147a"
+  integrity sha512-tP2soD2Un6Ai/kCN9T0Ho5Kzbfht5gB3NqgWP60uprVJxu6lmYzggCx1QfBhX09g4xUg0ANGpdBREzchqEkJ5w==
   dependencies:
     "@prettier/plugin-pug" "^1.0.3"
-    prettier-plugin-pkg "^0.4.0"
+    prettier-plugin-pkg "^0.4.3"
     prettier-plugin-toml "^0.3.1"
 
-"@1stg/remark-config@^0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@1stg/remark-config/-/remark-config-0.2.1.tgz#258a7543b448a09b8604a9f4ee72269d0314278e"
-  integrity sha512-czRBxff9cWSm1bXJkKfM5ROqWbWX00Lpw8vTKV41M8KXiLmsQ6LZ0y2pgJoJWTolIV0MXtYuW+DbbBehifntSg==
+"@1stg/remark-config@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@1stg/remark-config/-/remark-config-0.2.2.tgz#3f35906383fa966a67e2aa54fef44e07f6f1a463"
+  integrity sha512-1FrRG2XfH7lJG7ZKrQjNFvSiuXK2Dju3gFgdyg8KI+y6sTkL1Hf3tqSmAzpDyk6VZJJBOozv93qonDgZPBeOsg==
   dependencies:
     remark-lint "^6.0.5"
     remark-preset-lint-consistent "^2.0.3"
     remark-preset-lint-markdown-style-guide "^2.1.3"
     remark-preset-lint-recommended "^3.0.3"
-    remark-preset-prettier "^0.2.0"
+    remark-preset-prettier "^0.2.2"
 
-"@1stg/rollup-config@^0.10.4":
-  version "0.10.4"
-  resolved "https://registry.yarnpkg.com/@1stg/rollup-config/-/rollup-config-0.10.4.tgz#078246aebab3427cd30d5fdaddba68c4710a4352"
-  integrity sha512-Xyjsl37ZUUNPX7N3V/z9qjCUDilGLjqA49BPLplLzjNpBtLiRCCnNCiPahr4NI4bju+ihmE65e3njrN5VVEcFQ==
+"@1stg/rollup-config@^0.10.5":
+  version "0.10.5"
+  resolved "https://registry.yarnpkg.com/@1stg/rollup-config/-/rollup-config-0.10.5.tgz#2a6de2caa0534b2fc21b97cd3e0268949768d0e8"
+  integrity sha512-AeeNuY/Wmka2anaOk7RpE4MV84eY4syzA8Hp+pIVb1yumwsDxJUO3QKdZoxmKXJUGZ/+NVQpgDzWneeHQN5PPQ==
   dependencies:
     "@babel/preset-env" "^7.6.2"
-    "@pkgr/named-exports" "^0.2.0"
-    "@pkgr/umd-globals" "^0.2.0"
+    "@pkgr/named-exports" "^0.2.1"
+    "@pkgr/umd-globals" "^0.2.2"
     builtin-modules "^3.1.0"
     commander "^3.0.1"
     lodash "^4.17.15"
@@ -113,14 +113,15 @@
   optionalDependencies:
     tslib "^1.10.0"
 
-"@1stg/tslint-config@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@1stg/tslint-config/-/tslint-config-0.4.0.tgz#02d910f99a8ec3dc3dfd5090b0fca4cdce46a382"
-  integrity sha512-5aoZXbArDI6ah+QA6ZmXpxo/Yr6yWw+n6JqfX5xLH0NCVsYIcqJWn/Un1EZQJ7nuDPfRSgKbsdxRjITokw9/2Q==
+"@1stg/tslint-config@^0.4.1":
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/@1stg/tslint-config/-/tslint-config-0.4.1.tgz#3155000a33e6aeedd36198e7e820739f522f9ca2"
+  integrity sha512-+l4v0eI/srHv4iYFMEpZUG28NG0EFBEwwgiilAGdtZvbSi2aZKtPG5QCIP0dgY9lI5AFq0jfqCtcNkwuwrl9PA==
   dependencies:
     codelyzer "^5.1.1"
     rxjs-tslint "^0.1.7"
     tslint-angular "^3.0.2"
+    tslint-config-eslint "^0.1.0"
     tslint-config-prettier "^1.18.0"
     tslint-plugin-prettier "^2.0.1"
     tslint-react "^4.1.0"
@@ -2304,15 +2305,15 @@
     once "^1.4.0"
     universal-user-agent "^4.0.0"
 
-"@pkgr/named-exports@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@pkgr/named-exports/-/named-exports-0.2.0.tgz#dc3098ade7b3581ae4da271e042abecd01b1e7a7"
-  integrity sha512-jB389/eTiVH22BebEsKbnXSMtX3pVrI3Jsunh1le/ienb63//ffWsNIbj6awKJQejswL9+1iNcYsqdu6DCgqnA==
-
-"@pkgr/umd-globals@^0.2.0":
+"@pkgr/named-exports@^0.2.1":
   version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@pkgr/umd-globals/-/umd-globals-0.2.1.tgz#e7fd5f7279312c42236713b6b96d1e3859a2615f"
-  integrity sha512-NjJ8lk5WDJiJbwGYVmWlB8X34E7PWjdUDcSLlbBVrTTBQeOz6fUXRBamMLZrIUd8QiRoraW/jrud0mUDciYr3w==
+  resolved "https://registry.yarnpkg.com/@pkgr/named-exports/-/named-exports-0.2.1.tgz#f7f9c80afb34dcc7890f364646edb8e297887701"
+  integrity sha512-uh97HtDJhI4TZN/5rXN5On0FJ744RgKwQWEvDkg6MFgfYmomWQok0Rb+8P8jCUP4ExzpXu3IOzTpcWEeytGNAw==
+
+"@pkgr/umd-globals@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@pkgr/umd-globals/-/umd-globals-0.2.2.tgz#3ef9803bdcfde67806d3b06b20edae0b9f272ab3"
+  integrity sha512-hKRNzCZMs9ZOLdLb5hWFiCTDydpUlcPmA2lpYrYrC6Wpews1p/LUfaHPKZzw1C4SN8KjJAunU4eF5Ym+2AY1GA==
 
 "@prettier/plugin-pug@^1.0.3":
   version "1.0.3"
@@ -9317,10 +9318,10 @@ remark-preset-lint-recommended@^3.0.3:
     remark-lint-no-unused-definitions "^1.0.0"
     remark-lint-ordered-list-marker-style "^1.0.0"
 
-remark-preset-prettier@^0.2.0:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/remark-preset-prettier/-/remark-preset-prettier-0.2.1.tgz#00de65b8f3817428ba79aa535ee230530d0afd70"
-  integrity sha512-CH3CQi9sU1vrJGGmW4/+JlazpRsXJMaZYjmNmKyk58e7TUfKjE2VNVLJI8AIhA3G5sKZhEgD7FgmdIdp9Bxrsw==
+remark-preset-prettier@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/remark-preset-prettier/-/remark-preset-prettier-0.2.2.tgz#a46e31b0e1ab14f05e85f6ad0cb6bae636afa8d2"
+  integrity sha512-a2SwwAhO1H3d4GYdP8i6JLssrrGwIusV+3z7jxj6ZLl0e4o0hVRgke9xbdDFjnAImGQE72rJGjsuRvCFwqxHiQ==
 
 remark-stringify@^7.0.3:
   version "7.0.3"

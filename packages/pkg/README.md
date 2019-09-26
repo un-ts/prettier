@@ -6,7 +6,7 @@ An opinionated `package.json` formatter plugin for [Prettier](https://prettier.i
 
 Prettier is an opinionated code formatter. It enforces a consistent style by parsing your code and re-printing, taking various rules into account.
 
-This plugin adds support for `package.json` files used within NPM modules.
+This plugin adds support for `package.json` files used within NPM modules, [npm][], [yarn][] and [VSCode][] is supportted out of box.
 
 ## Requirements
 
@@ -33,7 +33,7 @@ Once installed, [Prettier plugins](https://prettier.io/docs/en/plugins.html) sho
 npx prettier --write package.json
 
 # yarn
-yarn prettier --write package.jso
+yarn prettier --write package.json
 ```
 
 ## Rules
@@ -61,13 +61,18 @@ Top-level keys are sorted according to a style commonly seen in the packages of 
   // meta
   "name",
   "version",
+  "flat",
+  "displayName",
   "description",
+  "categories",
   "repository",
   "homepage",
   "bugs",
   "author",
+  "publisher",
   "contributors",
   "license",
+  "preview",
   "private",
   "workspaces",
 
@@ -83,7 +88,6 @@ Top-level keys are sorted according to a style commonly seen in the packages of 
   "module",
   "esnext",
   "es2015",
-  "esm",
   "fesm5",
   "fesm2015",
   "browser",
@@ -108,7 +112,17 @@ Top-level keys are sorted according to a style commonly seen in the packages of 
   "devDependencies",
   "publishConfig",
   "resolutions",
-  "sideEffects"
+  "sideEffects",
+
+  // vscode spec
+  "icon",
+  "galleryBanner",
+  "activationEvents",
+  "contributes",
+  "markdown",
+  "qna",
+  "extensionPack",
+  "extensionDependencies"
 ]
 ```
 
@@ -124,3 +138,7 @@ Forthcoming rules include:
 ## Meta
 
 [LICENSE (Mozilla Public License)](./LICENSE)
+
+[npm]: https://docs.npmjs.com/files/package.json
+[yarn]: https://yarnpkg.com/docs/package-j
+[vscode]: https://code.visualstudio.com/api/references/extension-manifest

@@ -19,7 +19,7 @@ script:
   - yarn build
   - yarn lint
   - yarn test
-  # - yarn type-coverage
+  - yarn type-coverage
 
 after_success:
   - yarn global add codecov codacy-coverage

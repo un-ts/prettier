@@ -1,9 +1,8 @@
 import { Plugin } from 'prettier'
 import { parsers } from 'prettier/parser-babylon'
 
-import { engines } from './rules/engines'
 import { files } from './rules/files'
-import { scripts } from './rules/scripts'
+import { object } from './rules/object'
 import { sort } from './rules/sort'
 import { ObjectExpression, ObjectProperty } from './types'
 
@@ -15,9 +14,9 @@ const {
 
 const format = (properties: ObjectProperty[]) => {
   let props = sort(properties)
-  props = engines(props)
+  props = object(props, 'engines')
+  props = object(props, 'scripts')
   props = files(props)
-  props = scripts(props)
   return props
 }
 
