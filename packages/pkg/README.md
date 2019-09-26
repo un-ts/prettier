@@ -6,7 +6,7 @@ An opinionated `package.json` formatter plugin for [Prettier](https://prettier.i
 
 Prettier is an opinionated code formatter. It enforces a consistent style by parsing your code and re-printing, taking various rules into account.
 
-This plugin adds support for `package.json` files used within NPM modules, [npm][], [yarn][] and [VSCode][] is supportted out of box.
+This plugin adds support for `package.json` files used within NPM modules, [npm][], [yarn][] and [VSCode][] is supported out of box.
 
 ## Requirements
 
