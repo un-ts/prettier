@@ -59,10 +59,10 @@
   resolved "https://registry.yarnpkg.com/@1stg/husky-config/-/husky-config-0.3.0.tgz#dcf89d1f791dfd04d8d1a3fc1b59ba97c57ed6be"
   integrity sha512-YKVLG5lc/qKPyY9by/mVPdZLMe3s1FuO1d0mCmCogYl6VTWW/98LW80B4pMcDTmHPBTjZfKUAwgVBIvaYVthBA==
 
-"@1stg/lint-staged@^0.8.0":
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/@1stg/lint-staged/-/lint-staged-0.8.0.tgz#febbc46a76eb5cab87f1d61e43dcc7c178bce7a0"
-  integrity sha512-SUEBbmjf+LY9js8kpem9jcUsoFE2FNsj3XzSjLil5qf44S8SApFFCmdsQThEns0jGjZOIf2YpD+WAm73ofT+6g==
+"@1stg/lint-staged@^0.8.3":
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/@1stg/lint-staged/-/lint-staged-0.8.3.tgz#0c852eb9a9d2acfa25a0e30b4ba06a50ef1326b7"
+  integrity sha512-TFgN5TK0aRAqijW59TY5wVvNjnJa3ZrS/g2lLrCzkbBGgJg39K8bksc5Et8/CMtBvqGCDfg5cwDglTs6+o9ClA==
   dependencies:
     "@prettier/plugin-pug" "^1.0.3"
     prettier-plugin-toml "^0.3.1"
