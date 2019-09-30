@@ -4,13 +4,17 @@
     "baseUrl": ".",
     "incremental": false,
     "paths": {
-      "prettier-plugin-pkg": ["packages/pkg/src"]
+      "prettier-plugin-pkg": ["packages/pkg/src"],
+      "prettier-plugin-sh": ["packages/sh/src"]
     },
     "noEmit": true
   },
   "references": [
     {
       "path": "packages/pkg"
+    },
+    {
+      "path": "packages/sh"
     }
   ]
 }
