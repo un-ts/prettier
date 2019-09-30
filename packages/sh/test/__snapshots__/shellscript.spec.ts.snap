@@ -1,0 +1,6 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`parsing a simple program 1`] = `
+"echo 'foo'
+"
+`;

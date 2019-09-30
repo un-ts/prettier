@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "build": "run-p build:*",
-    "build:bundle": "r -g '{\"prettier/parser-babylon\":\"prettierPlugins.babylon\",\"prettier-plugin-pkg\":\"prettierPlugins.pkg\"}' -p",
+    "build:bundle": "r -g '{\"prettier/parser-babylon\":\"prettierPlugins.babylon\",\"prettier-plugin-pkg\":\"prettierPlugins.pkg\",\"prettier-plugin-sh\":\"prettierPlugins.sh\"}' -p",
     "build:ts": "tsc -b",
     "lint": "run-p lint:*",
     "lint:es": "eslint . --ext js,md,ts -f friendly",
@@ -73,7 +73,8 @@
       "<rootDir>/packages/*/src/**"
     ],
     "moduleNameMapper": {
-      "^prettier-plugin-pkg$": "<rootDir>/packages/pkg/src"
+      "^prettier-plugin-pkg$": "<rootDir>/packages/pkg/src",
+      "^prettier-plugin-sh$": "<rootDir>/packages/sh/src"
     }
   },
   "prettier": "@1stg/prettier-config",
