@@ -1,11 +1,11 @@
 {
   "name": "prettier-plugin-sh",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "An opinionated shellscript formatter plugin for Prettier",
   "repository": "git@github.com/rx-ts/prettier.git",
   "homepage": "https://github.com/rx-ts/prettier/blob/master/packages/sh",
   "author": "JounQin <admin@1stg.me>",
-  "license": "MPL-2.0",
+  "license": "MIT",
   "main": "lib/cjs",
   "module": "lib",
   "es2015": "lib/es2015",
