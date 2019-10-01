@@ -3,8 +3,9 @@ import ShPlugin from 'prettier-plugin-sh'
 
 test('parsing a simple program', () => {
   const output = prettier.format(`echo      'foo'`, {
+    filepath: 'pass.sh',
     // @ts-ignore
-    parser: 'sh-parse',
+    parser: 'sh',
     plugins: [ShPlugin],
   })
 
@@ -16,7 +17,7 @@ test('fatal parse error', () => {
     prettier.format(`echo )`, {
       filepath: 'broken.sh',
       // @ts-ignore
-      parser: 'sh-parse',
+      parser: 'sh',
       plugins: [ShPlugin],
     }),
   ).toThrow()

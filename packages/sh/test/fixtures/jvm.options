@@ -1,0 +1,4 @@
+# this is a comment
+-mx2048m       -XX:MaxPermSize=2048m       -Drebel.spring_plugin=true -Drebel.hibernate_plugin=true
+
+idea.cycle.buffer.size     =        1024
