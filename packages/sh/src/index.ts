@@ -1,4 +1,4 @@
-import sh from 'mvdan-sh'
+import sh, { Node } from 'mvdan-sh'
 import { FastPath, Plugin } from 'prettier'
 
 import { languages } from './languages'
@@ -16,13 +16,13 @@ export default {
     sh: {
       parse: (text, _parsers, { filepath }) => parser.Parse(text, filepath),
       astFormat: 'sh',
-      locStart: (node: sh.Node) => node.Pos().Offset(),
-      locEnd: (node: sh.Node) => node.End().Offset(),
+      locStart: (node: Node) => node.Pos().Offset(),
+      locEnd: (node: Node) => node.End().Offset(),
     },
   },
   printers: {
     sh: {
-      print: (path: FastPath<sh.Node>) => printer.Print(path.getValue()),
+      print: (path: FastPath<Node>) => printer.Print(path.getValue()),
     },
   },
 } as Plugin

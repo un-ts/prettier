@@ -1,4 +1,4 @@
-# prettier
+# @rxts/prettier
 
 [![Travis](https://img.shields.io/travis/com/rx-ts/prettier.svg)](https://travis-ci.com/rx-ts/prettier)
 [![Codacy Grade](https://img.shields.io/codacy/grade/d5c50fcc41d54224a4730998c41c0588)](https://www.codacy.com/app/JounQin/prettier)
@@ -14,3 +14,11 @@
 [![codechecks.io](https://raw.githubusercontent.com/codechecks/docs/master/images/badges/badge-default.svg?sanitize=true)](https://codechecks.io)
 
 > Opinionated but Incredible Prettier plugins.
+
+## License
+
+[MIT][] © [JounQin][]@[1stG.me][]
+
+[1stg.me]: https://www.1stg.me
+[jounqin]: https://GitHub.com/JounQin
+[mit]: http://opensource.org/licenses/MIT
