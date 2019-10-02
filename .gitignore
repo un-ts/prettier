@@ -3,5 +3,6 @@
 .changelog
 .type-coverage
 coverage
-node_modules
 lib
+node_modules
+packages/sh/src/languages.ts

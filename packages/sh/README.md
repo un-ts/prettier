@@ -1,8 +1,10 @@
-![banner](https://raw.githubusercontent.com/rx-ts/prettier/master/assets/sh.png)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/rx-ts/prettier/master/assets/sh.png" height="50" />
+</p>
 
 # prettier-plugin-sh ![npm bundle size](https://img.shields.io/bundlephobia/min/prettier-plugin-sh) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/prettier-plugin-sh)
 
-> An opinionated `shellscript、Dockerfile、properties、gitignore、dotenv、hosts、jvmoptions... DocumentFormat` formatter plugin for [Prettier][]
+> An opinionated `shellscript、Dockerfile、properties、gitignore、dotenv、hosts、jvmoptions...` formatter plugin for [Prettier][]
 
 Prettier is an opinionated code formatter. It enforces a consistent style by parsing your code and re-printing, taking various rules into account.
 
