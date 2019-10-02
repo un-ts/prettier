@@ -3,7 +3,7 @@ import fs from 'fs'
 import { get } from 'https'
 import { safeLoad } from 'js-yaml'
 import { pick } from 'lodash'
-import prettier, { SupportLanguage } from 'prettier'
+import { SupportLanguage } from 'prettier'
 
 const linguistLanguages =
   'https://raw.githubusercontent.com/github/linguist/master/lib/linguist/languages.yml'
@@ -77,16 +77,16 @@ get(linguistLanguages, res => {
   })
   res.on('end', () => {
     const languages = getShLanguages(safeLoad(rawText))
+
     fs.writeFileSync(
       'src/languages.ts',
-      prettier.format(
-        `import { SupportLanguage } from 'prettier'
+      `import { SupportLanguage } from 'prettier'
 
-    export const languages = ${JSON.stringify(languages)} as SupportLanguage[]`,
-        {
-          parser: 'typescript',
-        },
-      ),
+export const languages = ${JSON.stringify(
+        languages,
+        null,
+        2,
+      )} as SupportLanguage[]`,
     )
   })
 })
