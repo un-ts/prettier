@@ -4,10 +4,8 @@ import { FastPath, Plugin } from 'prettier'
 import { languages } from './languages'
 
 const { syntax } = sh
-const parser = syntax.NewParser()
+const parser = syntax.NewParser(syntax.KeepComments)
 const printer = syntax.NewPrinter()
-
-syntax.KeepComments(parser, true)
 
 export default {
   name: 'prettier-plugin-sh',

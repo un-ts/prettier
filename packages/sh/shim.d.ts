@@ -1,4 +1,11 @@
+/* eslint-disable @typescript-eslint/no-type-alias */
 declare module 'mvdan-sh' {
+  const enum LangVariant {
+    LangBash,
+    LangPOSIX,
+    LangMirBSDKorn,
+  }
+
   namespace sh {
     interface Pos {
       After(p: Pos): boolean
@@ -14,10 +21,22 @@ declare module 'mvdan-sh' {
       End(): Pos
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-type-alias
     type Command = Node
 
-    interface Stmt {
+    type WordPart = Node
+
+    interface Word extends Node {
+      Parts: WordPart[]
+      Lit(): string
+    }
+
+    interface Lit extends Node {
+      ValuePos: Pos
+      ValueEnd: Pos
+      Value: string
+    }
+
+    interface Stmt extends Node {
       Comments: Comment[]
       Cmd: Command
       Position: Pos
@@ -38,27 +57,30 @@ declare module 'mvdan-sh' {
       Last: Stmt[]
     }
 
-    type ParserOption = (parser: Parser) => void
+    type ParserOption<T = unknown> = (parser: Parser, options?: T) => void
+
+    type PrinterOption<T = unknown> = (printer: Printer, options?: T) => void
 
     interface Parser {
-      keepComments: boolean
-      (...options: ParserOption[]): Parser
       Parse(text: string, path?: string): File
     }
 
     interface Printer {
-      (): Printer
       Print(node: Node): string
     }
 
     interface ShellScript {
       syntax: {
-        NewParser: Parser
-        NewPrinter: Printer
-        KeepComments(parser: sh.Parser, keep: boolean): ParserOption
+        LangBash: LangVariant.LangBash
+        LangPOSIX: LangVariant.LangPOSIX
+        LangMirBSDKorn: LangVariant.LangMirBSDKorn
+        NewParser<T>(...options: Array<ParserOption<T>>): Parser
+        NewPrinter<T>(...options: Array<PrinterOption<T>>): Printer
+        KeepComments(parser: Parser, keep: boolean): void
+        StopAt(word: string): ParserOption<string>
+        Variant(lang: LangVariant): ParserOption<string>
         DebugPrint(node: Node): void
         NodeType(node: Node): string
-        ValidName(value: string): boolean
         Walk(node: Node, walker: (node: Node) => boolean): void
       }
     }

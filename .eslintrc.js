@@ -9,6 +9,7 @@ module.exports = {
     },
   },
   rules: {
+    '@typescript-eslint/unbound-method': 0,
     '@typescript-eslint/no-unnecessary-condition': 0,
   },
 }
