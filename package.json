@@ -40,7 +40,7 @@
     "@types/lodash": "^4.14.141",
     "@types/prettier": "^1.18.3",
     "eslint": "^6.5.1",
-    "husky": "^3.0.8",
+    "husky": "^3.0.9",
     "jest": "^24.9.0",
     "js-yaml": "^3.13.1",
     "lerna": "^3.16.4",
