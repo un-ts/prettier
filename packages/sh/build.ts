@@ -40,6 +40,7 @@ const EXTRA_LANGUAGES: SupportLanguage[] = [
     name: 'dotenv',
     parsers: ['sh'],
     extensions: ['.env'],
+    filenames: ['.env.*'],
     vscodeLanguageIds: ['dotenv'],
   },
 ]
