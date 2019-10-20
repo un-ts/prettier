@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/rx-ts/prettier/master/assets/sh.png" height="50" />
+  <img src="https://raw.githubusercontent.com/rx-ts/prettier/master/assets/sh.png" height="100" />
 </p>
 
 # prettier-plugin-sh ![npm bundle size](https://img.shields.io/bundlephobia/min/prettier-plugin-sh) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/prettier-plugin-sh)
