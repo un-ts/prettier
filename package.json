@@ -24,7 +24,7 @@
     "typescript": "^3.6.4"
   },
   "devDependencies": {
-    "@1stg/babel-preset": "^0.7.8",
+    "@1stg/babel-preset": "^0.7.9",
     "@1stg/commitlint-config": "^0.1.1",
     "@1stg/eslint-config": "^0.12.21",
     "@1stg/husky-config": "^0.3.1",
