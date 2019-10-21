@@ -14,7 +14,7 @@
     "build:r": "r -g \"{'prettier/parser-babylon':'prettierPlugins.babylon','prettier-plugin-pkg':'prettierPlugins.pkg','prettier-plugin-sh':'prettierPlugins.sh'}\" -x mvdan-sh -p",
     "build:ts": "tsc -b",
     "lint": "run-p lint:*",
-    "lint:es": "eslint . --ext js,md,ts -f friendly",
+    "lint:es": "cross-env PARSER_NO_WATCH=true eslint . --ext js,md,ts -f friendly",
     "lint:ts": "tslint -p . -t stylish",
     "lint:tsc": "tsc --noEmit",
     "test": "jest",
