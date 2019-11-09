@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@1stg/babel-preset": "^0.7.9",
-    "@1stg/commitlint-config": "^0.1.2",
+    "@1stg/commitlint-config": "^0.2.2",
     "@1stg/eslint-config": "^0.12.21",
     "@1stg/husky-config": "^0.3.2",
     "@1stg/lint-staged": "^0.8.11",

@@ -23,13 +23,15 @@
     core-js "^3.2.1"
     fast-async "^7.0.6"
 
-"@1stg/commitlint-config@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@1stg/commitlint-config/-/commitlint-config-0.1.2.tgz#aeffce49ae18f8f602e1015aeb42d0bdf2b0075a"
-  integrity sha512-6V7vagiMBa3jBh3bHvHZZPibehDGFSTq/gnbeK1NAg96h4yNqVhyvyPBCIuw9hucDJFMmsgXmd5mq1jE6ZEMMw==
+"@1stg/commitlint-config@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@1stg/commitlint-config/-/commitlint-config-0.2.2.tgz#e3a46723eec2513bcf7f34a850dbd3b33a921aa7"
+  integrity sha512-EkVPTk5ls7y6IYROhRkp98dwXOroSbYYhJGlcfWx7I4mbN7qmEXBkAP5gZa0pbgUlE/1WQmeB4BzRMTy+6hZ8Q==
   dependencies:
+    "@commitlint/cli" "^8.2.0"
     "@commitlint/config-conventional" "^8.2.0"
     "@commitlint/config-lerna-scopes" "^8.2.0"
+    "@pkgr/utils" "^0.3.2"
 
 "@1stg/eslint-config@^0.12.21":
   version "0.12.21"
@@ -2330,6 +2332,18 @@
   resolved "https://registry.yarnpkg.com/@pkgr/umd-globals/-/umd-globals-0.3.0.tgz#ba82ddc4b6c2f864b4635fa8a6257f65f57b40b3"
   integrity sha512-tnSeL23iFiqgmN6ISWG5cTJ/Cv7Kol81MolfPowYj63rAtEXyr0p1uHBXxFWUyM7WNUGJSUw98xdOdTzh1+BaQ==
 
+"@pkgr/utils@^0.3.2":
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@pkgr/utils/-/utils-0.3.2.tgz#bacb4b42ab7efd12e485f515310fe983b599d911"
+  integrity sha512-jtF9DwHlzIl4lHUdW1JfwH6gZW7C3cpo7Ep/bu31zBBnB7UrE4qSTb0f62U4VQnNYJ2ujMk5kUOClaIZbf6Alg==
+  dependencies:
+    chalk "^2.4.2"
+    cross-spawn "^7.0.1"
+    is-glob "^4.0.1"
+    open "^7.0.0"
+    tiny-glob "^0.2.6"
+    tslib "^1.10.0"
+
 "@prettier/plugin-pug@^1.0.4":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@prettier/plugin-pug/-/plugin-pug-1.0.4.tgz#13adc5aab2d99db42b68ac43f678c8803916ee95"
@@ -4252,7 +4266,7 @@ cross-spawn@^6.0.0, cross-spawn@^6.0.5:
     shebang-command "^1.2.0"
     which "^1.2.9"
 
-cross-spawn@^7.0.0:
+cross-spawn@^7.0.0, cross-spawn@^7.0.1:
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-7.0.1.tgz#0ab56286e0f7c24e153d04cc2aa027e43a9a5d14"
   integrity sha512-u7v4o84SwFpD32Z8IIcPZ6z1/ie24O6RU3RbtL5Y316l3KuHVPx9ItBgWQ6VlfAFnRnTtMUrsQ9MUUTuEZjogg==
@@ -7046,6 +7060,11 @@ is-wsl@^1.1.0:
   resolved "https://registry.yarnpkg.com/is-wsl/-/is-wsl-1.1.0.tgz#1f16e4aa22b04d1336b66188a66af3c600c3a66d"
   integrity sha1-HxbkqiKwTRM2tmGIpmrzxgDDpm0=
 
+is-wsl@^2.1.0:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/is-wsl/-/is-wsl-2.1.1.tgz#4a1c152d429df3d441669498e2486d3596ebaf1d"
+  integrity sha512-umZHcSrwlDHo2TGMXv0DZ8dIUGunZ2Iv68YZnrmCiBPkZ4aaOhtv7pXJKeki9k3qJ3RJr0cDyitcl5wEH3AYog==
+
 isarray@1.0.0, isarray@^1.0.0, isarray@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/isarray/-/isarray-1.0.0.tgz#bb935d48582cba168c06834957a54a3e07124f11"
@@ -8932,6 +8951,13 @@ onetime@^5.1.0:
   integrity sha512-5NcSkPHhwTVFIQN+TUqXoS5+dlElHXdpAWu9I0HP20YOtIi+aZ0Ct82jdlILDxjLEAWwvm+qj1m6aEtsDVmm6Q==
   dependencies:
     mimic-fn "^2.1.0"
+
+open@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/open/-/open-7.0.0.tgz#7e52999b14eb73f90f0f0807fe93897c4ae73ec9"
+  integrity sha512-K6EKzYqnwQzk+/dzJAQSBORub3xlBTxMz+ntpZpH/LyCa1o6KjXhuN+2npAaI9jaSmU3R1Q8NWf4KUWcyytGsQ==
+  dependencies:
+    is-wsl "^2.1.0"
 
 opencollective-postinstall@^2.0.2:
   version "2.0.2"
