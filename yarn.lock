@@ -2281,10 +2281,10 @@
     once "^1.4.0"
     universal-user-agent "^4.0.0"
 
-"@pkgr/imagemin@^0.1.3":
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/@pkgr/imagemin/-/imagemin-0.1.3.tgz#d912da0acc35fcf1ed66fc392dca7a7e87aba5f0"
-  integrity sha512-dY9GRqdZtJn/PNXTPK44QkTwWXFX2U0lEKIDCwEioRfkzdk/mCF1YXAWvZcGxGENTgt3YChBlNTpE1XTYphIbw==
+"@pkgr/imagemin@^0.1.4":
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/@pkgr/imagemin/-/imagemin-0.1.4.tgz#96229ccfdabeee3e18d706d3ed84114692a07578"
+  integrity sha512-OL2/Zaxd20InTC1HxI3sPfLbEr3MPKj2c3DZa50cjUXACpIS7xIjJRMfLlOtKvty9hPyhXKHGG3eaMV0uEUlTg==
   dependencies:
     imagemin "^7.0.0"
     imagemin-gifsicle "^6.0.1"
