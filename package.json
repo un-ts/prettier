@@ -26,7 +26,7 @@
     "@1stg/eslint-config": "^0.12.21",
     "@1stg/husky-config": "^0.3.2",
     "@1stg/lint-staged": "^0.8.11",
-    "@1stg/prettier-config": "^0.4.3",
+    "@1stg/prettier-config": "^0.6.2",
     "@1stg/remark-config": "^0.2.2",
     "@1stg/tsconfig": "^0.6.1",
     "@1stg/tslint-config": "^0.4.3",
