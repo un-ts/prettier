@@ -103,12 +103,12 @@
   optionalDependencies:
     tslib "^1.10.0"
 
-"@1stg/tslint-config@^0.4.3":
-  version "0.4.3"
-  resolved "https://registry.yarnpkg.com/@1stg/tslint-config/-/tslint-config-0.4.3.tgz#4caf075ea257263907a3961178c39cc67b23ad12"
-  integrity sha512-DzWcnfl/BjraSRgwFIhI3VB76wXNmuAMCmxBkLzMHbywH8DYNUxNSuHCaB1vsjSPl4BbPHNJEZtLRdyUeiVksg==
+"@1stg/tslint-config@^0.4.4":
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/@1stg/tslint-config/-/tslint-config-0.4.4.tgz#71a08e9253a0cc06689497431779a2ce9c24b061"
+  integrity sha512-ofXUHDgcAmE7HUTEX6wCgoYpHO9kVPbVWcqo8uadwcFIp2OJFvL1IgQOsCDGr3bJ+2YuMkslAApcXbpLjB8tkg==
   dependencies:
-    codelyzer "^5.1.2"
+    codelyzer "^5.2.0"
     rxjs-tslint "^0.1.7"
     tslint-angular "^3.0.2"
     tslint-config-eslint "^0.1.1"
@@ -3896,10 +3896,10 @@ code-point-at@^1.0.0:
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
   integrity sha1-DQcLTQQ6W+ozovGkDi7bPZpMz3c=
 
-codelyzer@^5.1.2:
-  version "5.1.2"
-  resolved "https://registry.yarnpkg.com/codelyzer/-/codelyzer-5.1.2.tgz#e6c08269f8796483e57e6d9b7c29723572472b1d"
-  integrity sha512-1z7mtpwxcz5uUqq0HLO0ifj/tz2dWEmeaK+8c5TEZXAwwVxrjjg0118ODCOCCOcpfYaaEHxStNCaWVYo9FUPXw==
+codelyzer@^5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/codelyzer/-/codelyzer-5.2.0.tgz#b0ee573a12779c996090e596c5c1755479d83758"
+  integrity sha512-izfUfhEOOgAizszPlEDxo71DK/C4wprZw0vkY6UWcOSTQvN1JyfXf9DXwaV7WX+/JC+hH0ShXfdtGLA9Rca7LA==
   dependencies:
     app-root-path "^2.2.1"
     aria-query "^3.0.0"

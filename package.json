@@ -29,7 +29,7 @@
     "@1stg/prettier-config": "^0.4.3",
     "@1stg/remark-config": "^0.2.2",
     "@1stg/tsconfig": "^0.6.1",
-    "@1stg/tslint-config": "^0.4.3",
+    "@1stg/tslint-config": "^0.4.4",
     "@babel/core": "^7.6.4",
     "@babel/types": "^7.6.3",
     "@commitlint/cli": "^8.2.0",
