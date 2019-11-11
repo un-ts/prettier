@@ -21,7 +21,7 @@
     "type-coverage": "type-coverage --cache --detail --ignore-files *.d.ts --strict"
   },
   "devDependencies": {
-    "@1stg/babel-preset": "^0.7.9",
+    "@1stg/babel-preset": "^0.7.10",
     "@1stg/commitlint-config": "^0.1.2",
     "@1stg/eslint-config": "^0.12.21",
     "@1stg/husky-config": "^0.3.2",
