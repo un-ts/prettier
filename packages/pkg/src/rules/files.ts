@@ -1,6 +1,4 @@
-import { StringLiteral } from '@babel/types'
-
-import { ObjectProperty, StringArrayExpression } from '../types'
+import { ObjectProperty, StringArrayExpression, StringLiteral } from '../types'
 import { sortStringArray } from '../utils'
 
 const process = (props: ObjectProperty[]) => {

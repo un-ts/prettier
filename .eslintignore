@@ -1,5 +1,6 @@
 coverage
 fixtures
 lib
-node_modules
 packages/sh/src/languages.ts
+CHANGELOG.md
+!/.*.js

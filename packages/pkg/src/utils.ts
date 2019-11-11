@@ -1,6 +1,4 @@
-import { StringLiteral } from '@babel/types'
-
-import { ObjectProperty } from './types'
+import { ObjectProperty, StringLiteral } from './types'
 
 export const sortObject = (a: ObjectProperty, b: ObjectProperty) =>
   a.key.value > b.key.value ? 1 : a.key.value < b.key.value ? -1 : 0

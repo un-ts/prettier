@@ -1,5 +1,6 @@
-import { shuffle } from 'lodash'
 import { join } from 'path'
+
+import { shuffle } from 'lodash'
 import prettier, { Options } from 'prettier'
 import PkgPlugin from 'prettier-plugin-pkg'
 
@@ -19,11 +20,13 @@ const createFixture = (index: 0 | 1 = 0) => {
   )
 }
 
+const JSON_STRINGIFY = 'json-stringify'
+
 test('randomize', () => {
   const input = JSON.stringify(createFixture(), null, 2)
   const output = prettier.format(input, {
     filepath: join(__dirname, 'package.json'),
-    parser: 'json-stringify',
+    parser: JSON_STRINGIFY,
     plugins: [PkgPlugin],
   })
 
@@ -34,12 +37,11 @@ test('preprocess', () => {
   const input = JSON.stringify(createFixture(1), null, 2)
   const output = prettier.format(input, {
     filepath: join('package.json'),
-    parser: 'json-stringify',
+    parser: JSON_STRINGIFY,
     plugins: [PkgPlugin],
     preprocess(content: string) {
       const { version, repository }: typeof pkg1 = JSON.parse(content)
-      const result = { repository, version }
-      return result
+      return { repository, version }
     },
   } as Options)
 
@@ -51,7 +53,7 @@ test('not package.json', () => {
   const input = JSON.stringify(fixture, null, 2)
   const output = prettier.format(input, {
     filepath: 'batman.json',
-    parser: 'json-stringify',
+    parser: JSON_STRINGIFY,
     plugins: [PkgPlugin],
   })
 
@@ -67,7 +69,7 @@ test('broken json', () => {
   expect(() =>
     prettier.format(broken, {
       filepath: 'broken.json',
-      parser: 'json-stringify',
+      parser: JSON_STRINGIFY,
       plugins: [PkgPlugin],
     }),
   ).toThrow()

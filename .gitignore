@@ -1,5 +1,6 @@
 *.log
 *.tsbuildinfo
+.*cache
 .changelog
 .type-coverage
 coverage
