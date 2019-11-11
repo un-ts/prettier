@@ -96,10 +96,10 @@
     remark-preset-lint-recommended "^3.0.3"
     remark-preset-prettier "^0.2.2"
 
-"@1stg/tsconfig@^0.6.1":
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/@1stg/tsconfig/-/tsconfig-0.6.1.tgz#ce92a5b6435c453958d84a5f09bd22e09d585cb5"
-  integrity sha512-PgK0VO/Vi9v3Gar+m5Gxmahlow94aRogKW1fUPcjM/dL25iHbSHS/ghppPkRcYuQEsQ9E0P4rm/Ff8Fp99hCsg==
+"@1stg/tsconfig@^0.7.1":
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/@1stg/tsconfig/-/tsconfig-0.7.1.tgz#51f82886f722ccfee20bc6d561b19a2c01dc938e"
+  integrity sha512-0JJ+uXqt/A95klPQh9XIFA/89+icHwfDbaJqHmoXr+/QgPF7BjdG0gx8fg1a/7ep6j6MGB4FZ6IVbyvzHz/T7Q==
   optionalDependencies:
     tslib "^1.10.0"
 

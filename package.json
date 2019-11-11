@@ -28,7 +28,7 @@
     "@1stg/lint-staged": "^0.8.11",
     "@1stg/prettier-config": "^0.4.3",
     "@1stg/remark-config": "^0.2.2",
-    "@1stg/tsconfig": "^0.6.1",
+    "@1stg/tsconfig": "^0.7.1",
     "@1stg/tslint-config": "^0.4.3",
     "@babel/core": "^7.6.4",
     "@babel/types": "^7.6.3",
