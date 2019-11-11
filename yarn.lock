@@ -31,10 +31,10 @@
     "@commitlint/config-conventional" "^8.2.0"
     "@commitlint/config-lerna-scopes" "^8.2.0"
 
-"@1stg/eslint-config@^0.12.21":
-  version "0.12.21"
-  resolved "https://registry.yarnpkg.com/@1stg/eslint-config/-/eslint-config-0.12.21.tgz#7340e929df3343aa14e15b1eba1102462c5b5328"
-  integrity sha512-1AeVJlcsXWv0cU78QQbceVsnEjds0rNxhFzOIS80+rOyew/FTsAr1z5teoTjpq8tYoekfhC5ovmMsNpDqhbD5w==
+"@1stg/eslint-config@^0.12.22":
+  version "0.12.22"
+  resolved "https://registry.yarnpkg.com/@1stg/eslint-config/-/eslint-config-0.12.22.tgz#7b265ce6efd25013648ce02589c6580969bc0789"
+  integrity sha512-vFYHnX0P7lWY6AKIspfEcP6A2EBG/uJtNfM9ZnWrEP2f8XBkKtKXz/E2u1fuqXyrU80EvLXnXBhykDmjG1/QHg==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^2.4.0"
     "@typescript-eslint/eslint-plugin-tslint" "^2.4.0"
