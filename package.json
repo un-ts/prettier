@@ -23,7 +23,7 @@
   "devDependencies": {
     "@1stg/lib-config": "^0.1.13",
     "@1stg/tslint-config": "^0.5.6",
-    "@babel/types": "^7.7.2",
+    "@babel/types": "^7.7.4",
     "@pkgr/imagemin": "^0.3.0",
     "@types/jest": "^24.0.22",
     "@types/js-yaml": "^3.12.1",
