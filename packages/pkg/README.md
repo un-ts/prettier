@@ -61,6 +61,7 @@ Top-level keys are sorted according to a style commonly seen in the packages of 
   // meta
   "name",
   "version",
+  "type",
   "flat",
   "displayName",
   "description",
@@ -68,6 +69,7 @@ Top-level keys are sorted according to a style commonly seen in the packages of 
   "repository",
   "homepage",
   "bugs",
+  "funding",
   "author",
   "publisher",
   "contributors",
@@ -133,7 +135,8 @@ Unknown keys, or keys not part of the list above, will be alphabetically sorted 
 Forthcoming rules include:
 
 - [ ] Author format
-- [ ] Repository format
+- [ ] Author format
+- [ ] Dependencies sort
 
 ## Meta
 

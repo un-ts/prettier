@@ -1,5 +1,5 @@
 {
-  "extends": ["@1stg/tslint-config/eslint", "tslint-config-eslint/prettier"],
+  "extends": ["@1stg/tslint-config/eslint"],
   "linterOptions": {
     "exclude": ["node_modules/**", "**/lib/**"]
   }

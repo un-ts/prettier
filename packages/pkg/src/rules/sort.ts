@@ -11,6 +11,7 @@ const primary = [
   // meta
   'name',
   'version',
+  'type',
   'flat',
   'displayName',
   'description',
@@ -18,6 +19,7 @@ const primary = [
   'repository',
   'homepage',
   'bugs',
+  'funding',
   'author',
   'publisher',
   'contributors',

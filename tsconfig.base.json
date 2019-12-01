@@ -1,10 +1,11 @@
 {
-  "extends": "@1stg/tsconfig/loose",
+  "extends": "@1stg/tsconfig/lib",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
       "prettier-plugin-pkg": ["packages/pkg/src"],
       "prettier-plugin-sh": ["packages/sh/src"]
-    }
+    },
+    "strictFunctionTypes": false
   }
 }

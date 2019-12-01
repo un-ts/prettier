@@ -76,7 +76,7 @@ declare module 'mvdan-sh' {
         LangMirBSDKorn: LangVariant.LangMirBSDKorn
         NewParser<T>(...options: Array<ParserOption<T>>): Parser
         NewPrinter<T>(...options: Array<PrinterOption<T>>): Printer
-        KeepComments(parser: Parser, keep: boolean): void
+        KeepComments(parser: Parser, keep?: boolean): void
         StopAt(word: string): ParserOption<string>
         Variant(lang: LangVariant): ParserOption<string>
         DebugPrint(node: Node): void

@@ -7,8 +7,8 @@ const process = (props: ObjectProperty[]) => {
   if (filesIndex >= 0) {
     const [filesNode] = props.splice(filesIndex, 1)
 
-    let readme: StringLiteral
-    let license: StringLiteral
+    let readme: StringLiteral | undefined
+    let license: StringLiteral | undefined
 
     const elements = (filesNode.value as StringArrayExpression).elements
       .filter(node => {
