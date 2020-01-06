@@ -38,7 +38,7 @@
     "ts-jest": "^24.2.0",
     "ts-node": "^8.5.4",
     "tslint": "^5.20.1",
-    "type-coverage": "^2.3.1",
+    "type-coverage": "^2.4.0",
     "typescript": "^3.7.2"
   },
   "resolutions": {
