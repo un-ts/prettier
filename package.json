@@ -39,7 +39,7 @@
     "ts-node": "^8.5.4",
     "tslint": "^5.20.1",
     "type-coverage": "^2.3.1",
-    "typescript": "^3.7.2"
+    "typescript": "^3.7.5"
   },
   "resolutions": {
     "@babel/core": "^7.7.4",
