@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@1stg/lib-config": "^0.1.14",
-    "@1stg/tslint-config": "^0.5.7",
+    "@1stg/tslint-config": "^0.5.9",
     "@babel/types": "^7.7.4",
     "@pkgr/imagemin": "^0.3.1",
     "@types/jest": "^24.0.23",
