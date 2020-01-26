@@ -1,6 +1,6 @@
 {
   "name": "prettier-plugin-pkg",
-  "version": "0.4.7",
+  "version": "0.4.8",
   "description": "An opinionated package.json formatter plugin for Prettier",
   "repository": "git@github.com/rx-ts/prettier.git",
   "homepage": "https://github.com/rx-ts/prettier/blob/master/packages/pkg",
