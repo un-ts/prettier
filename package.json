@@ -18,13 +18,14 @@
     "lint:ts": "tslint -p . -t stylish",
     "lint:tsc": "tsc --noEmit",
     "pretest": "yarn build",
+    "postinstall": "yarn-deduplicate || exit 0",
     "test": "jest",
     "type-coverage": "type-coverage --cache --detail --ignore-files '*.d.ts' --strict"
   },
   "devDependencies": {
     "@1stg/lib-config": "^0.1.20",
     "@1stg/tslint-config": "^0.5.9",
-    "@babel/types": "^7.7.4",
+    "@babel/types": "^7.8.3",
     "@pkgr/imagemin": "^0.3.3",
     "@types/jest": "^24.9.1",
     "@types/js-yaml": "^3.12.2",
@@ -32,14 +33,15 @@
     "@types/prettier": "^1.19.0",
     "core-js": "^3.6.4",
     "js-yaml": "^3.13.1",
-    "lerna": "^3.19.0",
+    "lerna": "^3.20.2",
     "lodash": "^4.17.15",
     "npm-run-all": "^4.1.5",
     "react": "^16.12.0",
     "ts-jest": "^25.0.0",
     "ts-node": "^8.6.2",
     "tslint": "^6.0.0",
-    "type-coverage": "^2.4.0"
+    "type-coverage": "^2.4.0",
+    "yarn-deduplicate": "^1.1.1"
   },
   "resolutions": {
     "@babel/core": "^7.8.3",
