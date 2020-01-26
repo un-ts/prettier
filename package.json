@@ -21,7 +21,7 @@
     "type-coverage": "type-coverage --cache --detail --ignore-files *.d.ts --strict"
   },
   "devDependencies": {
-    "@1stg/lib-config": "^0.1.14",
+    "@1stg/lib-config": "^0.1.20",
     "@1stg/tslint-config": "^0.5.7",
     "@babel/types": "^7.7.4",
     "@pkgr/imagemin": "^0.3.1",
