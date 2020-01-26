@@ -6,7 +6,7 @@ import { object } from './rules/object'
 import { sort } from './rules/sort'
 import { ObjectExpression, ObjectProperty } from './types'
 
-const PKG_REG = /[\\/]?package\.json$/
+const PKG_REG = /[/\\]?package\.json$/
 
 const {
   json: { parse },
@@ -25,10 +25,9 @@ export default {
   parsers: {
     'json-stringify': {
       ...parsers['json-stringify'],
-      parse(...args) {
-        const [, , options] = args
+      parse(text, parsers, options) {
         const { filepath } = options
-        const ast: ObjectExpression = parse(...args)
+        const ast: ObjectExpression = parse(text, parsers, options)
 
         if (PKG_REG.test(filepath)) {
           ast.properties = format(ast.properties)
