@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.2.5 (2020-01-26)
+
+
+### Bug Fixes
+
+* **deps:** bump all (dev)Dependencies, migrate Travis CI to GitHub Actions ([a34df06](https://github.com/rx-ts/prettier/commit/a34df06b7701bef92c6c8a0566a2c48bd1d25f20))
+
+
+
+
+
 ## [0.2.4](https://github.com/rx-ts/prettier/compare/prettier-plugin-sh@0.2.3...prettier-plugin-sh@0.2.4) (2019-12-01)
 
 
