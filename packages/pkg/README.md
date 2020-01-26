@@ -2,7 +2,7 @@
 
 # prettier-plugin-pkg ![npm bundle size](https://img.shields.io/bundlephobia/min/prettier-plugin-pkg) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/prettier-plugin-pkg)
 
-An opinionated `package.json` formatter plugin for [Prettier](https://prettier.io)
+An opinionated `package.json` formatter plugin for [Prettier](https://prettier.io), based on [prettier-plugin-package][].
 
 Prettier is an opinionated code formatter. It enforces a consistent style by parsing your code and re-printing, taking various rules into account.
 
@@ -13,8 +13,6 @@ This plugin adds support for `package.json` files used within NPM modules, [npm]
 `prettier-plugin-pkg` is an evergreen module. 🌲 This module requires an [LTS](https://github.com/nodejs/Release) Node version (v8.0.0+).
 
 ## Install
-
-Using npm:
 
 ```sh
 # npm
@@ -135,13 +133,17 @@ Unknown keys, or keys not part of the list above, will be alphabetically sorted 
 Forthcoming rules include:
 
 - [ ] Author format
-- [ ] Author format
 - [ ] Dependencies sort
+
+## Acknowledgements
+
+Thanks for [@shellscape](https://github.com/shellscape)'s original great work of [prettier-plugin-package][] again.
 
 ## Meta
 
 [LICENSE (Mozilla Public License)](./LICENSE)
 
 [npm]: https://docs.npmjs.com/files/package.json
+[prettier-plugin-package]: https://github.com/shellscape/prettier-plugin-package
 [yarn]: https://yarnpkg.com/docs/package-j
 [vscode]: https://code.visualstudio.com/api/references/extension-manifest
