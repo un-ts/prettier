@@ -17,8 +17,8 @@
     "lint:es": "cross-env PARSER_NO_WATCH=true eslint . --cache --ext js,md,ts -f friendly",
     "lint:ts": "tslint -p . -t stylish",
     "lint:tsc": "tsc --noEmit",
-    "pretest": "yarn build",
     "postinstall": "yarn-deduplicate || exit 0",
+    "pretest": "yarn build",
     "test": "jest",
     "type-coverage": "type-coverage --cache --detail --ignore-files '*.d.ts' --strict"
   },
