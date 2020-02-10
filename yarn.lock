@@ -2449,10 +2449,10 @@
   resolved "https://registry.yarnpkg.com/@pkgr/es-modules/-/es-modules-0.2.3.tgz#13b9cbe24af889fc0b32daa3c693d3dd5efe6f47"
   integrity sha512-ZbHc3EzJanAxjeRDWk/6p7pgyxfOP7CfCu+5P17HKlDX+OF4ExIGjp0/g2wlmKgDqNfwYUFq2LxasjTqPbqs3A==
 
-"@pkgr/imagemin@^0.3.7":
-  version "0.3.7"
-  resolved "https://registry.yarnpkg.com/@pkgr/imagemin/-/imagemin-0.3.7.tgz#0d4c790ec3e988c2168acf95a225a68194959f72"
-  integrity sha512-sIOf0Upm7kD2YSSKDMl+fed+0zLgpX/+G+7BqcHQ7PdFVsaboH3YRyiILCd3ZA5F207+PttYQlp6uXu65T0XpA==
+"@pkgr/imagemin@^0.3.8":
+  version "0.3.8"
+  resolved "https://registry.yarnpkg.com/@pkgr/imagemin/-/imagemin-0.3.8.tgz#b5246922b8706f636f680705d37a977f07a0bfad"
+  integrity sha512-qYJaNfuinYSQOZUtbxbxcnFkd116qI8BOovHjb4uj02Zdln8EnOxqsjGMgON4laaqwCZdIPNivPm3fnvUwD4Iw==
   dependencies:
     imagemin "^7.0.1"
     imagemin-gifsicle ">=6.0.1"
