@@ -35,4 +35,5 @@ Detailed changes for each release are documented in [CHANGELOG.md](./CHANGELOG.m
 
 [1stg.me]: https://www.1stg.me
 [jounqin]: https://GitHub.com/JounQin
+[lerna]: https://GitHub.com/lerna/lerna
 [mit]: http://opensource.org/licenses/MIT

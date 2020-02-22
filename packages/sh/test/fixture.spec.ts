@@ -10,14 +10,11 @@ describe('parser and printer', () => {
     fs.readdirSync(fixtures).forEach(file => {
       const input = fs.readFileSync(path.resolve(fixtures, file)).toString()
 
-      const output = prettier.format(
-        input,
+      const output = prettier.format(input, {
         // @ts-ignore
-        {
-          parser: 'sh',
-          plugins: [ShPlugin],
-        },
-      )
+        parser: 'sh',
+        plugins: [ShPlugin],
+      })
 
       expect(output).toMatchSnapshot(file)
     })

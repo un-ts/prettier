@@ -59,6 +59,7 @@ const primary = [
   // dependencies
   'bundledDependencies',
   'peerDependencies',
+  'peerDependenciesMeta',
   'dependencies',
   'optionalDependencies',
   'devDependencies',
