@@ -2442,10 +2442,10 @@
   resolved "https://registry.yarnpkg.com/@pkgr/es-modules/-/es-modules-0.3.2.tgz#a804328701d683fbc249b59b0d0a4bfa82c7cf72"
   integrity sha512-QWMh+ObjnENvr9C2xEvnU2Y2jwB9WBfaukqjQBJxWARFX2unP24e8x3tjkygld+UqRz2gbAw9BED5OW6pPMxqA==
 
-"@pkgr/imagemin@^0.4.2":
-  version "0.4.2"
-  resolved "https://registry.yarnpkg.com/@pkgr/imagemin/-/imagemin-0.4.2.tgz#512996b9467359bcda6dcfa96b81c358789592c9"
-  integrity sha512-r/XPgsQEHLQn8lFG1vcDwjpqqwVfDb54xs6CS0yEKdhG5HaqXfRQPA5TJk5LS1lak+DmIAtGg61EApwbZ92Pyg==
+"@pkgr/imagemin@^0.4.3":
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/@pkgr/imagemin/-/imagemin-0.4.3.tgz#c7c0ac2b3a9815497b4b0a40965032b2e13d402a"
+  integrity sha512-oc6SCAc3k6pegNTEsuRiNBCsOSIXLeQJrwsTO0Ecn1kli6lA1DDy2nieG+CIxU5YodQ2B6j0MfeRUFn2vJrs/A==
   dependencies:
     imagemin "^7.0.1"
     imagemin-gifsicle ">=6.0.1"
@@ -2453,12 +2453,12 @@
     imagemin-mozjpeg "^8.0.0"
     imagemin-optipng "^7.1.0"
     imagemin-pngquant "^8.0.0"
-    imagemin-svgo "^7.0.0"
-    imagemin-upng "^2.0.1"
+    imagemin-svgo "^7.1.0"
+    imagemin-upng "^2.0.2"
     imagemin-webp "^5.1.0"
     is-glob "^4.0.1"
     tiny-glob "^0.2.6"
-    tslib "^1.10.0"
+    tslib "^1.11.0"
 
 "@pkgr/named-exports@^0.5.2":
   version "0.5.2"
@@ -6971,7 +6971,7 @@ imagemin-pngquant@^8.0.0:
     ow "^0.13.2"
     pngquant-bin "^5.0.0"
 
-imagemin-svgo@^7.0.0:
+imagemin-svgo@^7.1.0:
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/imagemin-svgo/-/imagemin-svgo-7.1.0.tgz#528a42fd3d55eff5d4af8fd1113f25fb61ad6d9a"
   integrity sha512-0JlIZNWP0Luasn1HT82uB9nU9aa+vUj6kpT+MjPW11LbprXC+iC4HDwn1r4Q2/91qj4iy9tRZNsFySMlEpLdpg==
@@ -6979,7 +6979,7 @@ imagemin-svgo@^7.0.0:
     is-svg "^4.2.1"
     svgo "^1.3.2"
 
-imagemin-upng@^2.0.1:
+imagemin-upng@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/imagemin-upng/-/imagemin-upng-2.0.2.tgz#69f45316222ac301d7ca7fab73a3d4d81ecae2a3"
   integrity sha512-Ok/SULDNTkYy1hzWLncCCwVE1geDuaOZZKxreYmCuUrl9Khfeofpbs4kWmbVg5UPguejpOl1MdTlf6fJa1dl2Q==
