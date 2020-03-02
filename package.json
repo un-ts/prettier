@@ -41,7 +41,7 @@
     "ts-node": "^8.6.2",
     "tslint": "^6.0.0",
     "type-coverage": "^2.4.0",
-    "yarn-deduplicate": "^1.1.1"
+    "yarn-deduplicate": "^2.0.0"
   },
   "resolutions": {
     "@babel/core": "^7.8.4",
