@@ -40,7 +40,7 @@
     "ts-jest": "^25.2.1",
     "ts-node": "^8.6.2",
     "tslint": "^6.0.0",
-    "type-coverage": "^2.4.0",
+    "type-coverage": "^2.4.2",
     "yarn-deduplicate": "^1.1.1"
   },
   "resolutions": {
