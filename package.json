@@ -38,7 +38,7 @@
     "npm-run-all": "^4.1.5",
     "react": "^16.12.0",
     "ts-jest": "^25.2.1",
-    "ts-node": "^8.6.2",
+    "ts-node": "^8.8.1",
     "tslint": "^6.0.0",
     "type-coverage": "^2.4.0",
     "yarn-deduplicate": "^1.1.1"
