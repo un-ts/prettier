@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/rx-ts/prettier/compare/prettier-plugin-pkg@0.4.11...prettier-plugin-pkg@0.5.0) (2020-04-02)
+
+
+### Features
+
+* support prettier 2.0 ([6601e78](https://github.com/rx-ts/prettier/commit/6601e78d4e751b4fedc0d4a20537705bb7862792))
+
+
+
+
+
 ## [0.4.11](https://github.com/rx-ts/prettier/compare/prettier-plugin-pkg@0.4.10...prettier-plugin-pkg@0.4.11) (2020-02-22)
 
 

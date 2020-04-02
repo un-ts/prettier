@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/rx-ts/prettier/compare/prettier-plugin-sh@0.2.8...prettier-plugin-sh@0.3.0) (2020-04-02)
+
+
+### Bug Fixes
+
+* **prettier-plugin-pkg:** add peerDependenciesMeta support ([618875e](https://github.com/rx-ts/prettier/commit/618875ee48ab49820c4715a3a746b897333317e2))
+
+
+### Features
+
+* support prettier 2.0 ([6601e78](https://github.com/rx-ts/prettier/commit/6601e78d4e751b4fedc0d4a20537705bb7862792))
+
+
+
+
+
 ## 0.2.8 (2020-01-27)
 
 **Note:** Version bump only for package prettier-plugin-sh
