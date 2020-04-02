@@ -1,5 +1,6 @@
 import { Plugin } from 'prettier'
-import { parsers } from 'prettier/parser-babylon'
+// @ts-ignore
+import { parsers } from 'prettier/parser-babel'
 
 import { files } from './rules/files'
 import { object } from './rules/object'

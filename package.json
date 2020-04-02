@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "build": "lerna run build && run-p build:*",
-    "build:r": "r -g \"{'prettier/parser-babylon':'prettierPlugins.babylon','prettier-plugin-pkg':'prettierPlugins.pkg','prettier-plugin-sh':'prettierPlugins.sh'}\" -x mvdan-sh -p",
+    "build:r": "r -g \"{'prettier/parser-babel':'prettierPlugins.babel','prettier-plugin-pkg':'prettierPlugins.pkg','prettier-plugin-sh':'prettierPlugins.sh'}\" -x mvdan-sh -p",
     "build:ts": "tsc -b",
     "lint": "run-p lint:*",
     "lint:es": "cross-env PARSER_NO_WATCH=true eslint . --cache --ext js,md,ts -f friendly",
@@ -25,30 +25,31 @@
   "devDependencies": {
     "@1stg/lib-config": "^0.4.3",
     "@1stg/tslint-config": "^0.8.2",
-    "@babel/types": "^7.8.3",
-    "@pkgr/imagemin": "^0.4.2",
-    "@types/jest": "^25.1.3",
-    "@types/js-yaml": "^3.12.2",
+    "@babel/types": "^7.9.0",
+    "@pkgr/imagemin": "^0.4.3",
+    "@types/jest": "^25.1.4",
+    "@types/js-yaml": "^3.12.3",
     "@types/lodash": "^4.14.149",
-    "@types/prettier": "^1.19.0",
+    "@types/prettier": "^1.19.1",
     "core-js": "^3.6.4",
     "js-yaml": "^3.13.1",
     "lerna": "^3.20.2",
     "lodash": "^4.17.15",
     "npm-run-all": "^4.1.5",
-    "react": "^16.12.0",
-    "ts-jest": "^25.2.1",
-    "ts-node": "^8.6.2",
-    "tslint": "^6.0.0",
-    "type-coverage": "^2.4.0",
-    "yarn-deduplicate": "^1.1.1"
+    "react": "^16.13.1",
+    "ts-jest": "^25.3.0",
+    "ts-node": "^8.8.1",
+    "tslint": "^6.1.1",
+    "type-coverage": "^2.4.2",
+    "yarn-deduplicate": "^2.0.0"
   },
   "resolutions": {
-    "@babel/core": "^7.8.4",
-    "@babel/preset-env": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
     "eslint-plugin-prettier": "^3.1.2",
     "imagemin-gifsicle": "^6.0.1",
-    "typescript": "^3.8.2"
+    "prettier": "^2.0.2",
+    "typescript": "^3.8.3"
   },
   "commitlint": {
     "extends": [
