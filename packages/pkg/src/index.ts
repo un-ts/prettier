@@ -1,5 +1,4 @@
 import { Plugin } from 'prettier'
-// @ts-ignore
 import { parsers } from 'prettier/parser-babel'
 
 import { files } from './rules/files'
