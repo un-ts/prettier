@@ -10,7 +10,7 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "lerna run build && run-p build:*",
+    "build": "run-p build:*",
     "build:r": "r -g \"{'prettier/parser-babel':'prettierPlugins.babel','prettier-plugin-pkg':'prettierPlugins.pkg','prettier-plugin-sh':'prettierPlugins.sh'}\" -x mvdan-sh -p",
     "build:ts": "tsc -b",
     "lint": "run-p lint:*",
@@ -18,7 +18,9 @@
     "lint:ts": "tslint -p . -t stylish",
     "lint:tsc": "tsc --noEmit",
     "postinstall": "yarn-deduplicate || exit 0",
-    "pretest": "yarn build",
+    "clean": "rimraf packages/*/{lib,*.tsbuildinfo}",
+    "pretest": "yarn clean",
+    "prebuild": "lerna run build",
     "test": "jest",
     "type-coverage": "type-coverage --cache --detail --ignore-files '*.d.ts' --strict"
   },
@@ -36,6 +38,8 @@
     "lerna": "^3.20.2",
     "lodash": "^4.17.15",
     "npm-run-all": "^4.1.5",
+    "prettier-plugin-pkg": "link:packages/pkg/src",
+    "prettier-plugin-sh": "link:packages/sh/src",
     "react": "^16.13.1",
     "ts-jest": "^25.3.1",
     "ts-node": "^8.8.2",
@@ -58,10 +62,6 @@
   },
   "jest": {
     "collectCoverage": true,
-    "moduleNameMapper": {
-      "^prettier-plugin-pkg$": "<rootDir>/packages/pkg/src",
-      "^prettier-plugin-sh$": "<rootDir>/packages/sh/src"
-    },
     "preset": "ts-jest"
   },
   "prettier": "@1stg/prettier-config",

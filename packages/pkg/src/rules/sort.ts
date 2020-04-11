@@ -97,7 +97,11 @@ export const sort = (props: ObjectProperty[]) => {
   known.sort((a, b) => {
     const aIndex = primary.indexOf(a.key.value)
     const bIndex = primary.indexOf(b.key.value)
-    return aIndex > bIndex ? 1 : aIndex < bIndex ? -1 : 0
+    return aIndex > bIndex
+      ? 1
+      : aIndex < bIndex
+      ? -1
+      : /* istanbul ignore next */ 0
   })
   others.sort(sortObject)
 

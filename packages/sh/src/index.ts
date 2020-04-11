@@ -14,8 +14,8 @@ export default {
     sh: {
       parse: (text, _parsers, { filepath }) => parser.Parse(text, filepath),
       astFormat: 'sh',
-      locStart: (node: Node) => node.Pos().Offset(),
-      locEnd: (node: Node) => node.End().Offset(),
+      locStart: /* istanbul ignore next */ (node: Node) => node.Pos().Offset(),
+      locEnd: /* istanbul ignore next */ (node: Node) => node.End().Offset(),
     },
   },
   printers: {

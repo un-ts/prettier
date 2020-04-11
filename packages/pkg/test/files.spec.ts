@@ -3,7 +3,7 @@ import PkgPlugin from 'prettier-plugin-pkg'
 
 test('files', () => {
   const fixture = {
-    files: ['lib', 'rules'],
+    files: ['lib', 'rules', '!lib/*.tsbuildinfo', 'bin'],
   }
 
   const input = JSON.stringify(fixture, null, 2)

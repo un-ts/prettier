@@ -2,15 +2,15 @@ import { ObjectProperty, StringArrayExpression, StringLiteral } from '../types'
 import { sortStringArray } from '../utils'
 
 const process = (props: ObjectProperty[]) => {
-  const filesIndex = props.findIndex(prop => prop.key.value === 'files')
+  const filesNode = props.find(prop => prop.key.value === 'files')
 
-  if (filesIndex >= 0) {
-    const [filesNode] = props.splice(filesIndex, 1)
-
+  if (filesNode) {
     let readme: StringLiteral | undefined
     let license: StringLiteral | undefined
 
-    const elements = (filesNode.value as StringArrayExpression).elements
+    const filesNodeValue = filesNode.value as StringArrayExpression
+
+    const elements = filesNodeValue.elements
       .filter(node => {
         const value = node.value.toLowerCase()
 
@@ -37,9 +37,7 @@ const process = (props: ObjectProperty[]) => {
       elements.push(license)
     }
 
-    Object.assign(filesNode, { elements })
-
-    props.splice(filesIndex, 0, filesNode)
+    filesNodeValue.elements = elements
   }
 
   return props

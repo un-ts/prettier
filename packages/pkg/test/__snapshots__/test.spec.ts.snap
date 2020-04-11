@@ -18,8 +18,8 @@ exports[`preprocess 1`] = `
   \\"files\\": [
     \\"lib\\",
     \\"rules\\",
-    \\"LICENSE\\",
-    \\"README.md\\"
+    \\"README.md\\",
+    \\"LICENSE\\"
   ],
   \\"keywords\\": [
     \\"package\\",

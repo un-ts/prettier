@@ -2,12 +2,10 @@ import { ObjectExpression, ObjectProperty } from '../types'
 import { sortObject } from '../utils'
 
 const process = (props: ObjectProperty[], key: string) => {
-  const keyIndex = props.findIndex(prop => prop.key.value === key)
+  const item = props.find(prop => prop.key.value === key)
 
-  if (keyIndex >= 0) {
-    const object = props[keyIndex]
-    const value = object.value as ObjectExpression
-    value.properties.sort(sortObject)
+  if (item) {
+    ;(item.value as ObjectExpression).properties.sort(sortObject)
   }
 
   return props
