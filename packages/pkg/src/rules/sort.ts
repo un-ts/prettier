@@ -1,10 +1,20 @@
 import { ObjectProperty } from '../types'
 import { sortObject } from '../utils'
 
+export const dependencyNames = [
+  'bundledDependencies',
+  'peerDependencies',
+  'peerDependenciesMeta',
+  'dependencies',
+  'optionalDependencies',
+  'devDependencies',
+  'resolutions',
+]
+
 /**
  * reference:
  * npm - https://docs.npmjs.com/files/package.json
- * yarn - https://yarnpkg.com/docs/package-json
+ * yarn - https://yarnpkg.com/configuration/manifest
  * vscode - https://code.visualstudio.com/api/references/extension-manifest
  */
 const primary = [
@@ -29,6 +39,7 @@ const primary = [
   'workspaces',
 
   // constraints
+  'languageName',
   'engines',
   'cpu',
   'os',
@@ -38,6 +49,7 @@ const primary = [
   'bin',
   'main',
   'module',
+  'exports',
   'esnext',
   'es2015',
   'fesm5',
@@ -57,14 +69,8 @@ const primary = [
   'config',
 
   // dependencies
-  'bundledDependencies',
-  'peerDependencies',
-  'peerDependenciesMeta',
-  'dependencies',
-  'optionalDependencies',
-  'devDependencies',
+  ...dependencyNames,
   'publishConfig',
-  'resolutions',
   'sideEffects',
 
   // vscode spec

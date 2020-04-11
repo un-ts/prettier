@@ -32,6 +32,14 @@
     "lib",
     "!.*.js"
   ],
+  "resolutions": {
+    "imagemin-gifsicle": "^6.0.1",
+    "@babel/core": "^7.9.0",
+    "typescript": "^3.8.3",
+    "prettier": "^2.0.4",
+    "@babel/preset-env": "^7.9.5",
+    "eslint-plugin-prettier": "^3.1.2"
+  },
   "peerDependencies": {
     "prettier": "^1.18.2"
   },

@@ -3,7 +3,7 @@ import { parsers } from 'prettier/parser-babel'
 
 import { files } from './rules/files'
 import { object } from './rules/object'
-import { sort } from './rules/sort'
+import { dependencyNames, sort } from './rules/sort'
 import { ObjectExpression, ObjectProperty } from './types'
 
 const PKG_REG = /[/\\]?package\.json$/
@@ -13,9 +13,10 @@ const {
 } = parsers
 
 const format = (properties: ObjectProperty[]) => {
-  let props = sort(properties)
-  props = object(props, 'engines')
-  props = object(props, 'scripts')
+  let props = ['engines', 'scripts', ...dependencyNames].reduce(
+    (acc, item) => object(acc, item),
+    sort(properties),
+  )
   props = files(props)
   return props
 }
