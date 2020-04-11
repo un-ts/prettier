@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/rx-ts/prettier/compare/prettier-plugin-pkg@0.5.1...prettier-plugin-pkg@0.6.0) (2020-04-11)
+
+
+### Features
+
+* **prettier-plugin-pkg:** support sorting all kinds of dependencies ([7df4403](https://github.com/rx-ts/prettier/commit/7df4403a2885fd1c863df34cd62e99e2858147bb))
+
+
+
+
+
 ## [0.5.1](https://github.com/rx-ts/prettier/compare/prettier-plugin-pkg@0.5.0...prettier-plugin-pkg@0.5.1) (2020-04-11)
 
 **Note:** Version bump only for package prettier-plugin-pkg
