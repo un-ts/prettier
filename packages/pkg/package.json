@@ -25,6 +25,6 @@
     "prettier-plugin"
   ],
   "peerDependencies": {
-    "prettier": "^2.0.2"
+    "prettier": "^2.0.4"
   }
 }

@@ -31,7 +31,7 @@
     "build": "ts-node -O '{\"module\":\"commonjs\"}' build"
   },
   "peerDependencies": {
-    "prettier": "^2.0.2"
+    "prettier": "^2.0.4"
   },
   "dependencies": {
     "mvdan-sh": "^0.4.0"
