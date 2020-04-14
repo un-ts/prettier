@@ -16,7 +16,7 @@
     "lint": "run-p lint:*",
     "lint:es": "cross-env PARSER_NO_WATCH=true eslint . --cache --ext js,md,ts -f friendly",
     "lint:ts": "tslint -p . -t stylish",
-    "lint:tsc": "tsc --noEmit",
+    "lint:tsc": "tsc --incremental false --noEmit",
     "postinstall": "yarn-deduplicate || exit 0",
     "clean": "rimraf packages/*/{lib,*.tsbuildinfo}",
     "pretest": "yarn clean",
