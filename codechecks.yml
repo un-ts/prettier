@@ -3,7 +3,7 @@ checks:
     options:
       files:
         - path: 'packages/*lib/esm.js'
-  - name: type-coverage-watcher
+  - name: typecov
     options:
       atLeast: 100
       detail: true
