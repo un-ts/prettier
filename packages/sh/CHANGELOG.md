@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/rx-ts/prettier/compare/prettier-plugin-sh@0.3.2...prettier-plugin-sh@0.4.0) (2020-04-21)
+
+
+### Features
+
+* bump mvdan-sh, support more parser/printer options ([513a040](https://github.com/rx-ts/prettier/commit/513a040f1c4bf38f62db791f2f1fc2061e8150c8))
+
+
+
+
+
 ## [0.3.2](https://github.com/rx-ts/prettier/compare/prettier-plugin-sh@0.3.1...prettier-plugin-sh@0.3.2) (2020-04-14)
 
 **Note:** Version bump only for package prettier-plugin-sh
