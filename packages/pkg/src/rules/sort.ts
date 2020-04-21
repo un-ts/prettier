@@ -60,6 +60,7 @@ const primary = [
   'unpkg',
   'types',
   'typings',
+  'typesVersions',
 
   // content and util
   'directories',

@@ -42,7 +42,6 @@ jobs:
           yarn build
           yarn lint
           yarn test
-          yarn run-p build:*
         env:
           EFF_NO_LINK_RULES: 'true'
           PARSER_NO_WATCH: 'true'
