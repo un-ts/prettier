@@ -27,9 +27,9 @@ exports[`parser and printer should format all fixtures: Dockerfile 1`] = `
 # 安装与编译代码
 COPY . /app
 WORKDIR /app
-RUN yarn --frozen-lockfile &&
-	yarn build &&
-	find . -name '*.map' -type f -exec rm -f {} \\\\;
+RUN yarn --frozen-lockfile \\\\
+  && yarn build \\\\
+  && find . -name '*.map' -type f -exec rm -f {} \\\\;
 
 # 最终的应用
 FROM abiosoft/caddy

@@ -43,6 +43,28 @@ npx prettier --write script.sh
 yarn prettier --write script.sh
 ```
 
+## Parser Options
+
+```ts
+interface ShOptions {
+  // parser
+  keepComments: boolean // default `true`
+  stopAt: string
+  variant: LangVariant
+
+  // printer
+  indent: number
+  binaryNextLine: boolean // default `true`
+  switchCaseIndent: boolean
+  spaceRedirects: boolean
+  keepPadding: boolean
+  minify: boolean
+  functionNextLine: boolean
+}
+```
+
+More details on [godoc](https://godoc.org/mvdan.cc/sh/syntax#NewParser)
+
 ## Changelog
 
 Detailed changes for each release are documented in [CHANGELOG.md](./CHANGELOG.md).
