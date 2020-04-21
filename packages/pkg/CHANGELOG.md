@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/rx-ts/prettier/compare/prettier-plugin-pkg@0.6.2...prettier-plugin-pkg@0.7.0) (2020-04-21)
+
+
+### Features
+
+* **prettier-plugin-pkg:** support property typesVersions ([69a8e93](https://github.com/rx-ts/prettier/commit/69a8e935e3c283f97b214db1dfe4e77cfd4acfa3))
+
+
+
+
+
 ## [0.6.2](https://github.com/rx-ts/prettier/compare/prettier-plugin-pkg@0.6.1...prettier-plugin-pkg@0.6.2) (2020-04-14)
 
 **Note:** Version bump only for package prettier-plugin-pkg
