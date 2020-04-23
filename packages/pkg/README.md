@@ -96,6 +96,7 @@ Top-level keys are sorted according to a style commonly seen in the packages of 
   "unpkg",
   "types",
   "typings",
+  "typesVersions",
 
   // content and util
   "directories",
@@ -110,8 +111,8 @@ Top-level keys are sorted according to a style commonly seen in the packages of 
   "dependencies",
   "optionalDependencies",
   "devDependencies",
-  "publishConfig",
   "resolutions",
+  "publishConfig",
   "sideEffects",
 
   // vscode spec
@@ -133,7 +134,7 @@ Unknown keys, or keys not part of the list above, will be alphabetically sorted 
 Forthcoming rules include:
 
 - [ ] Author format
-- [ ] Dependencies sort
+- [ ] Repository format
 
 ## Acknowledgements
 
