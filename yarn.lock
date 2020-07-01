@@ -2550,10 +2550,10 @@
   resolved "https://registry.yarnpkg.com/@pkgr/es-modules/-/es-modules-0.3.2.tgz#a804328701d683fbc249b59b0d0a4bfa82c7cf72"
   integrity sha512-QWMh+ObjnENvr9C2xEvnU2Y2jwB9WBfaukqjQBJxWARFX2unP24e8x3tjkygld+UqRz2gbAw9BED5OW6pPMxqA==
 
-"@pkgr/imagemin@^0.4.3":
-  version "0.4.3"
-  resolved "https://registry.yarnpkg.com/@pkgr/imagemin/-/imagemin-0.4.3.tgz#c7c0ac2b3a9815497b4b0a40965032b2e13d402a"
-  integrity sha512-oc6SCAc3k6pegNTEsuRiNBCsOSIXLeQJrwsTO0Ecn1kli6lA1DDy2nieG+CIxU5YodQ2B6j0MfeRUFn2vJrs/A==
+"@pkgr/imagemin@^0.4.4":
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/@pkgr/imagemin/-/imagemin-0.4.4.tgz#d2896b1cdc3bf3c0b52cc23192c90378b28aabd6"
+  integrity sha512-GQ77d54dS2mPjCI9qZ4e6+ezduloSxon0Hx7vPMsvP9mEn4QgWZu+V1v6UXbAOy3l4UgJGFFBPdLbdrIiOAxpw==
   dependencies:
     imagemin "^7.0.1"
     imagemin-gifsicle ">=6.0.1"
@@ -2566,7 +2566,7 @@
     imagemin-webp "^5.1.0"
     is-glob "^4.0.1"
     tiny-glob "^0.2.6"
-    tslib "^1.11.0"
+    tslib "^2.0.0"
 
 "@pkgr/named-exports@^0.5.2":
   version "0.5.2"
@@ -13352,6 +13352,11 @@ tslib@1, tslib@^1.10.0, tslib@^1.11.0, tslib@^1.11.1, tslib@^1.7.1, tslib@^1.8.1
   version "1.11.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.11.1.tgz#eb15d128827fbee2841549e171f45ed338ac7e35"
   integrity sha512-aZW88SY8kQbU7gpV19lN24LtXh/yD4ZZg6qieAJDDg+YBsJcSmLGK9QpnUjAKVG/xefmvJGd1WUmfpT/g6AJGA==
+
+tslib@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.0.0.tgz#18d13fc2dce04051e20f074cc8387fd8089ce4f3"
+  integrity sha512-lTqkx847PI7xEDYJntxZH89L2/aXInsyF2luSafe/+0fHOMjlBNXdH6th7f70qxLDhul7KZK0zC8V5ZIyHl0/g==
 
 tslint-angular@^3.0.2:
   version "3.0.2"
