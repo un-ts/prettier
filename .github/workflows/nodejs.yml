@@ -49,9 +49,9 @@ jobs:
       - name: Codecov
         if: matrix.os == 'macOS-latest'
         run: |
-          yarn global add codecov codacy-coverage
+          yarn global add codecov
           codecov
-          cat ./coverage/lcov.info | codacy-coverage -u JounQin -n prettier
+          bash <(curl -Ls https://coverage.codacy.com/get.sh)
         env:
           CI: 'true'
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

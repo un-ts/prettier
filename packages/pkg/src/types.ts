@@ -5,7 +5,7 @@ type _ObjectProperty = import('@babel/types').ObjectProperty
 
 export type StringLiteral = import('@babel/types').StringLiteral
 
-export interface ObjectProperty extends _ObjectProperty {
+export type ObjectProperty = _ObjectProperty & {
   key: {
     value: string
   }
@@ -20,7 +20,7 @@ export interface ArrayExpression extends _ArrayExpression {
   elements: Array<ArrayExpression | ObjectExpression | StringLiteral>
 }
 
-export interface StringMapProperty extends ObjectProperty {
+export type StringMapProperty = ObjectProperty & {
   key: {
     value: string
   }
@@ -31,7 +31,7 @@ export interface StringMapExpression extends ObjectExpression {
   properties: StringMapProperty[]
 }
 
-export interface StringArrayProperty extends ObjectProperty {
+export type StringArrayProperty = ObjectProperty & {
   key: {
     value: string
   }

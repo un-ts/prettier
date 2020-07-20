@@ -1,5 +1,6 @@
 import fs from 'fs'
 
+// eslint-disable-next-line node/no-extraneous-import
 import { tryFile } from '@pkgr/utils'
 import prettier from 'prettier'
 import pkgPlugin from 'prettier-plugin-pkg'

@@ -40,7 +40,7 @@ test('preprocess', () => {
     parser: JSON_STRINGIFY,
     plugins: [PkgPlugin],
     preprocess(content: string) {
-      const { version, repository }: typeof pkg1 = JSON.parse(content)
+      const { version, repository } = JSON.parse(content) as typeof pkg1
       return { repository, version }
     },
   } as Options)

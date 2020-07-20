@@ -1,10 +1,15 @@
 /* eslint-disable node/no-extraneous-import */
 import fs from 'fs'
+import { Agent } from 'http'
 import { get } from 'https'
 
+import createHttpsProxyAgent from 'https-proxy-agent'
 import { safeLoad } from 'js-yaml'
 import { pick } from 'lodash'
 import { SupportLanguage } from 'prettier'
+
+const proxyUrl =
+  process.env.https_proxy || process.env.http_proxy || process.env.all_proxy
 
 const linguistLanguages =
   'https://raw.githubusercontent.com/github/linguist/master/lib/linguist/languages.yml'
@@ -60,7 +65,14 @@ const getShLanguages = (languages: Record<string, LinguistLanguage>) =>
       acc.push({
         name,
         parsers: ['sh'],
-        ...pick(language, 'group', 'aliases', 'extensions', 'filenames'),
+        ...pick(
+          language,
+          'group',
+          'aliases',
+          'extensions',
+          'filenames',
+          'interpreters',
+        ),
         tmScope: language.tm_scope,
         aceMode,
         codemirrorMode: language.codemirror_mode,
@@ -72,23 +84,33 @@ const getShLanguages = (languages: Record<string, LinguistLanguage>) =>
     }, [])
     .concat(EXTRA_LANGUAGES)
 
-get(linguistLanguages, res => {
-  let rawText = ''
-  res.on('data', (data: Buffer) => {
-    rawText += data.toString()
-  })
-  res.on('end', () => {
-    const languages = getShLanguages(safeLoad(rawText))
+get(
+  linguistLanguages,
+  {
+    agent: proxyUrl
+      ? ((createHttpsProxyAgent(proxyUrl) as unknown) as Agent)
+      : undefined,
+  },
+  res => {
+    let rawText = ''
+    res.on('data', (data: Buffer) => {
+      rawText += data.toString()
+    })
+    res.on('end', () => {
+      const languages = getShLanguages(
+        safeLoad(rawText) as Record<string, LinguistLanguage>,
+      )
 
-    fs.writeFileSync(
-      'src/languages.ts',
-      `import { SupportLanguage } from 'prettier'
+      fs.writeFileSync(
+        'src/languages.ts',
+        `import { SupportLanguage } from 'prettier'
 
 export const languages = ${JSON.stringify(
-        languages,
-        null,
-        2,
-      )} as SupportLanguage[]`,
-    )
-  })
-})
+          languages,
+          null,
+          2,
+        )} as SupportLanguage[]`,
+      )
+    })
+  },
+)

@@ -28,7 +28,7 @@ export default {
       ...parsers['json-stringify'],
       parse(text, parsers, options) {
         const { filepath } = options
-        const ast: ObjectExpression = parse(text, parsers, options)
+        const ast = parse(text, parsers, options) as ObjectExpression
 
         if (PKG_REG.test(filepath)) {
           ast.properties = format(ast.properties)

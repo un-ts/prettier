@@ -64,7 +64,7 @@ export default {
         {
           useTabs,
           tabWidth,
-          indent = useTabs ? 0 : tabWidth,
+          /* istanbul ignore next */ indent = useTabs ? 0 : tabWidth,
           /* istanbul ignore next */ binaryNextLine = true,
           switchCaseIndent,
           spaceRedirects,

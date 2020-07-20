@@ -63,6 +63,12 @@ idea.cycle.buffer.size = 1024
 "
 `;
 
+exports[`parser and printer should format all fixtures: no-ext 1`] = `
+"#/usr/bin/env sh
+echo 'foo'
+"
+`;
+
 exports[`parser and printer should format all fixtures: shell.sh 1`] = `
 "#!/bin/bash
 NAME= \\"ufc-web-client\\"
