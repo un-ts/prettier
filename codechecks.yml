@@ -5,7 +5,7 @@ checks:
         - path: 'packages/*lib/esm.js'
   - name: typecov
     options:
-      atLeast: 100
+      atLeast: 99
       detail: true
       ignoreCatch: true
       strict: true

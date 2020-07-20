@@ -1,5 +1,5 @@
 {
-  "extends": "@1stg/tsconfig/lib",
+  "extends": "@1stg/tsconfig/lib.json",
   "compilerOptions": {
     "baseUrl": ".",
     "strictFunctionTypes": false

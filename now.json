@@ -2,7 +2,8 @@
   "name": "@rxts/prettier",
   "version": 2,
   "alias": [
-    "prettier-plugins.now.sh"
+    "prettier-plugins.now.sh",
+    "prettier-plugins.vercel.app"
   ],
   "github": {
     "silent": true
