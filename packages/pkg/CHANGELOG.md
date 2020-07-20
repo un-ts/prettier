@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/rx-ts/prettier/compare/prettier-plugin-pkg@0.7.0...prettier-plugin-pkg@0.8.0) (2020-07-20)
+
+
+### Features
+
+* **prettier-plugin-sh:** support interpreters from shebang ([abd0c09](https://github.com/rx-ts/prettier/commit/abd0c090846c75b7feeb97a801dd33d0c505e9e6)), closes [#90](https://github.com/rx-ts/prettier/issues/90)
+
+
+
+
+
 # [0.7.0](https://github.com/rx-ts/prettier/compare/prettier-plugin-pkg@0.6.2...prettier-plugin-pkg@0.7.0) (2020-04-21)
 
 
