@@ -1,0 +1,32 @@
+{
+  "name": "prettier-plugin-compose",
+  "version": "0.0.1",
+  "description": "An opinionated package.json formatter plugin for Prettier",
+  "repository": "git@github.com/rx-ts/prettier.git",
+  "homepage": "https://github.com/rx-ts/prettier/blob/master/packages/compose",
+  "author": "Jakub Olan <jakub.olan001@gmail.com>",
+  "license": "MIT",
+  "main": "lib/cjs",
+  "module": "lib",
+  "es2015": "lib/es2015",
+  "fesm5": "lib/esm",
+  "jsdelivr": "lib/umd",
+  "unpkg": "lib/umd",
+  "types": "lib",
+  "files": [
+    "lib"
+  ],
+  "keywords": [
+    "compose",
+    "docker-compose",
+    "plugin",
+    "prettier",
+    "prettier-plugin"
+  ],
+  "peerDependencies": {
+    "prettier": "^2.0.5"
+  },
+  "dependencies": {
+    "yaml": "^1.10.0"
+  }
+}
