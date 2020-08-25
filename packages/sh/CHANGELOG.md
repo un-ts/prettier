@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/rx-ts/prettier/compare/prettier-plugin-sh@0.5.0...prettier-plugin-sh@0.6.0) (2020-08-25)
+
+
+### Features
+
+* correct parse error with loc info ([4f9e584](https://github.com/rx-ts/prettier/commit/4f9e584c66842ed2364f679840ab7b9a69da3695))
+
+
+
+
+
 # [0.5.0](https://github.com/rx-ts/prettier/compare/prettier-plugin-sh@0.4.0...prettier-plugin-sh@0.5.0) (2020-07-20)
 
 
