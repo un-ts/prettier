@@ -1,7 +1,7 @@
 import prettier from 'prettier'
 import ShPlugin from 'prettier-plugin-sh'
 
-test('fatal parse error', () => {
+test('fatal parse error with meaningful message', () => {
   expect(() =>
     prettier.format(`echo )`, {
       filepath: 'broken.sh',
@@ -9,5 +9,5 @@ test('fatal parse error', () => {
       parser: 'sh',
       plugins: [ShPlugin],
     }),
-  ).toThrowErrorMatchingSnapshot()
+  ).toThrow('a command can only contain words and redirects')
 })
