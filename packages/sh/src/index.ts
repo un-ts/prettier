@@ -1,4 +1,4 @@
-import sh, { LangVariant, Node } from 'mvdan-sh'
+import sh, { LangVariant, Node, Pos } from 'mvdan-sh'
 import { FastPath, ParserOptions, Plugin, RequiredOptions } from 'prettier'
 
 import { languages } from './languages'
@@ -22,6 +22,14 @@ export interface ShOptions extends RequiredOptions {
 }
 
 export type ShParserOptions = ShOptions & ParserOptions
+
+export interface ShParseError {
+  Filename: string
+  Pos: Pos
+  Text: string
+  Incomplete: boolean
+  Error(): void
+}
 
 export default {
   name: 'prettier-plugin-sh',
@@ -50,7 +58,19 @@ export default {
           parserOptions.push(syntax.Variant(variant))
         }
 
-        return syntax.NewParser(...parserOptions).Parse(text, filepath)
+        try {
+          return syntax.NewParser(...parserOptions).Parse(text, filepath)
+        } catch (e) {
+          const err = e as ShParseError
+          throw Object.assign(new SyntaxError(err.Text), {
+            loc: {
+              start: {
+                column: err.Pos.Col(),
+                line: err.Pos.Line(),
+              },
+            },
+          })
+        }
       },
       astFormat: 'sh',
       locStart: /* istanbul ignore next */ (node: Node) => node.Pos().Offset(),

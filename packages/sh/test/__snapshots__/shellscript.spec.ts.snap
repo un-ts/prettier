@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`fatal parse error 1`] = `
+"a command can only contain words and redirects
+[0m[31m[1m>[22m[39m[90m 1 | [39mecho )[0m
+[0m [90m   | [39m     [31m[1m^[22m[39m[0m"
+`;

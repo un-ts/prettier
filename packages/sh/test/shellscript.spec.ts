@@ -9,5 +9,5 @@ test('fatal parse error', () => {
       parser: 'sh',
       plugins: [ShPlugin],
     }),
-  ).toThrow()
+  ).toThrowErrorMatchingSnapshot()
 })

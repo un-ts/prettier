@@ -5,6 +5,5 @@
     "rootDir": "src",
     "outDir": "lib"
   },
-  "include": ["src"],
-  "files": ["shim.d.ts"]
+  "include": ["src"]
 }
