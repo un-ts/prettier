@@ -10828,7 +10828,6 @@ prettier-plugin-pkg@^0.7.0:
 
 "prettier-plugin-pkg@link:packages/pkg/src":
   version "0.0.0"
-  uid ""
 
 prettier-plugin-sh@^0.4.0:
   version "0.4.0"
@@ -10839,7 +10838,6 @@ prettier-plugin-sh@^0.4.0:
 
 "prettier-plugin-sh@link:packages/sh/src":
   version "0.0.0"
-  uid ""
 
 prettier-plugin-toml@^0.3.1:
   version "0.3.1"
@@ -13717,23 +13715,23 @@ type-check@~0.3.2:
   dependencies:
     prelude-ls "~1.1.2"
 
-type-coverage-core@^2.10.0:
-  version "2.10.0"
-  resolved "https://registry.yarnpkg.com/type-coverage-core/-/type-coverage-core-2.10.0.tgz#f6a68e059f82d6d09f5bfaedb6d70a587530a17f"
-  integrity sha512-6glH6KWsTMIWMufhS4DXo7I0vVEW1MgAm/lQbqG2cFreS1pokHyktxzfJr0mw6EweP7WDfTYUO+xjkVkH831hA==
+type-coverage-core@^2.14.0:
+  version "2.14.0"
+  resolved "https://registry.yarnpkg.com/type-coverage-core/-/type-coverage-core-2.14.0.tgz#864ca5e651988465f26d51e6ec40a07719166b9f"
+  integrity sha512-hChfXp0DUf2jXA0MT6j1oN1qZbiKagh8ZNRHM4wsChF/hPLZ2FJvvzbfR7CSmXRaUjt8DdPTJNEpgZYfi266lw==
   dependencies:
     minimatch "3"
     ts-lib-utils "^2.10.0"
     tslib "1 || 2"
     tsutils "3"
 
-type-coverage@^2.10.0:
-  version "2.10.0"
-  resolved "https://registry.yarnpkg.com/type-coverage/-/type-coverage-2.10.0.tgz#5bd21852161ffa324b2f083015fb93d367b46edf"
-  integrity sha512-ZOoG3A3ye2HERgjOS23lU4MLPMybJEf2UHvTjJkVmHAqVR4bCfcBXIXBLO3d1x+4S5OqvG+CGrykvjZW4ik13Q==
+type-coverage@^2.14.0:
+  version "2.14.0"
+  resolved "https://registry.yarnpkg.com/type-coverage/-/type-coverage-2.14.0.tgz#c3b8922d00b9fedcd0a555eb3a3d07c1d7d1df12"
+  integrity sha512-tdNf7UdMJj9+hOPSv0gjzyWUb7i3mDEmsc0+y3gOic6tjJ2btNHI44OgVNjgcBJWyHjSEiimUmIya4c0uYJFEg==
   dependencies:
     minimist "1"
-    type-coverage-core "^2.10.0"
+    type-coverage-core "^2.14.0"
 
 type-detect@4.0.8:
   version "4.0.8"
