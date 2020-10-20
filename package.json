@@ -28,7 +28,7 @@
     "@1stg/tslint-config": "^0.8.5",
     "@babel/types": "^7.11.0",
     "@pkgr/imagemin": "^0.4.5",
-    "@types/jest": "^26.0.10",
+    "@types/jest": "^26.0.15",
     "@types/js-yaml": "^3.12.5",
     "@types/lodash": "^4.14.160",
     "@types/mvdan-sh": "^0.5.0",
