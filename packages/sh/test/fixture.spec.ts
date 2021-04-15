@@ -7,7 +7,7 @@ import ShPlugin from 'prettier-plugin-sh'
 describe('parser and printer', () => {
   it('should format all fixtures', () => {
     const fixtures = path.resolve(__dirname, 'fixtures')
-    fs.readdirSync(fixtures).forEach(filepath => {
+    for (const filepath of fs.readdirSync(fixtures)) {
       const input = fs.readFileSync(path.resolve(fixtures, filepath)).toString()
 
       const output = prettier.format(input, {
@@ -18,6 +18,6 @@ describe('parser and printer', () => {
       })
 
       expect(output).toMatchSnapshot(filepath)
-    })
+    }
   })
 })

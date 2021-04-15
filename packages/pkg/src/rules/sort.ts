@@ -106,5 +106,5 @@ export const sort = (props: ObjectProperty[]) => {
   })
   others.sort(sortObject)
 
-  return known.concat(others)
+  return [...known, ...others]
 }

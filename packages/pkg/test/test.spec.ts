@@ -1,4 +1,4 @@
-import { join } from 'path'
+import path from 'path'
 
 import { shuffle } from 'lodash'
 import prettier, { Options } from 'prettier'
@@ -12,9 +12,9 @@ const pkgs = [pkg1, pkg2]
 const createFixture = (index: 0 | 1 = 0) => {
   const pkg = pkgs[index]
   return shuffle(Object.keys(pkg)).reduce(
-    (acc, key: keyof typeof pkg) =>
+    (acc, key) =>
       Object.assign(acc, {
-        [key]: pkg[key],
+        [key]: pkg[key as keyof typeof pkg],
       }),
     {} as typeof pkg,
   )
@@ -25,7 +25,7 @@ const JSON_STRINGIFY = 'json-stringify'
 test('randomize', () => {
   const input = JSON.stringify(createFixture(), null, 2)
   const output = prettier.format(input, {
-    filepath: join(__dirname, 'package.json'),
+    filepath: path.join(__dirname, 'package.json'),
     parser: JSON_STRINGIFY,
     plugins: [PkgPlugin],
   })
@@ -36,7 +36,7 @@ test('randomize', () => {
 test('preprocess', () => {
   const input = JSON.stringify(createFixture(1), null, 2)
   const output = prettier.format(input, {
-    filepath: join('package.json'),
+    filepath: path.join('package.json'),
     parser: JSON_STRINGIFY,
     plugins: [PkgPlugin],
     preprocess(content: string) {
