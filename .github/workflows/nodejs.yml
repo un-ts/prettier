@@ -7,25 +7,25 @@ jobs:
     strategy:
       matrix:
         node: [12]
-        os: [macOS-latest, ubuntu-latest]
+        os: [ubuntu-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # for lerna
 
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node }}
 
-      - name: Setup yarn
-        run: |
-          curl -o- -L https://yarnpkg.com/install.sh | bash
-          export PATH="$HOME/.yarn/bin:$PATH"
+      - name: Link Yarn global binaries into PATH
+        run: echo "$(yarn global bin)" >> $GITHUB_PATH
 
       - name: Get yarn cache
         id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
-      - uses: actions/cache@v1
+      - uses: actions/cache@v2
         with:
           path: ${{ steps.yarn-cache.outputs.dir }}
           key: ${{ matrix.os }}-${{ matrix.node }}-yarn-${{ hashFiles('**/yarn.lock') }}
@@ -47,7 +47,6 @@ jobs:
           PARSER_NO_WATCH: 'true'
 
       - name: Codecov
-        if: matrix.os == 'macOS-latest'
         run: |
           yarn global add codecov
           codecov
@@ -59,7 +58,7 @@ jobs:
           CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
 
       - name: Code Checks
-        if: matrix.os == 'macOS-latest' && github.event_name == 'push'
+        if: github.event_name == 'push'
         run: |
           yarn global add @codechecks/client @codechecks/build-size-watcher typecov typescript
           codechecks
@@ -68,12 +67,10 @@ jobs:
           CC_SECRET: ${{ secrets.CC_SECRET }}
 
       - name: Publish GitHub Release and npm Package
-        if: matrix.os == 'macOS-latest' && github.event_name == 'push' && github.ref	== 'refs/heads/master'
+        if: github.event_name == 'push' && github.ref	== 'refs/heads/master'
         run: |
-          git config --global user.email admin@1stg.me
-          git config --global user.name JounQin
-          git remote set-url origin "https://$GITHUB_ACTOR:$GH_TOKEN@github.com/$GITHUB_REPOSITORY.git"
-          git checkout master
+          git config --global user.email actions@github.com
+          git config --global user.name 'GitHub Actions'
           npm set //registry.npmjs.org/:_authToken $NPM_TOKEN
           yarn lerna publish --create-release github --yes
         env:
@@ -82,7 +79,7 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish beta npm Package
-        if: matrix.os == 'macOS-latest' && github.event_name == 'push' && github.ref	== 'refs/heads/develop'
+        if: github.event_name == 'push' && github.ref	== 'refs/heads/develop'
         run: |
           npm set //registry.npmjs.org/:_authToken $NPM_TOKEN
           yarn lerna publish --canary --conventional-prerelease --force-publish --preid beta --pre-dist-tag beta --yes

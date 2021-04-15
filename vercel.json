@@ -3,7 +3,8 @@
   "version": 2,
   "alias": [
     "prettier-plugins.now.sh",
-    "prettier-plugins.vercel.app"
+    "prettier-plugins.vercel.app",
+    "prettier.vercel.app"
   ],
   "github": {
     "silent": true

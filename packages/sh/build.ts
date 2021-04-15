@@ -4,7 +4,7 @@ import { Agent } from 'http'
 import { get } from 'https'
 
 import createHttpsProxyAgent from 'https-proxy-agent'
-import { safeLoad } from 'js-yaml'
+import { load } from 'js-yaml'
 import { pick } from 'lodash'
 import { SupportLanguage } from 'prettier'
 
@@ -51,10 +51,16 @@ const EXTRA_LANGUAGES: SupportLanguage[] = [
   },
 ]
 
-const getShLanguages = (languages: Record<string, LinguistLanguage>) =>
-  Object.entries(languages)
-    .reduce<SupportLanguage[]>((acc, [name, language]) => {
-      const { ace_mode: aceMode } = language
+const getShLanguages = (languages: Record<string, LinguistLanguage>) => [
+  ...Object.entries(languages).reduce<SupportLanguage[]>(
+    (acc, [name, language]) => {
+      const {
+        ace_mode: aceMode,
+        tm_scope: tmScope,
+        codemirror_mode: codemirrorMode,
+        codemirror_mime_type: codemirrorMimeType,
+        language_id: linguistLanguageId,
+      } = language
       if (
         !['dockerfile', 'gitignore', 'ini', 'properties', 'sh'].includes(
           aceMode,
@@ -73,16 +79,19 @@ const getShLanguages = (languages: Record<string, LinguistLanguage>) =>
           'filenames',
           'interpreters',
         ),
-        tmScope: language.tm_scope,
+        tmScope,
         aceMode,
-        codemirrorMode: language.codemirror_mode,
-        codemirrorMimeType: language.codemirror_mime_type,
-        linguistLanguageId: language.language_id,
+        codemirrorMode,
+        codemirrorMimeType,
+        linguistLanguageId,
         vscodeLanguageIds: [aceMode === 'sh' ? 'shellscript' : aceMode],
       })
       return acc
-    }, [])
-    .concat(EXTRA_LANGUAGES)
+    },
+    [],
+  ),
+  ...EXTRA_LANGUAGES,
+]
 
 get(
   linguistLanguages,
@@ -98,7 +107,7 @@ get(
     })
     res.on('end', () => {
       const languages = getShLanguages(
-        safeLoad(rawText) as Record<string, LinguistLanguage>,
+        load(rawText) as Record<string, LinguistLanguage>,
       )
 
       fs.writeFileSync(

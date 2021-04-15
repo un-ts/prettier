@@ -1,9 +1,12 @@
-/* eslint-disable @typescript-eslint/no-type-alias, sonarjs/no-duplicate-string */
-type _ArrayExpression = import('@babel/types').ArrayExpression
-type _ObjectExpression = import('@babel/types').ObjectExpression
-type _ObjectProperty = import('@babel/types').ObjectProperty
+import {
+  ArrayExpression as _ArrayExpression,
+  ObjectExpression as _ObjectExpression,
+  ObjectProperty as _ObjectProperty,
+  StringLiteral,
+  // eslint-disable-next-line node/no-extraneous-import
+} from '@babel/types'
 
-export type StringLiteral = import('@babel/types').StringLiteral
+export { StringLiteral }
 
 export type ObjectProperty = _ObjectProperty & {
   key: {

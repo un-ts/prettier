@@ -39,21 +39,14 @@ export default {
       parse: (
         text,
         _parsers,
-        {
-          filepath,
-          /* istanbul ignore next */ keepComments = true,
-          stopAt,
-          variant,
-        }: Partial<ShOptions>,
+        { filepath, keepComments = true, stopAt, variant }: Partial<ShOptions>,
       ) => {
         const parserOptions = [syntax.KeepComments(keepComments)]
 
-        /* istanbul ignore if */
         if (stopAt != null) {
           parserOptions.push(syntax.StopAt(stopAt))
         }
 
-        /* istanbul ignore if */
         if (variant != null) {
           parserOptions.push(syntax.Variant(variant))
         }
@@ -73,8 +66,8 @@ export default {
         }
       },
       astFormat: 'sh',
-      locStart: /* istanbul ignore next */ (node: Node) => node.Pos().Offset(),
-      locEnd: /* istanbul ignore next */ (node: Node) => node.End().Offset(),
+      locStart: (node: Node) => node.Pos().Offset(),
+      locEnd: (node: Node) => node.End().Offset(),
     },
   },
   printers: {
@@ -84,8 +77,8 @@ export default {
         {
           useTabs,
           tabWidth,
-          /* istanbul ignore next */ indent = useTabs ? 0 : tabWidth,
-          /* istanbul ignore next */ binaryNextLine = true,
+          indent = useTabs ? 0 : tabWidth,
+          binaryNextLine = true,
           switchCaseIndent,
           spaceRedirects,
           keepPadding,
