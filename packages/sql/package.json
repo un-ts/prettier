@@ -1,0 +1,47 @@
+{
+  "name": "prettier-plugin-sql",
+  "version": "0.0.0",
+  "description": "An opinionated sql formatter plugin for Prettier",
+  "repository": "git@github.com/rx-ts/prettier.git",
+  "homepage": "https://github.com/rx-ts/prettier/blob/master/packages/sql",
+  "author": "JounQin <admin@1stg.me>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "main": "lib/cjs",
+  "module": "lib",
+  "es2015": "lib/es2015",
+  "fesm5": "lib/esm",
+  "jsdelivr": "lib/umd",
+  "unpkg": "lib/umd",
+  "types": "lib",
+  "files": [
+    "lib"
+  ],
+  "keywords": [
+    "sql",
+    "big-query",
+    "db2",
+    "flink-sql",
+    "hive",
+    "maria-db",
+    "mysql",
+    "n1ql",
+    "pl-sql",
+    "postgre-sql",
+    "redshift",
+    "transact-sql",
+    "tsql",
+    "plugin",
+    "prettier",
+    "prettier-plugin"
+  ],
+  "peerDependencies": {
+    "prettier": "^2.0.0"
+  },
+  "dependencies": {
+    "node-sql-parser": "^3.1.0",
+    "sql-formatter": "^4.0.2"
+  }
+}

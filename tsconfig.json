@@ -6,6 +6,9 @@
     },
     {
       "path": "packages/sh"
+    },
+    {
+      "path": "packages/sql"
     }
   ],
   "ts-node": {

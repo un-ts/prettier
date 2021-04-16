@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`node-sql-parser 1`] = `"SELECT * FROM \`t\`"`;
+
+exports[`node-sql-parser 2`] = `"UPDATE \`a\` SET \`id\` = 1 WHERE \`name\` IN (SELECT \`name\` FROM \`b\`)"`;
+
+exports[`node-sql-parser 3`] = `"SELECT * FROM \`t\` ; UPDATE \`a\` SET \`id\` = 1 WHERE \`name\` IN (SELECT \`name\` FROM \`b\`)"`;

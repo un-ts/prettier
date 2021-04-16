@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 
 import prettier from 'prettier'
-import ShPlugin from 'prettier-plugin-sh'
+import SqlPlugin from 'prettier-plugin-sql'
 
 describe('parser and printer', () => {
   it('should format all fixtures', () => {
@@ -12,8 +12,8 @@ describe('parser and printer', () => {
 
       const output = prettier.format(input, {
         filepath,
-        parser: 'sh',
-        plugins: [ShPlugin],
+        parser: 'sql',
+        plugins: [SqlPlugin],
       })
 
       expect(output).toMatchSnapshot(filepath)

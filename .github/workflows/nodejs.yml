@@ -72,7 +72,7 @@ jobs:
           git config --global user.email actions@github.com
           git config --global user.name 'GitHub Actions'
           npm set //registry.npmjs.org/:_authToken $NPM_TOKEN
-          yarn lerna publish --create-release github --yes
+          yarn lerna publish --conventional-commits --create-release github --yes
         env:
           CI: 'true'
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

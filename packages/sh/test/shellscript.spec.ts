@@ -5,7 +5,6 @@ test('fatal parse error with meaningful message', () => {
   expect(() =>
     prettier.format(`echo )`, {
       filepath: 'broken.sh',
-      // @ts-ignore
       parser: 'sh',
       plugins: [ShPlugin],
     }),
