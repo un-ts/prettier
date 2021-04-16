@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/rx-ts/prettier/compare/prettier-plugin-pkg@0.8.1...prettier-plugin-pkg@0.9.0) (2021-04-16)
+
+
+### Features
+
+* move the negations(!) to the bottom in files ([ff32cb7](https://github.com/rx-ts/prettier/commit/ff32cb778c39e26bf0d2248844a196c2e4453469))
+
+
+
+
+
 ## [0.8.1](https://github.com/rx-ts/prettier/compare/prettier-plugin-pkg@0.8.0...prettier-plugin-pkg@0.8.1) (2021-04-15)
 
 **Note:** Version bump only for package prettier-plugin-pkg
