@@ -1,11 +1,13 @@
 import { ObjectProperty, StringLiteral } from './types'
 
+export function alphabetSort(a: number, b: number): number
+export function alphabetSort(a: string, b: string): number
+export function alphabetSort(a: number | string, b: number | string) {
+  return a > b ? 1 : a < b ? -1 : 0
+}
+
 export const sortObject = (a: ObjectProperty, b: ObjectProperty) =>
-  a.key.value > b.key.value
-    ? 1
-    : a.key.value < b.key.value
-    ? -1
-    : /* istanbul ignore next */ 0
+  alphabetSort(a.key.value, b.key.value)
 
 export const sortStringArray = (a: StringLiteral, b: StringLiteral) =>
-  a.value > b.value ? 1 : a.value < b.value ? -1 : /* istanbul ignore next */ 0
+  alphabetSort(a.value, b.value)

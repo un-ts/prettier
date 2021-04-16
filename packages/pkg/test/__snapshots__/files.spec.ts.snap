@@ -3,10 +3,10 @@
 exports[`files 1`] = `
 "{
   \\"files\\": [
-    \\"!lib/*.tsbuildinfo\\",
     \\"bin\\",
     \\"lib\\",
-    \\"rules\\"
+    \\"rules\\",
+    \\"!lib/*.tsbuildinfo\\"
   ]
 }
 "

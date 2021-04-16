@@ -1,5 +1,5 @@
 import { ObjectProperty } from '../types'
-import { sortObject } from '../utils'
+import { alphabetSort, sortObject } from '../utils'
 
 export const dependencyNames = [
   'bundledDependencies',
@@ -95,15 +95,9 @@ export const sort = (props: ObjectProperty[]) => {
     return false
   })
 
-  known.sort((a, b) => {
-    const aIndex = primary.indexOf(a.key.value)
-    const bIndex = primary.indexOf(b.key.value)
-    return aIndex > bIndex
-      ? 1
-      : aIndex < bIndex
-      ? -1
-      : /* istanbul ignore next */ 0
-  })
+  known.sort((a, b) =>
+    alphabetSort(primary.indexOf(a.key.value), primary.indexOf(b.key.value)),
+  )
   others.sort(sortObject)
 
   return [...known, ...others]
