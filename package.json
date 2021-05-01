@@ -24,7 +24,7 @@
     "typecov": "type-coverage --ignore-files '' --strict --update"
   },
   "devDependencies": {
-    "@1stg/lib-config": "^1.2.9",
+    "@1stg/lib-config": "^1.2.11",
     "@1stg/tslint-config": "^1.2.0",
     "@babel/types": "^7.13.14",
     "@pkgr/imagemin": "^0.5.0",
