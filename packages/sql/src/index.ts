@@ -58,7 +58,7 @@ const SqlPlugin: Plugin<AST | string> = {
   options: {
     formatter: {
       since: '0.1.0',
-      category: 'Format',
+      category: 'Config',
       type: 'choice',
       default: SQL_FORMATTER,
       description: 'Choose which formatter to be used',
@@ -136,7 +136,7 @@ const SqlPlugin: Plugin<AST | string> = {
     },
     linesBetweenQueries: {
       since: '0.1.0',
-      category: 'Output',
+      category: 'Format',
       type: 'int',
       default: 2,
       description:

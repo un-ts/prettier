@@ -107,7 +107,7 @@ const ShPlugin: Plugin<Node> = {
   options: {
     keepComments: {
       since: '0.1.0',
-      category: 'parser',
+      category: 'Output',
       type: 'boolean',
       default: true,
       description:
@@ -115,7 +115,7 @@ const ShPlugin: Plugin<Node> = {
     },
     stopAt: {
       since: '0.1.0',
-      category: 'parser',
+      category: 'Config',
       type: 'path',
       description: [
         'StopAt configures the lexer to stop at an arbitrary word, treating it as if it were the end of the input. It can contain any characters except whitespace, and cannot be over four bytes in size.',
@@ -126,7 +126,7 @@ const ShPlugin: Plugin<Node> = {
     } as PathSupportOption,
     variant: {
       since: '0.1.0',
-      category: 'parser',
+      category: 'Config',
       type: 'choice',
       default: undefined,
       choices: [
@@ -148,14 +148,14 @@ const ShPlugin: Plugin<Node> = {
     },
     indent: {
       since: '0.1.0',
-      category: 'printer',
+      category: 'Format',
       type: 'int',
       description:
         'Indent sets the number of spaces used for indentation. If set to 0, tabs will be used instead.',
     } as IntSupportOption,
     binaryNextLine: {
       since: '0.1.0',
-      category: 'printer',
+      category: 'Output',
       type: 'boolean',
       default: true,
       description:
@@ -163,7 +163,7 @@ const ShPlugin: Plugin<Node> = {
     },
     switchCaseIndent: {
       since: '0.1.0',
-      category: 'printer',
+      category: 'Format',
       type: 'boolean',
       default: true,
       description:
@@ -171,7 +171,7 @@ const ShPlugin: Plugin<Node> = {
     },
     spaceRedirects: {
       since: '0.1.0',
-      category: 'printer',
+      category: 'Format',
       type: 'boolean',
       default: true,
       description:
@@ -179,7 +179,7 @@ const ShPlugin: Plugin<Node> = {
     },
     keepPadding: {
       since: '0.1.0',
-      category: 'printer',
+      category: 'Format',
       type: 'boolean',
       default: false,
       description: [
@@ -189,7 +189,7 @@ const ShPlugin: Plugin<Node> = {
     },
     minify: {
       since: '0.1.0',
-      category: 'printer',
+      category: 'Output',
       type: 'boolean',
       default: false,
       description:
@@ -197,7 +197,7 @@ const ShPlugin: Plugin<Node> = {
     },
     functionNextLine: {
       since: '0.1.0',
-      category: 'printer',
+      category: 'Format',
       type: 'boolean',
       default: false,
       description:
