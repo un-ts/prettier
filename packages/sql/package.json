@@ -6,15 +6,12 @@
   "homepage": "https://github.com/rx-ts/prettier/blob/master/packages/sql",
   "author": "JounQin <admin@1stg.me>",
   "license": "MIT",
-  "engines": {
-    "node": ">=10.0.0"
-  },
   "main": "lib/cjs",
   "module": "lib",
   "es2015": "lib/es2015",
   "fesm5": "lib/esm",
-  "jsdelivr": "lib/umd",
-  "unpkg": "lib/umd",
+  "jsdelivr": "lib/umd.min",
+  "unpkg": "lib/umd.min",
   "types": "lib",
   "files": [
     "lib"

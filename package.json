@@ -13,54 +13,55 @@
     "build": "run-p build:*",
     "build:r": "r -g \"{'mvdan-sh':'sh','prettier/parser-babel':'prettierPlugins.babel','prettier-plugin-pkg':'prettierPlugins.pkg','prettier-plugin-sh':'prettierPlugins.sh','prettier-plugin-sql':'prettierPlugins.sql','sql-formatter':'sqlFormatter','node-sql-parser':'NodeSQLParser'}\" -x mvdan-sh -p",
     "build:ts": "tsc -b",
+    "clean": "rimraf 'packages/*/{lib,*.tsbuildinfo}'",
     "format": "ts-node scripts/format",
     "lint": "run-p lint:*",
-    "lint:es": "cross-env PARSER_NO_WATCH=true eslint . --cache --ext js,md,ts -f friendly",
-    "lint:ts": "tslint -p . -t stylish",
-    "lint:tsc": "tsc --noEmit",
+    "lint:es": "eslint . --cache -f friendly",
     "postinstall": "simple-git-hooks && yarn-deduplicate --strategy fewer || exit 0",
-    "prebuild": "lerna run build",
+    "prebuild": "yarn workspace prettier-plugin-sh build",
+    "prerelease": "yarn build",
+    "release": "changeset publish",
     "test": "jest",
-    "typecov": "type-coverage --ignore-files '' --strict --update"
+    "typecov": "type-coverage"
   },
   "devDependencies": {
-    "@1stg/lib-config": "^1.2.9",
-    "@1stg/tslint-config": "^1.2.0",
-    "@babel/types": "^7.13.14",
-    "@pkgr/imagemin": "^0.5.0",
-    "@types/jest": "^26.0.22",
-    "@types/js-yaml": "^4.0.0",
-    "@types/lodash": "^4.14.168",
+    "@1stg/lib-config": "^3.0.0",
+    "@babel/types": "^7.14.5",
+    "@changesets/changelog-github": "^0.4.0",
+    "@changesets/cli": "^2.16.0",
+    "@pkgr/imagemin": "^1.0.1",
+    "@types/jest": "^26.0.23",
+    "@types/js-yaml": "^4.0.1",
+    "@types/lodash": "^4.14.170",
     "@types/mvdan-sh": "^0.5.0",
-    "@types/prettier": "^2.2.3",
-    "core-js": "^3.10.1",
+    "@types/prettier": "^2.3.0",
     "https-proxy-agent": "^5.0.0",
     "js-yaml": "^4.1.0",
-    "lerna": "^4.0.0",
     "lodash": "^4.17.21",
-    "mvdan-sh": "^0.5.0",
-    "node-sql-parser": "^3.1.0",
-    "npm-run-all": "^4.1.5",
     "prettier-plugin-pkg": "link:packages/pkg/src",
     "prettier-plugin-sh": "link:packages/sh/src",
     "prettier-plugin-sql": "link:packages/sql/src",
-    "react": "^17.0.2",
-    "sql-formatter": "^4.0.2",
-    "ts-jest": "^26.5.4",
-    "ts-node": "^9.1.1",
-    "tslint": "^6.1.3",
-    "type-coverage": "^2.17.2",
-    "typescript": "^4.2.4",
-    "yarn-deduplicate": "^3.1.0"
+    "ts-jest": "^27.0.3",
+    "ts-node": "^10.0.0",
+    "type-coverage": "^2.18.0",
+    "typescript": "^4.3.4"
   },
   "resolutions": {
-    "prettier": "^2.2.1"
+    "prettier": "^2.3.2"
   },
   "commitlint": {
     "extends": [
       "@1stg"
     ]
   },
+  "eslintIgnore": [
+    "coverage",
+    "**/fixtures",
+    "**/lib",
+    "**/CHANGELOG.md",
+    "packages/sh/src/languages.ts",
+    "!/.*.js"
+  ],
   "jest": {
     "preset": "ts-jest",
     "collectCoverage": true
@@ -71,12 +72,12 @@
     ]
   },
   "typeCoverage": {
-    "atLeast": 97.41,
+    "atLeast": 98.21,
     "cache": true,
     "detail": true,
     "ignoreAsAssertion": true,
     "ignoreFiles": [
-      "*.d.ts"
+      "**/*.d.ts"
     ],
     "showRelativePath": true,
     "strict": true,

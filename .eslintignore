@@ -1,6 +1,0 @@
-coverage
-fixtures
-lib
-packages/sh/src/languages.ts
-CHANGELOG.md
-!/.*.js

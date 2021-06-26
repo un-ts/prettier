@@ -1,5 +1,5 @@
 {
-  "extends": "./tsconfig.base.json",
+  "extends": "./tsconfig.base",
   "references": [
     {
       "path": "packages/pkg"
@@ -13,8 +13,9 @@
   ],
   "ts-node": {
     "compilerOptions": {
-      "module": "commonjs"
+      "module": "CommonJS"
     },
-    "files": true
+    "require": ["tsconfig-paths/register"],
+    "transpileOnly": true
   }
 }
