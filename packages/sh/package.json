@@ -35,5 +35,8 @@
   },
   "dependencies": {
     "mvdan-sh": "^0.5.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

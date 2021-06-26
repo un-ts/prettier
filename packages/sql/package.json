@@ -40,5 +40,8 @@
   "dependencies": {
     "node-sql-parser": "^3.1.0",
     "sql-formatter": "^4.0.2"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
