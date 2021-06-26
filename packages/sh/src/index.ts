@@ -1,5 +1,5 @@
 import sh, { LangVariant, Node, Pos } from 'mvdan-sh'
-import { FastPath, ParserOptions, Plugin, RequiredOptions } from 'prettier'
+import { AstPath, ParserOptions, Plugin, RequiredOptions } from 'prettier'
 
 import { languages } from './languages'
 
@@ -21,7 +21,7 @@ export interface ShOptions extends RequiredOptions {
   functionNextLine: boolean
 }
 
-export type ShParserOptions = ShOptions & ParserOptions
+export type ShParserOptions = ParserOptions & ShOptions
 
 export interface ShParseError {
   Filename: string
@@ -73,7 +73,7 @@ export default {
   printers: {
     sh: {
       print: (
-        path: FastPath<Node>,
+        path: AstPath<Node>,
         {
           useTabs,
           tabWidth,

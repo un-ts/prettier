@@ -1,1 +1,1 @@
-module.exports = require('@1stg/lint-staged/tsc')
+module.exports = require('@1stg/lint-staged')

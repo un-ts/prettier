@@ -16,6 +16,7 @@ const createFixture = (index: 0 | 1 = 0) => {
       Object.assign(acc, {
         [key]: pkg[key as keyof typeof pkg],
       }),
+    // eslint-disable-next-line @typescript-eslint/prefer-reduce-type-parameter
     {} as typeof pkg,
   )
 }

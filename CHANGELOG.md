@@ -5,3 +5,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - [prettier-plugin-pkg](./packages/pkg/CHANGELOG.md)
 - [prettier-plugin-sh](./packages/sh/CHANGELOG.md)
+- [prettier-plugin-sql](./packages/sql/CHANGELOG.md)

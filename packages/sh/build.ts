@@ -1,6 +1,4 @@
-/* eslint-disable node/no-extraneous-import */
 import fs from 'fs'
-import { Agent } from 'http'
 import { get } from 'https'
 
 import createHttpsProxyAgent from 'https-proxy-agent'
@@ -96,9 +94,7 @@ const getShLanguages = (languages: Record<string, LinguistLanguage>) => [
 get(
   linguistLanguages,
   {
-    agent: proxyUrl
-      ? ((createHttpsProxyAgent(proxyUrl) as unknown) as Agent)
-      : undefined,
+    agent: proxyUrl ? createHttpsProxyAgent(proxyUrl) : undefined,
   },
   res => {
     let rawText = ''

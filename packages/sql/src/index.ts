@@ -4,21 +4,23 @@ import { FormatOptions, format } from 'sql-formatter'
 
 const parser = new Parser()
 
+const SQL_FORMATTER = 'sql-formatter'
+const NODE_SQL_PARSER = 'node-sql-parser'
+
 export type SqlBaseOptions = Omit<FormatOptions, 'indent'> &
   Option & {
-    // eslint-disable-next-line sonarjs/no-duplicate-string
-    formatter?: 'sql-formatter' | 'node-sql-parser'
+    formatter?: typeof NODE_SQL_PARSER | typeof SQL_FORMATTER
   }
 
 export type SqlOptions = ParserOptions<AST> & SqlBaseOptions
 
 export type SqlFormatOptions = Options & SqlBaseOptions
 
-const SqlPlugin: Plugin<string | AST> = {
+const SqlPlugin: Plugin<AST | string> = {
   parsers: {
     sql: {
       parse(text, _parsers, { formatter, type, database }: SqlOptions) {
-        return formatter === 'sql-formatter'
+        return formatter === SQL_FORMATTER
           ? text
           : (parser.astify(text, { type, database }) as AST)
       },
@@ -58,15 +60,15 @@ const SqlPlugin: Plugin<string | AST> = {
       since: '0.1.0',
       category: 'Format',
       type: 'choice',
-      default: 'sql-formatter',
+      default: SQL_FORMATTER,
       description: 'Choose which formatter to be used',
       choices: [
         {
-          value: 'sql-formatter',
+          value: SQL_FORMATTER,
           description: 'use `sql-formatter` as formatter',
         },
         {
-          value: 'node-sql-parser',
+          value: NODE_SQL_PARSER,
           description: 'use `node-sql-parser` as formatter',
         },
       ],

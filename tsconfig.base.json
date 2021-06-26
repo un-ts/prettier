@@ -1,5 +1,6 @@
 {
-  "extends": "./node_modules/@1stg/tsconfig/lib.json",
+  // used by ESLint
+  "extends": "./tsconfig.lib",
   "compilerOptions": {
     "baseUrl": ".",
     "strictFunctionTypes": false

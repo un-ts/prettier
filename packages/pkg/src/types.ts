@@ -3,7 +3,6 @@ import {
   ObjectExpression as _ObjectExpression,
   ObjectProperty as _ObjectProperty,
   StringLiteral,
-  // eslint-disable-next-line node/no-extraneous-import
 } from '@babel/types'
 
 export { StringLiteral }
