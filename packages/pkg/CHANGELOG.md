@@ -6,9 +6,6 @@
 
 - [#112](https://github.com/rx-ts/prettier/pull/112) [`1ddae89`](https://github.com/rx-ts/prettier/commit/1ddae89d407e0e728e9b58e4df0f43e2ad02fb92) Thanks [@JounQin](https://github.com/JounQin)! - chore: rebuild via esbuild, update node lts version
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [0.9.0](https://github.com/rx-ts/prettier/compare/prettier-plugin-pkg@0.8.1...prettier-plugin-pkg@0.9.0) (2021-04-16)
 
 ### Features

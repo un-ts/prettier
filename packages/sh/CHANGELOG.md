@@ -8,9 +8,6 @@
 
 - [#112](https://github.com/rx-ts/prettier/pull/112) [`1ddae89`](https://github.com/rx-ts/prettier/commit/1ddae89d407e0e728e9b58e4df0f43e2ad02fb92) Thanks [@JounQin](https://github.com/JounQin)! - feat: declare all possible options for plugin-sh
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [0.6.1](https://github.com/rx-ts/prettier/compare/prettier-plugin-sh@0.6.0...prettier-plugin-sh@0.6.1) (2021-04-15)
 
 **Note:** Version bump only for package prettier-plugin-sh
