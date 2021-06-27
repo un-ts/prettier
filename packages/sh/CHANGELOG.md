@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.7.1
+
+### Patch Changes
+
+- [#114](https://github.com/rx-ts/prettier/pull/114) [`2e20446`](https://github.com/rx-ts/prettier/commit/2e2044646f4a9c69956be76d26424d55ee41c701) Thanks [@JounQin](https://github.com/JounQin)! - fix: add missing since property for languages
+
 ## 0.7.0
 
 ### Minor Changes

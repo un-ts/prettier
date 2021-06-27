@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.3.0
+
+### Minor Changes
+
+- [#116](https://github.com/rx-ts/prettier/pull/116) [`8af1142`](https://github.com/rx-ts/prettier/commit/8af11429e08178200d4a8468ee93784408e413e6) Thanks [@JounQin](https://github.com/JounQin)! - feat(sql): add support of languages property for plugin-sql
+
 ## 0.2.0
 
 ### Minor Changes
