@@ -15,7 +15,7 @@
     "build:ts": "tsc -b",
     "clean": "rimraf 'packages/*/{lib,*.tsbuildinfo}'",
     "format": "ts-node scripts/format",
-    "languages": "yarn workspace prettier-plugin-sh build",
+    "languages": "ts-node scripts/languages",
     "lint": "run-p lint:*",
     "lint:es": "eslint . --cache -f friendly",
     "prepare": "simple-git-hooks && yarn languages && yarn-deduplicate --strategy fewer || exit 0",
@@ -59,7 +59,7 @@
     "**/fixtures",
     "**/lib",
     "**/CHANGELOG.md",
-    "packages/sh/src/languages.ts",
+    "packages/*/src/languages.ts",
     "!/.*.js"
   ],
   "jest": {

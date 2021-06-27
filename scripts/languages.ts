@@ -26,7 +26,7 @@ export interface LinguistLanguage {
   language_id: number
 }
 
-const EXTRA_LANGUAGES: SupportLanguage[] = [
+const EXTRA_SH_LANGUAGES: SupportLanguage[] = [
   {
     name: 'JvmOptions',
     since: '0.1.0',
@@ -52,8 +52,12 @@ const EXTRA_LANGUAGES: SupportLanguage[] = [
   },
 ]
 
-const getShLanguages = (languages: Record<string, LinguistLanguage>) => [
-  ...Object.entries(languages).reduce<SupportLanguage[]>(
+const getSupportLanguages = (
+  languages: Record<string, LinguistLanguage>,
+  parser: 'sh' | 'sql',
+  aceModes: string[],
+) =>
+  Object.entries(languages).reduce<SupportLanguage[]>(
     (acc, [name, language]) => {
       const {
         ace_mode: aceMode,
@@ -62,17 +66,13 @@ const getShLanguages = (languages: Record<string, LinguistLanguage>) => [
         codemirror_mime_type: codemirrorMimeType,
         language_id: linguistLanguageId,
       } = language
-      if (
-        !['dockerfile', 'gitignore', 'ini', 'properties', 'sh'].includes(
-          aceMode,
-        )
-      ) {
+      if (!aceModes.includes(aceMode)) {
         return acc
       }
       acc.push({
         name,
         since: '0.1.0',
-        parsers: ['sh'],
+        parsers: [parser],
         ...pick(
           language,
           'group',
@@ -91,9 +91,7 @@ const getShLanguages = (languages: Record<string, LinguistLanguage>) => [
       return acc
     },
     [],
-  ),
-  ...EXTRA_LANGUAGES,
-]
+  )
 
 get(
   linguistLanguages,
@@ -106,16 +104,34 @@ get(
       rawText += data.toString()
     })
     res.on('end', () => {
-      const languages = getShLanguages(
-        load(rawText) as Record<string, LinguistLanguage>,
-      )
+      const allLanguages = load(rawText) as Record<string, LinguistLanguage>
 
       fs.writeFileSync(
-        'src/languages.ts',
+        'packages/sh/src/languages.ts',
         `import { SupportLanguage } from 'prettier'
 
 export const languages = ${JSON.stringify(
-          languages,
+          [
+            ...getSupportLanguages(allLanguages, 'sh', [
+              'dockerfile',
+              'gitignore',
+              'ini',
+              'properties',
+              'sh',
+            ]),
+            ...EXTRA_SH_LANGUAGES,
+          ],
+          null,
+          2,
+        )} as SupportLanguage[]`,
+      )
+
+      fs.writeFileSync(
+        'packages/sql/src/languages.ts',
+        `import { SupportLanguage } from 'prettier'
+
+export const languages = ${JSON.stringify(
+          [...getSupportLanguages(allLanguages, 'sql', ['sql', 'pgsql'])],
           null,
           2,
         )} as SupportLanguage[]`,
