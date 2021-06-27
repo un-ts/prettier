@@ -29,6 +29,7 @@ export interface LinguistLanguage {
 const EXTRA_LANGUAGES: SupportLanguage[] = [
   {
     name: 'JvmOptions',
+    since: '0.1.0',
     parsers: ['sh'],
     extensions: ['.vmoptions'],
     filenames: ['jvm.options'],
@@ -36,12 +37,14 @@ const EXTRA_LANGUAGES: SupportLanguage[] = [
   },
   {
     name: 'hosts',
+    since: '0.1.0',
     parsers: ['sh'],
     filenames: ['hosts'],
     vscodeLanguageIds: ['hosts'],
   },
   {
     name: 'dotenv',
+    since: '0.1.0',
     parsers: ['sh'],
     extensions: ['.env'],
     filenames: ['.env.*'],
@@ -68,6 +71,7 @@ const getShLanguages = (languages: Record<string, LinguistLanguage>) => [
       }
       acc.push({
         name,
+        since: '0.1.0',
         parsers: ['sh'],
         ...pick(
           language,
