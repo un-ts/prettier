@@ -2,6 +2,8 @@ import { AST, Option, Parser } from 'node-sql-parser'
 import { Options, ParserOptions, Plugin } from 'prettier'
 import { FormatOptions, format } from 'sql-formatter'
 
+import { languages } from './languages'
+
 const parser = new Parser()
 
 const SQL_FORMATTER = 'sql-formatter'
@@ -17,6 +19,7 @@ export type SqlOptions = ParserOptions<AST> & SqlBaseOptions
 export type SqlFormatOptions = Options & SqlBaseOptions
 
 const SqlPlugin: Plugin<AST | string> = {
+  languages,
   parsers: {
     sql: {
       parse(text, _parsers, { formatter, type, database }: SqlOptions) {

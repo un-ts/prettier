@@ -6,4 +6,4 @@
 coverage
 lib
 node_modules
-packages/sh/src/languages.ts
+packages/*/src/languages.ts

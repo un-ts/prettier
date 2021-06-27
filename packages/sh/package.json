@@ -27,9 +27,6 @@
     "prettier",
     "prettier-plugin"
   ],
-  "scripts": {
-    "build": "ts-node -O '{\"module\":\"commonjs\"}' build"
-  },
   "peerDependencies": {
     "prettier": "^2.0.5"
   },
