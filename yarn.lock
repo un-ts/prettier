@@ -8908,7 +8908,6 @@ prettier-plugin-pkg@^0.9.0:
 
 "prettier-plugin-pkg@link:packages/pkg/src":
   version "0.0.0"
-  uid ""
 
 prettier-plugin-sh@^0.6.1:
   version "0.6.1"
@@ -8919,11 +8918,9 @@ prettier-plugin-sh@^0.6.1:
 
 "prettier-plugin-sh@link:packages/sh/src":
   version "0.0.0"
-  uid ""
 
 "prettier-plugin-sql@link:packages/sql/src":
   version "0.0.0"
-  uid ""
 
 prettier-plugin-svelte@^2.3.0:
   version "2.3.1"
@@ -11186,10 +11183,10 @@ typedarray-to-buffer@^3.1.5:
   dependencies:
     is-typedarray "^1.0.0"
 
-typescript@^4.3.4:
-  version "4.3.4"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.3.4.tgz#3f85b986945bcf31071decdd96cf8bfa65f9dcbc"
-  integrity sha512-uauPG7XZn9F/mo+7MrsRjyvbxFpzemRjKEZXS4AK83oP2KKOJPvb+9cO/gmnv8arWZvhnjVOXz7B49m1l0e9Ew==
+typescript@^4.3.5:
+  version "4.3.5"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.3.5.tgz#4d1c37cc16e893973c45a06886b7113234f119f4"
+  integrity sha512-DqQgihaQ9cUrskJo9kIyW/+g0Vxsk8cDtZ52a3NGh0YNTfpUSArXSohyUGnvbPazEPLu398C0UxmKSOrPumUzA==
 
 unbox-primitive@^1.0.1:
   version "1.0.1"
