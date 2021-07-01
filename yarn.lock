@@ -7883,7 +7883,7 @@ node-releases@^1.1.71:
   resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-1.1.73.tgz#dd4e81ddd5277ff846b80b52bb40c49edf7a7b20"
   integrity sha512-uW7fodD6pyW2FZNZnp/Z3hvWKeEW1Y8R1+1CnErE8cXFXzl5blBOoVB41CvMer6P6Q0S5FXDwcHgFd1Wj0U9zg==
 
-node-sql-parser@^3.1.0:
+node-sql-parser@^3.6.0:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/node-sql-parser/-/node-sql-parser-3.6.0.tgz#309e99f726f3da237c203a412a28973bc0e5455f"
   integrity sha512-ZibyiHq2ZqV1InwLtUCKJfRQbUEE4PBG9qh9v5pIC22+5z22B8A3kdHW4kqcMqS3Gure1SeSG5YA0AHs2/nJ7Q==
