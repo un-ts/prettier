@@ -2474,10 +2474,10 @@
   resolved "https://registry.yarnpkg.com/@types/minimist/-/minimist-1.2.1.tgz#283f669ff76d7b8260df8ab7a4262cc83d988256"
   integrity sha512-fZQQafSREFyuZcdWFAExYjBiCL7AUCdgsk80iO0q4yihYYdcIiH28CcuPTGFgLOCC8RlW49GSQxdHwZP+I7CNg==
 
-"@types/mvdan-sh@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@types/mvdan-sh/-/mvdan-sh-0.5.0.tgz#d56be3f76e5b9650d0b57c4e72cc637ac0d2ecc0"
-  integrity sha512-RO9QYZRXYFCWZ3GK5oXxInamswwB1qFy9PeQlJPB4yGjIoNbVegN7XQEHXJrbwY9mANp47lan2qTpte+70U3WA==
+"@types/mvdan-sh@^0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@types/mvdan-sh/-/mvdan-sh-0.5.1.tgz#b7a55175db1da641dd59def7b4d172442f9db108"
+  integrity sha512-MEUuh4VnqwqiKT2feCAsIBQIWkeR50MmN76pXNlxTLZg+7JEKvwycokN7r3yQvRDrj3de0LfNJMQE8AhrNajTg==
 
 "@types/node@*", "@types/node@^12.7.1":
   version "12.20.15"
