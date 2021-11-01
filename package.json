@@ -32,7 +32,7 @@
     "@pkgr/imagemin": "^1.0.1",
     "@types/jest": "^26.0.24",
     "@types/js-yaml": "^4.0.4",
-    "@types/lodash": "^4.14.175",
+    "@types/lodash": "^4.14.176",
     "@types/mvdan-sh": "^0.5.1",
     "@types/prettier": "^2.3.0",
     "https-proxy-agent": "^5.0.0",
