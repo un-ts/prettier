@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "build": "run-p build:*",
-    "build:r": "r -g \"{'mvdan-sh':'sh','prettier/parser-babel':'prettierPlugins.babel','prettier-plugin-pkg':'prettierPlugins.pkg','prettier-plugin-sh':'prettierPlugins.sh','prettier-plugin-sql':'prettierPlugins.sql','sql-formatter':'sqlFormatter','node-sql-parser':'NodeSQLParser'}\" -x mvdan-sh -p",
+    "build:r": "r -f esm,umd -g \"{'mvdan-sh':'sh','prettier/parser-babel':'prettierPlugins.babel','prettier-plugin-pkg':'prettierPlugins.pkg','prettier-plugin-sh':'prettierPlugins.sh','prettier-plugin-sql':'prettierPlugins.sql','node-sql-parser':'NodeSQLParser','sql-formatter':'sqlFormatter'}\" -x mvdan-sh,node-sql-parser,sql-formatter -p",
     "build:ts": "tsc -b",
     "clean": "rimraf 'packages/*/{lib,*.tsbuildinfo}'",
     "format": "ts-node scripts/format",
@@ -19,35 +19,31 @@
     "lint": "run-p lint:*",
     "lint:es": "eslint . --cache -f friendly",
     "prepare": "simple-git-hooks && yarn languages && yarn-deduplicate --strategy fewer || exit 0",
-    "prerelease": "yarn build",
     "release": "changeset publish",
     "test": "jest",
     "typecov": "type-coverage"
   },
   "devDependencies": {
-    "@1stg/lib-config": "^3.0.0",
-    "@babel/types": "^7.14.5",
-    "@changesets/changelog-github": "^0.4.0",
-    "@changesets/cli": "^2.16.0",
-    "@pkgr/imagemin": "^1.0.1",
-    "@types/jest": "^26.0.23",
-    "@types/js-yaml": "^4.0.1",
-    "@types/lodash": "^4.14.170",
-    "@types/mvdan-sh": "^0.5.0",
-    "@types/prettier": "^2.3.0",
+    "@1stg/lib-config": "^4.1.2",
+    "@babel/types": "^7.16.0",
+    "@changesets/changelog-github": "^0.4.1",
+    "@changesets/cli": "^2.18.0",
+    "@pkgr/imagemin": "^2.1.0",
+    "@types/jest": "^27.0.3",
+    "@types/js-yaml": "^4.0.4",
+    "@types/lodash": "^4.14.177",
+    "@types/mvdan-sh": "^0.5.1",
+    "@types/prettier": "^2.4.2",
     "https-proxy-agent": "^5.0.0",
     "js-yaml": "^4.1.0",
     "lodash": "^4.17.21",
-    "prettier-plugin-pkg": "link:packages/pkg/src",
-    "prettier-plugin-sh": "link:packages/sh/src",
-    "prettier-plugin-sql": "link:packages/sql/src",
-    "ts-jest": "^27.0.3",
-    "ts-node": "^10.0.0",
-    "type-coverage": "^2.18.0",
-    "typescript": "^4.3.4"
+    "ts-jest": "^27.0.7",
+    "ts-node": "^10.4.0",
+    "type-coverage": "^2.19.0",
+    "typescript": "^4.5.2"
   },
   "resolutions": {
-    "prettier": "^2.3.2"
+    "prettier": "^2.4.1"
   },
   "commitlint": {
     "extends": [

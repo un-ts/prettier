@@ -6,13 +6,15 @@
   "homepage": "https://github.com/rx-ts/prettier/blob/master/packages/pkg",
   "author": "JounQin <admin@1stg.me>",
   "license": "MPL-2.0",
-  "main": "lib/cjs",
-  "module": "lib",
-  "es2015": "lib/es2015",
-  "fesm5": "lib/esm",
-  "jsdelivr": "lib/umd.min",
-  "unpkg": "lib/umd.min",
-  "types": "lib",
+  "main": "./lib/index.js",
+  "module": "./lib/index.esm.mjs",
+  "exports": {
+    "import": "./lib/index.esm.mjs",
+    "require": "./lib/index.js"
+  },
+  "jsdelivr": "./lib/umd.min.js",
+  "unpkg": "./lib/umd.min.js",
+  "types": "./lib/index.d.ts",
   "files": [
     "lib"
   ],
@@ -25,7 +27,7 @@
     "prettier-plugin"
   ],
   "peerDependencies": {
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.0"
   },
   "publishConfig": {
     "access": "public"

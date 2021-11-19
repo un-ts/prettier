@@ -39,6 +39,9 @@ jobs:
           yarn --frozen-lockfile
           rm -rf .git/hooks/commit-msg
 
+      - name: Build
+        run: yarn build
+
       - name: Create Release Pull Request or Publish to npm
         id: changesets
         uses: changesets/action@master
