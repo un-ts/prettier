@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.11.0
+
+### Minor Changes
+
+- [`96626a2`](https://github.com/rx-ts/prettier/commit/96626a2293dc044d7f159aab9d2b1436246cb5cd) Thanks [@JounQin](https://github.com/JounQin)! - feat: support native esm with exports field
+
 ## 0.10.0
 
 ### Minor Changes
