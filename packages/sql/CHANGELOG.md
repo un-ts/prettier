@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.4.1
+
+### Patch Changes
+
+- [#138](https://github.com/rx-ts/prettier/pull/138) [`184ff13`](https://github.com/rx-ts/prettier/commit/184ff13d014ad063c8b644fd27f17aca46bc2235) Thanks [@JounQin](https://github.com/JounQin)! - fix: cjs outputs via rollup
+
 ## 0.4.0
 
 ### Minor Changes
