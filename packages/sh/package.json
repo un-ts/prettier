@@ -1,16 +1,17 @@
 {
   "name": "prettier-plugin-sh",
   "version": "0.8.0",
+  "type": "module",
   "description": "An opinionated `shellscript、Dockerfile、properties、gitignore、dotenv、hosts、jvmoptions...` formatter plugin for Prettier",
   "repository": "git@github.com/rx-ts/prettier.git",
   "homepage": "https://github.com/rx-ts/prettier/blob/master/packages/sh",
   "author": "JounQin <admin@1stg.me>",
   "license": "MIT",
-  "main": "./lib/index.js",
-  "module": "./lib/index.esm.mjs",
+  "main": "./lib/index.cjs",
+  "module": "./lib/index.js",
   "exports": {
-    "import": "./lib/index.esm.mjs",
-    "require": "./lib/index.js"
+    "import": "./lib/index.js",
+    "require": "./lib/index.cjs"
   },
   "jsdelivr": "./lib/umd.min.js",
   "unpkg": "./lib/umd.min.js",
