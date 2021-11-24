@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "build": "run-p build:*",
-    "build:r": "r -f esm,umd -g \"{'mvdan-sh':'sh','prettier/parser-babel':'prettierPlugins.babel','prettier-plugin-pkg':'prettierPlugins.pkg','prettier-plugin-sh':'prettierPlugins.sh','prettier-plugin-sql':'prettierPlugins.sql','node-sql-parser':'NodeSQLParser','sql-formatter':'sqlFormatter'}\" -x mvdan-sh,node-sql-parser,sql-formatter -p",
+    "build:r": "r -f cjs,umd -g \"{'mvdan-sh':'sh','prettier/parser-babel':'prettierPlugins.babel','prettier-plugin-pkg':'prettierPlugins.pkg','prettier-plugin-sh':'prettierPlugins.sh','prettier-plugin-sql':'prettierPlugins.sql','node-sql-parser':'NodeSQLParser','sql-formatter':'sqlFormatter'}\" -x mvdan-sh,node-sql-parser,sql-formatter -p",
     "build:ts": "tsc -b",
     "clean": "rimraf 'packages/*/{lib,*.tsbuildinfo}'",
     "format": "ts-node scripts/format",
@@ -30,7 +30,7 @@
     "@changesets/cli": "^2.18.0",
     "@pkgr/imagemin": "^2.1.0",
     "@types/jest": "^27.0.3",
-    "@types/js-yaml": "^4.0.4",
+    "@types/js-yaml": "^4.0.5",
     "@types/lodash": "^4.14.177",
     "@types/mvdan-sh": "^0.5.1",
     "@types/prettier": "^2.4.2",

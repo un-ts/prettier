@@ -1,16 +1,17 @@
 {
   "name": "prettier-plugin-pkg",
   "version": "0.11.0",
+  "type": "module",
   "description": "An opinionated package.json formatter plugin for Prettier",
   "repository": "git@github.com/rx-ts/prettier.git",
   "homepage": "https://github.com/rx-ts/prettier/blob/master/packages/pkg",
   "author": "JounQin <admin@1stg.me>",
   "license": "MPL-2.0",
-  "main": "./lib/index.js",
-  "module": "./lib/index.esm.mjs",
+  "main": "./lib/index.cjs",
+  "module": "./lib/index.js",
   "exports": {
-    "import": "./lib/index.esm.mjs",
-    "require": "./lib/index.js"
+    "import": "./lib/index.js",
+    "require": "./lib/index.cjs"
   },
   "jsdelivr": "./lib/umd.min.js",
   "unpkg": "./lib/umd.min.js",
