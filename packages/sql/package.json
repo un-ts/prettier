@@ -41,7 +41,7 @@
     "prettier": "^2.0.0"
   },
   "dependencies": {
-    "node-sql-parser": "^4.0.0",
+    "node-sql-parser": "^4.0.8",
     "sql-formatter": "^4.0.2"
   },
   "publishConfig": {
