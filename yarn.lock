@@ -2435,9 +2435,9 @@
     "@svgr/webpack" "^6.2.1"
 
 "@pkgr/webpack@^2.0.0":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@pkgr/webpack/-/webpack-2.0.2.tgz#5e49d40624ba1f4340c40672a47d22659c496e4e"
-  integrity sha512-vitOdPL1yQ7xDPkPceJcAz0vf6kf6bbGwnM6O8hGZy4G0re3AV0zL5shgbFwJU/2xsAmVEVz4mQ4HeFeoflmGg==
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@pkgr/webpack/-/webpack-2.0.3.tgz#f335f853ff377806fab7f522bbe1d96fe0bb4796"
+  integrity sha512-INVzpj8D64ZIg5N0xgSX16fdbcKf2Z7P23b9jCV3uLQGLErW+NSyFYiBBUvw68+SwfMIJyZx5ikkCE9PLXDH1w==
   dependencies:
     "@1stg/babel-preset" "^2.1.5"
     "@1stg/postcss-config" "^2.3.3"
