@@ -13,7 +13,7 @@ Promise.all(
       return
     }
 
-    const input = await fs.promises.readFile(filepath, 'utf-8')
+    const input = await fs.promises.readFile(filepath, 'utf8')
 
     const output = prettier.format(input, {
       plugins: [pkgPlugin, shPlugin],

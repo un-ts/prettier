@@ -1,5 +1,5 @@
-import { ObjectExpression, ObjectProperty } from '../types'
-import { sortObject } from '../utils'
+import { ObjectExpression, ObjectProperty } from '../types.js'
+import { sortObject } from '../utils.js'
 
 const process = (props: ObjectProperty[], key: string) => {
   const item = props.find(prop => prop.key.value === key)

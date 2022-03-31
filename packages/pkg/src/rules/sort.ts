@@ -1,5 +1,5 @@
-import { ObjectProperty } from '../types'
-import { alphabetSort, sortObject } from '../utils'
+import { ObjectProperty } from '../types.js'
+import { alphabetSort, sortObject } from '../utils.js'
 
 export const dependencyNames = [
   'bundledDependencies',

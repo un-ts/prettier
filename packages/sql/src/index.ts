@@ -2,7 +2,7 @@ import { AST, Option, Parser } from 'node-sql-parser'
 import { Options, ParserOptions, Plugin } from 'prettier'
 import { FormatOptions, format } from 'sql-formatter'
 
-import { languages } from './languages'
+import { languages } from './languages.js'
 
 const parser = new Parser()
 

@@ -5,8 +5,6 @@ import {
   StringLiteral,
 } from '@babel/types'
 
-export { StringLiteral }
-
 export type ObjectProperty = _ObjectProperty & {
   key: {
     value: string
@@ -43,3 +41,5 @@ export type StringArrayProperty = ObjectProperty & {
 export interface StringArrayExpression extends ArrayExpression {
   elements: StringLiteral[]
 }
+
+export { StringLiteral } from '@babel/types'

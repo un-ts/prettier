@@ -11,8 +11,8 @@
   },
   "builds": [
     {
-      "src": "*.md",
-      "use": "@now/md"
+      "src": "package.json",
+      "use": "@vercel/static-build"
     }
   ],
   "routes": [

@@ -7,7 +7,7 @@ import {
   RequiredOptions,
 } from 'prettier'
 
-import { languages } from './languages'
+import { languages } from './languages.js'
 
 const { syntax } = sh
 

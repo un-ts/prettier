@@ -1,4 +1,4 @@
-import { ObjectProperty, StringLiteral } from './types'
+import { ObjectProperty, StringLiteral } from './types.js'
 
 export function alphabetSort(a: number, b: number): number
 export function alphabetSort(a: string, b: string): number

@@ -1,5 +1,9 @@
-import { ObjectProperty, StringArrayExpression, StringLiteral } from '../types'
-import { sortStringArray } from '../utils'
+import {
+  ObjectProperty,
+  StringArrayExpression,
+  StringLiteral,
+} from '../types.js'
+import { sortStringArray } from '../utils.js'
 
 const process = (props: ObjectProperty[]) => {
   const filesNode = props.find(prop => prop.key.value === 'files')

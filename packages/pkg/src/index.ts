@@ -1,10 +1,10 @@
 import { Plugin } from 'prettier'
 import { parsers } from 'prettier/parser-babel'
 
-import { files } from './rules/files'
-import { object } from './rules/object'
-import { dependencyNames, sort } from './rules/sort'
-import { ObjectExpression, ObjectProperty } from './types'
+import { files } from './rules/files.js'
+import { object } from './rules/object.js'
+import { dependencyNames, sort } from './rules/sort.js'
+import { ObjectExpression, ObjectProperty } from './types.js'
 
 const PKG_REG = /[/\\]?package\.json$/
 
