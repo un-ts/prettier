@@ -65,6 +65,7 @@
   },
   "eslintIgnore": [
     "coverage",
+    "dist",
     "**/fixtures",
     "**/lib",
     "**/CHANGELOG.md",
