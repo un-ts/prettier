@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.2
+
+### Patch Changes
+
+- [`3cadfe7`](https://github.com/rx-ts/prettier/commit/3cadfe77e8bf5605634e5fdc7874187719911bf6) Thanks [@JounQin](https://github.com/JounQin)! - fix: correct module path with .js extension for ESM
+
 ## 0.8.1
 
 ### Patch Changes
