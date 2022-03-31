@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "build": "run-p build:*",
-    "build:docs": "w -e docs -p --publicPath /",
+    "build:docs": "NODE_ENV=production w -e docs -p --publicPath /",
     "build:r": "r -f cjs,umd -g \"{'mvdan-sh':'sh','prettier/parser-babel':'prettierPlugins.babel','prettier-plugin-pkg':'prettierPlugins.pkg','prettier-plugin-sh':'prettierPlugins.sh','prettier-plugin-sql':'prettierPlugins.sql','node-sql-parser':'NodeSQLParser','sql-formatter':'sqlFormatter'}\" -x mvdan-sh,node-sql-parser,sql-formatter -p",
     "build:ts": "tsc -b",
     "clean": "rimraf 'packages/*/{lib,*.tsbuildinfo}'",
@@ -22,6 +22,7 @@
     "lint:es": "eslint . --cache -f friendly",
     "prepare": "simple-git-hooks && yarn languages && yarn-deduplicate --strategy fewer || exit 0",
     "release": "changeset publish",
+    "serve": "sirv dist",
     "test": "jest",
     "typecov": "type-coverage"
   },
@@ -48,6 +49,7 @@
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.2.2",
     "remark-gfm": "^3.0.1",
+    "sirv-cli": "^2.0.2",
     "ts-jest": "^27.1.4",
     "ts-node": "^10.7.0",
     "type-coverage": "^2.21.1",
