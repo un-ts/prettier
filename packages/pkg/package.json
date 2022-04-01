@@ -28,7 +28,7 @@
     "prettier-plugin"
   ],
   "peerDependencies": {
-    "prettier": "^2.0.0"
+    "prettier": "^2.6.1"
   },
   "publishConfig": {
     "access": "public"
