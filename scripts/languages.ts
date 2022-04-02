@@ -115,7 +115,6 @@ export const languages = ${JSON.stringify(
             ...getSupportLanguages(allLanguages, 'sh', [
               'dockerfile',
               'gitignore',
-              'ini',
               'properties',
               'sh',
             ]),

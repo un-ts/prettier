@@ -10,13 +10,18 @@ describe('parser and printer', () => {
     for (const filepath of fs.readdirSync(fixtures)) {
       const input = fs.readFileSync(path.resolve(fixtures, filepath)).toString()
 
-      const output = prettier.format(input, {
-        filepath,
-        parser: 'sh',
-        plugins: [ShPlugin],
-      })
+      try {
+        const output = prettier.format(input, {
+          filepath,
+          parser: 'sh',
+          plugins: [ShPlugin],
+        })
 
-      expect(output).toMatchSnapshot(filepath)
+        expect(output).toMatchSnapshot(filepath)
+      } catch (err: unknown) {
+        // eslint-disable-next-line jest/no-conditional-expect
+        expect(err).toMatchSnapshot()
+      }
     }
   })
 })

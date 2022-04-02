@@ -7,14 +7,16 @@
   "homepage": "https://github.com/rx-ts/prettier/blob/master/packages/sh",
   "author": "JounQin <admin@1stg.me>",
   "license": "MIT",
+  "engines": {
+    "node": ">=12.20"
+  },
   "main": "./lib/index.cjs",
   "module": "./lib/index.js",
   "exports": {
     "import": "./lib/index.js",
-    "require": "./lib/index.cjs"
+    "require": "./lib/index.cjs",
+    "types": "./lib/index.d.ts"
   },
-  "jsdelivr": "./lib/umd.min.js",
-  "unpkg": "./lib/umd.min.js",
   "types": "./lib/index.d.ts",
   "files": [
     "lib"
@@ -34,7 +36,8 @@
     "prettier": "^2.0.0"
   },
   "dependencies": {
-    "mvdan-sh": "^0.5.0"
+    "sh-syntax": "^0.0.2",
+    "synckit": "^0.6.1"
   },
   "publishConfig": {
     "access": "public"
