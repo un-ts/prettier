@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.5.0
+
+### Minor Changes
+
+- [#154](https://github.com/rx-ts/prettier/pull/154) [`fd19f3a`](https://github.com/rx-ts/prettier/commit/fd19f3a069f73279f3e98f1b1edac47588548c8c) Thanks [@JounQin](https://github.com/JounQin)! - feat: drop umd format support
+
 ## 0.4.2
 
 ### Patch Changes
