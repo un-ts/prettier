@@ -103,7 +103,7 @@ const ShPlugin: Plugin = {
       description: [
         'StopAt configures the lexer to stop at an arbitrary word, treating it as if it were the end of the input. It can contain any characters except whitespace, and cannot be over four bytes in size.',
         'This can be useful to embed shell code within another language, as one can use a special word to mark the delimiters between the two.',
-        'As a word, it will only apply when following whitespace or a separating token. For example, StopAt("$$") will act on the inputs "foo $$" and "foo,$$", but not on "foo \'$$\'".',
+        'As a word, it will only apply when following whitespace or a separating token. For example, StopAt("$$") will act on the inputs "foo $$" and "foo;$$", but not on "foo \'$$\'".',
         'The match is done by prefix, so the example above will also act on "foo $$bar".',
       ].join('\n'),
     } as PathSupportOption,
