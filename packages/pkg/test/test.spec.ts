@@ -10,14 +10,13 @@ import pkg2 from './fixtures/fixture2.json'
 const pkgs = [pkg1, pkg2]
 
 const createFixture = (index: 0 | 1 = 0) => {
-  const pkg = pkgs[index]
+  const pkg: Record<string, unknown> = pkgs[index]
   return shuffle(Object.keys(pkg)).reduce(
     (acc, key) =>
       Object.assign(acc, {
-        [key]: pkg[key as keyof typeof pkg],
+        [key]: pkg[key],
       }),
-    // eslint-disable-next-line @typescript-eslint/prefer-reduce-type-parameter
-    {} as typeof pkg,
+    {},
   )
 }
 

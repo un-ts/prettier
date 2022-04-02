@@ -14417,10 +14417,10 @@ symbol-tree@^3.2.4:
   resolved "https://registry.yarnpkg.com/symbol-tree/-/symbol-tree-3.2.4.tgz#430637d248ba77e078883951fb9aa0eed7c63fa2"
   integrity sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==
 
-synckit@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/synckit/-/synckit-0.6.0.tgz#03573d0c8b6490c00bd242081bfc15919dc505a2"
-  integrity sha512-AYuCJsMNa/3m1UKxfM9edZEjsdz0Hj7namBHs1RAMcMxEJIBNrq3pUI5EmwtGNWPxOvozuVQtixMnzcMSWJ0xg==
+synckit@^0.6.0, synckit@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/synckit/-/synckit-0.6.1.tgz#fd339f96b57b3d2857bdc446f40f3b08f09e49cf"
+  integrity sha512-cVX25OyPsc9shnygtnUtsEaaWSd0Yv7ZQZpOvfk+j2HcjfslODGeIoWOuJVmN3HCSmVSJsbkI1KGQEjDkLhmUQ==
   dependencies:
     tslib "^2.3.1"
 

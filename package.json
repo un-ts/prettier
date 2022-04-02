@@ -81,10 +81,12 @@
     ]
   },
   "typeCoverage": {
-    "atLeast": 98.21,
+    "atLeast": 100,
     "cache": true,
     "detail": true,
     "ignoreAsAssertion": true,
+    "ignoreNested": true,
+    "ignoreNonNullAssertion": true,
     "ignoreFiles": [
       "**/*.d.ts"
     ],
