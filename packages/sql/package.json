@@ -1,6 +1,6 @@
 {
   "name": "prettier-plugin-sql",
-  "version": "0.4.2",
+  "version": "0.5.0",
   "type": "module",
   "description": "An opinionated sql formatter plugin for Prettier",
   "repository": "git@github.com/rx-ts/prettier.git",
