@@ -15,10 +15,10 @@
       "use": "@vercel/static-build"
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/*",
-      "dest": "README.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
