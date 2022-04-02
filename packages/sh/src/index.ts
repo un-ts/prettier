@@ -1,107 +1,90 @@
-import sh, { LangVariant, Node, Pos } from 'mvdan-sh'
+import path from 'path'
+import { fileURLToPath } from 'url'
+
 import {
   IntSupportOption,
   ParserOptions,
   PathSupportOption,
   Plugin,
-  RequiredOptions,
 } from 'prettier'
+import { ParseError, ShOptions, print } from 'sh-syntax'
+import { createSyncFn } from 'synckit'
 
 import { languages } from './languages.js'
 
-const { syntax } = sh
+export type ShParserOptions = ParserOptions & ShOptions
 
-export interface ShOptions extends RequiredOptions {
-  // parser
-  keepComments: boolean
-  stopAt: string
-  variant: LangVariant
+const _dirname =
+  typeof __dirname === 'undefined'
+    ? path.dirname(fileURLToPath(import.meta.url))
+    : __dirname
 
-  // printer
-  indent: number
-  binaryNextLine: boolean
-  switchCaseIndent: boolean
-  spaceRedirects: boolean
-  keepPadding: boolean
-  minify: boolean
-  functionNextLine: boolean
-}
+const workerPath = path.resolve(_dirname, 'worker.js')
 
-export type ShParserOptions = ParserOptions<Node> & ShOptions
+const printSync = createSyncFn<typeof print>(workerPath)
 
-export interface ShParseError {
-  Filename: string
-  Pos: Pos
-  Text: string
-  Incomplete: boolean
-  Error(): void
-}
-
-const ShPlugin: Plugin<Node> = {
+const ShPlugin: Plugin = {
   languages,
   parsers: {
     sh: {
-      parse: (
-        text,
-        _parsers,
-        { filepath, keepComments = true, stopAt, variant }: Partial<ShOptions>,
-      ) => {
-        const parserOptions = [syntax.KeepComments(keepComments)]
-
-        if (stopAt != null) {
-          parserOptions.push(syntax.StopAt(stopAt))
-        }
-
-        if (variant != null) {
-          parserOptions.push(syntax.Variant(variant))
-        }
-
-        try {
-          return syntax.NewParser(...parserOptions).Parse(text, filepath)
-        } catch (e) {
-          const err = e as ShParseError
-          throw Object.assign(new SyntaxError(err.Text), {
-            loc: {
-              start: {
-                column: err.Pos.Col(),
-                line: err.Pos.Line(),
-              },
-            },
-          })
-        }
-      },
+      parse: (_text, _parsers, options: Partial<ShOptions>) => options,
       astFormat: 'sh',
-      locStart: node => node.Pos().Offset(),
-      locEnd: node => node.End().Offset(),
+      locStart: () => 0,
+      locEnd: () => 0,
     },
   },
   printers: {
     sh: {
       print: (
-        path,
+        _path,
         {
+          originalText,
+          filepath,
           useTabs,
           tabWidth,
-          indent = useTabs ? 0 : tabWidth,
-          binaryNextLine = true,
-          switchCaseIndent = true,
-          spaceRedirects = true,
+          keepComments,
+          stopAt,
+          variant,
+          indent,
+          binaryNextLine,
+          switchCaseIndent,
+          spaceRedirects,
           keepPadding,
           minify,
           functionNextLine,
         }: ShParserOptions,
-      ) =>
-        syntax
-          .NewPrinter(
-            syntax.Indent(indent),
-            syntax.BinaryNextLine(binaryNextLine),
-            syntax.SwitchCaseIndent(switchCaseIndent),
-            syntax.SpaceRedirects(spaceRedirects),
-            syntax.KeepPadding(keepPadding),
-            syntax.Minify(minify),
-            syntax.FunctionNextLine(functionNextLine),
-          )
-          .Print(path.getValue()),
+      ) => {
+        try {
+          return printSync(originalText, {
+            filepath,
+            useTabs,
+            tabWidth,
+            keepComments,
+            stopAt,
+            variant,
+            indent,
+            binaryNextLine,
+            switchCaseIndent,
+            spaceRedirects,
+            keepPadding,
+            minify,
+            functionNextLine,
+          })
+        } catch (err: unknown) {
+          const error = err as ParseError | string
+          if (typeof error === 'string') {
+            throw new SyntaxError(error)
+          }
+          throw Object.assign(error, {
+            loc: {
+              start: {
+                column: error.pos.col,
+                line: error.pos.line,
+              },
+            },
+          })
+        }
+      },
     },
   },
   options: {
@@ -120,7 +103,7 @@ const ShPlugin: Plugin<Node> = {
       description: [
         'StopAt configures the lexer to stop at an arbitrary word, treating it as if it were the end of the input. It can contain any characters except whitespace, and cannot be over four bytes in size.',
         'This can be useful to embed shell code within another language, as one can use a special word to mark the delimiters between the two.',
-        'As a word, it will only apply when following whitespace or a separating token. For example, StopAt("$$") will act on the inputs "foo $$" and "foo;$$", but not on "foo \'$$\'".',
+        'As a word, it will only apply when following whitespace or a separating token. For example, StopAt("$$") will act on the inputs "foo $$" and "foo,$$", but not on "foo \'$$\'".',
         'The match is done by prefix, so the example above will also act on "foo $$bar".',
       ].join('\n'),
     } as PathSupportOption,

@@ -3075,11 +3075,6 @@
   resolved "https://registry.yarnpkg.com/@types/ms/-/ms-0.7.31.tgz#31b7ca6407128a3d2bbc27fe2d21b345397f6197"
   integrity sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==
 
-"@types/mvdan-sh@^0.5.1":
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/@types/mvdan-sh/-/mvdan-sh-0.5.1.tgz#b7a55175db1da641dd59def7b4d172442f9db108"
-  integrity sha512-MEUuh4VnqwqiKT2feCAsIBQIWkeR50MmN76pXNlxTLZg+7JEKvwycokN7r3yQvRDrj3de0LfNJMQE8AhrNajTg==
-
 "@types/node@*", "@types/node@>=12", "@types/node@^17.0.0":
   version "17.0.23"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.23.tgz#3b41a6e643589ac6442bdbd7a4a3ded62f33f7da"
@@ -3200,10 +3195,10 @@
   resolved "https://registry.yarnpkg.com/@types/unist/-/unist-2.0.6.tgz#250a7b16c3b91f672a24552ec64678eeb1d3a08d"
   integrity sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==
 
-"@types/web@^0.0.60":
-  version "0.0.60"
-  resolved "https://registry.yarnpkg.com/@types/web/-/web-0.0.60.tgz#cbfbe722e83558da6a48add3baf9111be1146cc2"
-  integrity sha512-j9rC7rdtRxUw5pVVzkjbjlDAE7OF2GjgLsIQHUWN7ELKW8p68QpivCwUufMV4bGh9nyMVVTUkzkOm4TVraTmMw==
+"@types/web@^0.0.61":
+  version "0.0.61"
+  resolved "https://registry.yarnpkg.com/@types/web/-/web-0.0.61.tgz#29bb8951e17b7597084c7a4cccd5072711b0ac09"
+  integrity sha512-lQ4M3OSh8eFj55fz1RJsLhCubET/7duOXoKcxVaUXYXyxikD9BA+WWrqAn5CjJxrc82b7zFY4OCVIeVdkPLaGg==
 
 "@types/ws@^8.2.2":
   version "8.5.3"
@@ -10422,11 +10417,6 @@ mustache@^4.2.0:
   resolved "https://registry.yarnpkg.com/mustache/-/mustache-4.2.0.tgz#e5892324d60a12ec9c2a73359edca52972bf6f64"
   integrity sha512-71ippSywq5Yb7/tVYyGbkBggbU8H3u5Rz56fH60jGFgr8uHwxs+aSKeqmluIVzM0m0kB7xQjKS6qPfd0b2ZoqQ==
 
-mvdan-sh@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/mvdan-sh/-/mvdan-sh-0.5.0.tgz#fa76f611a103595ad0f04f5d18e582892c46e87c"
-  integrity sha512-UWbdl4LHd2fUnaEcOUFVWRdWGLkNoV12cKVIPiirYd8qM5VkCoCTXErlDubevrkEG7kGohvjRxAlTQmOqG80tw==
-
 nanoid@^3.3.1:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.2.tgz#c89622fafb4381cd221421c69ec58547a1eec557"
@@ -12166,18 +12156,18 @@ react-is@^17.0.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
 
-react-router-dom@^6.2.2:
-  version "6.2.2"
-  resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-6.2.2.tgz#f1a2c88365593c76b9612ae80154a13fcb72e442"
-  integrity sha512-AtYEsAST7bDD4dLSQHDnk/qxWLJdad5t1HFa1qJyUrCeGgEuCSw0VB/27ARbF9Fi/W5598ujvJOm3ujUCVzuYQ==
+react-router-dom@^6.3.0:
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-6.3.0.tgz#a0216da813454e521905b5fa55e0e5176123f43d"
+  integrity sha512-uaJj7LKytRxZNQV8+RbzJWnJ8K2nPsOOEuX7aQstlMZKQT0164C+X2w6bnkqU3sjtLvpd5ojrezAyfZ1+0sStw==
   dependencies:
     history "^5.2.0"
-    react-router "6.2.2"
+    react-router "6.3.0"
 
-react-router@6.2.2:
-  version "6.2.2"
-  resolved "https://registry.yarnpkg.com/react-router/-/react-router-6.2.2.tgz#495e683a0c04461eeb3d705fe445d6cf42f0c249"
-  integrity sha512-/MbxyLzd7Q7amp4gDOGaYvXwhEojkJD5BtExkuKmj39VEE0m3l/zipf6h2WIB2jyAO0lI6NGETh4RDcktRm4AQ==
+react-router@6.3.0:
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/react-router/-/react-router-6.3.0.tgz#3970cc64b4cb4eae0c1ea5203a80334fdd175557"
+  integrity sha512-7Wh1DzVQ+tlFjkeo+ujvjSqSJmkt1+8JO+T5xklPlgrh70y7ogx75ODRW0ThWhY7S+6yEDks8TYrtQe/aoboBQ==
   dependencies:
     history "^5.2.0"
 
@@ -13734,6 +13724,13 @@ setprototypeof@1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/setprototypeof/-/setprototypeof-1.2.0.tgz#66c9a24a73f9fc28cbe66b09fed3d33dcaf1b424"
   integrity sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==
+
+sh-syntax@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/sh-syntax/-/sh-syntax-0.0.2.tgz#cdc97b53462224f0f091955dd38de70bdeba032e"
+  integrity sha512-xChuD/H+FB/e9JlE9+X0qi4Bani3d2OnNnCSukCazKmlF4kHw6hZ0Go2HSdJ5bcG7brJVtSyX5HYfD10wGCf+Q==
+  dependencies:
+    tslib "^2.3.1"
 
 shebang-command@^1.2.0:
   version "1.2.0"
