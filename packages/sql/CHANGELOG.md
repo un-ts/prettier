@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.6.0
+
+### Minor Changes
+
+- [#159](https://github.com/rx-ts/prettier/pull/159) [`c1b25e5`](https://github.com/rx-ts/prettier/commit/c1b25e5cf9797d7b9a718466e919fbcd42823ecf) Thanks [@JounQin](https://github.com/JounQin)! - feat: migrate whole project to native ESM with cjs fallback
+
 ## 0.5.0
 
 ### Minor Changes
