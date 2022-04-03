@@ -1,18 +1,11 @@
 import path from 'path'
 import { fileURLToPath } from 'url'
 
-import {
-  IntSupportOption,
-  ParserOptions,
-  PathSupportOption,
-  Plugin,
-} from 'prettier'
-import { ParseError, ShOptions, print } from 'sh-syntax'
+import { IntSupportOption, PathSupportOption, Plugin } from 'prettier'
+import { File, Node, ParseError, ShOptions } from 'sh-syntax'
 import { createSyncFn } from 'synckit'
 
 import { languages } from './languages.js'
-
-export type ShParserOptions = ParserOptions & ShOptions
 
 const _dirname =
   typeof __dirname === 'undefined'
@@ -21,22 +14,87 @@ const _dirname =
 
 const workerPath = path.resolve(_dirname, 'worker.js')
 
-const printSync = createSyncFn<typeof print>(workerPath)
+interface ProcessorSync {
+  (text: string, options?: ShOptions | undefined): File
+  (ast: File, options?: ShOptions | undefined): string
+}
 
-const ShPlugin: Plugin = {
+const processorSync = createSyncFn(workerPath) as ProcessorSync
+
+const handleError = <T>(fn: () => T) => {
+  try {
+    return fn()
+  } catch (err: unknown) {
+    const error = err as Error | ParseError | string
+
+    if (typeof error === 'string') {
+      throw new SyntaxError(error)
+    }
+
+    if ('Pos' in error) {
+      throw Object.assign(error, {
+        loc: {
+          start: {
+            column: error.Pos.Col,
+            line: error.Pos.Line,
+          },
+        },
+      })
+    }
+
+    throw error
+  }
+}
+
+const ShPlugin: Plugin<Node> = {
   languages,
   parsers: {
     sh: {
-      parse: (_text, _parsers, options: Partial<ShOptions>) => options,
+      parse: (
+        text,
+        _parsers,
+        {
+          filepath,
+          useTabs,
+          tabWidth,
+          keepComments,
+          stopAt,
+          variant,
+          indent,
+          binaryNextLine,
+          switchCaseIndent,
+          spaceRedirects,
+          keepPadding,
+          minify,
+          functionNextLine,
+        }: ShOptions,
+      ) =>
+        handleError(() =>
+          processorSync(text, {
+            filepath,
+            useTabs,
+            tabWidth,
+            keepComments,
+            stopAt,
+            variant,
+            indent,
+            binaryNextLine,
+            switchCaseIndent,
+            spaceRedirects,
+            keepPadding,
+            minify,
+            functionNextLine,
+          }),
+        ),
       astFormat: 'sh',
-      locStart: () => 0,
-      locEnd: () => 0,
+      locStart: (node: Node) => node.Pos.Offset,
+      locEnd: (node: Node) => node.End.Offset,
     },
   },
   printers: {
     sh: {
       print: (
-        _path,
+        path,
         {
           originalText,
           filepath,
@@ -52,11 +110,12 @@ const ShPlugin: Plugin = {
           keepPadding,
           minify,
           functionNextLine,
-        }: ShParserOptions,
-      ) => {
-        try {
-          return printSync(originalText, {
+        }: ShOptions,
+      ) =>
+        handleError(() =>
+          processorSync(path.getValue() as File, {
             filepath,
+            originalText,
             useTabs,
             tabWidth,
             keepComments,
@@ -69,22 +128,8 @@ const ShPlugin: Plugin = {
             keepPadding,
             minify,
             functionNextLine,
-          })
-        } catch (err: unknown) {
-          const error = err as ParseError | string
-          if (typeof error === 'string') {
-            throw new SyntaxError(error)
-          }
-          throw Object.assign(error, {
-            loc: {
-              start: {
-                column: error.pos.col,
-                line: error.pos.line,
-              },
-            },
-          })
-        }
-      },
+          }),
+        ),
     },
   },
   options: {

@@ -4,6 +4,7 @@
 .changelog
 .type-coverage
 coverage
+dist
 lib
 node_modules
 packages/*/src/languages.ts

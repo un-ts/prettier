@@ -1,11 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`parser and printer should format all fixtures 1`] = `[Error: path:8:1: ; can only immediately follow a statement]`;
-
-exports[`parser and printer should format all fixtures 2`] = `[Error: path:33:60: a command can only contain words and redirects; encountered (]`;
-
-exports[`parser and printer should format all fixtures 3`] = `[Error: path:35:91: reached EOF without closing quote ']`;
-
 exports[`parser and printer should format all fixtures: .dockerignore 1`] = `
 "*.less.json
 *.log
@@ -218,6 +212,12 @@ get_target_ref() {
 main \\"$@\\"
 "
 `;
+
+exports[`parser and printer should format all fixtures: 146.ini 1`] = `"; can only immediately follow a statement"`;
+
+exports[`parser and printer should format all fixtures: 147.cfg 1`] = `"a command can only contain words and redirects; encountered ("`;
+
+exports[`parser and printer should format all fixtures: 148.ini 1`] = `"reached EOF without closing quote '"`;
 
 exports[`parser and printer should format all fixtures: Dockerfile 1`] = `
 "FROM node:lts-alpine as builder
