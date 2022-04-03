@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.9.1
+
+### Patch Changes
+
+- [#157](https://github.com/rx-ts/prettier/pull/157) [`4ddbb0b`](https://github.com/rx-ts/prettier/commit/4ddbb0bf6a391efa061c1ba51a0d2ce8d90bf4f9) Thanks [@JounQin](https://github.com/JounQin)! - feat: upgrade sh-syntax, parse as AST
+
 ## 0.9.0
 
 ### Minor Changes
