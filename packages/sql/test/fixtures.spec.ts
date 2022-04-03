@@ -1,8 +1,10 @@
 import fs from 'fs'
 import path from 'path'
+import { fileURLToPath } from 'url'
 
 import prettier from 'prettier'
-import SqlPlugin, { SqlFormatOptions } from 'prettier-plugin-sql'
+
+import SqlPlugin, { SqlFormatOptions } from '../src/index.js'
 
 const PARSER_OPTIONS: Record<string, SqlFormatOptions> = {
   144: {
@@ -10,9 +12,14 @@ const PARSER_OPTIONS: Record<string, SqlFormatOptions> = {
   },
 }
 
+const _dirname =
+  typeof __dirname === 'undefined'
+    ? path.dirname(fileURLToPath(import.meta.url))
+    : __dirname
+
 describe('parser and printer', () => {
   it('should format all fixtures', () => {
-    const fixtures = path.resolve(__dirname, 'fixtures')
+    const fixtures = path.resolve(_dirname, 'fixtures')
     for (const filepath of fs.readdirSync(fixtures)) {
       const input = fs.readFileSync(path.resolve(fixtures, filepath)).toString()
 
@@ -21,6 +28,7 @@ describe('parser and printer', () => {
         filepath,
         parser: 'sql',
         plugins: [SqlPlugin],
+        pluginSearchDirs: false,
         ...PARSER_OPTIONS[caseName],
       })
 

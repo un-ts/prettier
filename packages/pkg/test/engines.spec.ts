@@ -1,5 +1,6 @@
 import prettier from 'prettier'
-import PkgPlugin from 'prettier-plugin-pkg'
+
+import PkgPlugin from '../src/index.js'
 
 test('engines', () => {
   const fixture = {
@@ -14,6 +15,7 @@ test('engines', () => {
     filepath: 'package.json',
     parser: 'json-stringify',
     plugins: [PkgPlugin],
+    pluginSearchDirs: false,
   })
 
   expect(output).toMatchSnapshot()

@@ -12,7 +12,7 @@ const _dirname =
     ? path.dirname(fileURLToPath(import.meta.url))
     : __dirname
 
-const workerPath = path.resolve(_dirname, 'worker.js')
+const workerPath = path.resolve(_dirname, '../worker.mjs')
 
 interface ProcessorSync {
   (text: string, options?: ShOptions | undefined): File

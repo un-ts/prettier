@@ -1,6 +1,7 @@
 import prettier from 'prettier'
-import ShPlugin from 'prettier-plugin-sh'
 import { ParseError } from 'sh-syntax'
+
+import ShPlugin from '../src/index.js'
 
 test('fatal parse error with meaningful message', () => {
   try {
@@ -8,6 +9,7 @@ test('fatal parse error with meaningful message', () => {
       filepath: 'broken.sh',
       parser: 'sh',
       plugins: [ShPlugin],
+      pluginSearchDirs: false,
     })
   } catch (err: unknown) {
     // eslint-disable-next-line jest/no-conditional-expect

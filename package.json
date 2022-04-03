@@ -1,6 +1,7 @@
 {
   "name": "@rxts/prettier",
   "version": "0.0.0",
+  "type": "module",
   "description": "Opinionated but Incredible Prettier plugins.",
   "repository": "git@github.com:rx-ts/prettier.git",
   "author": "JounQin <admin@1stg.me>",
@@ -17,13 +18,13 @@
     "clean": "rimraf 'packages/*/{lib,*.tsbuildinfo}'",
     "docs": "w -e docs --publicPath /",
     "format": "ts-node scripts/format",
-    "languages": "ts-node scripts/languages",
+    "languages": "ts-node-esm scripts/languages",
     "lint": "run-p lint:*",
     "lint:es": "eslint . --cache -f friendly",
-    "prepare": "simple-git-hooks && yarn languages && yarn-deduplicate --strategy fewer || exit 0",
+    "prepare": "patch-package && simple-git-hooks && yarn languages && yarn-deduplicate --strategy fewer || exit 0",
     "release": "changeset publish",
     "serve": "sirv dist",
-    "test": "jest",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "typecov": "type-coverage"
   },
   "devDependencies": {
@@ -44,6 +45,7 @@
     "https-proxy-agent": "^5.0.0",
     "js-yaml": "^4.1.0",
     "lodash": "^4.17.21",
+    "patch-package": "^6.4.7",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.3.0",
@@ -73,7 +75,22 @@
   ],
   "jest": {
     "preset": "ts-jest",
-    "collectCoverage": true
+    "collectCoverage": true,
+    "extensionsToTreatAsEsm": [
+      ".ts"
+    ],
+    "moduleNameMapper": {
+      "^(\\.{1,2}/.*)\\.js$": "$1",
+      "^prettier-plugin-(.*)$": "<rootDir>/packages/$1"
+    },
+    "globals": {
+      "ts-jest": {
+        "useESM": true,
+        "tsconfig": {
+          "importHelpers": false
+        }
+      }
+    }
   },
   "renovate": {
     "extends": [
