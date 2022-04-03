@@ -1,4 +1,4 @@
-import { print } from 'sh-syntax'
+import { processor } from 'sh-syntax'
 import { runAsWorker } from 'synckit'
 
-runAsWorker(print)
+runAsWorker(processor)
