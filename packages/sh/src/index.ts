@@ -21,6 +21,31 @@ interface ProcessorSync {
 
 const processorSync = createSyncFn(workerPath) as ProcessorSync
 
+const handleError = <T>(fn: () => T) => {
+  try {
+    return fn()
+  } catch (err: unknown) {
+    const error = err as Error | ParseError | string
+
+    if (typeof error === 'string') {
+      throw new SyntaxError(error)
+    }
+
+    if ('Pos' in error) {
+      throw Object.assign(error, {
+        loc: {
+          start: {
+            column: error.Pos.Col,
+            line: error.Pos.Line,
+          },
+        },
+      })
+    }
+
+    throw error
+  }
+}
+
 const ShPlugin: Plugin<Node> = {
   languages,
   parsers: {
@@ -44,21 +69,23 @@ const ShPlugin: Plugin<Node> = {
           functionNextLine,
         }: ShOptions,
       ) =>
-        processorSync(text, {
-          filepath,
-          useTabs,
-          tabWidth,
-          keepComments,
-          stopAt,
-          variant,
-          indent,
-          binaryNextLine,
-          switchCaseIndent,
-          spaceRedirects,
-          keepPadding,
-          minify,
-          functionNextLine,
-        }),
+        handleError(() =>
+          processorSync(text, {
+            filepath,
+            useTabs,
+            tabWidth,
+            keepComments,
+            stopAt,
+            variant,
+            indent,
+            binaryNextLine,
+            switchCaseIndent,
+            spaceRedirects,
+            keepPadding,
+            minify,
+            functionNextLine,
+          }),
+        ),
       astFormat: 'sh',
       locStart: (node: Node) => node.Pos.Offset,
       locEnd: (node: Node) => node.End.Offset,
@@ -84,9 +111,9 @@ const ShPlugin: Plugin<Node> = {
           minify,
           functionNextLine,
         }: ShOptions,
-      ) => {
-        try {
-          return processorSync(path.getValue() as File, {
+      ) =>
+        handleError(() =>
+          processorSync(path.getValue() as File, {
             filepath,
             originalText,
             useTabs,
@@ -101,22 +128,8 @@ const ShPlugin: Plugin<Node> = {
             keepPadding,
             minify,
             functionNextLine,
-          })
-        } catch (err: unknown) {
-          const error = err as ParseError | string
-          if (typeof error === 'string') {
-            throw new SyntaxError(error)
-          }
-          throw Object.assign(error, {
-            loc: {
-              start: {
-                column: error.Pos.Col,
-                line: error.Pos.Line,
-              },
-            },
-          })
-        }
-      },
+          }),
+        ),
     },
   },
   options: {

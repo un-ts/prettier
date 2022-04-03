@@ -3,6 +3,7 @@ import path from 'path'
 
 import prettier from 'prettier'
 import ShPlugin from 'prettier-plugin-sh'
+import { ParseError } from 'sh-syntax'
 
 describe('parser and printer', () => {
   it('should format all fixtures', () => {
@@ -20,7 +21,7 @@ describe('parser and printer', () => {
         expect(output).toMatchSnapshot(filepath)
       } catch (err: unknown) {
         // eslint-disable-next-line jest/no-conditional-expect
-        expect(err).toMatchSnapshot()
+        expect((err as ParseError).Text).toMatchSnapshot(filepath)
       }
     }
   })

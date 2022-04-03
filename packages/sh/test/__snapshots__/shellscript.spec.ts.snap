@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`fatal parse error with meaningful message 1`] = `"a command can only contain words and redirects; encountered )"`;
