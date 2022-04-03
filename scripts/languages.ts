@@ -3,7 +3,7 @@ import { get } from 'https'
 
 import createHttpsProxyAgent from 'https-proxy-agent'
 import { load } from 'js-yaml'
-import { pick } from 'lodash'
+import _ from 'lodash'
 import { SupportLanguage } from 'prettier'
 
 const proxyUrl =
@@ -73,7 +73,7 @@ const getSupportLanguages = (
         name,
         since: '0.1.0',
         parsers: [parser],
-        ...pick(
+        ..._.pick(
           language,
           'group',
           'aliases',

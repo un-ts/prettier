@@ -1,5 +1,5 @@
 import { Plugin } from 'prettier'
-import { parsers } from 'prettier/parser-babel'
+import babelParser from 'prettier/parser-babel'
 
 import { files } from './rules/files.js'
 import { object } from './rules/object.js'
@@ -10,7 +10,7 @@ const PKG_REG = /[/\\]?package\.json$/
 
 const {
   json: { parse },
-} = parsers
+} = babelParser.parsers
 
 const format = (properties: ObjectProperty[]) => {
   let props = ['engines', 'scripts', ...dependencyNames].reduce(
@@ -25,7 +25,7 @@ export default {
   name: 'prettier-plugin-pkg',
   parsers: {
     'json-stringify': {
-      ...parsers['json-stringify'],
+      ...babelParser.parsers['json-stringify'],
       parse(text, parsers, options) {
         const { filepath } = options
         const ast = parse(text, parsers, options) as ObjectExpression

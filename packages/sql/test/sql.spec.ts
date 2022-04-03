@@ -1,11 +1,13 @@
 import prettier from 'prettier'
-import SqlPlugin, { SqlFormatOptions } from 'prettier-plugin-sql'
+
+import SqlPlugin, { SqlFormatOptions } from '../src/index.js'
 
 test('node-sql-parser', () => {
   const options: SqlFormatOptions = {
     filepath: 'test.sql',
     parser: 'sql',
     plugins: [SqlPlugin],
+    pluginSearchDirs: false,
     formatter: 'node-sql-parser',
   }
   expect(prettier.format('SELECT * FROM `t`', options)).toMatchSnapshot()
