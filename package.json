@@ -12,7 +12,6 @@
   ],
   "scripts": {
     "build": "run-p build:*",
-    "build:docs": "w -e docs -p --publicPath /",
     "build:r": "r -f cjs",
     "build:ts": "tsc -b",
     "clean": "rimraf 'packages/*/{lib,*.tsbuildinfo}'",
@@ -25,10 +24,11 @@
     "release": "changeset publish",
     "serve": "sirv dist",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "typecov": "type-coverage"
+    "typecov": "type-coverage",
+    "vercel-build": "w -e docs -p --publicPath /"
   },
   "devDependencies": {
-    "@1stg/lib-config": "^5.4.0",
+    "@1stg/lib-config": "^5.5.0",
     "@babel/types": "^7.17.0",
     "@changesets/changelog-github": "^0.4.4",
     "@changesets/cli": "^2.22.0",

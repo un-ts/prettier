@@ -29,8 +29,14 @@ const Package = () => {
 export const App = () => (
   <Router>
     <Routes>
-      <Route path="/packages/:name" element={<Package />} />
-      <Route path="/" element={<Home />} />
+      <Route
+        path="/packages/:name"
+        element={<Package />}
+      />
+      <Route
+        path="/"
+        element={<Home />}
+      />
     </Routes>
   </Router>
 )
