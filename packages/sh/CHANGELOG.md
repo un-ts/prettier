@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.10.1
+
+### Patch Changes
+
+- [#163](https://github.com/rx-ts/prettier/pull/163) [`2242e88`](https://github.com/rx-ts/prettier/commit/2242e884def1ef534a3aae4d6a4af3c4a22a6d0e) Thanks [@JounQin](https://github.com/JounQin)! - fix: upgrade sh-syntax
+
 ## 0.10.0
 
 ### Minor Changes
