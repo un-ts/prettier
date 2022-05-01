@@ -36,7 +36,7 @@
     "@pkgr/webpack-mdx": "^2.0.1",
     "@types/jest": "^27.4.1",
     "@types/js-yaml": "^4.0.5",
-    "@types/lodash": "^4.14.181",
+    "@types/lodash": "^4.14.182",
     "@types/prettier": "^2.4.4",
     "@types/react": "^17.0.43",
     "@types/react-dom": "^17.0.14",
