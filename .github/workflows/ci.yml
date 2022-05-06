@@ -13,6 +13,7 @@ jobs:
           - 12
           - 14
           - 16
+          - 18
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
