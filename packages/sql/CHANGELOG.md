@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.6.1
+
+### Patch Changes
+
+- [#168](https://github.com/rx-ts/prettier/pull/168) [`f686714`](https://github.com/rx-ts/prettier/commit/f686714f35b45c467d612afd763fafa34a6eeac2) Thanks [@JounQin](https://github.com/JounQin)! - fix: `types` should always come first in `exports`
+
 ## 0.6.0
 
 ### Minor Changes

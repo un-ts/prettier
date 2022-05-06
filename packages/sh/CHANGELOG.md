@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.10.2
+
+### Patch Changes
+
+- [`6b0d5d9`](https://github.com/rx-ts/prettier/commit/6b0d5d9d57bcf4dbcda83a27dcd0d7d85c281d3d) Thanks [@JounQin](https://github.com/JounQin)! - refactor: use appropriate module for worker
+
+- [#168](https://github.com/rx-ts/prettier/pull/168) [`f686714`](https://github.com/rx-ts/prettier/commit/f686714f35b45c467d612afd763fafa34a6eeac2) Thanks [@JounQin](https://github.com/JounQin)! - fix: `types` should always come first in `exports`
+
 ## 0.10.1
 
 ### Patch Changes
