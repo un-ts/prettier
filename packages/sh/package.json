@@ -20,6 +20,7 @@
   "types": "./lib/index.d.ts",
   "files": [
     "lib",
+    "worker.cjs",
     "worker.mjs"
   ],
   "keywords": [

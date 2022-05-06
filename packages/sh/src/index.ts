@@ -7,12 +7,16 @@ import { createSyncFn } from 'synckit'
 
 import { languages } from './languages.js'
 
-const _dirname =
-  typeof __dirname === 'undefined'
-    ? path.dirname(fileURLToPath(import.meta.url))
-    : __dirname
+const isInModule = typeof __dirname === 'undefined'
 
-const workerPath = path.resolve(_dirname, '../worker.mjs')
+const _dirname = isInModule
+  ? path.dirname(fileURLToPath(import.meta.url))
+  : __dirname
+
+const workerPath = path.resolve(
+  _dirname,
+  `../worker.${isInModule ? 'mjs' : 'cjs'}`,
+)
 
 interface ProcessorSync {
   (text: string, options?: ShOptions | undefined): File
