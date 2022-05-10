@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.11.0
+
+### Minor Changes
+
+- [#169](https://github.com/rx-ts/prettier/pull/169) [`ea8ad8d`](https://github.com/rx-ts/prettier/commit/ea8ad8d0dccefa3c3728e9cbe97a92a1647d1506) Thanks [@JounQin](https://github.com/JounQin)! - feat: use mvdan-sh again due to sh-syntax unstable yet
+
 ## 0.10.2
 
 ### Patch Changes
