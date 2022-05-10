@@ -19,9 +19,7 @@
   },
   "types": "./lib/index.d.ts",
   "files": [
-    "lib",
-    "worker.cjs",
-    "worker.mjs"
+    "lib"
   ],
   "keywords": [
     "dockerfile",
@@ -38,8 +36,7 @@
     "prettier": "^2.0.0"
   },
   "dependencies": {
-    "sh-syntax": "^0.1.4",
-    "synckit": "^0.7.0"
+    "mvdan-sh": "^0.10.1"
   },
   "publishConfig": {
     "access": "public"

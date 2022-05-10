@@ -1,52 +1,61 @@
-import path from 'path'
-import { fileURLToPath } from 'url'
-
-import { IntSupportOption, PathSupportOption, Plugin } from 'prettier'
-import { File, Node, ParseError, ShOptions } from 'sh-syntax'
-import { createSyncFn } from 'synckit'
+import sh, { LangVariant, Node, Pos } from 'mvdan-sh'
+import {
+  IntSupportOption,
+  ParserOptions,
+  PathSupportOption,
+  Plugin,
+  RequiredOptions,
+} from 'prettier'
 
 import { languages } from './languages.js'
 
-const isInModule = typeof __dirname === 'undefined'
+const { syntax } = sh
 
-const _dirname = isInModule
-  ? path.dirname(fileURLToPath(import.meta.url))
-  : __dirname
+export interface ShOptions extends RequiredOptions {
+  // parser
+  keepComments: boolean
+  stopAt: string
+  variant: LangVariant
 
-const workerPath = path.resolve(
-  _dirname,
-  `../worker.${isInModule ? 'mjs' : 'cjs'}`,
-)
-
-interface ProcessorSync {
-  (text: string, options?: ShOptions | undefined): File
-  (ast: File, options?: ShOptions | undefined): string
+  // printer
+  indent: number
+  binaryNextLine: boolean
+  switchCaseIndent: boolean
+  spaceRedirects: boolean
+  keepPadding: boolean
+  minify: boolean
+  functionNextLine: boolean
 }
 
-const processorSync = createSyncFn(workerPath) as ProcessorSync
+export type ShParserOptions = ParserOptions<Node> & ShOptions
 
-const handleError = <T>(fn: () => T) => {
-  try {
-    return fn()
-  } catch (err: unknown) {
-    const error = err as Error | ParseError | string
+export interface IShParseError extends Error {
+  Filename: string
+  Pos: Pos
+  Text: string
+  Incomplete: boolean
+  Error(): void
+}
 
-    if (typeof error === 'string') {
-      throw new SyntaxError(error)
+class ShParseError extends SyntaxError {
+  declare cause: IShParseError
+
+  declare loc: {
+    start: {
+      column: number
+      line: number
     }
+  }
 
-    if ('Pos' in error) {
-      throw Object.assign(error, {
-        loc: {
-          start: {
-            column: error.Pos.Col,
-            line: error.Pos.Line,
-          },
-        },
-      })
+  constructor(err: IShParseError) {
+    super(err.Text)
+    this.cause = err
+    this.loc = {
+      start: {
+        column: err.Pos.Col(),
+        line: err.Pos.Line(),
+      },
     }
-
-    throw error
   }
 }
 
@@ -57,42 +66,27 @@ const ShPlugin: Plugin<Node> = {
       parse: (
         text,
         _parsers,
-        {
-          filepath,
-          useTabs,
-          tabWidth,
-          keepComments,
-          stopAt,
-          variant,
-          indent,
-          binaryNextLine,
-          switchCaseIndent,
-          spaceRedirects,
-          keepPadding,
-          minify,
-          functionNextLine,
-        }: ShOptions,
-      ) =>
-        handleError(() =>
-          processorSync(text, {
-            filepath,
-            useTabs,
-            tabWidth,
-            keepComments,
-            stopAt,
-            variant,
-            indent,
-            binaryNextLine,
-            switchCaseIndent,
-            spaceRedirects,
-            keepPadding,
-            minify,
-            functionNextLine,
-          }),
-        ),
+        { filepath, keepComments = true, stopAt, variant }: Partial<ShOptions>,
+      ) => {
+        const parserOptions = [syntax.KeepComments(keepComments)]
+
+        if (stopAt != null) {
+          parserOptions.push(syntax.StopAt(stopAt))
+        }
+
+        if (variant != null) {
+          parserOptions.push(syntax.Variant(variant))
+        }
+
+        try {
+          return syntax.NewParser(...parserOptions).Parse(text, filepath)
+        } catch (err) {
+          throw new ShParseError(err as IShParseError)
+        }
+      },
       astFormat: 'sh',
-      locStart: (node: Node) => node.Pos.Offset,
-      locEnd: (node: Node) => node.End.Offset,
+      locStart: node => node.Pos().Offset(),
+      locEnd: node => node.End().Offset(),
     },
   },
   printers: {
@@ -100,40 +94,28 @@ const ShPlugin: Plugin<Node> = {
       print: (
         path,
         {
-          originalText,
-          filepath,
           useTabs,
           tabWidth,
-          keepComments,
-          stopAt,
-          variant,
-          indent,
-          binaryNextLine,
-          switchCaseIndent,
-          spaceRedirects,
+          indent = useTabs ? 0 : tabWidth,
+          binaryNextLine = true,
+          switchCaseIndent = true,
+          spaceRedirects = true,
           keepPadding,
           minify,
           functionNextLine,
-        }: ShOptions,
+        }: ShParserOptions,
       ) =>
-        handleError(() =>
-          processorSync(path.getValue() as File, {
-            filepath,
-            originalText,
-            useTabs,
-            tabWidth,
-            keepComments,
-            stopAt,
-            variant,
-            indent,
-            binaryNextLine,
-            switchCaseIndent,
-            spaceRedirects,
-            keepPadding,
-            minify,
-            functionNextLine,
-          }),
-        ),
+        syntax
+          .NewPrinter(
+            syntax.Indent(indent),
+            syntax.BinaryNextLine(binaryNextLine),
+            syntax.SwitchCaseIndent(switchCaseIndent),
+            syntax.SpaceRedirects(spaceRedirects),
+            syntax.KeepPadding(keepPadding),
+            syntax.Minify(minify),
+            syntax.FunctionNextLine(functionNextLine),
+          )
+          .Print(path.getValue()),
     },
   },
   options: {
