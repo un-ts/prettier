@@ -3,9 +3,8 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 
 import prettier from 'prettier'
-import { ParseError } from 'sh-syntax'
 
-import ShPlugin from '../src/index.js'
+import ShPlugin, { IShParseError } from '../src/index.js'
 
 const _dirname =
   typeof __dirname === 'undefined'
@@ -29,7 +28,9 @@ describe('parser and printer', () => {
         expect(output).toMatchSnapshot(filepath)
       } catch (err: unknown) {
         // eslint-disable-next-line jest/no-conditional-expect
-        expect((err as ParseError).Text).toMatchSnapshot(filepath)
+        expect(
+          ((err as SyntaxError).cause as IShParseError).Text,
+        ).toMatchSnapshot(filepath)
       }
     }
   })
