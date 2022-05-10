@@ -80,7 +80,7 @@ const ShPlugin: Plugin<Node> = {
 
         try {
           return syntax.NewParser(...parserOptions).Parse(text, filepath)
-        } catch (err) {
+        } catch (err: unknown) {
           throw new ShParseError(err as IShParseError)
         }
       },
