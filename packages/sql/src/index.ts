@@ -365,7 +365,9 @@ This option is ignored when \`indentStyle: "tabularLeft"\` or \`"tabularRight"\`
         return (
           value == null ||
           (Array.isArray(value)
-            ? value.every(v => typeof v === 'string' || typeof v === 'number')
+            ? value.every(
+                (v: unknown) => typeof v === 'string' || typeof v === 'number',
+              )
             : typeof value === 'object')
         )
       },
