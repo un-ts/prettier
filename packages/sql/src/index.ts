@@ -1,6 +1,6 @@
 import nodeSqlParser, { type AST, type Option } from 'node-sql-parser'
 import { Options, ParserOptions, Plugin } from 'prettier'
-import { FormatOptions, format } from 'sql-formatter'
+import { format, FormatFnOptions } from 'sql-formatter'
 
 import { languages } from './languages.js'
 
@@ -9,8 +9,8 @@ const parser = new nodeSqlParser.Parser()
 const SQL_FORMATTER = 'sql-formatter'
 const NODE_SQL_PARSER = 'node-sql-parser'
 
-export type SqlBaseOptions = Omit<FormatOptions, 'indent'> &
-  Option & {
+export type SqlBaseOptions = Option &
+  Partial<FormatFnOptions> & {
     formatter?: typeof NODE_SQL_PARSER | typeof SQL_FORMATTER
   }
 
@@ -34,26 +34,10 @@ const SqlPlugin: Plugin<AST | string> = {
   },
   printers: {
     sql: {
-      print(
-        path,
-        {
-          useTabs,
-          tabWidth,
-          language,
-          uppercase,
-          linesBetweenQueries,
-          type,
-          database,
-        }: SqlOptions,
-      ) {
+      print(path, { type, database, ...options }: SqlOptions) {
         const value = path.getValue()
         return typeof value === 'string'
-          ? format(value, {
-              language,
-              uppercase,
-              linesBetweenQueries,
-              indent: useTabs ? '\b' : ' '.repeat(tabWidth),
-            })
+          ? format(value, options)
           : parser.sqlify(value, { type, database })
       },
     },
@@ -129,21 +113,262 @@ const SqlPlugin: Plugin<AST | string> = {
         },
       ],
     },
+    keywordCase: {
+      since: '0.7.0',
+      category: 'Output',
+      type: 'choice',
+      default: 'preserve',
+      description:
+        'Converts reserved keywords and builtin function names to upper or lowercase for `sql-formatter`',
+      choices: [
+        {
+          value: 'preserve',
+          description: 'preserves the original case',
+        },
+        {
+          value: 'upper',
+          description: 'converts to uppercase',
+        },
+        {
+          value: 'lower',
+          description: 'converts to lowercase',
+        },
+      ],
+    },
     uppercase: {
       since: '0.1.0',
       category: 'Output',
       type: 'boolean',
+      deprecated: '0.7.0',
+      description: 'Use `keywordCase` option instead',
+    },
+    indentStyle: {
+      since: '0.7.0',
+      category: 'Format',
+      type: 'choice',
+      default: 'standard',
+      description: `Switches between different indentation styles for \`sql-formatter\`.
+
+      Caveats of using \`"tabularLeft"\` and \`"tabularRight"\`:
+
+      - \`tabWidth\` option is ignored. Indentation will always be 10 spaces, regardless of what is specified by \`tabWidth\`
+      - \`newlineBeforeOpenParen\` option is ignored
+      - \`newlineBeforeCloseParen\` option is ignored`,
+      choices: [
+        {
+          value: 'standard',
+          description:
+            'indents code by the amount specified by `tabWidth` option',
+        },
+        {
+          value: 'tabularLeft',
+          description:
+            'indents in tabular style with 10 spaces, aligning keywords to left',
+        },
+        {
+          value: 'tabularRight',
+          description:
+            'indents in tabular style with 10 spaces, aligning keywords to right',
+        },
+      ],
+    },
+    multilineLists: {
+      since: '0.7.0',
+      category: 'Format',
+      type: 'choice',
+      default: 'always',
+      description:
+        'Determines when to break lists of items (e.g. columns in `SELECT` clause) to multiple lines for `sql-formatter`',
+      choices: [
+        {
+          value: 'always',
+          description:
+            'always breaks to multiple lines (even when just a single item)',
+        },
+        {
+          value: 'avoid',
+          description:
+            'avoids breaking to multiple lines, regardless of item count or line length',
+        },
+        {
+          value: 'expressionWidth',
+          description:
+            'breaks to multiple lines when the line would exceed value of `expressionWidth` option',
+        },
+        {
+          value: undefined,
+          description:
+            'breaks to multiple lines when there are more items than the specified number',
+          // @ts-expect-error
+          redirect: '_multilineLists',
+        },
+      ],
+    },
+    _multilineLists: {
+      // @ts-expect-error
+      hidden: true,
+      since: '0.7.0',
+      category: 'Format',
+      type: 'int',
+      description:
+        'Determines when to break lists of items (e.g. columns in `SELECT` clause) to multiple lines for `sql-formatter`',
+    },
+    logicalOperatorNewline: {
+      since: '0.7.0',
+      category: 'Format',
+      type: 'choice',
+      default: 'before',
+      description:
+        'Decides newline placement before or after logical operators (AND, OR, XOR)',
+      choices: [
+        {
+          value: 'before',
+          description: 'adds newline before the operator',
+        },
+        {
+          value: 'after',
+          description: 'adds newline after the operator',
+        },
+      ],
+    },
+    aliasAs: {
+      since: '0.7.0',
+      category: 'Format',
+      type: 'choice',
+      default: 'preserve',
+      description:
+        'Enforces consistent use of `AS` keywords in alias declarations for `sql-formatter`',
+      choices: [
+        {
+          value: 'preserve',
+          description: 'does nothing',
+        },
+        {
+          value: 'always',
+          description: 'enforces `AS` usage for all aliases',
+        },
+        {
+          value: 'never',
+          description: 'forbids `AS` usage for all aliases',
+        },
+        {
+          value: 'select',
+          description:
+            'enforces `AS` usage in column aliases of `SELECT` and forbids it for table name aliases',
+        },
+      ],
+    },
+    tabulateAlias: {
+      since: '0.7.0',
+      category: 'Format',
+      type: 'boolean',
       default: false,
       description:
-        'Capitalize language keywords for `sql-formatter`, not safe to use when SQL dialect has case-sensitive identifiers',
+        'Aligns column aliases into a single column  for `sql-formatter`. Does not effect table name aliases, does not work when option `multilineLists: "avoid"` is used.',
+    },
+    commaPosition: {
+      since: '0.7.0',
+      category: 'Format',
+      type: 'choice',
+      default: 'after',
+      description:
+        'Defines where to place commas in lists of columns for `sql-formatter`',
+      choices: [
+        {
+          value: 'after',
+          description: 'places comma at the end of line',
+        },
+        {
+          value: 'before',
+          description: 'places comma at the start of line',
+        },
+        {
+          value: 'tabular',
+          description: 'aligns commas in a column at the end of line',
+        },
+      ],
+    },
+    newlineBeforeOpenParen: {
+      since: '0.7.0',
+      category: 'Format',
+      type: 'boolean',
+      default: true,
+      description: `Decides whether to place open-parenthesis \`(\` of sub-queries on a separate line for \`sql-formatter\`.
+
+Caveats:
+
+This option is ignored when \`indentStyle: "tabularLeft"\` or \`"tabularRight"\` is used.`,
+    },
+    newlineBeforeCloseParen: {
+      since: '0.7.0',
+      category: 'Format',
+      type: 'boolean',
+      default: true,
+      description: `Decides whether to place close-parenthesis \`)\` of sub-queries on a separate line for \`sql-formatter\`.
+
+Caveats:
+
+This option is ignored when \`indentStyle: "tabularLeft"\` or \`"tabularRight"\` is used.`,
+    },
+    expressionWidth: {
+      since: '0.7.0',
+      category: 'Format',
+      type: 'int',
+      default: 50,
+      description:
+        'Determines maximum length of parenthesized expressions for `sql-formatter`',
     },
     linesBetweenQueries: {
       since: '0.1.0',
       category: 'Format',
       type: 'int',
-      default: 2,
+      default: 1,
       description:
-        'How many newlines to insert between queries (separated by ";") for `sql-formatter`',
+        'Decides how many empty lines to leave between SQL statements for `sql-formatter`',
+    },
+    denseOperators: {
+      since: '0.7.0',
+      category: 'Format',
+      type: 'boolean',
+      default: false,
+      description:
+        'Decides whitespace around operators for `sql-formatter`. Does not apply to logical operators (AND, OR, XOR).',
+    },
+    newlineBeforeSemicolon: {
+      since: '0.7.0',
+      category: 'Format',
+      type: 'boolean',
+      default: false,
+      description:
+        'Whether to place query separator (`;`) on a separate line for `sql-formatter`',
+    },
+    params: {
+      since: '0.7.0',
+      category: 'Format',
+      type: 'choice',
+      description:
+        'Specifies parameter values to fill in for placeholders inside SQL for `sql-formatter`. This option is designed to be used through API (though nothing really prevents usage from command line).',
+      choices: [
+        {
+          value: Array,
+          description:
+            '`Array` of strings and/or numbers for position placeholders',
+        },
+        {
+          value: Object,
+          description:
+            '`Object` of name-value pairs for named (and indexed) placeholders',
+        },
+      ],
+      // @ts-expect-error
+      exception(value: unknown) {
+        return (
+          value == null ||
+          (Array.isArray(value)
+            ? value.every(v => typeof v === 'string' || typeof v === 'number')
+            : typeof value === 'object')
+        )
+      },
     },
     type: {
       since: '0.1.0',

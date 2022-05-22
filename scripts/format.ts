@@ -1,4 +1,4 @@
-import fs from 'fs'
+import fs from 'node:fs'
 
 import { tryFile } from '@pkgr/utils'
 import prettier from 'prettier'
@@ -16,6 +16,7 @@ Promise.all(
     const input = await fs.promises.readFile(filepath, 'utf8')
 
     const output = prettier.format(input, {
+      ...(await prettier.resolveConfig(filepath)),
       plugins: [pkgPlugin, shPlugin],
       filepath,
     })

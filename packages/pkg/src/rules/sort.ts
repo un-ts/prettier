@@ -1,3 +1,12 @@
+/*
+  Copyright © 2019 Andrew Powell
+  This Source Code Form is subject to the terms of the Mozilla Public
+  License, v. 2.0. If a copy of the MPL was not distributed with this
+  file, You can obtain one at http://mozilla.org/MPL/2.0/.
+  The above copyright notice and this permission notice shall be
+  included in all copies or substantial portions of this Source Code Form.
+*/
+
 import { ObjectProperty } from '../types.js'
 import { alphabetSort, sortObject } from '../utils.js'
 
@@ -8,6 +17,7 @@ export const dependencyNames = [
   'dependencies',
   'optionalDependencies',
   'devDependencies',
+  'overrides',
   'resolutions',
 ]
 
@@ -49,11 +59,18 @@ const primary = [
   'bin',
   'main',
   'module',
+  'imports',
   'exports',
   'esnext',
+  'es2020',
+  'esm2020',
+  'fesm2020',
   'es2015',
-  'fesm5',
+  'esm2015',
   'fesm2015',
+  'es5',
+  'esm5',
+  'fesm5',
   'browser',
   'umd',
   'jsdelivr',

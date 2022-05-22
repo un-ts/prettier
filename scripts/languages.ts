@@ -1,5 +1,5 @@
-import fs from 'fs'
-import { get } from 'https'
+import fs from 'node:fs'
+import { get } from 'node:https'
 
 import createHttpsProxyAgent from 'https-proxy-agent'
 import { load } from 'js-yaml'
