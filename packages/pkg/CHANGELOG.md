@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.13.2
+
+### Patch Changes
+
+- [`2ae5317`](https://github.com/rx-ts/prettier/commit/2ae53176fdd545aa93957a19f778d107adadf242) Thanks [@JounQin](https://github.com/JounQin)! - fix: use `overrides` field as dependency, support more Angular package formats
+
 ## 0.13.1
 
 ### Patch Changes

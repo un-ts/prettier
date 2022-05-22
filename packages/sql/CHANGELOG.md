@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.7.0
+
+### Minor Changes
+
+- [`2ae5317`](https://github.com/rx-ts/prettier/commit/2ae53176fdd545aa93957a19f778d107adadf242) Thanks [@JounQin](https://github.com/JounQin)! - feat!: upgrade `sql-formatter` and related usage
+
+  The default `linesBetweenQueries` option value has changed to be `1`.
+
 ## 0.6.1
 
 ### Patch Changes
