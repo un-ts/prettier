@@ -15,7 +15,7 @@
     "build:r": "r -f cjs",
     "build:ts": "tsc -b",
     "clean": "rimraf 'packages/*/{lib,*.tsbuildinfo}'",
-    "docs": "w -e docs --publicPath /",
+    "dev": "w -e docs --disableDotRule --publicPath /",
     "format": "ts-node-esm scripts/format",
     "languages": "ts-node-esm scripts/languages",
     "lint": "run-p lint:*",
