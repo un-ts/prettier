@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.14.0
+
+### Minor Changes
+
+- [`3da1ac4`](https://github.com/rx-ts/prettier/commit/3da1ac466b6594fc12f60c0ea9fa64f3e085396b) Thanks [@JounQin](https://github.com/JounQin)! - feat(pkg): add packageManager field support
+
 ## 0.13.2
 
 ### Patch Changes

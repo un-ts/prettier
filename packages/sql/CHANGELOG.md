@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.0
+
+### Minor Changes
+
+- [`3da1ac4`](https://github.com/rx-ts/prettier/commit/3da1ac466b6594fc12f60c0ea9fa64f3e085396b) Thanks [@JounQin](https://github.com/JounQin)! - feat(sql): bump sql-formatter to v7
+
 ## 0.7.0
 
 ### Minor Changes
