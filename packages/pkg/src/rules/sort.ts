@@ -50,6 +50,7 @@ const primary = [
 
   // constraints
   'languageName',
+  'packageManager',
   'engines',
   'cpu',
   'os',
