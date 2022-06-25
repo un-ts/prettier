@@ -1,44 +1,36 @@
-import sh, { LangVariant, Node, Pos } from 'mvdan-sh'
-import {
-  IntSupportOption,
-  ParserOptions,
-  PathSupportOption,
-  Plugin,
-  RequiredOptions,
-} from 'prettier'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+import { ParserOptions, Plugin } from 'prettier'
+import { File, Node, ParseError, ShOptions } from 'sh-syntax'
+import { createSyncFn } from 'synckit'
 
 import { languages } from './languages.js'
 
-const { syntax } = sh
+const _dirname =
+  typeof __dirname === 'undefined'
+    ? path.dirname(fileURLToPath(import.meta.url))
+    : __dirname
 
-export interface ShOptions extends RequiredOptions {
-  // parser
-  keepComments: boolean
-  stopAt: string
-  variant: LangVariant
-
-  // printer
-  indent: number
-  binaryNextLine: boolean
-  switchCaseIndent: boolean
-  spaceRedirects: boolean
-  keepPadding: boolean
-  minify: boolean
-  functionNextLine: boolean
+export interface Processor {
+  (text: string, options?: ShOptions): File
+  (text: string, options?: ShOptions & { print: true }): string
+  (
+    ast: File,
+    options?: ShOptions & {
+      originalText: string
+    },
+  ): string
 }
+
+const processor = createSyncFn<typeof import('sh-syntax').processor>(
+  path.resolve(_dirname, 'worker.js'),
+) as Processor
 
 export type ShParserOptions = ParserOptions<Node> & ShOptions
 
-export interface IShParseError extends Error {
-  Filename: string
-  Pos: Pos
-  Text: string
-  Incomplete: boolean
-  Error(): void
-}
-
 class ShParseError extends SyntaxError {
-  declare cause: IShParseError
+  declare cause: ParseError
 
   declare loc: {
     start: {
@@ -47,13 +39,13 @@ class ShParseError extends SyntaxError {
     }
   }
 
-  constructor(err: IShParseError) {
+  constructor(err: ParseError) {
     super(err.Text)
     this.cause = err
     this.loc = {
       start: {
-        column: err.Pos.Col(),
-        line: err.Pos.Line(),
+        column: err.Pos.Col,
+        line: err.Pos.Line,
       },
     }
   }
@@ -66,27 +58,22 @@ const ShPlugin: Plugin<Node> = {
       parse: (
         text,
         _parsers,
-        { filepath, keepComments = true, stopAt, variant }: Partial<ShOptions>,
+        { filepath, keepComments = true, stopAt, variant }: ShOptions,
       ) => {
-        const parserOptions = [syntax.KeepComments(keepComments)]
-
-        if (stopAt != null) {
-          parserOptions.push(syntax.StopAt(stopAt))
-        }
-
-        if (variant != null) {
-          parserOptions.push(syntax.Variant(variant))
-        }
-
         try {
-          return syntax.NewParser(...parserOptions).Parse(text, filepath)
+          return processor(text, {
+            filepath,
+            keepComments,
+            stopAt,
+            variant,
+          })
         } catch (err: unknown) {
-          throw new ShParseError(err as IShParseError)
+          throw new ShParseError(err as ParseError)
         }
       },
       astFormat: 'sh',
-      locStart: node => node.Pos().Offset(),
-      locEnd: node => node.End().Offset(),
+      locStart: node => node.Pos.Offset,
+      locEnd: node => node.End.Offset,
     },
   },
   printers: {
@@ -94,6 +81,7 @@ const ShPlugin: Plugin<Node> = {
       print: (
         path,
         {
+          originalText,
           useTabs,
           tabWidth,
           indent = useTabs ? 0 : tabWidth,
@@ -105,17 +93,18 @@ const ShPlugin: Plugin<Node> = {
           functionNextLine,
         }: ShParserOptions,
       ) =>
-        syntax
-          .NewPrinter(
-            syntax.Indent(indent),
-            syntax.BinaryNextLine(binaryNextLine),
-            syntax.SwitchCaseIndent(switchCaseIndent),
-            syntax.SpaceRedirects(spaceRedirects),
-            syntax.KeepPadding(keepPadding),
-            syntax.Minify(minify),
-            syntax.FunctionNextLine(functionNextLine),
-          )
-          .Print(path.getValue()),
+        processor(path.getNode() as File, {
+          originalText,
+          useTabs,
+          tabWidth,
+          indent,
+          binaryNextLine,
+          switchCaseIndent,
+          spaceRedirects,
+          keepPadding,
+          minify,
+          functionNextLine,
+        }),
     },
   },
   options: {
@@ -137,7 +126,7 @@ const ShPlugin: Plugin<Node> = {
         'As a word, it will only apply when following whitespace or a separating token. For example, StopAt("$$") will act on the inputs "foo $$" and "foo;$$", but not on "foo \'$$\'".',
         'The match is done by prefix, so the example above will also act on "foo $$bar".',
       ].join('\n'),
-    } as PathSupportOption,
+    },
     variant: {
       since: '0.1.0',
       category: 'Config',
@@ -166,7 +155,7 @@ const ShPlugin: Plugin<Node> = {
       type: 'int',
       description:
         'Indent sets the number of spaces used for indentation. If set to 0, tabs will be used instead.',
-    } as IntSupportOption,
+    },
     binaryNextLine: {
       since: '0.1.0',
       category: 'Output',
