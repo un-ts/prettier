@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.14.1
+
+### Patch Changes
+
+- [#180](https://github.com/rx-ts/prettier/pull/180) [`702f44a`](https://github.com/rx-ts/prettier/commit/702f44a70af261fda02341a8ea90d6973f31f3e6) Thanks [@JounQin](https://github.com/JounQin)! - chore: update node engine setting
+
 ## 0.14.0
 
 ### Minor Changes
