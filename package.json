@@ -76,6 +76,10 @@
   ],
   "jest": {
     "preset": "ts-jest",
+    "reporters": [
+      "default",
+      "github-actions"
+    ],
     "collectCoverage": true,
     "extensionsToTreatAsEsm": [
       ".ts"
