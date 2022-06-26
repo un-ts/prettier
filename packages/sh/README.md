@@ -4,7 +4,7 @@
 
 # prettier-plugin-sh ![npm bundle size](https://img.shields.io/bundlephobia/min/prettier-plugin-sh) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/prettier-plugin-sh)
 
-> An opinionated `shellscript、Dockerfile、properties、gitignore、dotenv、hosts、jvmoptions...` formatter plugin for [Prettier][]
+> An opinionated `shellscript` formatter plugin for [Prettier][], also support simple format of `Dockerfile`, `properties`, `gitignore`, `dotenv`, `hosts`, `jvmoptions`...
 
 Prettier is an opinionated code formatter. It enforces a consistent style by parsing your code and re-printing, taking various rules into account.
 
