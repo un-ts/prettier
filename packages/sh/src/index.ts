@@ -29,24 +29,21 @@ const processor = createSyncFn<typeof import('sh-syntax').processor>(
 
 export type ShParserOptions = ParserOptions<Node> & ShOptions
 
-class ShParseError extends SyntaxError {
-  declare cause: ParseError
+class ShParseError<
+  E extends Error = ParseError | SyntaxError,
+> extends SyntaxError {
+  declare cause: E
 
-  declare loc: {
-    start: {
-      column: number
-      line: number
-    }
-  }
+  declare loc: { start: { column: number; line: number } } | undefined
 
-  constructor(err: ParseError) {
-    super(err.Text)
+  constructor(err: E) {
+    const error = err as ParseError | SyntaxError
+    super(('Text' in error && error.Text) || error.message)
     this.cause = err
-    this.loc = {
-      start: {
-        column: err.Pos.Col,
-        line: err.Pos.Line,
-      },
+    // FIXME: `error instanceof ParseError` is not working
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- just for robustness
+    if ('Pos' in error && error.Pos != null && typeof error.Pos === 'object') {
+      this.loc = { start: { column: error.Pos.Col, line: error.Pos.Line } }
     }
   }
 }
@@ -68,7 +65,7 @@ const ShPlugin: Plugin<Node> = {
             variant,
           })
         } catch (err: unknown) {
-          throw new ShParseError(err as ParseError)
+          throw new ShParseError(err as Error)
         }
       },
       astFormat: 'sh',

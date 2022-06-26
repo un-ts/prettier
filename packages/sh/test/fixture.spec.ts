@@ -15,8 +15,13 @@ const _dirname =
 describe('parser and printer', () => {
   it('should format all fixtures', () => {
     const fixtures = path.resolve(_dirname, 'fixtures')
-    for (const filepath of fs.readdirSync(fixtures)) {
-      const input = fs.readFileSync(path.resolve(fixtures, filepath)).toString()
+    for (const relativeFilepath of fs.readdirSync(fixtures)) {
+      const filepath = path.resolve(fixtures, relativeFilepath)
+      const input = fs.readFileSync(filepath, 'utf8')
+
+      const diffOs = filepath.endsWith('-diff-os')
+
+      let formatError: Error | undefined
 
       try {
         const output = prettier.format(input, {
@@ -26,13 +31,21 @@ describe('parser and printer', () => {
           pluginSearchDirs: false,
         })
 
-        expect(output).toMatchSnapshot(filepath)
+        expect(output).toMatchSnapshot(relativeFilepath)
       } catch (err: unknown) {
-        // eslint-disable-next-line jest/no-conditional-expect
-        expect(((err as SyntaxError).cause as ParseError).Text).toMatchSnapshot(
-          filepath,
-        )
+        const error = (err as Error).cause
+        const message =
+          (error as ParseError | undefined)?.Text || error?.message
+        if (diffOs) {
+          formatError = error
+          console.error('diff-os:', message)
+        } else {
+          // eslint-disable-next-line jest/no-conditional-expect
+          expect(message).toMatchSnapshot(relativeFilepath)
+        }
       }
+
+      expect(!!formatError).toBe(diffOs)
     }
   })
 })
