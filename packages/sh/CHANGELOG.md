@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.12.2
+
+### Patch Changes
+
+- [#185](https://github.com/rx-ts/prettier/pull/185) [`a6c699e`](https://github.com/rx-ts/prettier/commit/a6c699eb586e62dcc9b1a8d3a1b34a9bf8fd4e21) Thanks [@JounQin](https://github.com/JounQin)! - docs(sh): update plugin description
+
 ## 0.12.1
 
 ### Patch Changes
