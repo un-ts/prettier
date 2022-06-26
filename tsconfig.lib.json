@@ -1,4 +1,4 @@
 {
   // used by all files but do not include paths
-  "extends": "./node_modules/@1stg/tsconfig/lib.json"
+  "extends": "@1stg/tsconfig/lib"
 }
