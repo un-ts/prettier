@@ -15,8 +15,9 @@ const _dirname =
 describe('parser and printer', () => {
   it('should format all fixtures', () => {
     const fixtures = path.resolve(_dirname, 'fixtures')
-    for (const filepath of fs.readdirSync(fixtures)) {
-      const input = fs.readFileSync(path.resolve(fixtures, filepath)).toString()
+    for (const relativeFilepath of fs.readdirSync(fixtures)) {
+      const filepath = path.resolve(fixtures, relativeFilepath)
+      const input = fs.readFileSync(filepath).toString()
 
       try {
         const output = prettier.format(input, {
@@ -26,12 +27,13 @@ describe('parser and printer', () => {
           pluginSearchDirs: false,
         })
 
-        expect(output).toMatchSnapshot(filepath)
+        expect(output).toMatchSnapshot(relativeFilepath)
       } catch (err: unknown) {
+        const error = (err as Error).cause
         // eslint-disable-next-line jest/no-conditional-expect
-        expect(((err as SyntaxError).cause as ParseError).Text).toMatchSnapshot(
-          filepath,
-        )
+        expect(
+          (error as ParseError | undefined)?.Text || error?.message,
+        ).toMatchSnapshot(relativeFilepath)
       }
     }
   })
