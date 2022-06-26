@@ -17,7 +17,7 @@ describe('parser and printer', () => {
     const fixtures = path.resolve(_dirname, 'fixtures')
     for (const relativeFilepath of fs.readdirSync(fixtures)) {
       const filepath = path.resolve(fixtures, relativeFilepath)
-      const input = fs.readFileSync(filepath).toString()
+      const input = fs.readFileSync(filepath, 'utf8')
 
       try {
         const output = prettier.format(input, {
