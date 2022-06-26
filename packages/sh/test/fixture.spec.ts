@@ -19,6 +19,10 @@ describe('parser and printer', () => {
       const filepath = path.resolve(fixtures, relativeFilepath)
       const input = fs.readFileSync(filepath, 'utf8')
 
+      const diffOs = filepath.endsWith('-diff-os')
+
+      let formatError: Error | undefined
+
       try {
         const output = prettier.format(input, {
           filepath,
@@ -30,11 +34,18 @@ describe('parser and printer', () => {
         expect(output).toMatchSnapshot(relativeFilepath)
       } catch (err: unknown) {
         const error = (err as Error).cause
-        // eslint-disable-next-line jest/no-conditional-expect
-        expect(
-          (error as ParseError | undefined)?.Text || error?.message,
-        ).toMatchSnapshot(relativeFilepath)
+        const message =
+          (error as ParseError | undefined)?.Text || error?.message
+        if (diffOs) {
+          formatError = error
+          console.error('diff-os:', message)
+        } else {
+          // eslint-disable-next-line jest/no-conditional-expect
+          expect(message).toMatchSnapshot(relativeFilepath)
+        }
       }
+
+      expect(!!formatError).toBe(diffOs)
     }
   })
 })

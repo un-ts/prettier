@@ -701,8 +701,6 @@ exports[`parser and printer should format all fixtures: 162.sh 1`] = `
 "
 `;
 
-exports[`parser and printer should format all fixtures: 182 1`] = `"\\"foo(\\" must be followed by )"`;
-
 exports[`parser and printer should format all fixtures: Dockerfile 1`] = `
 "FROM node:lts-alpine as builder
 
