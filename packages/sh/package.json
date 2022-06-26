@@ -1,6 +1,6 @@
 {
   "name": "prettier-plugin-sh",
-  "version": "0.12.0",
+  "version": "0.12.1",
   "type": "module",
   "description": "An opinionated `shellscript、Dockerfile、properties、gitignore、dotenv、hosts、jvmoptions...` formatter plugin for Prettier",
   "repository": "git@github.com/rx-ts/prettier.git",

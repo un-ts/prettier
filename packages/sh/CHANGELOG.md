@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.12.1
+
+### Patch Changes
+
+- [#183](https://github.com/rx-ts/prettier/pull/183) [`97cf9c2`](https://github.com/rx-ts/prettier/commit/97cf9c2956d08182c7556d52e0c0a3566e91b9e7) Thanks [@JounQin](https://github.com/JounQin)! - fix: construct ShParseError correctly
+
 ## 0.12.0
 
 ### Minor Changes
