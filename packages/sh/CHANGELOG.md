@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.12.3
+
+### Patch Changes
+
+- [#188](https://github.com/rx-ts/prettier/pull/188) [`537ca77`](https://github.com/rx-ts/prettier/commit/537ca7703c289ce24974971b3bd6125871b54089) Thanks [@JounQin](https://github.com/JounQin)! - fix: add missing filepath param for printer
+
 ## 0.12.2
 
 ### Patch Changes
