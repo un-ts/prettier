@@ -79,6 +79,7 @@ const ShPlugin: Plugin<Node> = {
         path,
         {
           originalText,
+          filepath,
           useTabs,
           tabWidth,
           indent = useTabs ? 0 : tabWidth,
@@ -92,6 +93,7 @@ const ShPlugin: Plugin<Node> = {
       ) =>
         processor(path.getNode() as File, {
           originalText,
+          filepath,
           useTabs,
           tabWidth,
           indent,
