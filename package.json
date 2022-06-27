@@ -29,7 +29,7 @@
     "vercel-build": "w -e docs -p --publicPath /"
   },
   "devDependencies": {
-    "@1stg/lib-config": "^6.3.0",
+    "@1stg/lib-config": "^6.4.0",
     "@babel/types": "^7.18.4",
     "@changesets/changelog-github": "^0.4.5",
     "@changesets/cli": "^2.23.0",
