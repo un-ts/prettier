@@ -35,17 +35,17 @@
     "@commitlint/config-lerna-scopes" "^17.0.2"
     "@pkgr/utils" "^2.2.0"
 
-"@1stg/common-config@^4.3.0":
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/@1stg/common-config/-/common-config-4.3.0.tgz#f70a64487c54f867ef867a1385cd036eff4415b4"
-  integrity sha512-heQ59HQET9RfFIDXu6MnchZ576+pybw7hXArVv0m/nm3pOVUNd8guBwIdiB+2cutYiUdMVhQD8uyWTad6dHMrA==
+"@1stg/common-config@^4.4.0":
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/@1stg/common-config/-/common-config-4.4.0.tgz#8cf8341bfef87e7081ef1fb1d645a095baccc206"
+  integrity sha512-srdDU34tMtnNpBHzjhTYYprEHB0Wh+SzHrEnUvmC0Ywb18rm+8D5czjrRuGZgki/orPabB1YGWW28CgcsvTfXQ==
   dependencies:
     "@1stg/babel-preset" "^3.1.0"
     "@1stg/commitlint-config" "^3.1.0"
-    "@1stg/eslint-config" "^4.2.0"
+    "@1stg/eslint-config" "^4.3.0"
     "@1stg/lint-staged" "^2.1.0"
     "@1stg/markuplint-config" "^2.1.0"
-    "@1stg/prettier-config" "^3.2.0"
+    "@1stg/prettier-config" "^3.3.0"
     "@1stg/remark-config" "^3.1.0"
     "@1stg/simple-git-hooks" "^0.1.2"
     "@1stg/tsconfig" "^2.2.0"
@@ -59,10 +59,10 @@
     tslib "^2.4.0"
     yarn-deduplicate "^5.0.0"
 
-"@1stg/eslint-config@^4.2.0":
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/@1stg/eslint-config/-/eslint-config-4.2.0.tgz#6fa356f9dcf2820fd0d85ef0cf50063e91cb5970"
-  integrity sha512-ggQ0Bp+FU3lo49WkSd8H64Yz/BuUIaG36pOLaXpXR3YzsXF1zi1Isz/jShkHIfhZ0WjpaSPx+VpSd68c2TdA8g==
+"@1stg/eslint-config@^4.3.0":
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/@1stg/eslint-config/-/eslint-config-4.3.0.tgz#105a2c33a2efbdeb92a03b710ac2842d908d965e"
+  integrity sha512-+jAye6EjvA7KhoWhJYJ1Ix3SGvKJlo3YWB2ZhZntZa33/VLsEmt5gMzR5Xf1mz40LpgpclOGfrUDS6mMjBNl6g==
   dependencies:
     "@angular-eslint/eslint-plugin" "^14.0.0"
     "@angular-eslint/eslint-plugin-template" "^14.0.0"
@@ -78,7 +78,7 @@
     eslint-config-standard-jsx "^11.0.0"
     eslint-config-standard-react "^11.0.1"
     eslint-formatter-friendly "^7.0.0"
-    eslint-import-resolver-typescript "^3.0.0"
+    eslint-import-resolver-typescript "^3.1.0"
     eslint-plugin-eslint-comments "^3.2.0"
     eslint-plugin-import "^2.26.0"
     eslint-plugin-jest "^26.5.3"
@@ -86,7 +86,7 @@
     eslint-plugin-markup "^0.9.0"
     eslint-plugin-mdx "^2.0.0"
     eslint-plugin-n "^15.2.3"
-    eslint-plugin-prettier "^4.0.0"
+    eslint-plugin-prettier "npm:@rxts/eslint-plugin-prettier@^4.1.0"
     eslint-plugin-promise "^6.0.0"
     eslint-plugin-react "^7.30.1"
     eslint-plugin-react-hooks "^4.6.0"
@@ -97,12 +97,12 @@
     eslint-plugin-unicorn "^42.0.0"
     eslint-plugin-vue "^9.1.1"
 
-"@1stg/lib-config@^6.3.0":
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/@1stg/lib-config/-/lib-config-6.3.0.tgz#fa4b8c46fd04757b615e92c639c555ffcbb30d88"
-  integrity sha512-IN94v0AXwNc8KMkW1nbX8Rzy7hMUccmhCn40utr9lQ1KSAuikThFCdx2Vst5V3AZhcFptvEFvu045Ue/mZnCCQ==
+"@1stg/lib-config@^6.4.0":
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/@1stg/lib-config/-/lib-config-6.4.0.tgz#93476e7baade3a71a043b47e5e54d736d5dfcd56"
+  integrity sha512-s+jA39vzEF3MsrC96CM1nnV9/o1X8A9C7g2AaXsell/BMHRRBNlX2Fl93YXoZUSeHjYl6nxeT8fwi69wj0Z8aA==
   dependencies:
-    "@1stg/common-config" "^4.3.0"
+    "@1stg/common-config" "^4.4.0"
     "@pkgr/rollup" "^3.1.2"
     jest "^28.1.1"
 
@@ -141,16 +141,16 @@
     postcss-preset-env "^7.5.0"
     postcss-url "^10.1.3"
 
-"@1stg/prettier-config@^3.2.0":
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/@1stg/prettier-config/-/prettier-config-3.2.0.tgz#6e0d2e9f0bf6c626db7f6eb4643579dd0d148067"
-  integrity sha512-DS1RVeoZIYyg/OA6S3pYGwuxVF+X5B5tZ8d1yO6m1nCrUfxFBfZowRof4CvKqGzbKg8+DMcnJgRqw8Guw9T1aw==
+"@1stg/prettier-config@^3.2.0", "@1stg/prettier-config@^3.3.0":
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/@1stg/prettier-config/-/prettier-config-3.3.0.tgz#3842540325ad3686886f8c3909e5467522db36f1"
+  integrity sha512-Pks91x20ujjgcId0C64yYqJNzgZ2WtwfsuhW/zhbLgyhq7YIJyBAyb7LCczxURKYksb/bT7H2AGCA/lomBXRyA==
   dependencies:
     "@prettier/plugin-pug" "^2.1.1"
     "@prettier/plugin-ruby" "^3.1.2"
     "@prettier/plugin-xml" "^2.2.0"
-    prettier-plugin-pkg "^0.14.0"
-    prettier-plugin-sh "^0.11.0"
+    prettier-plugin-pkg "^0.14.1"
+    prettier-plugin-sh "^0.12.2"
     prettier-plugin-svelte "^2.7.0"
     prettier-plugin-toml "^0.3.1"
 
@@ -5976,7 +5976,7 @@ eslint-import-resolver-node@^0.3.6:
     debug "^3.2.7"
     resolve "^1.20.0"
 
-eslint-import-resolver-typescript@^3.0.0:
+eslint-import-resolver-typescript@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/eslint-import-resolver-typescript/-/eslint-import-resolver-typescript-3.1.0.tgz#c2d244ad9285a27470959743ed55297748ee8ee4"
   integrity sha512-sWRwY40hH3YKZL4eMbXHKAbmnoN+CQ/XoehVX4POeJYhaM0zKf/HZC3qzvYcA9mdaTD/63H7NSRMujTkFgvUXw==
@@ -6112,10 +6112,10 @@ eslint-plugin-n@^15.2.3:
     resolve "^1.10.1"
     semver "^7.3.7"
 
-eslint-plugin-prettier@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-4.0.0.tgz#8b99d1e4b8b24a762472b4567992023619cb98e0"
-  integrity sha512-98MqmCJ7vJodoQK359bqQWaxOE0CS8paAz/GgjaZLyex4TTk3g9HugoO89EqWCrFiOqn9EVvcoo7gZzONCWVwQ==
+"eslint-plugin-prettier@npm:@rxts/eslint-plugin-prettier@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@rxts/eslint-plugin-prettier/-/eslint-plugin-prettier-4.1.0.tgz#15e7ffb437a49eb6a3ffd5514ed644c5faf7efd8"
+  integrity sha512-D8laRueH0O3i35cnayZ/h+4nv4QlXwF9zt8rtXtL/fZHP2RQETA3TQx094HgkbF3Hkw4OCKF4/TKPlL6u3yVTw==
   dependencies:
     prettier-linter-helpers "^1.0.0"
 
@@ -11721,10 +11721,6 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-prettier-plugin-sh@^0.11.0:
-  version "0.0.0"
-  uid ""
-
 "prettier-plugin-sh@link:packages/sh":
   version "0.0.0"
   uid ""
@@ -13652,10 +13648,10 @@ setprototypeof@1.2.0:
   resolved "https://registry.yarnpkg.com/setprototypeof/-/setprototypeof-1.2.0.tgz#66c9a24a73f9fc28cbe66b09fed3d33dcaf1b424"
   integrity sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==
 
-sh-syntax@^0.3.2:
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/sh-syntax/-/sh-syntax-0.3.2.tgz#4e1b141bf57539b84931a2ee00ab7eea87d864c6"
-  integrity sha512-7AQrvlNHZUU475SHsWiTX4ZyCb+Lqoq+DT8Ra4YQYRS1lInOUgDD04AkC1gv5r8XZ8UK3UPbCqnZKD4VSoOj/g==
+sh-syntax@^0.3.4:
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/sh-syntax/-/sh-syntax-0.3.4.tgz#81d372bb9a191180db3c2ef5746a448ae6d96bad"
+  integrity sha512-c/oR23v0YHUrqvFy5pec0yb/hLUcq9Gl8Ac5mXWXMVEcBRwha8zRnoKAsFCpzMsaQC46JAc5VWGlz/PdDsh6yQ==
   dependencies:
     tslib "^2.4.0"
 

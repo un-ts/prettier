@@ -41,7 +41,6 @@ class ShParseError<
     super(('Text' in error && error.Text) || error.message)
     this.cause = err
     // `error instanceof ParseError` won't not work because the error is thrown wrapped by `synckit`
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- just for robustness
     if ('Pos' in error && error.Pos != null && typeof error.Pos === 'object') {
       this.loc = { start: { column: error.Pos.Col, line: error.Pos.Line } }
     }
