@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.12.4
+
+### Patch Changes
+
+- [#192](https://github.com/rx-ts/prettier/pull/192) [`e827f8e`](https://github.com/rx-ts/prettier/commit/e827f8e2e49a4c80d4443cfa836943c88be97e91) Thanks [@JounQin](https://github.com/JounQin)! - fix!: revert back to mvdan-sh for now
+
 ## 0.12.3
 
 ### Patch Changes
