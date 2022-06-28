@@ -2,6 +2,7 @@ import fs from 'node:fs'
 
 import { tryFile } from '@pkgr/utils'
 import prettier from 'prettier'
+
 import pkgPlugin from 'prettier-plugin-pkg'
 import shPlugin from 'prettier-plugin-sh'
 
