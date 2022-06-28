@@ -10,9 +10,5 @@
     {
       "path": "packages/sql"
     }
-  ],
-  "ts-node": {
-    "require": ["tsconfig-paths/register"],
-    "transpileOnly": true
-  }
+  ]
 }

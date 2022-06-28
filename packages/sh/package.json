@@ -36,8 +36,7 @@
     "prettier": "^2.0.0"
   },
   "dependencies": {
-    "sh-syntax": "^0.3.4",
-    "synckit": "^0.7.1"
+    "mvdan-sh": "^0.10.1"
   },
   "publishConfig": {
     "access": "public"
