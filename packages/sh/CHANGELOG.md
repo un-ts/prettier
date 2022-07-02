@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.12.5
+
+### Patch Changes
+
+- [#195](https://github.com/un-ts/prettier/pull/195) [`4414264`](https://github.com/un-ts/prettier/commit/4414264eef7577ebcd02feee2c29ed8a37bc9de6) Thanks [@JounQin](https://github.com/JounQin)! - docs: add Sponsors and Backers sections
+
 ## 0.12.4
 
 ### Patch Changes
