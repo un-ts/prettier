@@ -24,4 +24,5 @@ Promise.all(
 
     return fs.promises.writeFile(filepath, output)
   }),
+  // eslint-disable-next-line unicorn/prefer-top-level-await
 ).catch(console.error)

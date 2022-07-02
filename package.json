@@ -1,10 +1,10 @@
 {
-  "name": "@rxts/prettier",
+  "name": "@unts/prettier",
   "version": "0.0.0",
   "type": "module",
   "description": "Opinionated but Incredible Prettier plugins.",
-  "repository": "git@github.com:rx-ts/prettier.git",
-  "author": "JounQin <admin@1stg.me>",
+  "repository": "git@github.com:un-ts/prettier.git",
+  "author": "JounQin (https://www.1stG.me) <admin@1stg.me>",
   "license": "MIT",
   "private": true,
   "workspaces": [
@@ -29,13 +29,13 @@
     "vercel-build": "w -e docs -p --publicPath /"
   },
   "devDependencies": {
-    "@1stg/lib-config": "^6.4.0",
-    "@babel/types": "^7.18.4",
+    "@1stg/lib-config": "^7.2.2",
+    "@babel/types": "^7.18.7",
     "@changesets/changelog-github": "^0.4.5",
     "@changesets/cli": "^2.23.0",
     "@pkgr/imagemin": "^3.1.0",
     "@pkgr/webpack-mdx": "^2.0.1",
-    "@types/jest": "^28.1.3",
+    "@types/jest": "^28.1.4",
     "@types/js-yaml": "^4.0.5",
     "@types/lodash": "^4.14.182",
     "@types/mvdan-sh": "^0.5.1",
@@ -54,12 +54,9 @@
     "remark-gfm": "^3.0.1",
     "sirv-cli": "^2.0.2",
     "ts-jest": "^28.0.5",
-    "tsx": "^3.6.0",
+    "tsx": "^3.7.0",
     "type-coverage": "^2.21.2",
     "typescript": "^4.7.4"
-  },
-  "resolutions": {
-    "prettier-plugin-sh": "link:packages/sh"
   },
   "commitlint": {
     "extends": [

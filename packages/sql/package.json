@@ -3,12 +3,12 @@
   "version": "0.8.1",
   "type": "module",
   "description": "An opinionated sql formatter plugin for Prettier",
-  "repository": "git@github.com/rx-ts/prettier.git",
-  "homepage": "https://github.com/rx-ts/prettier/blob/master/packages/sql",
-  "author": "JounQin <admin@1stg.me>",
+  "repository": "git@github.com/un-ts/prettier.git",
+  "homepage": "https://github.com/un-ts/prettier/tree/master/packages/sql",
+  "author": "JounQin (https://www.1stG.me) <admin@1stg.me>",
   "license": "MIT",
   "engines": {
-    "node": "^12.20 || ^14.18.0 || >=16.0.0"
+    "node": "^12.20.0 || ^14.18.0 || >=16.0.0"
   },
   "main": "./lib/index.cjs",
   "module": "./lib/index.js",
@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "node-sql-parser": "^4.3.0",
-    "sql-formatter": "^7.0.2"
+    "sql-formatter": "^7.0.3"
   },
   "publishConfig": {
     "access": "public"
