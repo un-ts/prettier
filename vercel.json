@@ -1,5 +1,4 @@
 {
-  "name": "@unts/prettier",
   "version": 2,
   "alias": [
     "prettier-plugins.vercel.app",

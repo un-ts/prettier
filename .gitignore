@@ -3,6 +3,7 @@
 .*cache
 .changelog
 .type-coverage
+.vercel
 coverage
 dist
 lib
