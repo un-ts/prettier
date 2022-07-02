@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.12.6
+
+### Patch Changes
+
+- [#197](https://github.com/un-ts/prettier/pull/197) [`591f812`](https://github.com/un-ts/prettier/commit/591f812cc3a1669fa7874cf0e14c73ac4acbf47a) Thanks [@JounQin](https://github.com/JounQin)! - feat!: add donate field support
+
 ## 0.12.5
 
 ### Patch Changes
