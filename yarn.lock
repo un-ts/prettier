@@ -11984,6 +11984,14 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
+prettier-plugin-pkg@^0.14.1:
+  version "0.0.0"
+  uid ""
+
+"prettier-plugin-pkg@link:packages/pkg":
+  version "0.0.0"
+  uid ""
+
 prettier-plugin-stylus@^0.0.1-beta.3:
   version "0.0.1-beta.3"
   resolved "https://registry.yarnpkg.com/prettier-plugin-stylus/-/prettier-plugin-stylus-0.0.1-beta.3.tgz#7025e03aae1f8cd937b627304d5bae9037ccf5fa"
