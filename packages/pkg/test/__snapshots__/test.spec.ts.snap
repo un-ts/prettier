@@ -2,12 +2,12 @@
 
 exports[`preprocess 1`] = `
 "{
-  \\"name\\": \\"@rxts/prettier-plugin-pkg\\",
+  \\"name\\": \\"prettier-plugin-pkg\\",
   \\"version\\": \\"0.0.0\\",
   \\"description\\": \\"An opinionated package.json formatter plugin for Prettier\\",
-  \\"repository\\": \\"git@github.com/rx-ts/prettier.git\\",
-  \\"homepage\\": \\"https://github.com/rx-ts/prettier/blob/master/packages/pkg\\",
-  \\"author\\": \\"JounQin <admin@1stg.me>\\",
+  \\"repository\\": \\"git@github.com/un-ts/prettier.git\\",
+  \\"homepage\\": \\"https://github.com/un-ts/prettier/tree/master/packages/pkg\\",
+  \\"author\\": \\"JounQin (https://www.1stG.me) <admin@1stg.me>\\",
   \\"license\\": \\"MPL-2.0\\",
   \\"engines\\": {
     \\"node\\": \\">= 8.0.0\\"
@@ -42,12 +42,12 @@ exports[`preprocess 1`] = `
 
 exports[`randomize 1`] = `
 "{
-  \\"name\\": \\"@rxts/prettier-plugin-pkg\\",
+  \\"name\\": \\"prettier-plugin-pkg\\",
   \\"version\\": \\"0.0.0\\",
   \\"description\\": \\"An opinionated package.json formatter plugin for Prettier\\",
-  \\"repository\\": \\"git@github.com/rx-ts/prettier.git\\",
-  \\"homepage\\": \\"https://github.com/rx-ts/prettier/blob/master/packages/pkg\\",
-  \\"author\\": \\"JounQin <admin@1stg.me>\\",
+  \\"repository\\": \\"git@github.com/un-ts/prettier.git\\",
+  \\"homepage\\": \\"https://github.com/un-ts/prettier/tree/master/packages/pkg\\",
+  \\"author\\": \\"JounQin (https://www.1stG.me) <admin@1stg.me>\\",
   \\"license\\": \\"MPL-2.0\\",
   \\"engines\\": {
     \\"node\\": \\">= 8.0.0\\"
