@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.9.0
+
+### Minor Changes
+
+- [#201](https://github.com/un-ts/prettier/pull/201) [`81c856f`](https://github.com/un-ts/prettier/commit/81c856ff2a2fc6426a4774cdc0d7e172117c953f) Thanks [@JounQin](https://github.com/JounQin)! - feat!: upgrade sql-formatter v8, remove deprecated options
+
+  - Removed `multilineLists` config option
+  - Removed `newlineBeforeOpenParen` config option
+  - Removed `newlineBeforeCloseParen` config option
+
 ## 0.8.3
 
 ### Patch Changes
