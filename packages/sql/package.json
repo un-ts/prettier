@@ -76,7 +76,7 @@
   },
   "dependencies": {
     "node-sql-parser": "^4.3.0",
-    "sql-formatter": "^7.0.3"
+    "sql-formatter": "^8.0.1"
   },
   "publishConfig": {
     "access": "public"
