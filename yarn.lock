@@ -11984,6 +11984,10 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
+prettier-plugin-pkg@^0.15.0:
+  version "0.0.0"
+  uid ""
+
 "prettier-plugin-pkg@link:packages/pkg":
   version "0.0.0"
   uid ""

@@ -1,7 +1,7 @@
 # @unts/prettier
 
 [![GitHub Actions](https://github.com/un-ts/prettier/workflows/Node%20CI/badge.svg)](https://github.com/un-ts/prettier/actions?query=workflow%3A%22Node+CI%22)
-[![Codacy Grade](https://img.shields.io/codacy/grade/09abfcb3399b418fbc3eff3e42bd4ff7)](https://app.codacy.com/gh/un-ts/prettier)
+[![Codacy Grade](https://img.shields.io/codacy/grade/8b0889c3640b41ccb4ac6cf327c86464)](https://app.codacy.com/gh/un-ts/prettier)
 [![Codecov](https://img.shields.io/codecov/c/gh/un-ts/prettier)](https://codecov.io/gh/un-ts/prettier)
 [![type-coverage](https://img.shields.io/badge/dynamic/json.svg?label=type-coverage&prefix=%E2%89%A5&suffix=%&query=$.typeCoverage.atLeast&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fun-ts%2Fprettier%2Fmaster%2Fpackage.json)](https://github.com/plantain-00/type-coverage)
 [![GitHub release](https://img.shields.io/github/release/un-ts/prettier)](https://github.com/un-ts/prettier/releases)
