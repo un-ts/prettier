@@ -59,6 +59,7 @@ Top-level keys are sorted according to a style commonly seen in the packages of 
   // meta
   "name",
   "version",
+  "preview",
   "type",
   "flat",
   "displayName",
@@ -120,6 +121,7 @@ Top-level keys are sorted according to a style commonly seen in the packages of 
   "peerDependencies",
   "peerDependenciesMeta",
   "dependencies",
+  "dependenciesMeta",
   "optionalDependencies",
   "devDependencies",
   "overrides",
@@ -129,13 +131,15 @@ Top-level keys are sorted according to a style commonly seen in the packages of 
 
   // vscode spec
   "icon",
+  "badges",
   "galleryBanner",
   "activationEvents",
   "contributes",
   "markdown",
   "qna",
   "extensionPack",
-  "extensionDependencies"
+  "extensionDependencies",
+  "extensionKind"
 ]
 ```
 
