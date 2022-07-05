@@ -29,7 +29,7 @@
     "vercel-build": "w -e docs -p --publicPath /"
   },
   "devDependencies": {
-    "@1stg/lib-config": "^7.2.2",
+    "@1stg/lib-config": "^7.2.4",
     "@babel/types": "^7.18.7",
     "@changesets/changelog-github": "^0.4.5",
     "@changesets/cli": "^2.23.0",
@@ -42,7 +42,7 @@
     "@types/prettier": "^2.6.3",
     "@types/react": "^18.0.14",
     "@types/react-dom": "^18.0.5",
-    "@types/web": "^0.0.68",
+    "@types/web": "^0.0.69",
     "github-markdown-css": "^5.1.0",
     "https-proxy-agent": "^5.0.1",
     "js-yaml": "^4.1.0",
@@ -54,7 +54,7 @@
     "remark-gfm": "^3.0.1",
     "sirv-cli": "^2.0.2",
     "ts-jest": "^28.0.5",
-    "tsx": "^3.7.0",
+    "tsx": "^3.7.1",
     "type-coverage": "^2.21.2",
     "typescript": "^4.7.4"
   },

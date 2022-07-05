@@ -151,9 +151,7 @@ const SqlPlugin: Plugin<AST | string> = {
 
       Caveats of using \`"tabularLeft"\` and \`"tabularRight"\`:
 
-      - \`tabWidth\` option is ignored. Indentation will always be 10 spaces, regardless of what is specified by \`tabWidth\`
-      - \`newlineBeforeOpenParen\` option is ignored
-      - \`newlineBeforeCloseParen\` option is ignored`,
+      - \`tabWidth\` option is ignored. Indentation will always be 10 spaces, regardless of what is specified by \`tabWidth\``,
       choices: [
         {
           value: 'standard',
@@ -171,47 +169,6 @@ const SqlPlugin: Plugin<AST | string> = {
             'indents in tabular style with 10 spaces, aligning keywords to right',
         },
       ],
-    },
-    multilineLists: {
-      since: '0.7.0',
-      category: 'Format',
-      type: 'choice',
-      default: 'always',
-      description:
-        'Determines when to break lists of items (e.g. columns in `SELECT` clause) to multiple lines for `sql-formatter`',
-      choices: [
-        {
-          value: 'always',
-          description:
-            'always breaks to multiple lines (even when just a single item)',
-        },
-        {
-          value: 'avoid',
-          description:
-            'avoids breaking to multiple lines, regardless of item count or line length',
-        },
-        {
-          value: 'expressionWidth',
-          description:
-            'breaks to multiple lines when the line would exceed value of `expressionWidth` option',
-        },
-        {
-          value: undefined,
-          description:
-            'breaks to multiple lines when there are more items than the specified number',
-          // @ts-expect-error
-          redirect: '_multilineLists',
-        },
-      ],
-    },
-    _multilineLists: {
-      // @ts-expect-error
-      hidden: true,
-      since: '0.7.0',
-      category: 'Format',
-      type: 'int',
-      description:
-        'Determines when to break lists of items (e.g. columns in `SELECT` clause) to multiple lines for `sql-formatter`',
     },
     logicalOperatorNewline: {
       since: '0.7.0',
@@ -264,7 +221,7 @@ const SqlPlugin: Plugin<AST | string> = {
       type: 'boolean',
       default: false,
       description:
-        'Aligns column aliases into a single column  for `sql-formatter`. Does not effect table name aliases, does not work when option `multilineLists: "avoid"` is used.',
+        'Aligns column aliases into a single column  for `sql-formatter`. Does not effect table name aliases.',
     },
     commaPosition: {
       since: '0.7.0',
@@ -287,28 +244,6 @@ const SqlPlugin: Plugin<AST | string> = {
           description: 'aligns commas in a column at the end of line',
         },
       ],
-    },
-    newlineBeforeOpenParen: {
-      since: '0.7.0',
-      category: 'Format',
-      type: 'boolean',
-      default: true,
-      description: `Decides whether to place open-parenthesis \`(\` of sub-queries on a separate line for \`sql-formatter\`.
-
-Caveats:
-
-This option is ignored when \`indentStyle: "tabularLeft"\` or \`"tabularRight"\` is used.`,
-    },
-    newlineBeforeCloseParen: {
-      since: '0.7.0',
-      category: 'Format',
-      type: 'boolean',
-      default: true,
-      description: `Decides whether to place close-parenthesis \`)\` of sub-queries on a separate line for \`sql-formatter\`.
-
-Caveats:
-
-This option is ignored when \`indentStyle: "tabularLeft"\` or \`"tabularRight"\` is used.`,
     },
     expressionWidth: {
       since: '0.7.0',
