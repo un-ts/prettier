@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.16.0
+
+### Minor Changes
+
+- [#199](https://github.com/un-ts/prettier/pull/199) [`675f54c`](https://github.com/un-ts/prettier/commit/675f54cdff7281a636f5a2535b6ac86d9b3558c1) Thanks [@JounQin](https://github.com/JounQin)! - feat!: support more fields from yarn and vscode
+
 ## 0.15.0
 
 ### Minor Changes
