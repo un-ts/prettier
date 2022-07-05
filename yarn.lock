@@ -2,31 +2,7 @@
 # yarn lockfile v1
 
 
-"@1stg/babel-preset@^3.0.0":
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/@1stg/babel-preset/-/babel-preset-3.1.1.tgz#3f49a1d44b0f855f0b9e01435d9aea55fbd98332"
-  integrity sha512-VypWbHsLfb8k1cQDZJFis/P2jAcbZQo2rVW1cSBeBfHVz5U+f2RXzZ3MmiOdIODAcWnYG0dx6urvhhSWhAFHBQ==
-  dependencies:
-    "@babel/helper-plugin-utils" "^7.18.6"
-    "@babel/plugin-proposal-class-properties" "^7.18.6"
-    "@babel/plugin-proposal-decorators" "^7.18.6"
-    "@babel/preset-env" "^7.18.6"
-    "@babel/preset-react" "^7.18.6"
-    "@babel/preset-typescript" "^7.18.6"
-    "@pkgr/utils" "^2.2.0"
-    "@vue/babel-helper-vue-jsx-merge-props" "^1.2.1"
-    "@vue/babel-plugin-jsx" "^1.1.1"
-    "@vue/babel-preset-jsx" "^1.2.4"
-    babel-plugin-import "^1.13.5"
-    babel-plugin-transform-async-to-promises "^0.8.18"
-    babel-plugin-transform-react-remove-prop-types "^0.4.24"
-    babel-plugin-transform-remove-console "^6.9.4"
-    babel-plugin-transform-typescript-metadata "^0.3.2"
-    babel-preset-proposal-typescript "^2.2.0"
-    core-js "^3.23.3"
-    fast-async "^7.0.6"
-
-"@1stg/babel-preset@^3.1.2":
+"@1stg/babel-preset@^3.0.0", "@1stg/babel-preset@^3.1.2":
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/@1stg/babel-preset/-/babel-preset-3.1.2.tgz#fb1a7bb326e246123cbe5c929126d156d473f463"
   integrity sha512-OyGJtz6mFvaluQF9qYW30CZgfkDZ/1NWJwj/299k4BCup6Pw50OCtPhgtmk/BuRmYlfY6BOMqCqSYo6ZGx2faA==
