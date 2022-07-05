@@ -15,6 +15,7 @@ export const dependencyNames = [
   'peerDependencies',
   'peerDependenciesMeta',
   'dependencies',
+  'dependenciesMeta',
   'optionalDependencies',
   'devDependencies',
   'overrides',
@@ -31,6 +32,7 @@ const primary = [
   // meta
   'name',
   'version',
+  'preview',
   'type',
   'flat',
   'displayName',
@@ -95,6 +97,7 @@ const primary = [
 
   // vscode spec
   'icon',
+  'badges',
   'galleryBanner',
   'activationEvents',
   'contributes',
@@ -102,6 +105,7 @@ const primary = [
   'qna',
   'extensionPack',
   'extensionDependencies',
+  'extensionKind',
 ]
 
 export const sort = (props: ObjectProperty[]) => {
