@@ -24,7 +24,7 @@ jobs:
         with:
           vercel-args: ${{ steps.branch.outputs.args }}
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           github-comment: ${{ steps.branch.outputs.comment != 'false' }}
           github-token: ${{ secrets.GITHUB_TOKEN }}

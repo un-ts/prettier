@@ -1,7 +1,12 @@
 {
   "root": true,
   "extends": "@1stg",
-  "rules": {
-    "react/react-in-jsx-scope": 0
-  }
+  "overrides": [
+    {
+      "files": "docs/**/*.tsx",
+      "rules": {
+        "react/react-in-jsx-scope": "off"
+      }
+    }
+  ]
 }

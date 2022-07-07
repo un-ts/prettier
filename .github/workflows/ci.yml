@@ -39,9 +39,3 @@ jobs:
 
       - name: Codecov
         uses: codecov/codecov-action@v3
-
-      - name: Codacy Coverage
-        run: bash <(curl -Ls https://coverage.codacy.com/get.sh) -- -r coverage/*.json
-        env:
-          CODACY_ACCOUNT_TOKEN: ${{ secrets.CODACY_ACCOUNT_TOKEN }}
-          CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
