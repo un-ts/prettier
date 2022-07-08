@@ -29,10 +29,10 @@
     "vercel-build": "w -e docs -p --publicPath /"
   },
   "devDependencies": {
-    "@1stg/lib-config": "^7.2.6",
-    "@babel/types": "^7.18.7",
+    "@1stg/lib-config": "^8.0.0",
+    "@babel/types": "^7.18.8",
     "@changesets/changelog-github": "^0.4.5",
-    "@changesets/cli": "^2.23.0",
+    "@changesets/cli": "^2.23.1",
     "@pkgr/imagemin": "^3.1.1",
     "@pkgr/webpack-mdx": "^2.0.3",
     "@types/jest": "^28.1.4",
@@ -56,7 +56,8 @@
     "ts-jest": "^28.0.5",
     "tsx": "^3.7.1",
     "type-coverage": "^2.21.2",
-    "typescript": "^4.7.4"
+    "typescript": "^4.7.4",
+    "yarn-deduplicate": "^5.0.0"
   },
   "resolutions": {
     "prettier-plugin-pkg": "link:packages/pkg"

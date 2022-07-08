@@ -1,5 +1,5 @@
 {
-  "extends": "../../tsconfig.lib",
+  "extends": "../../tsconfig.base",
   "compilerOptions": {
     "composite": true,
     "rootDir": "src",

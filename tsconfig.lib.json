@@ -1,4 +1,0 @@
-{
-  // used by all files but do not include paths
-  "extends": "@1stg/tsconfig/lib"
-}

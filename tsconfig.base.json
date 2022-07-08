@@ -1,8 +1,4 @@
 {
-  // used by ESLint
-  "extends": "./tsconfig.lib",
-  "compilerOptions": {
-    "baseUrl": ".",
-    "strictFunctionTypes": false
-  }
+  // used by all files but do not include paths
+  "extends": "@1stg/tsconfig/lib"
 }
