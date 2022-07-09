@@ -21,6 +21,8 @@
     "languages": "tsx scripts/languages",
     "lint": "run-p lint:*",
     "lint:es": "eslint . --cache -f friendly",
+    "lint:style": "stylelint --cache '**/*.scss'",
+    "lint:tsc": "tsc --noEmit",
     "prepare": "patch-package && simple-git-hooks && yarn languages && yarn-deduplicate --strategy fewer || exit 0",
     "release": "changeset publish",
     "serve": "sirv dist",
@@ -29,6 +31,7 @@
     "vercel-build": "w -e docs -p --publicPath /"
   },
   "devDependencies": {
+    "@1stg/app-config": "^6.0.0",
     "@1stg/lib-config": "^8.0.0",
     "@babel/types": "^7.18.8",
     "@changesets/changelog-github": "^0.4.5",
@@ -62,6 +65,9 @@
   "resolutions": {
     "prettier-plugin-pkg": "link:packages/pkg"
   },
+  "browserslist": [
+    "extends @1stg/browserslist-config/modern"
+  ],
   "commitlint": {
     "extends": [
       "@1stg"
