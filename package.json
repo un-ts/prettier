@@ -21,7 +21,7 @@
     "languages": "tsx scripts/languages",
     "lint": "run-p lint:*",
     "lint:es": "eslint . --cache -f friendly",
-    "lint:style": "stylelint --cache '**/*.scss'",
+    "lint:style": "stylelint . --cache",
     "lint:tsc": "tsc --noEmit",
     "prepare": "patch-package && simple-git-hooks && yarn languages && yarn-deduplicate --strategy fewer || exit 0",
     "release": "changeset publish",

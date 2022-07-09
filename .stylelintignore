@@ -1,0 +1,15 @@
+coverage
+dist
+lib
+packages/**/test/fixtures
+LICENSE
+*.iml
+*.json
+*.lock
+*.log
+*.png
+*.snap
+*.svg
+*.tsbuildinfo
+*.yaml
+*.yml
