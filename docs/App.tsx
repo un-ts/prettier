@@ -4,6 +4,7 @@ import {
   BrowserRouter as Router,
   Routes,
   useParams,
+  Navigate,
 } from 'react-router-dom'
 
 import './global.css'
@@ -56,6 +57,10 @@ export const App = () => (
         path="/"
         element={<Readme />}
       />
+      <Route
+        path="*"
+        element={<Navigate to="/" />}
+      ></Route>
     </Routes>
   </Router>
 )
