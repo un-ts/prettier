@@ -1,6 +1,6 @@
 {
   "plugins": [
-    "@1stg/config",
+    "@1stg/remark-config",
     "gfm"
   ]
 }
