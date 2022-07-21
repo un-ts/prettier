@@ -57,8 +57,17 @@ interface SqlOptions {
     | 'redshift'
     | 'spark'
     | 'tsql' // default `sql`
-  uppercase: boolean // default `false`
-  linesBetweenQueries: number // default `2`
+  keywordCase: 'preserve' | 'upper' | 'lower' // default `preserve`
+  indentStyle: 'standard' | 'tabularLeft' | 'tabularRight' // default `standard`
+  logicalOperatorNewline: 'before' | 'after' // default `before`
+  aliasAs: 'preserve' | 'always' | 'never' | 'select' // default `preserve`
+  tabulateAlias: boolean // default `false`
+  commaPosition: 'after' | 'before' | 'tabular' // default `after`
+  expressionWidth: number // default `50`
+  linesBetweenQueries: number // default `1`
+  denseOperators: boolean // default `false`
+  newlineBeforeSemicolon: boolean // default `false`
+  params: Array | Object
 
   // node-sql-parser
   type: 'table' | 'column' // default `table`
