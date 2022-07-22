@@ -35,14 +35,33 @@ const SqlPlugin: Plugin<AST | string> = {
   },
   printers: {
     sql: {
-      print(path, { type, database, finalNewline, ...options }: SqlOptions) {
+      print(
+        path,
+        { type, database, finalNewline, endOfLine, ...options }: SqlOptions,
+      ) {
         const value = path.getValue()
-        const formatted =
+        let formatted =
           typeof value === 'string'
             ? format(value, options)
             : parser.sqlify(value, { type, database })
-        return finalNewline && !formatted.endsWith('\n')
-          ? formatted + '\n'
+
+        const ending = (() => {
+          switch (endOfLine) {
+            case 'auto':
+            case 'lf':
+              return '\n'
+            case 'crlf':
+              return '\r\n'
+            case 'cr':
+              return '\r'
+          }
+        })()
+        if (endOfLine !== 'auto') {
+          formatted = formatted.replace(/\r?\n/g, ending)
+        }
+
+        return finalNewline && !formatted.endsWith(ending)
+          ? formatted + ending
           : formatted
       },
     },
