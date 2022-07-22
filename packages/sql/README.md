@@ -44,6 +44,7 @@ yarn prettier --write db.sql
 ```ts
 interface SqlOptions {
   formatter: 'sql-formatter' | 'node-sql-parser' // default `sql-formatter`
+  finalNewline: boolean // default `false`
 
   // sql-formatter
   language:

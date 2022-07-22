@@ -12,6 +12,7 @@ const NODE_SQL_PARSER = 'node-sql-parser'
 export type SqlBaseOptions = Option &
   Partial<FormatFnOptions> & {
     formatter?: typeof NODE_SQL_PARSER | typeof SQL_FORMATTER
+    finalNewline?: boolean
   }
 
 export type SqlOptions = ParserOptions<AST> & SqlBaseOptions
@@ -34,11 +35,15 @@ const SqlPlugin: Plugin<AST | string> = {
   },
   printers: {
     sql: {
-      print(path, { type, database, ...options }: SqlOptions) {
+      print(path, { type, database, finalNewline, ...options }: SqlOptions) {
         const value = path.getValue()
-        return typeof value === 'string'
-          ? format(value, options)
-          : parser.sqlify(value, { type, database })
+        const formatted =
+          typeof value === 'string'
+            ? format(value, options)
+            : parser.sqlify(value, { type, database })
+        return finalNewline && !formatted.endsWith('\n')
+          ? formatted + '\n'
+          : formatted
       },
     },
   },
@@ -59,6 +64,13 @@ const SqlPlugin: Plugin<AST | string> = {
           description: 'use `node-sql-parser` as formatter',
         },
       ],
+    },
+    finalNewline: {
+      since: '0.10.0',
+      category: 'Config',
+      type: 'boolean',
+      default: false,
+      description: 'Whether to insert a final newline at the end of file',
     },
     language: {
       since: '0.1.0',
