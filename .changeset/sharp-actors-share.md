@@ -2,4 +2,4 @@
 'prettier-plugin-sql': minor
 ---
 
-feat!: respect `endOfLine` option from prettier core
+feat!: respect `endOfLine` option from `prettier` core

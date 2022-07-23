@@ -10,9 +10,6 @@ const PARSER_OPTIONS: Record<string, SqlFormatOptions> = {
   144: {
     language: 'postgresql',
   },
-  204: {
-    finalNewline: true,
-  },
 }
 
 const _dirname =
