@@ -4,7 +4,8 @@ exports[`parser and printer should format all fixtures: 144.sql 1`] = `
 "CREATE TABLE
   \\"test\\" (\\"id\\" uuid NOT NULL)
 WITH
-  (oids = false);"
+  (oids = false);
+"
 `;
 
 exports[`parser and printer should format all fixtures: basic.sql 1`] = `
@@ -26,5 +27,6 @@ WHERE
       name
     FROM
       b
-  )"
+  )
+"
 `;

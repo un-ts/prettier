@@ -9,6 +9,12 @@ const parser = new nodeSqlParser.Parser()
 const SQL_FORMATTER = 'sql-formatter'
 const NODE_SQL_PARSER = 'node-sql-parser'
 
+const ENDINGS = {
+  lf: '\n',
+  cr: '\r',
+  crlf: '\r\n',
+} as const
+
 export type SqlBaseOptions = Option &
   Partial<FormatFnOptions> & {
     formatter?: typeof NODE_SQL_PARSER | typeof SQL_FORMATTER
@@ -34,11 +40,21 @@ const SqlPlugin: Plugin<AST | string> = {
   },
   printers: {
     sql: {
-      print(path, { type, database, ...options }: SqlOptions) {
+      print(path, { type, database, endOfLine, ...options }: SqlOptions) {
         const value = path.getValue()
-        return typeof value === 'string'
-          ? format(value, options)
-          : parser.sqlify(value, { type, database })
+
+        let formatted =
+          typeof value === 'string'
+            ? format(value, options)
+            : parser.sqlify(value, { type, database })
+
+        // It can never be `auto`
+        // @see https://github.com/prettier/prettier/blob/ab72a2c11c806f3a8a5ef42314e291843e1b3e68/src/common/end-of-line.js#L3-L9
+        const ending = ENDINGS[endOfLine as keyof typeof ENDINGS]
+
+        formatted = formatted.replace(/\r\n?|\n/g, ending)
+
+        return formatted.endsWith(ending) ? formatted : formatted + ending
       },
     },
   },
