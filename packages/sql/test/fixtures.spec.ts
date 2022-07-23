@@ -10,6 +10,9 @@ const PARSER_OPTIONS: Record<string, SqlFormatOptions> = {
   144: {
     language: 'postgresql',
   },
+  204: {
+    finalNewline: true,
+  },
 }
 
 const _dirname =
@@ -29,25 +32,6 @@ describe('parser and printer', () => {
         parser: 'sql',
         plugins: [SqlPlugin],
         pluginSearchDirs: false,
-        ...PARSER_OPTIONS[caseName],
-      })
-
-      expect(output).toMatchSnapshot(filepath)
-    }
-  })
-
-  it('should format all fixtures with final newline', () => {
-    const fixtures = path.resolve(_dirname, 'fixtures')
-    for (const filepath of fs.readdirSync(fixtures)) {
-      const input = fs.readFileSync(path.resolve(fixtures, filepath)).toString()
-
-      const caseName = filepath.slice(0, filepath.lastIndexOf('.'))
-      const output = prettier.format(input, {
-        filepath,
-        parser: 'sql',
-        plugins: [SqlPlugin],
-        pluginSearchDirs: false,
-        finalNewline: true,
         ...PARSER_OPTIONS[caseName],
       })
 

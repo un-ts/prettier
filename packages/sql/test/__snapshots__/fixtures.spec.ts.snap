@@ -1,41 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`parser and printer should format all fixtures with final newline: 144.sql 1`] = `
-"CREATE TABLE
-  \\"test\\" (\\"id\\" uuid NOT NULL)
-WITH
-  (oids = false);
-"
-`;
-
-exports[`parser and printer should format all fixtures with final newline: basic.sql 1`] = `
-"-- this is a comment
-SELECT
-  *
-FROM
-  tbl
-WHERE
-  foo = 'bar';
-
-UPDATE
-  a
-SET
-  id = 1
-WHERE
-  name IN (
-    SELECT
-      name
-    FROM
-      b
-  )
-"
-`;
-
 exports[`parser and printer should format all fixtures: 144.sql 1`] = `
 "CREATE TABLE
   \\"test\\" (\\"id\\" uuid NOT NULL)
 WITH
   (oids = false);"
+`;
+
+exports[`parser and printer should format all fixtures: 204.sql 1`] = `
+"CREATE TABLE
+  \\"test\\" (\\"id\\" uuid NOT NULL)
+WITH
+  (oids = false);
+"
 `;
 
 exports[`parser and printer should format all fixtures: basic.sql 1`] = `

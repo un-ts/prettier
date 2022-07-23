@@ -9,6 +9,12 @@ const parser = new nodeSqlParser.Parser()
 const SQL_FORMATTER = 'sql-formatter'
 const NODE_SQL_PARSER = 'node-sql-parser'
 
+const ENDINGS = {
+  lf: '\n',
+  cr: '\r',
+  crlf: '\r\n',
+} as const
+
 export type SqlBaseOptions = Option &
   Partial<FormatFnOptions> & {
     formatter?: typeof NODE_SQL_PARSER | typeof SQL_FORMATTER
@@ -40,25 +46,17 @@ const SqlPlugin: Plugin<AST | string> = {
         { type, database, finalNewline, endOfLine, ...options }: SqlOptions,
       ) {
         const value = path.getValue()
+
         let formatted =
           typeof value === 'string'
             ? format(value, options)
             : parser.sqlify(value, { type, database })
 
-        const ending = (() => {
-          switch (endOfLine) {
-            case 'auto':
-            case 'lf':
-              return '\n'
-            case 'crlf':
-              return '\r\n'
-            case 'cr':
-              return '\r'
-          }
-        })()
-        if (endOfLine !== 'auto') {
-          formatted = formatted.replace(/\r?\n/g, ending)
-        }
+        // It can never be `auto`
+        // @see https://github.com/prettier/prettier/blob/ab72a2c11c806f3a8a5ef42314e291843e1b3e68/src/common/end-of-line.js#L3-L9
+        const ending = ENDINGS[endOfLine as keyof typeof ENDINGS]
+
+        formatted = formatted.replace(/\r\n?|\n/g, ending)
 
         return finalNewline && !formatted.endsWith(ending)
           ? formatted + ending
@@ -86,7 +84,7 @@ const SqlPlugin: Plugin<AST | string> = {
     },
     finalNewline: {
       since: '0.10.0',
-      category: 'Config',
+      category: 'Output',
       type: 'boolean',
       default: false,
       description: 'Whether to insert a final newline at the end of file',
