@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.10.0
+
+### Minor Changes
+
+- [#207](https://github.com/un-ts/prettier/pull/207) [`6ca7374`](https://github.com/un-ts/prettier/commit/6ca7374f3bbeb2af9c685dd00b31d91262a4e8f7) Thanks [@frozenbonito](https://github.com/frozenbonito)! - feat!: respect `endOfLine` option from `prettier` core
+
+### Patch Changes
+
+- [#205](https://github.com/un-ts/prettier/pull/205) [`2c1f8c8`](https://github.com/un-ts/prettier/commit/2c1f8c8d9de6702557bdc6273b7ea4f771e5c64e) Thanks [@frozenbonito](https://github.com/frozenbonito)! - docs: align parser options
+
 ## 0.9.0
 
 ### Minor Changes
