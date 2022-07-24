@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+  # eslint-disable-next-line yml/no-empty-mapping-value
   pull_request_target:
 
 jobs:

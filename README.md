@@ -10,7 +10,7 @@
 [![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
-[![changesets](https://img.shields.io/badge/maintained%20with-changesets-176de3.svg)](https://github.com/atlassian/changesets)
+[![changesets](https://img.shields.io/badge/maintained%20with-changesets-176de3.svg)](https://github.com/changesets/changesets)
 
 > Opinionated but Incredible Prettier plugins.
 
@@ -45,6 +45,6 @@ Detailed changes for each release are documented in [CHANGELOG.md](./CHANGELOG.m
 [MIT][] © [JounQin][]@[1stG.me][]
 
 [1stg.me]: https://www.1stg.me
-[changesets]: https://github.com/atlassian/changesets
+[changesets]: https://github.com/changesets/changesets
 [jounqin]: https://github.com/JounQin
 [mit]: http://opensource.org/licenses/MIT
