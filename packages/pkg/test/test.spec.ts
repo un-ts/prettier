@@ -4,10 +4,10 @@ import { fileURLToPath } from 'node:url'
 import _ from 'lodash'
 import prettier, { Options } from 'prettier'
 
-import PkgPlugin from '../src/index.js'
-
 import pkg1 from './fixtures/fixture1.json'
 import pkg2 from './fixtures/fixture2.json'
+
+import PkgPlugin from 'prettier-plugin-pkg'
 
 const pkgs = [pkg1, pkg2]
 

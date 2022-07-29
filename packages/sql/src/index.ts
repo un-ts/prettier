@@ -1,6 +1,6 @@
 import nodeSqlParser, { type AST, type Option } from 'node-sql-parser'
-import { Options, ParserOptions, Plugin } from 'prettier'
-import { format, FormatFnOptions } from 'sql-formatter'
+import type { Options, ParserOptions, Plugin } from 'prettier'
+import { format, type FormatFnOptions } from 'sql-formatter'
 
 import { languages } from './languages.js'
 
@@ -54,6 +54,7 @@ const SqlPlugin: Plugin<AST | string> = {
 
         formatted = formatted.replace(/\r\n?|\n/g, ending)
 
+        /* c8 ignore next */
         return formatted.endsWith(ending) ? formatted : formatted + ending
       },
     },
@@ -311,6 +312,7 @@ const SqlPlugin: Plugin<AST | string> = {
             '`Object` of name-value pairs for named (and indexed) placeholders',
         },
       ],
+      /* c8 ignore next 11 */
       // @ts-expect-error
       exception(value: unknown) {
         return (

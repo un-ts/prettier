@@ -7,7 +7,7 @@
   included in all copies or substantial portions of this Source Code Form.
 */
 
-import { ObjectExpression, ObjectProperty } from '../types.js'
+import type { ObjectExpression, ObjectProperty } from '../types.js'
 import { sortObject } from '../utils.js'
 
 const process = (props: ObjectProperty[], key: string) => {
