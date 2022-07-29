@@ -83,6 +83,7 @@
     "**/lib",
     "**/CHANGELOG.md",
     "packages/*/src/languages.ts",
+    "!/.github",
     "!/.*.js"
   ],
   "renovate": {

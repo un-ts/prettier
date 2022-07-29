@@ -3,6 +3,12 @@
   "extends": "@1stg",
   "overrides": [
     {
+      "files": ".github/*.yml",
+      "rules": {
+        "unicorn/filename-case": "off"
+      }
+    },
+    {
       "files": "docs/**/*.tsx",
       "rules": {
         "react/react-in-jsx-scope": "off"
