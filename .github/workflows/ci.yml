@@ -41,6 +41,8 @@ jobs:
           pnpm add -D -w ts-node
           export SYNCKIT_TS_RUNNER=ts-node
 
+      - run: echo $SYNCKIT_TS_RUNNER
+
       - name: Build, Lint and Test
         run: pnpm run-s build lint test
         env:
