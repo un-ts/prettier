@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.10.1
+
+### Patch Changes
+
+- [#209](https://github.com/un-ts/prettier/pull/209) [`4b37afd`](https://github.com/un-ts/prettier/commit/4b37afd7097a6f8a12878045d9e3f6d7d3d8702a) Thanks [@JounQin](https://github.com/JounQin)! - fix: add missing `tslib` dependency
+
+- [#209](https://github.com/un-ts/prettier/pull/209) [`4b37afd`](https://github.com/un-ts/prettier/commit/4b37afd7097a6f8a12878045d9e3f6d7d3d8702a) Thanks [@JounQin](https://github.com/JounQin)! - chore(types): migrate to `type` import
+
 ## 0.10.0
 
 ### Minor Changes
