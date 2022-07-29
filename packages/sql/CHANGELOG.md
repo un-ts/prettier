@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.10.2
+
+### Patch Changes
+
+- [#212](https://github.com/un-ts/prettier/pull/212) [`d5cc092`](https://github.com/un-ts/prettier/commit/d5cc092bd43537358db35f14b93b7f64c079faa1) Thanks [@JounQin](https://github.com/JounQin)! - build: languages from package `linguist-languages` instead
+
 ## 0.10.1
 
 ### Patch Changes
