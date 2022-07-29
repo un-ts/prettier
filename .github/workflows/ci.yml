@@ -36,18 +36,18 @@ jobs:
       - name: Install Dependencies
         run: pnpm i
 
-      - if: matrix.node == 14
+      - id: node14
+        if: matrix.node == 14
         run: |
           pnpm add -D -w ts-node
-          export SYNCKIT_TS_RUNNER=ts-node
-
-      - run: echo $SYNCKIT_TS_RUNNER
+          echo "::set-output name=tsRunner::ts-node"
 
       - name: Build, Lint and Test
         run: pnpm run-s build lint test
         env:
           EFF_NO_LINK_RULES: true
           PARSER_NO_WATCH: true
+          SYNCKIT_TS_RUNNER: ${{ steps.node14.outputs.tsRunner }}
 
       - name: Codecov
         uses: codecov/codecov-action@v3
