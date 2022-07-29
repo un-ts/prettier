@@ -49,6 +49,7 @@
     "c8": "^7.12.0",
     "github-markdown-css": "^5.1.0",
     "linguist-languages": "^7.21.0",
+    "lodash": "^4.17.21",
     "prettier-plugin-pkg": "workspace:*",
     "prettier-plugin-sh": "workspace:*",
     "prettier-plugin-sql": "workspace:*",
