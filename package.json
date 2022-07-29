@@ -26,6 +26,7 @@
     "lint:es": "eslint . --cache -f friendly",
     "lint:style": "stylelint . --cache",
     "lint:tsc": "tsc --noEmit",
+    "postversion": "pnpm i --no-frozen-lockfile",
     "prepare": "simple-git-hooks && pnpm languages || exit 0",
     "release": "changeset publish",
     "serve": "sirv dist",
