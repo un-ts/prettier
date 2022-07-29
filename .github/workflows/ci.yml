@@ -38,7 +38,7 @@ jobs:
 
       - if: matrix.node == 14
         run: |
-          pnpm add -D ts-node
+          pnpm add -D -w ts-node
           export SYNCKIT_TS_RUNNER=ts-node
 
       - name: Build, Lint and Test

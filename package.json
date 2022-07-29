@@ -16,7 +16,7 @@
     "build:r": "r -f cjs",
     "build:ts": "tsc -b",
     "clean": "rimraf dist coverage 'packages/*/{lib,*.tsbuildinfo}'",
-    "codesandbox:install": "yarn",
+    "codesandbox:install": "npx pnpm@7.6.0 i",
     "dev": "vitest",
     "docs:build": "w -e docs -p --publicPath /",
     "docs:dev": "w -e docs --disableDotRule --publicPath /",
