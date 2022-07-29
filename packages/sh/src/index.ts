@@ -9,7 +9,7 @@ import type {
   ParseError,
   ShOptions,
 } from 'sh-syntax'
-import { createSyncFn, TsRunner } from 'synckit'
+import { createSyncFn } from 'synckit'
 
 import { languages } from './languages.js'
 
@@ -40,7 +40,6 @@ export interface ShParserOptions
 
 const processor = createSyncFn<typeof import('sh-syntax').processor>(
   path.resolve(_dirname, 'worker.js'),
-  { tsRunner: TsRunner.TSX },
 ) as Processor
 
 export interface IShParseError extends Error {

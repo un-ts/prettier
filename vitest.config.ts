@@ -24,5 +24,8 @@ export default defineConfig({
     coverage: {
       reporter: ['lcov', 'json', 'text'],
     },
+    env: {
+      SYNCKIT_TS_RUNNER: process.env.SYNCKIT_TS_RUNNER || 'tsx',
+    },
   },
 })
