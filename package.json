@@ -79,10 +79,11 @@
   "eslintIgnore": [
     "coverage",
     "dist",
-    "**/fixtures",
-    "**/lib",
-    "**/CHANGELOG.md",
+    "packages/**/fixtures",
+    "packages/**/lib",
+    "packages/**/CHANGELOG.md",
     "packages/*/src/languages.ts",
+    "/pnpm-lock.yaml",
     "!/.github",
     "!/.*.js"
   ],
