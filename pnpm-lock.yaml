@@ -8,7 +8,6 @@ importers:
     specifiers:
       '@1stg/app-config': ^6.1.5
       '@1stg/lib-config': ^9.0.2
-      '@babel/types': ^7.18.9
       '@changesets/changelog-github': ^0.4.6
       '@changesets/cli': ^2.24.1
       '@pkgr/webpack-mdx': ^2.0.3
@@ -40,7 +39,6 @@ importers:
     devDependencies:
       '@1stg/app-config': 6.1.5_pvjzkccznyelz6bllh7f4s5k6i
       '@1stg/lib-config': 9.0.2_qp3e37ehij6rm6q6q7q3vcptpm
-      '@babel/types': 7.18.9
       '@changesets/changelog-github': 0.4.6
       '@changesets/cli': 2.24.1
       '@pkgr/webpack-mdx': 2.0.3_wz2jf2tymzn422t44b5paupauy
