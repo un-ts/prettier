@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url'
 
 import prettier from 'prettier'
 
-import SqlPlugin, { SqlFormatOptions } from '../src/index.js'
+import SqlPlugin, { type SqlFormatOptions } from 'prettier-plugin-sql'
 
 const PARSER_OPTIONS: Record<string, SqlFormatOptions> = {
   144: {

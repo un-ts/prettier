@@ -1,4 +1,4 @@
-import {
+import type {
   ArrayExpression as _ArrayExpression,
   ObjectExpression as _ObjectExpression,
   ObjectProperty as _ObjectProperty,

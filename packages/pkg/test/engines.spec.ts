@@ -1,6 +1,6 @@
 import prettier from 'prettier'
 
-import PkgPlugin from '../src/index.js'
+import PkgPlugin from 'prettier-plugin-pkg'
 
 test('engines', () => {
   const fixture = {

@@ -1,6 +1,6 @@
 import prettier from 'prettier'
 
-import SqlPlugin, { SqlFormatOptions } from '../src/index.js'
+import SqlPlugin, { type SqlFormatOptions } from 'prettier-plugin-sql'
 
 test('node-sql-parser', () => {
   const options: SqlFormatOptions = {

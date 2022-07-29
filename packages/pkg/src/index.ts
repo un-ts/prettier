@@ -7,7 +7,7 @@
   included in all copies or substantial portions of this Source Code Form.
 */
 
-import { Plugin } from 'prettier'
+import type { Plugin } from 'prettier'
 import babelParser from 'prettier/parser-babel.js'
 
 import { files } from './rules/files.js'

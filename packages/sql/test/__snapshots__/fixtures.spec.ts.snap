@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`parser and printer should format all fixtures: 144.sql 1`] = `
+exports[`parser and printer > should format all fixtures > 144.sql 1`] = `
 "CREATE TABLE
   \\"test\\" (\\"id\\" uuid NOT NULL)
 WITH
@@ -8,7 +8,7 @@ WITH
 "
 `;
 
-exports[`parser and printer should format all fixtures: basic.sql 1`] = `
+exports[`parser and printer > should format all fixtures > basic.sql 1`] = `
 "-- this is a comment
 SELECT
   *

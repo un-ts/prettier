@@ -7,7 +7,7 @@
   included in all copies or substantial portions of this Source Code Form.
 */
 
-import { ObjectProperty } from '../types.js'
+import type { ObjectProperty } from '../types.js'
 import { alphabetSort, sortObject } from '../utils.js'
 
 export const dependencyNames = [

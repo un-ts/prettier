@@ -60,6 +60,9 @@ interface ShOptions {
   keepPadding: boolean
   minify: boolean
   functionNextLine: boolean
+
+  // use `sh-syntax` which is still buggy instead
+  experimentalWasm: boolean
 }
 ```
 

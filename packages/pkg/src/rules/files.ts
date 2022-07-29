@@ -7,7 +7,7 @@
   included in all copies or substantial portions of this Source Code Form.
 */
 
-import {
+import type {
   ObjectProperty,
   StringArrayExpression,
   StringLiteral,

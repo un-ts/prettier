@@ -6,32 +6,48 @@ on:
 
 jobs:
   ci:
-    name: Lint and Test with Node.js ${{ matrix.node }}
+    name: Lint and Test with Node.js ${{ matrix.node }} on ${{ matrix.os }}
     strategy:
       matrix:
         node:
           - 14
           - 16
           - 18
-    runs-on: ubuntu-latest
+        os:
+          - macos-latest
+          - windows-latest
+          - ubuntu-latest
+    runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
 
       - name: Setup Node.js ${{ matrix.node }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-          cache: yarn
+          cache: pnpm
 
       - name: Install Dependencies
-        run: yarn --frozen-lockfile
+        run: pnpm i
+
+      - id: node14
+        if: matrix.node == 14
+        run: |
+          pnpm add -D -w ts-node
+          echo "::set-output name=tsRunner::ts-node"
 
       - name: Build, Lint and Test
-        run: yarn run-s build lint test typecov
+        run: pnpm run-s build lint test
         env:
           EFF_NO_LINK_RULES: true
           PARSER_NO_WATCH: true
+          SYNCKIT_TS_RUNNER: ${{ steps.node14.outputs.tsRunner }}
 
       - name: Codecov
         uses: codecov/codecov-action@v3

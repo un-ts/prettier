@@ -1,3 +1,5 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
 exports[`fatal parse error with meaningful message 1`] = `"a command can only contain words and redirects; encountered )"`;
+
+exports[`fatal parse error with meaningful message 2`] = `"a command can only contain words and redirects; encountered )"`;
