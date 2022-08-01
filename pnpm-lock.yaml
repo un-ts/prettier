@@ -33,7 +33,7 @@ importers:
       tsx: ^3.8.0
       type-coverage: ^2.22.0
       typescript: ^4.7.4
-      unplugin-auto-import: ^0.10.2
+      unplugin-auto-import: ^0.10.3
       vitest: ^0.19.1
     devDependencies:
       '@1stg/app-config': 6.1.5_pvjzkccznyelz6bllh7f4s5k6i
@@ -62,7 +62,7 @@ importers:
       tsx: 3.8.0
       type-coverage: 2.22.0_typescript@4.7.4
       typescript: 4.7.4
-      unplugin-auto-import: 0.10.2_hwlw6yqdlmgvyf5pwan5vjfl2a
+      unplugin-auto-import: 0.10.3_hwlw6yqdlmgvyf5pwan5vjfl2a
       vitest: 0.19.1_4tyv2bymmw3sg463drdc5xfooq
 
   packages/pkg:
@@ -16430,8 +16430,8 @@ packages:
     engines: {node: '>= 0.8'}
     dev: true
 
-  /unplugin-auto-import/0.10.2_hwlw6yqdlmgvyf5pwan5vjfl2a:
-    resolution: {integrity: sha512-TtGWSN1GjXlfEuB7ALmQfW8EYIG99fASsChkMBvTqyWgfBebN0/9njoMZJ73c234vqduHJGgtRyveYNSYt8X0g==}
+  /unplugin-auto-import/0.10.3_hwlw6yqdlmgvyf5pwan5vjfl2a:
+    resolution: {integrity: sha512-tODQr7ZBnsBZ9lKaz2mqszKVi/4ALuLtS4gc1xwpcsBav5TCAl0HFSMuai1qL4AkYEwD2HPqK04LocCyK+D0KQ==}
     engines: {node: '>=14'}
     peerDependencies:
       '@vueuse/core': '*'
