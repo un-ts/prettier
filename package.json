@@ -42,7 +42,7 @@
     "@pkgr/webpack-mdx": "^2.0.3",
     "@types/lodash": "^4.14.182",
     "@types/mvdan-sh": "^0.10.0",
-    "@types/prettier": "^2.6.4",
+    "@types/prettier": "^2.7.0",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "@types/web": "^0.0.70",
