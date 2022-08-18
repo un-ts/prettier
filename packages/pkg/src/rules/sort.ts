@@ -32,7 +32,6 @@ const primary = [
   // meta
   'name',
   'version',
-  'preview',
   'type',
   'flat',
   'displayName',
@@ -43,9 +42,11 @@ const primary = [
   'bugs',
   'author',
   'publisher',
+  'maintainers',
   'contributors',
   'donate',
   'funding',
+  'sponsor',
   'license',
   'preview',
   'private',
@@ -58,7 +59,7 @@ const primary = [
   'cpu',
   'os',
 
-  // entry
+  // entries
   'man',
   'bin',
   'main',
@@ -83,7 +84,7 @@ const primary = [
   'typings',
   'typesVersions',
 
-  // content and util
+  // contents and utils
   'directories',
   'files',
   'keywords',

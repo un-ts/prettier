@@ -1,6 +1,6 @@
 import nodeSqlParser, { type AST, type Option } from 'node-sql-parser'
 import type { Options, ParserOptions, Plugin } from 'prettier'
-import { format, type FormatFnOptions } from 'sql-formatter'
+import { format, Formatter, type FormatOptions } from 'sql-formatter'
 
 import { languages } from './languages.js'
 
@@ -16,7 +16,7 @@ const ENDINGS = {
 } as const
 
 export type SqlBaseOptions = Option &
-  Partial<FormatFnOptions> & {
+  Partial<FormatOptions> & {
     formatter?: typeof NODE_SQL_PARSER | typeof SQL_FORMATTER
   }
 
@@ -54,7 +54,6 @@ const SqlPlugin: Plugin<AST | string> = {
 
         formatted = formatted.replace(/\r\n?|\n/g, ending)
 
-        /* c8 ignore next */
         return formatted.endsWith(ending) ? formatted : formatted + ending
       },
     },
@@ -120,13 +119,27 @@ const SqlPlugin: Plugin<AST | string> = {
             'Amazon Redshift: https://docs.aws.amazon.com/redshift/latest/dg/cm_chap_SQLCommandRef.html',
         },
         {
+          value: 'singlestoredb',
+          description:
+            'SingleStoreDB: https://docs.singlestore.com/db/v7.8/en/introduction/singlestore-documentation.html',
+        },
+        {
           value: 'spark',
           description: 'Spark: https://spark.apache.org',
+        },
+        {
+          value: 'trino',
+          description: 'Trino: https://trino.io',
         },
         {
           value: 'tsql',
           description:
             'SQL Server Transact-SQL: https://docs.microsoft.com/en-us/sql/sql-server/',
+        },
+        {
+          since: '0.11.0',
+          value: Formatter,
+          description: 'Custom formatter class (experimental)',
         },
       ],
     },
@@ -202,33 +215,6 @@ const SqlPlugin: Plugin<AST | string> = {
         {
           value: 'after',
           description: 'adds newline after the operator',
-        },
-      ],
-    },
-    aliasAs: {
-      since: '0.7.0',
-      category: 'Format',
-      type: 'choice',
-      default: 'preserve',
-      description:
-        'Enforces consistent use of `AS` keywords in alias declarations for `sql-formatter`',
-      choices: [
-        {
-          value: 'preserve',
-          description: 'does nothing',
-        },
-        {
-          value: 'always',
-          description: 'enforces `AS` usage for all aliases',
-        },
-        {
-          value: 'never',
-          description: 'forbids `AS` usage for all aliases',
-        },
-        {
-          value: 'select',
-          description:
-            'enforces `AS` usage in column aliases of `SELECT` and forbids it for table name aliases',
         },
       ],
     },
@@ -312,7 +298,6 @@ const SqlPlugin: Plugin<AST | string> = {
             '`Object` of name-value pairs for named (and indexed) placeholders',
         },
       ],
-      /* c8 ignore next 11 */
       // @ts-expect-error
       exception(value: unknown) {
         return (
@@ -324,6 +309,20 @@ const SqlPlugin: Plugin<AST | string> = {
             : typeof value === 'object')
         )
       },
+    },
+    paramTypes: {
+      since: '0.11.0',
+      category: 'Config',
+      type: 'choice',
+      description:
+        'Specifies parameter types to support when parsing SQL prepared statements for `sql-formatter`.',
+      choices: [
+        {
+          value: Object,
+          description:
+            'Specifies parameter types to support when parsing SQL prepared statements.',
+        },
+      ],
     },
     type: {
       since: '0.1.0',

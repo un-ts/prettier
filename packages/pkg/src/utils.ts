@@ -3,7 +3,6 @@ import type { ObjectProperty, StringLiteral } from './types.js'
 export function alphabetSort(a: number, b: number): number
 export function alphabetSort(a: string, b: string): number
 export function alphabetSort(a: number | string, b: number | string) {
-  /* c8 ignore next */
   return a > b ? 1 : a < b ? -1 : 0
 }
 

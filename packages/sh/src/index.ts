@@ -13,7 +13,6 @@ import { createSyncFn } from 'synckit'
 
 import { languages } from './languages.js'
 
-/* c8 ignore next 4 */
 const _dirname =
   typeof __dirname === 'undefined'
     ? path.dirname(fileURLToPath(import.meta.url))
@@ -76,7 +75,7 @@ class ShSyntaxParseError<
 
   constructor(err: E) {
     const error = err as ParseError | SyntaxError
-    super(/* c8 ignore next */ ('Text' in error && error.Text) || error.message)
+    super(('Text' in error && error.Text) || error.message)
     this.cause = err
     // `error instanceof ParseError` won't not work because the error is thrown wrapped by `synckit`
     if ('Pos' in error && error.Pos != null && typeof error.Pos === 'object') {
@@ -118,7 +117,6 @@ const ShPlugin: Plugin<Node | ShSyntaxNode> = {
 
         const parserOptions = [syntax.KeepComments(keepComments)]
 
-        /* c8 ignore next 8 */
         if (stopAt != null) {
           parserOptions.push(syntax.StopAt(stopAt))
         }
@@ -135,10 +133,8 @@ const ShPlugin: Plugin<Node | ShSyntaxNode> = {
       },
       astFormat: 'sh',
       locStart: node =>
-        /* c8 ignore next */
         isFunction(node.Pos) ? node.Pos().Offset() : node.Pos.Offset,
       locEnd: node =>
-        /* c8 ignore next */
         isFunction(node.End) ? node.End().Offset() : node.End.Offset,
     },
   },
@@ -151,7 +147,6 @@ const ShPlugin: Plugin<Node | ShSyntaxNode> = {
           filepath,
           useTabs,
           tabWidth,
-          /* c8 ignore next */
           indent = useTabs ? 0 : tabWidth,
           binaryNextLine = true,
           switchCaseIndent = true,

@@ -24,6 +24,7 @@ describe('parser and printer', () => {
       const input = fs.readFileSync(path.resolve(fixtures, filepath)).toString()
 
       const caseName = filepath.slice(0, filepath.lastIndexOf('.'))
+
       const output = prettier.format(input, {
         filepath,
         parser: 'sql',
