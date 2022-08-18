@@ -22,9 +22,9 @@ importers:
       github-markdown-css: ^5.1.0
       linguist-languages: ^7.21.0
       lodash: ^4.17.21
-      prettier-plugin-pkg: workspace:*
-      prettier-plugin-sh: workspace:*
-      prettier-plugin-sql: workspace:*
+      prettier-plugin-pkg: link:packages/pkg
+      prettier-plugin-sh: link:packages/sh
+      prettier-plugin-sql: link:packages/sql
       react: ^18.2.0
       react-dom: ^18.2.0
       react-router-dom: ^6.3.0
