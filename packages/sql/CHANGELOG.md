@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.0.0
+
+### Major Changes
+
+- [#218](https://github.com/un-ts/prettier/pull/218) [`0afd4d7`](https://github.com/un-ts/prettier/commit/0afd4d7da2f3fbd77e5942fa478ac15dbb563741) Thanks [@JounQin](https://github.com/JounQin)! - chore(deps): bump `sql-formatter@v9`
+
 ## 0.10.2
 
 ### Patch Changes
