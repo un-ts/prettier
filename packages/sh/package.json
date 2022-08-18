@@ -69,8 +69,8 @@
   },
   "dependencies": {
     "mvdan-sh": "^0.10.1",
-    "sh-syntax": "^0.3.6",
-    "synckit": "^0.8.1"
+    "sh-syntax": "^0.3.7",
+    "synckit": "^0.8.3"
   },
   "publishConfig": {
     "access": "public"

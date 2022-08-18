@@ -59,7 +59,6 @@ Top-level keys are sorted according to a style commonly seen in the packages of 
   // meta
   "name",
   "version",
-  "preview",
   "type",
   "flat",
   "displayName",
@@ -68,9 +67,12 @@ Top-level keys are sorted according to a style commonly seen in the packages of 
   "repository",
   "homepage",
   "bugs",
+  "donate",
   "funding",
+  "sponsor",
   "author",
   "publisher",
+  "maintainers",
   "contributors",
   "license",
   "preview",
@@ -84,7 +86,7 @@ Top-level keys are sorted according to a style commonly seen in the packages of 
   "cpu",
   "os",
 
-  // entry
+  // entries
   "man",
   "bin",
   "main",
@@ -109,7 +111,7 @@ Top-level keys are sorted according to a style commonly seen in the packages of 
   "typings",
   "typesVersions",
 
-  // content and util
+  // contents and utils
   "directories",
   "files",
   "keywords",

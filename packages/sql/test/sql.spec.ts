@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument -- no idea yet */
+
 import prettier from 'prettier'
 
 import SqlPlugin, { type SqlFormatOptions } from 'prettier-plugin-sql'
