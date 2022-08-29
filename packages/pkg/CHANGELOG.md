@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.17.1
+
+### Patch Changes
+
+- [#220](https://github.com/un-ts/prettier/pull/220) [`bead492`](https://github.com/un-ts/prettier/commit/bead4925e75e1a7392b3a952949edc4c213a9887) Thanks [@JounQin](https://github.com/JounQin)! - fix: `$schema` should always be the first key
+
 ## 0.17.0
 
 ### Minor Changes
