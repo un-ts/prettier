@@ -29,6 +29,9 @@ export const dependencyNames = [
  * vscode - https://code.visualstudio.com/api/references/extension-manifest
  */
 const primary = [
+  // schema definition
+  '$schema',
+
   // meta
   'name',
   'version',
