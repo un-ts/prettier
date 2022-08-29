@@ -56,6 +56,9 @@ Top-level keys are sorted according to a style commonly seen in the packages of 
 
 ```jsonc
 [
+  // schema definition
+  "$schema",
+
   // meta
   "name",
   "version",
