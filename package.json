@@ -57,6 +57,8 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
     "sirv-cli": "^2.0.2",
+    "size-limit": "^8.0.1",
+    "size-limit-preset-node-lib": "^0.1.0",
     "tsx": "^3.8.2",
     "type-coverage": "^2.22.0",
     "typescript": "^4.7.4",
@@ -95,6 +97,20 @@
       "@1stg"
     ]
   },
+  "size-limit": [
+    {
+      "path": "packages/pkg/lib/index.js",
+      "limit": "460B"
+    },
+    {
+      "path": "packages/sh/lib/index.js",
+      "limit": "2.4kB"
+    },
+    {
+      "path": "packages/sql/lib/index.js",
+      "limit": "2.6kB"
+    }
+  ],
   "typeCoverage": {
     "atLeast": 100,
     "cache": true,
