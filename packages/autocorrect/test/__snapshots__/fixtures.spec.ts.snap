@@ -1,0 +1,15 @@
+// Vitest Snapshot v1
+
+exports[`parser and printer > should format all fixtures > test.css 1`] = `"Invalid or unexpected token"`;
+
+exports[`parser and printer > should format all fixtures > test.go 1`] = `"Invalid or unexpected token"`;
+
+exports[`parser and printer > should format all fixtures > test.html 1`] = `"Invalid or unexpected token"`;
+
+exports[`parser and printer > should format all fixtures > test.js 1`] = `"Invalid or unexpected token"`;
+
+exports[`parser and printer > should format all fixtures > test.md 1`] = `"Invalid or unexpected token"`;
+
+exports[`parser and printer > should format all fixtures > test.py 1`] = `"Invalid or unexpected token"`;
+
+exports[`parser and printer > should format all fixtures > test.rb 1`] = `"Invalid or unexpected token"`;
