@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url'
 import { Plugin } from 'prettier'
 import { createSyncFn } from 'synckit'
 
+import { languages } from './languages.js'
 import { FormatFor } from './types.js'
 
 const _dirname =
@@ -14,7 +15,7 @@ const _dirname =
 const formatFor = createSyncFn<FormatFor>(path.resolve(_dirname, 'worker.js'))
 
 const AutocorrectPlugin: Plugin<string> = {
-  languages: [],
+  languages,
   parsers: {
     autocorrect: {
       parse(text) {

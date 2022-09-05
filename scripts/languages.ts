@@ -29,7 +29,10 @@ const EXTRA_SH_LANGUAGES: SupportLanguage[] = [
   },
 ]
 
-const getSupportLanguages = (parser: 'sh' | 'sql', aceModes: string[]) =>
+const getSupportLanguages = (
+  parser: 'autocorrect' | 'sh' | 'sql',
+  aceModes: string[],
+) =>
   Object.values(LinguistLanguages).reduce<SupportLanguage[]>(
     (
       acc,
@@ -42,7 +45,7 @@ const getSupportLanguages = (parser: 'sh' | 'sql', aceModes: string[]) =>
         ...rest
       },
     ) => {
-      if (!aceModes.includes(aceMode)) {
+      if (!aceModes.includes('all') && !aceModes.includes(aceMode)) {
         return acc
       }
       acc.push({
@@ -58,6 +61,17 @@ const getSupportLanguages = (parser: 'sh' | 'sql', aceModes: string[]) =>
     },
     [],
   )
+
+fs.writeFileSync(
+  'packages/autocorrect/src/languages.ts',
+  `import { SupportLanguage } from 'prettier'
+
+export const languages = ${JSON.stringify(
+    getSupportLanguages('autocorrect', ['all']),
+    null,
+    2,
+  )} as SupportLanguage[]`,
+)
 
 fs.writeFileSync(
   'packages/sh/src/languages.ts',
