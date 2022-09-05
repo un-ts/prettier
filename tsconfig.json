@@ -2,6 +2,9 @@
   "extends": "./tsconfig.base",
   "references": [
     {
+      "path": "packages/autocorrect"
+    },
+    {
       "path": "packages/pkg"
     },
     {

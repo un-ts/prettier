@@ -1,0 +1,10 @@
+/* 
+  这是多行CSS第1行
+  这是第2行
+*/
+.btn {
+  .strong { font-weight: bold; }
+  padding: 10px; // comment在属性后面
+  // 这是comment单行
+  font: Helvetica, sans-serif;
+}
