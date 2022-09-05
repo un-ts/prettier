@@ -65,7 +65,6 @@ interface SqlOptions {
   keywordCase: 'preserve' | 'upper' | 'lower' // default `preserve`
   indentStyle: 'standard' | 'tabularLeft' | 'tabularRight' // default `standard`
   logicalOperatorNewline: 'before' | 'after' // default `before`
-  aliasAs: 'preserve' | 'always' | 'never' | 'select' // default `preserve`
   tabulateAlias: boolean // default `false`
   commaPosition: 'after' | 'before' | 'tabular' // default `after`
   expressionWidth: number // default `50`
