@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.12.1
+
+### Patch Changes
+
+- [#225](https://github.com/un-ts/prettier/pull/225) [`e621990`](https://github.com/un-ts/prettier/commit/e621990b77a23b14a125727dac3fca3e20ae0d14) Thanks [@nene](https://github.com/nene)! - docs: update `prettier-plugin-sql` docs
+
 ## 0.12.0
 
 ### Minor Changes
