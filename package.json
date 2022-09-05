@@ -46,7 +46,7 @@
     "@types/react": "^18.0.18",
     "@types/react-dom": "^18.0.6",
     "@types/web": "^0.0.72",
-    "@vitest/coverage-istanbul": "^0.22.1",
+    "@vitest/coverage-istanbul": "^0.23.1",
     "github-markdown-css": "^5.1.0",
     "linguist-languages": "^7.21.0",
     "lodash": "^4.17.21",
@@ -63,7 +63,7 @@
     "type-coverage": "^2.22.0",
     "typescript": "^4.8.2",
     "unplugin-auto-import": "^0.11.2",
-    "vitest": "^0.22.1"
+    "vitest": "^0.23.1"
   },
   "resolutions": {
     "prettier": "^2.7.1"

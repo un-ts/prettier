@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "node-sql-parser": "^4.4.0",
-    "sql-formatter": "^10.0.0",
+    "sql-formatter": "^10.4.0",
     "tslib": "^2.4.0"
   },
   "publishConfig": {
