@@ -50,6 +50,7 @@
     "github-markdown-css": "^5.1.0",
     "linguist-languages": "^7.21.0",
     "lodash": "^4.17.21",
+    "prettier-plugin-autocorrect": "link:packages/autocorrect",
     "prettier-plugin-pkg": "link:packages/pkg",
     "prettier-plugin-sh": "link:packages/sh",
     "prettier-plugin-sql": "link:packages/sql",

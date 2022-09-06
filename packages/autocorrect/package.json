@@ -1,10 +1,10 @@
 {
-  "name": "prettier-plugin-sql",
-  "version": "0.12.1",
+  "name": "prettier-plugin-autocorrect",
+  "version": "0.0.0",
   "type": "module",
-  "description": "An opinionated sql formatter plugin for Prettier",
+  "description": "An opinionated AutoCorrect plugin for Prettier",
   "repository": "git@github.com/un-ts/prettier.git",
-  "homepage": "https://github.com/un-ts/prettier/tree/master/packages/sql",
+  "homepage": "https://github.com/un-ts/prettier/tree/master/packages/autocorrect",
   "author": "JounQin (https://www.1stG.me) <admin@1stg.me>",
   "funding": "https://opencollective.com/unts",
   "license": "MIT",
@@ -23,29 +23,19 @@
     "lib"
   ],
   "keywords": [
-    "sql",
-    "big-query",
-    "db2",
-    "flink-sql",
-    "hive",
-    "maria-db",
-    "mysql",
-    "n1ql",
-    "pl-sql",
-    "postgre-sql",
-    "redshift",
-    "transact-sql",
-    "tsql",
-    "plugin",
-    "prettier",
-    "prettier-plugin"
+    "autocorrect",
+    "copywriting",
+    "spaces",
+    "punctuations",
+    "CJK"
   ],
   "peerDependencies": {
     "prettier": "^2.0.0"
   },
   "dependencies": {
-    "node-sql-parser": "^4.4.0",
-    "sql-formatter": "^10.5.1",
+    "@huacnlee/autocorrect-node": "^1.10.2",
+    "cosmiconfig": "^7.0.1",
+    "synckit": "^0.8.4",
     "tslib": "^2.4.0"
   },
   "publishConfig": {
