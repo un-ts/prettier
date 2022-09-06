@@ -33,7 +33,8 @@
     "prettier": "^2.0.0"
   },
   "dependencies": {
-    "@huacnlee/autocorrect": "^1.10.1",
+    "@huacnlee/autocorrect-node": "^1.10.2",
+    "cosmiconfig": "^7.0.1",
     "synckit": "^0.8.4",
     "tslib": "^2.4.0"
   },
