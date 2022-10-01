@@ -40,7 +40,7 @@
     "@changesets/changelog-github": "^0.4.6",
     "@changesets/cli": "^2.24.4",
     "@pkgr/webpack-mdx": "^2.2.0",
-    "@types/lodash": "^4.14.184",
+    "@types/lodash": "^4.14.186",
     "@types/mvdan-sh": "^0.10.0",
     "@types/prettier": "^2.7.0",
     "@types/react": "^18.0.18",
