@@ -12,7 +12,7 @@ importers:
       '@changesets/changelog-github': ^0.4.7
       '@changesets/cli': ^2.24.4
       '@pkgr/webpack-mdx': ^2.2.0
-      '@types/lodash': ^4.14.186
+      '@types/lodash': ^4.14.187
       '@types/mvdan-sh': ^0.10.0
       '@types/prettier': ^2.7.0
       '@types/react': ^18.0.21
@@ -43,7 +43,7 @@ importers:
       '@changesets/changelog-github': 0.4.7
       '@changesets/cli': 2.24.4
       '@pkgr/webpack-mdx': 2.2.0_fwqns4sirp3l2w2opvooqgyezm
-      '@types/lodash': 4.14.186
+      '@types/lodash': 4.14.187
       '@types/mvdan-sh': 0.10.0
       '@types/prettier': 2.7.0
       '@types/react': 18.0.21
@@ -3771,8 +3771,8 @@ packages:
       '@types/node': 18.6.2
     dev: true
 
-  /@types/lodash/4.14.186:
-    resolution: {integrity: sha512-eHcVlLXP0c2FlMPm56ITode2AgLMSa6aJ05JTTbYbI+7EMkCEE5qk2E41d5g2lCVTqRe0GnnRFurmlCsDODrPw==}
+  /@types/lodash/4.14.187:
+    resolution: {integrity: sha512-MrO/xLXCaUgZy3y96C/iOsaIqZSeupyTImKClHunL5GrmaiII2VwvWmLBu2hwa0Kp0sV19CsyjtrTc/Fx8rg/A==}
     dev: true
 
   /@types/mdast/3.0.10:
