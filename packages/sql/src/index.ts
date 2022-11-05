@@ -48,6 +48,8 @@ const SqlPlugin: Plugin<AST | string> = {
             ? format(value, options)
             : parser.sqlify(value, { type, database })
 
+        formatted = formatted.trim()
+
         // It can never be `auto`
         // @see https://github.com/prettier/prettier/blob/ab72a2c11c806f3a8a5ef42314e291843e1b3e68/src/common/end-of-line.js#L3-L9
         const ending = ENDINGS[endOfLine as keyof typeof ENDINGS]
