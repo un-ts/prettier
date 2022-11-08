@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.2.0
+
+### Minor Changes
+
+- [#234](https://github.com/un-ts/prettier/pull/234) [`103e4c0`](https://github.com/un-ts/prettier/commit/103e4c0770dc2a4cba54c1798abcd26f9a5e8908) Thanks [@huacnlee](https://github.com/huacnlee)! - feat: upgrade to use autocorrect-node (FFI version).
+
 ## 0.1.0
 
 ### Minor Changes

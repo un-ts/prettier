@@ -1,6 +1,6 @@
 {
   "name": "prettier-plugin-autocorrect",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "description": "An opinionated AutoCorrect plugin for Prettier",
   "repository": "git@github.com/un-ts/prettier.git",
