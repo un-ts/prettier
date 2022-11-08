@@ -14,6 +14,5 @@ runAsWorker(async (source: string, filename: string) => {
     )
   }
 
-  let out = formatFor(source, filename) 
-  return Promise.resolve(out)
+  return formatFor(source, filename)
 })
