@@ -71,13 +71,13 @@ importers:
 
   packages/autocorrect:
     specifiers:
-      '@huacnlee/autocorrect-node': ^1.10.2
+      autocorrect-node: ^2.4.3
       cosmiconfig: ^7.0.1
       prettier: ^2.0.0
       synckit: ^0.8.4
       tslib: ^2.4.0
     dependencies:
-      '@huacnlee/autocorrect-node': 1.10.2
+      autocorrect-node: 2.4.3
       cosmiconfig: 7.0.1
       prettier: 2.7.1
       synckit: 0.8.4
@@ -261,7 +261,7 @@ packages:
       eslint-plugin-css: 0.6.0_eslint@8.22.0
       eslint-plugin-es-x: 5.2.1_eslint@8.22.0
       eslint-plugin-eslint-comments: 3.2.0_eslint@8.22.0
-      eslint-plugin-import: /eslint-plugin-i/2.26.0_w7ehzcacvb3lhivydjh7ca7hf4
+      eslint-plugin-import: /eslint-plugin-i/2.26.0_lewfh47l4outvz5ytnjtm3tbm4
       eslint-plugin-jest: 26.9.0_5qc43flrrebvrogp5exit3osvu
       eslint-plugin-jsdoc: 39.3.6_eslint@8.22.0
       eslint-plugin-json-schema-validator: 4.0.1_eslint@8.22.0
@@ -437,7 +437,7 @@ packages:
       postcss-less: 6.0.0_postcss@8.4.16
       postcss-markdown: 1.2.0
       postcss-scss: 4.0.4_postcss@8.4.16
-      postcss-syntax: 0.36.2_i5xagrhwksti6t5i7zt7ea35m4
+      postcss-syntax: 0.36.2_stybfx5lqo76n4bbvf2byxy6qm
       stylelint: 14.11.0
       stylelint-config-prettier: 9.0.3_stylelint@14.11.0
       stylelint-config-standard: 28.0.0_stylelint@14.11.0
@@ -2642,10 +2642,6 @@ packages:
       - supports-color
     dev: true
 
-  /@huacnlee/autocorrect-node/1.10.2:
-    resolution: {integrity: sha512-7pfeNygxG1b2OE38dReYq0a6bEOk/vd3kyuO1B+CB4IL4vt2FZZyrbpSalDkBf3NlGeY4XLol3BzDgYQ37NXPg==}
-    dev: false
-
   /@humanwhocodes/config-array/0.10.4:
     resolution: {integrity: sha512-mXAIHxZT3Vcpg83opl1wGlVZ9xydbfZO3r5YfRSH6Gpp2J/PfdBP0wbDa2sO6/qRbcalpoevVyW6A/fI6LfeMw==}
     engines: {node: '>=10.10.0'}
@@ -3410,7 +3406,7 @@ packages:
     dependencies:
       '@babel/core': 7.18.13
       postcss: 8.4.16
-      postcss-syntax: 0.36.2_i5xagrhwksti6t5i7zt7ea35m4
+      postcss-syntax: 0.36.2_stybfx5lqo76n4bbvf2byxy6qm
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -4829,6 +4825,52 @@ packages:
     engines: {node: '>= 4.5.0'}
     hasBin: true
     dev: true
+
+  /autocorrect-node-darwin-arm64/2.4.3:
+    resolution: {integrity: sha512-DssOX8Sgcuz+iuEFpxghqVxlWLArv8sc2V0TzqSf1M6+jZ+kcGHv52Gib6c2SFH2A9Jj80gBlaRgZoQ22aqcUw==}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [darwin]
+    requiresBuild: true
+    dev: false
+    optional: true
+
+  /autocorrect-node-darwin-x64/2.4.3:
+    resolution: {integrity: sha512-6+hmTzdH0j2ZCgEyw02pGDhjndmv5PNlFm5w+zfcJ9n+feONQ+mkZ+cMeJOiotsYsOhIY1v8CFEVK7pm0uhIEQ==}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [darwin]
+    requiresBuild: true
+    dev: false
+    optional: true
+
+  /autocorrect-node-linux-x64-gnu/2.4.3:
+    resolution: {integrity: sha512-gN4admf88UrFxpbXNRwI99n5OYgoIvABjhClUaT2qwzRjJ18xkUySl1FXPy06e9MUHHcbl1NmL4HvGoBlDedcg==}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [linux]
+    requiresBuild: true
+    dev: false
+    optional: true
+
+  /autocorrect-node-win32-x64-msvc/2.4.3:
+    resolution: {integrity: sha512-PKgFyhibMgZ8egVK9LTBxCwEteOE3cYlg+zpYWGPRHmANGdSV6ZjNnPr2G28RXrwOokFJrPHnj5tTKblPyux1Q==}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [win32]
+    requiresBuild: true
+    dev: false
+    optional: true
+
+  /autocorrect-node/2.4.3:
+    resolution: {integrity: sha512-To+f5IxnWcvw/c9FwPpDw/+8ajBnP0EoVCcqcYVo2O9//mdMFMxQ8QyO4VH3E17zDnpV3IbFAH1Hk/pH4/WfUA==}
+    engines: {node: '>= 10'}
+    optionalDependencies:
+      autocorrect-node-darwin-arm64: 2.4.3
+      autocorrect-node-darwin-x64: 2.4.3
+      autocorrect-node-linux-x64-gnu: 2.4.3
+      autocorrect-node-win32-x64-msvc: 2.4.3
+    dev: false
 
   /autoprefixer/10.4.8_postcss@8.4.16:
     resolution: {integrity: sha512-75Jr6Q/XpTqEf6D2ltS5uMewJIx5irCU1oBYJrWjFenq/m12WRRrz6g15L1EIoYvPLXTbEry7rDOwrcYNj77xw==}
@@ -7142,7 +7184,7 @@ packages:
       eslint-plugin-promise: ^6.0.0
     dependencies:
       eslint: 8.22.0
-      eslint-plugin-import: /eslint-plugin-i/2.26.0_w7ehzcacvb3lhivydjh7ca7hf4
+      eslint-plugin-import: /eslint-plugin-i/2.26.0_lewfh47l4outvz5ytnjtm3tbm4
       eslint-plugin-n: 15.2.5_eslint@8.22.0
       eslint-plugin-promise: 6.0.1_eslint@8.22.0
     dev: true
@@ -7177,7 +7219,7 @@ packages:
       debug: 4.3.4
       enhanced-resolve: 5.10.0
       eslint: 8.22.0
-      eslint-plugin-import: /eslint-plugin-i/2.26.0_w7ehzcacvb3lhivydjh7ca7hf4
+      eslint-plugin-import: /eslint-plugin-i/2.26.0_lewfh47l4outvz5ytnjtm3tbm4
       get-tsconfig: 4.2.0
       globby: 13.1.2
       is-core-module: 2.10.0
@@ -7212,7 +7254,7 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-module-utils/2.7.3_gteqdkz3umqpyw2cl7xahoo7qq:
+  /eslint-module-utils/2.7.3_v26d7mdxwhyqykunawffqp7s2m:
     resolution: {integrity: sha512-088JEC7O3lDZM9xGe0RerkOMd0EjFl+Yvd1jPWIkMT5u3H9+HC34mWWPnqPrN13gieT9pBOO+Qt07Nb/6TresQ==}
     engines: {node: '>=4'}
     peerDependencies:
@@ -7233,7 +7275,6 @@ packages:
       '@typescript-eslint/parser': 5.35.1_shit3uhl6a7megkzgoz6xssnfa
       debug: 3.2.7
       eslint-import-resolver-node: 0.3.6
-      eslint-import-resolver-typescript: 3.5.0_2axvjklnerbmc22n5c3dgtigkm
       find-up: 2.1.0
     transitivePeerDependencies:
       - supports-color
@@ -7285,7 +7326,7 @@ packages:
       ignore: 5.2.0
     dev: true
 
-  /eslint-plugin-i/2.26.0_w7ehzcacvb3lhivydjh7ca7hf4:
+  /eslint-plugin-i/2.26.0_lewfh47l4outvz5ytnjtm3tbm4:
     resolution: {integrity: sha512-d1o6wLEslujT20ObVE/sAfpgsMBlU58P0rU+sudTHCuWDpVhFAuDz1cYzeM70RJ++XCUsCYBID4a3m51TOPT+g==}
     engines: {node: '>=4'}
     peerDependencies:
@@ -7297,7 +7338,7 @@ packages:
       doctrine: 2.1.0
       eslint: 8.22.0
       eslint-import-resolver-node: 0.3.6
-      eslint-module-utils: 2.7.3_gteqdkz3umqpyw2cl7xahoo7qq
+      eslint-module-utils: 2.7.3_v26d7mdxwhyqykunawffqp7s2m
       get-own-property-symbols: 0.9.5
       get-tsconfig: 4.2.0
       has: 1.0.3
@@ -13203,7 +13244,7 @@ packages:
       svgo: 2.8.0
     dev: true
 
-  /postcss-syntax/0.36.2_i5xagrhwksti6t5i7zt7ea35m4:
+  /postcss-syntax/0.36.2_stybfx5lqo76n4bbvf2byxy6qm:
     resolution: {integrity: sha512-nBRg/i7E3SOHWxF3PpF5WnJM/jQ1YpY9000OaVXlAQj6Zp/kIqJxEDWIZ67tAd7NLuk7zqN4yqe9nc0oNAOs1w==}
     peerDependencies:
       postcss: '>=5.0.0'
@@ -13226,9 +13267,6 @@ packages:
     dependencies:
       postcss: 8.4.16
       postcss-html: 1.5.0
-      postcss-less: 6.0.0_postcss@8.4.16
-      postcss-markdown: 1.2.0
-      postcss-scss: 4.0.4_postcss@8.4.16
     dev: true
 
   /postcss-unique-selectors/5.1.1_postcss@8.4.16:
@@ -15994,7 +16032,7 @@ packages:
       postcss-media-query-parser: 0.2.3
       postcss-selector-parser: 6.0.10
       postcss-styl: 0.11.1
-      postcss-syntax: 0.36.2_i5xagrhwksti6t5i7zt7ea35m4
+      postcss-syntax: 0.36.2_stybfx5lqo76n4bbvf2byxy6qm
       style-search: 0.1.0
       stylelint: 14.11.0
       stylelint-config-html: 1.1.0_35nbotopgds64plu275w6fpq24

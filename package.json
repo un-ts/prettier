@@ -10,7 +10,7 @@
   "workspaces": [
     "packages/*"
   ],
-  "packageManager": "pnpm@7.9.5",
+  "packageManager": "pnpm@7.14.2",
   "scripts": {
     "build": "run-p build:*",
     "build:r": "r -f cjs",

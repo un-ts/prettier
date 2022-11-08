@@ -1,8 +1,6 @@
-import { formatFor, loadConfig } from '@huacnlee/autocorrect-node'
+import { formatFor, loadConfig } from 'autocorrect-node'
 import { cosmiconfig } from 'cosmiconfig'
 import { runAsWorker } from 'synckit'
-
-import type { FormatResult } from './types.js'
 
 const explorer = cosmiconfig('autocorrect')
 
@@ -16,5 +14,5 @@ runAsWorker(async (source: string, filename: string) => {
     )
   }
 
-  return formatFor(source, filename) as Promise<FormatResult>
+  return formatFor(source, filename)
 })
