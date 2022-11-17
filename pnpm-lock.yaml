@@ -105,12 +105,12 @@ importers:
     specifiers:
       node-sql-parser: ^4.4.0
       prettier: ^2.0.0
-      sql-formatter: ^11.0.2
+      sql-formatter: ^12.1.2
       tslib: ^2.4.0
     dependencies:
       node-sql-parser: 4.4.0
       prettier: 2.7.1
-      sql-formatter: 11.0.2
+      sql-formatter: 12.1.2
       tslib: 2.4.0
 
 packages:
@@ -15939,8 +15939,8 @@ packages:
     resolution: {integrity: sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==}
     dev: true
 
-  /sql-formatter/11.0.2:
-    resolution: {integrity: sha512-6QumAdGHEnI5dXEq1d0aBRP876AyA9Wp/UE7wopKNA2Mp9sKGRKVqGgoWHk4dr0J0nceesC85Y0p36qmGoNqhw==}
+  /sql-formatter/12.1.2:
+    resolution: {integrity: sha512-SoFn+9ZflUt8+HYZ/PaifXt1RptcDUn8HXqsWmfXdPV3WeHPgT0qOSJXxHU24d7NOVt9X40MLqf263fNk79XqA==}
     hasBin: true
     dependencies:
       argparse: 2.0.1
