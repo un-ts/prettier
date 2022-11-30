@@ -9,7 +9,7 @@ WITH
 `;
 
 exports[`parser and printer > should format all fixtures > basic.sql 1`] = `
-" -- this is a comment
+"-- this is a comment
 SELECT
   *
 FROM
@@ -17,8 +17,7 @@ FROM
 WHERE
   foo = 'bar';
 
-UPDATE
-  a
+UPDATE a
 SET
   id = 1
 WHERE
