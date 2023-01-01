@@ -37,7 +37,7 @@
   "devDependencies": {
     "@1stg/app-config": "^7.2.1",
     "@1stg/lib-config": "^10.2.1",
-    "@changesets/changelog-github": "^0.4.7",
+    "@changesets/changelog-github": "^0.4.8",
     "@changesets/cli": "^2.24.4",
     "@pkgr/webpack-mdx": "^2.2.0",
     "@types/lodash": "^4.14.187",
