@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.13.0
+
+### Minor Changes
+
+- [#244](https://github.com/un-ts/prettier/pull/244) [`b13b262`](https://github.com/un-ts/prettier/commit/b13b262c2e3e058442a8104837933fd6bbf19b43) Thanks [@tim-watcha](https://github.com/tim-watcha)! - feat: add bigquery option for language; sql-formatter version up for #243
+
+### Patch Changes
+
+- [#246](https://github.com/un-ts/prettier/pull/246) [`63c49a2`](https://github.com/un-ts/prettier/commit/63c49a2ec881965b7e5d3ba07ede22351ca05eba) Thanks [@ewhauser](https://github.com/ewhauser)! - fix: for #237; upgrade sql-formatter to remove whitespace at beginning of comment lines
+
 ## 0.12.1
 
 ### Patch Changes
