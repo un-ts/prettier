@@ -88,6 +88,11 @@ const SqlPlugin: Plugin<AST | string> = {
           description: 'Standard SQL: https://en.wikipedia.org/wiki/SQL:2011',
         },
         {
+          value: 'bigquery',
+          description:
+            'Google Standard SQL (Bigquery): https://cloud.google.com/bigquery',
+        },
+        {
           value: 'mariadb',
           description: 'MariaDB: https://mariadb.com',
         },
