@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.3.0
+
+### Minor Changes
+
+- [`880ba47`](https://github.com/un-ts/prettier/commit/880ba47a6c9f1891af2d6cc893585e5f186f3a3f) Thanks [@JounQin](https://github.com/JounQin)! - feat!: bump cosmiconfig
+
 ## 0.2.0
 
 ### Minor Changes
