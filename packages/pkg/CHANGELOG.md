@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.18.0-alpha.0
+
+### Minor Changes
+
+- [`b4480a1`](https://github.com/un-ts/prettier/commit/b4480a1ba0e94b697cf4637a158b388dc28a9bc0) Thanks [@JounQin](https://github.com/JounQin)! - feat!: support prettier@v3
+
 ## 0.17.1
 
 ### Patch Changes
