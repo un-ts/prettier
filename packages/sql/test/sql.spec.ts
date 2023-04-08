@@ -1,8 +1,8 @@
-import prettier from 'prettier'
+import { format } from 'prettier'
 
 import SqlPlugin, { type SqlFormatOptions } from 'prettier-plugin-sql'
 
-test('node-sql-parser', () => {
+test('node-sql-parser', async () => {
   const options: SqlFormatOptions = {
     filepath: 'test.sql',
     parser: 'sql',
@@ -10,17 +10,17 @@ test('node-sql-parser', () => {
     pluginSearchDirs: false,
     formatter: 'node-sql-parser',
   }
-  expect(prettier.format('SELECT * FROM `t`', options)).toMatchSnapshot()
+  expect(await format('SELECT * FROM `t`', options)).toMatchSnapshot()
 
   expect(
-    prettier.format(
+    await format(
       'UPDATE a SET id = 1 WHERE name IN (SELECT name FROM b)',
       options,
     ),
   ).toMatchSnapshot()
 
   expect(
-    prettier.format(
+    await format(
       'SELECT * FROM `t`;\nUPDATE a SET id = 1 WHERE name IN (SELECT name FROM b)',
       options,
     ),

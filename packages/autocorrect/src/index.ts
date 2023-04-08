@@ -29,7 +29,7 @@ const AutocorrectPlugin: Plugin<string> = {
   printers: {
     autocorrect: {
       print(path, { filepath }) {
-        return formatFor(path.getValue(), filepath)
+        return formatFor(path.node, filepath)
       },
     },
   },

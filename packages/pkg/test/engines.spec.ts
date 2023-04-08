@@ -1,8 +1,8 @@
-import prettier from 'prettier'
+import { format } from 'prettier'
 
 import PkgPlugin from 'prettier-plugin-pkg'
 
-test('engines', () => {
+test('engines', async () => {
   const fixture = {
     engines: {
       npm: 'joker',
@@ -11,7 +11,7 @@ test('engines', () => {
   }
 
   const input = JSON.stringify(fixture, null, 2)
-  const output = prettier.format(input, {
+  const output = await format(input, {
     filepath: 'package.json',
     parser: 'json-stringify',
     plugins: [PkgPlugin],

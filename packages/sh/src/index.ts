@@ -93,7 +93,6 @@ const ShPlugin: Plugin<Node | ShSyntaxNode> = {
     sh: {
       parse: (
         text,
-        _parsers,
         {
           filepath,
           keepComments = true,
@@ -183,13 +182,13 @@ const ShPlugin: Plugin<Node | ShSyntaxNode> = {
             syntax.Minify(minify),
             syntax.FunctionNextLine(functionNextLine),
           )
-          .Print(path.getValue() as Node)
+          .Print(path.node as Node)
       },
     },
   },
   options: {
     keepComments: {
-      since: '0.1.0',
+      // since: '0.1.0',
       category: 'Output',
       type: 'boolean',
       default: true,
@@ -197,7 +196,7 @@ const ShPlugin: Plugin<Node | ShSyntaxNode> = {
         'KeepComments makes the parser parse comments and attach them to nodes, as opposed to discarding them.',
     },
     stopAt: {
-      since: '0.1.0',
+      // since: '0.1.0',
       category: 'Config',
       type: 'path',
       description: [
@@ -208,7 +207,7 @@ const ShPlugin: Plugin<Node | ShSyntaxNode> = {
       ].join('\n'),
     },
     variant: {
-      since: '0.1.0',
+      // since: '0.1.0',
       category: 'Config',
       type: 'choice',
       default: undefined,
@@ -234,14 +233,14 @@ const ShPlugin: Plugin<Node | ShSyntaxNode> = {
         'Variant changes the shell language variant that the parser will accept.',
     },
     indent: {
-      since: '0.1.0',
+      // since: '0.1.0',
       category: 'Format',
       type: 'int',
       description:
         'Indent sets the number of spaces used for indentation. If set to 0, tabs will be used instead.',
     },
     binaryNextLine: {
-      since: '0.1.0',
+      // since: '0.1.0',
       category: 'Output',
       type: 'boolean',
       default: true,
@@ -249,7 +248,7 @@ const ShPlugin: Plugin<Node | ShSyntaxNode> = {
         'BinaryNextLine will make binary operators appear on the next line when a binary command, such as a pipe, spans multiple lines. A backslash will be used.',
     },
     switchCaseIndent: {
-      since: '0.1.0',
+      // since: '0.1.0',
       category: 'Format',
       type: 'boolean',
       default: true,
@@ -257,7 +256,7 @@ const ShPlugin: Plugin<Node | ShSyntaxNode> = {
         'SwitchCaseIndent will make switch cases be indented. As such, switch case bodies will be two levels deeper than the switch itself.',
     },
     spaceRedirects: {
-      since: '0.1.0',
+      // since: '0.1.0',
       category: 'Format',
       type: 'boolean',
       default: true,
@@ -265,7 +264,7 @@ const ShPlugin: Plugin<Node | ShSyntaxNode> = {
         "SpaceRedirects will put a space after most redirection operators. The exceptions are '>&', '<&', '>(', and '<('.",
     },
     keepPadding: {
-      since: '0.1.0',
+      // since: '0.1.0',
       category: 'Format',
       type: 'boolean',
       default: false,
@@ -275,7 +274,7 @@ const ShPlugin: Plugin<Node | ShSyntaxNode> = {
       ].join('\n'),
     },
     minify: {
-      since: '0.1.0',
+      // since: '0.1.0',
       category: 'Output',
       type: 'boolean',
       default: false,
@@ -283,7 +282,7 @@ const ShPlugin: Plugin<Node | ShSyntaxNode> = {
         'Minify will print programs in a way to save the most bytes possible. For example, indentation and comments are skipped, and extra whitespace is avoided when possible.',
     },
     functionNextLine: {
-      since: '0.1.0',
+      // since: '0.1.0',
       category: 'Format',
       type: 'boolean',
       default: false,
@@ -291,7 +290,7 @@ const ShPlugin: Plugin<Node | ShSyntaxNode> = {
         "FunctionNextLine will place a function's opening braces on the next line.",
     },
     experimentalWasm: {
-      since: '0.13.0',
+      // since: '0.13.0',
       category: 'config',
       type: 'boolean',
       default: false,

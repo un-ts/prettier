@@ -2,7 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-import prettier from 'prettier'
+import { format } from 'prettier'
 import type { ParseError } from 'sh-syntax'
 
 import ShPlugin, { type IShParseError } from 'prettier-plugin-sh'
@@ -13,7 +13,7 @@ const _dirname =
     : __dirname
 
 describe('parser and printer', () => {
-  it('should format all fixtures', () => {
+  it('should format all fixtures', async () => {
     const fixtures = path.resolve(_dirname, 'fixtures')
     for (const relativeFilepath of fs.readdirSync(fixtures)) {
       const filepath = path.resolve(fixtures, relativeFilepath)
@@ -23,7 +23,7 @@ describe('parser and printer', () => {
 
       if (!filename.endsWith('-wasm')) {
         try {
-          const output = prettier.format(input, {
+          const output = await format(input, {
             filepath,
             parser: 'sh',
             plugins: [ShPlugin],
@@ -40,7 +40,7 @@ describe('parser and printer', () => {
 
       if (!filename.endsWith('-wasm-no')) {
         try {
-          const output = prettier.format(input, {
+          const output = await format(input, {
             filepath,
             parser: 'sh',
             plugins: [ShPlugin],

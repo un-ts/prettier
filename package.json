@@ -16,7 +16,6 @@
     "build:r": "r -f cjs",
     "build:ts": "tsc -b",
     "clean": "rimraf dist coverage 'packages/*/{lib,*.tsbuildinfo}'",
-    "codesandbox:install": "yarn",
     "dev": "vitest",
     "docs:build": "vite build",
     "docs:dev": "vite dev",
@@ -24,7 +23,6 @@
     "languages": "tsx scripts/languages",
     "lint": "run-p lint:*",
     "lint:es": "eslint . --cache -f friendly",
-    "lint:style": "stylelint . --cache",
     "lint:tsc": "tsc --noEmit",
     "postversion": "pnpm i --no-frozen-lockfile",
     "prepare": "simple-git-hooks && pnpm languages || exit 0",
@@ -43,7 +41,6 @@
     "@types/lodash": "^4.14.192",
     "@types/mvdan-sh": "^0.10.0",
     "@types/node": "^18.15.11",
-    "@types/prettier": "^2.7.2",
     "@types/react": "^18.0.33",
     "@types/react-dom": "^18.0.11",
     "@types/web": "^0.0.99",
@@ -52,10 +49,11 @@
     "github-markdown-css": "^5.2.0",
     "linguist-languages": "^7.21.0",
     "lodash": "^4.17.21",
-    "prettier-plugin-autocorrect": "link:packages/autocorrect",
-    "prettier-plugin-pkg": "link:packages/pkg",
-    "prettier-plugin-sh": "link:packages/sh",
-    "prettier-plugin-sql": "link:packages/sql",
+    "prettier": "^3.0.0-alpha.6",
+    "prettier-plugin-autocorrect": "workspace:*",
+    "prettier-plugin-pkg": "workspace:*",
+    "prettier-plugin-sh": "workspace:*",
+    "prettier-plugin-sql": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.10.0",
@@ -72,7 +70,12 @@
     "vitest": "^0.29.8"
   },
   "resolutions": {
-    "prettier": "^2.8.7"
+    "eslint-plugin-prettier": "^5.0.0-alpha.1",
+    "prettier": "^3.0.0-alpha.6",
+    "prettier-plugin-autocorrect": "workspace:*",
+    "prettier-plugin-pkg": "workspace:*",
+    "prettier-plugin-sh": "workspace:*",
+    "prettier-plugin-sql": "workspace:*"
   },
   "browserslist": [
     "extends @1stg/browserslist-config/modern"
@@ -102,7 +105,7 @@
   "size-limit": [
     {
       "path": "packages/autocorrect/lib/index.js",
-      "limit": "460B"
+      "limit": "390B"
     },
     {
       "path": "packages/pkg/lib/index.js",

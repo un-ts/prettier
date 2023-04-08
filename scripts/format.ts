@@ -6,7 +6,7 @@ import prettier from 'prettier'
 import pkgPlugin from 'prettier-plugin-pkg'
 import shPlugin from 'prettier-plugin-sh'
 
-Promise.all(
+await Promise.all(
   process.argv.slice(2).map(async filepath => {
     filepath = tryFile(filepath)
 
@@ -16,7 +16,7 @@ Promise.all(
 
     const input = await fs.promises.readFile(filepath, 'utf8')
 
-    const output = prettier.format(input, {
+    const output = await prettier.format(input, {
       ...(await prettier.resolveConfig(filepath)),
       plugins: [pkgPlugin, shPlugin],
       filepath,
@@ -24,5 +24,4 @@ Promise.all(
 
     return fs.promises.writeFile(filepath, output)
   }),
-  // eslint-disable-next-line unicorn/prefer-top-level-await
-).catch(console.error)
+)

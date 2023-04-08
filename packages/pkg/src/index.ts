@@ -8,7 +8,7 @@
 */
 
 import type { Plugin } from 'prettier'
-import babelParser from 'prettier/parser-babel.js'
+import babelParser from 'prettier/plugins/babel.js'
 
 import { files } from './rules/files.js'
 import { object } from './rules/object.js'
@@ -35,14 +35,12 @@ export default {
   parsers: {
     'json-stringify': {
       ...babelParser.parsers['json-stringify'],
-      parse(text, parsers, options) {
+      parse(text, options) {
         const { filepath } = options
-        const ast = parse(text, parsers, options) as ObjectExpression
-
+        const ast = parse(text, options) as { node: ObjectExpression }
         if (PKG_REG.test(filepath)) {
-          ast.properties = format(ast.properties)
+          ast.node.properties = format(ast.node.properties)
         }
-
         return ast
       },
     },

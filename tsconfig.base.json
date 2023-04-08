@@ -1,4 +1,8 @@
 {
   // used by all files but do not include paths
-  "extends": "@1stg/tsconfig/lib"
+  "extends": "@1stg/tsconfig/lib",
+  "compilerOptions": {
+    "moduleResolution": "bundler",
+    "target": "ES2020"
+  }
 }

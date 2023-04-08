@@ -29,7 +29,7 @@ const SqlPlugin: Plugin<AST | string> = {
   languages,
   parsers: {
     sql: {
-      parse(text, _parsers, { formatter, type, database }: SqlOptions) {
+      parse(text, { formatter, type, database }: SqlOptions) {
         return formatter === SQL_FORMATTER
           ? text
           : (parser.astify(text, { type, database }) as AST)
@@ -42,7 +42,7 @@ const SqlPlugin: Plugin<AST | string> = {
   printers: {
     sql: {
       print(path, { type, database, endOfLine, ...options }: SqlOptions) {
-        const value = path.getValue()
+        const value = path.node
 
         let formatted =
           typeof value === 'string'
@@ -61,7 +61,7 @@ const SqlPlugin: Plugin<AST | string> = {
   },
   options: {
     formatter: {
-      since: '0.1.0',
+      // since: '0.1.0',
       category: 'Config',
       type: 'choice',
       default: SQL_FORMATTER,
@@ -78,7 +78,7 @@ const SqlPlugin: Plugin<AST | string> = {
       ],
     },
     language: {
-      since: '0.1.0',
+      // since: '0.1.0',
       category: 'Config',
       type: 'choice',
       default: 'sql',
@@ -150,7 +150,7 @@ const SqlPlugin: Plugin<AST | string> = {
       ],
     },
     keywordCase: {
-      since: '0.7.0',
+      // since: '0.7.0',
       category: 'Output',
       type: 'choice',
       default: 'preserve',
@@ -172,14 +172,14 @@ const SqlPlugin: Plugin<AST | string> = {
       ],
     },
     uppercase: {
-      since: '0.1.0',
+      // since: '0.1.0',
       category: 'Output',
       type: 'boolean',
       deprecated: '0.7.0',
       description: 'Use `keywordCase` option instead',
     },
     indentStyle: {
-      since: '0.7.0',
+      // since: '0.7.0',
       category: 'Format',
       type: 'choice',
       default: 'standard',
@@ -207,7 +207,7 @@ const SqlPlugin: Plugin<AST | string> = {
       ],
     },
     logicalOperatorNewline: {
-      since: '0.7.0',
+      // since: '0.7.0',
       category: 'Format',
       type: 'choice',
       default: 'before',
@@ -225,7 +225,7 @@ const SqlPlugin: Plugin<AST | string> = {
       ],
     },
     tabulateAlias: {
-      since: '0.7.0',
+      // since: '0.7.0',
       category: 'Format',
       type: 'boolean',
       default: false,
@@ -233,7 +233,7 @@ const SqlPlugin: Plugin<AST | string> = {
         'Aligns column aliases into a single column  for `sql-formatter`. Does not effect table name aliases.',
     },
     commaPosition: {
-      since: '0.7.0',
+      // since: '0.7.0',
       category: 'Format',
       type: 'choice',
       default: 'after',
@@ -255,7 +255,7 @@ const SqlPlugin: Plugin<AST | string> = {
       ],
     },
     expressionWidth: {
-      since: '0.7.0',
+      // since: '0.7.0',
       category: 'Format',
       type: 'int',
       default: 50,
@@ -263,7 +263,7 @@ const SqlPlugin: Plugin<AST | string> = {
         'Determines maximum length of parenthesized expressions for `sql-formatter`',
     },
     linesBetweenQueries: {
-      since: '0.1.0',
+      // since: '0.1.0',
       category: 'Format',
       type: 'int',
       default: 1,
@@ -271,7 +271,7 @@ const SqlPlugin: Plugin<AST | string> = {
         'Decides how many empty lines to leave between SQL statements for `sql-formatter`',
     },
     denseOperators: {
-      since: '0.7.0',
+      // since: '0.7.0',
       category: 'Format',
       type: 'boolean',
       default: false,
@@ -279,7 +279,7 @@ const SqlPlugin: Plugin<AST | string> = {
         'Decides whitespace around operators for `sql-formatter`. Does not apply to logical operators (AND, OR, XOR).',
     },
     newlineBeforeSemicolon: {
-      since: '0.7.0',
+      // since: '0.7.0',
       category: 'Format',
       type: 'boolean',
       default: false,
@@ -287,7 +287,7 @@ const SqlPlugin: Plugin<AST | string> = {
         'Whether to place query separator (`;`) on a separate line for `sql-formatter`',
     },
     params: {
-      since: '0.7.0',
+      // since: '0.7.0',
       category: 'Format',
       type: 'choice',
       description:
@@ -317,7 +317,7 @@ const SqlPlugin: Plugin<AST | string> = {
       },
     },
     paramTypes: {
-      since: '0.11.0',
+      // since: '0.11.0',
       category: 'Config',
       type: 'choice',
       description:
@@ -331,7 +331,7 @@ const SqlPlugin: Plugin<AST | string> = {
       ],
     },
     type: {
-      since: '0.1.0',
+      // since: '0.1.0',
       category: 'Config',
       type: 'choice',
       default: 'table',
@@ -348,7 +348,7 @@ const SqlPlugin: Plugin<AST | string> = {
       ],
     },
     database: {
-      since: '0.1.0',
+      // since: '0.1.0',
       category: 'Config',
       type: 'choice',
       default: 'mysql',

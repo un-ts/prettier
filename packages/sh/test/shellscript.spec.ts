@@ -1,11 +1,11 @@
-import prettier from 'prettier'
+import { format } from 'prettier'
 import { ParseError } from 'sh-syntax'
 
 import ShPlugin, { type IShParseError } from 'prettier-plugin-sh'
 
-test('fatal parse error with meaningful message', () => {
+test('fatal parse error with meaningful message', async () => {
   try {
-    prettier.format(`echo )`, {
+    await format(`echo )`, {
       filepath: 'broken.sh',
       parser: 'sh',
       plugins: [ShPlugin],
@@ -16,7 +16,7 @@ test('fatal parse error with meaningful message', () => {
   }
 
   try {
-    prettier.format(`echo )`, {
+    await format(`echo )`, {
       filepath: 'broken.sh',
       parser: 'sh',
       plugins: [ShPlugin],

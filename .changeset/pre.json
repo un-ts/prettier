@@ -1,0 +1,11 @@
+{
+  "mode": "pre",
+  "tag": "alpha",
+  "initialVersions": {
+    "prettier-plugin-autocorrect": "0.2.0",
+    "prettier-plugin-pkg": "0.17.1",
+    "prettier-plugin-sh": "0.12.8",
+    "prettier-plugin-sql": "0.13.0"
+  },
+  "changesets": []
+}

@@ -2,7 +2,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 import _ from 'lodash'
-import prettier, { Options } from 'prettier'
+import { type Options, format } from 'prettier'
 
 import pkg1 from './fixtures/fixture1.json'
 import pkg2 from './fixtures/fixture2.json'
@@ -29,9 +29,9 @@ const _dirname =
     ? path.dirname(fileURLToPath(import.meta.url))
     : __dirname
 
-test('randomize', () => {
+test('randomize', async () => {
   const input = JSON.stringify(createFixture(), null, 2)
-  const output = prettier.format(input, {
+  const output = await format(input, {
     filepath: path.join(_dirname, 'package.json'),
     parser: JSON_STRINGIFY,
     plugins: [PkgPlugin],
@@ -41,9 +41,9 @@ test('randomize', () => {
   expect(output).toMatchSnapshot()
 })
 
-test('preprocess', () => {
+test('preprocess', async () => {
   const input = JSON.stringify(createFixture(1), null, 2)
-  const output = prettier.format(input, {
+  const output = await format(input, {
     filepath: path.join('package.json'),
     parser: JSON_STRINGIFY,
     plugins: [PkgPlugin],
@@ -57,10 +57,10 @@ test('preprocess', () => {
   expect(output).toMatchSnapshot()
 })
 
-test('not package.json', () => {
+test('not package.json', async () => {
   const fixture = { version: 'batman', name: 'joker' }
   const input = JSON.stringify(fixture, null, 2)
-  const output = prettier.format(input, {
+  const output = await format(input, {
     filepath: 'batman.json',
     parser: JSON_STRINGIFY,
     plugins: [PkgPlugin],
@@ -76,12 +76,12 @@ test('broken json', () => {
   "batman": {]
 }`
 
-  expect(() =>
-    prettier.format(broken, {
+  return expect(() =>
+    format(broken, {
       filepath: 'broken.json',
       parser: JSON_STRINGIFY,
       plugins: [PkgPlugin],
       pluginSearchDirs: false,
     }),
-  ).toThrow()
+  ).rejects.toThrow()
 })
