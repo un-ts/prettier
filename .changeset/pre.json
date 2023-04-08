@@ -7,5 +7,7 @@
     "prettier-plugin-sh": "0.12.8",
     "prettier-plugin-sql": "0.13.0"
   },
-  "changesets": []
+  "changesets": [
+    "stale-days-dance"
+  ]
 }
