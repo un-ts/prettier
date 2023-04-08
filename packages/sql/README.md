@@ -108,11 +108,11 @@ Detailed changes for each release are documented in [CHANGELOG.md](./CHANGELOG.m
 
 ## License
 
-[MIT][] © [JounQin][]@[1stG.me][]
+[GPLv2][] © [JounQin][]@[1stG.me][]
 
 [1stg.me]: https://www.1stg.me
 [jounqin]: https://GitHub.com/JounQin
-[mit]: http://opensource.org/licenses/MIT
+[gplv2]: https://opensource.org/license/gpl-2-0
 [node-sql-parser]: https://github.com/taozhi8833998/node-sql-parser
 [prettier]: https://prettier.io
 [sql-formatter]: https://github.com/zeroturnaround/sql-formatter
