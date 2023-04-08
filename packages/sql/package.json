@@ -44,9 +44,9 @@
     "prettier": "^2.0.0"
   },
   "dependencies": {
-    "node-sql-parser": "^4.4.0",
-    "sql-formatter": "^11.0.2",
-    "tslib": "^2.4.0"
+    "node-sql-parser": "^4.6.6",
+    "sql-formatter": "^12.2.0",
+    "tslib": "^2.5.0"
   },
   "publishConfig": {
     "access": "public"

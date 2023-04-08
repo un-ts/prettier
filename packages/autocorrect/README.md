@@ -1,6 +1,6 @@
 # prettier-plugin-autocorrect ![npm bundle size](https://img.shields.io/bundlephobia/min/prettier-plugin-autocorrect) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/prettier-plugin-autocorrect)
 
-> An opinionated sql formatter plugin for [Prettier][]
+> An opinionated copywriting formatter plugin for [Prettier][]
 
 Prettier is an opinionated code formatter. It enforces a consistent style by parsing your code and re-printing, taking various rules into account.
 
@@ -33,10 +33,10 @@ Once installed, [Prettier plugins](https://prettier.io/docs/en/plugins.html) sho
 
 ```sh
 # npx
-npx prettier --write db.sql
+npx prettier --write writing.md
 
 # yarn
-yarn prettier --write db.sql
+yarn prettier --write writing.md
 ```
 
 ## Sponsors

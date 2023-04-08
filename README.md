@@ -1,7 +1,6 @@
 # @unts/prettier
 
 [![GitHub Actions](https://github.com/un-ts/prettier/workflows/Node%20CI/badge.svg)](https://github.com/un-ts/prettier/actions?query=workflow%3A%22Node+CI%22)
-[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/un-ts/prettier.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/un-ts/prettier/context:javascript)
 [![Codecov](https://img.shields.io/codecov/c/gh/un-ts/prettier)](https://codecov.io/gh/un-ts/prettier)
 [![type-coverage](https://img.shields.io/badge/dynamic/json.svg?label=type-coverage&prefix=%E2%89%A5&suffix=%&query=$.typeCoverage.atLeast&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fun-ts%2Fprettier%2Fmaster%2Fpackage.json)](https://github.com/plantain-00/type-coverage)
 [![GitHub release](https://img.shields.io/github/release/un-ts/prettier)](https://github.com/un-ts/prettier/releases)
@@ -18,11 +17,12 @@
 
 This repository is a monorepo managed by [changesets][] what means we actually publish several packages to npm from same codebase, including:
 
-| Package                                | Description                                                                                                                                                           | Version                                                                                                           |
-| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| [`prettier-plugin-pkg`](/packages/pkg) | An opinionated package.json formatter plugin for Prettier                                                                                                             | [![npm](https://img.shields.io/npm/v/prettier-plugin-pkg.svg)](https://www.npmjs.com/package/prettier-plugin-pkg) |
-| [`prettier-plugin-sh`](/packages/sh)   | An opinionated `shellscript` formatter plugin for Prettier, also support simple format of `Dockerfile`, `properties`, `gitignore`, `dotenv`, `hosts`, `jvmoptions`... | [![npm](https://img.shields.io/npm/v/prettier-plugin-sh.svg)](https://www.npmjs.com/package/prettier-plugin-sh)   |
-| [`prettier-plugin-sql`](/packages/sql) | An opinionated sql formatter plugin for Prettier                                                                                                                      | [![npm](https://img.shields.io/npm/v/prettier-plugin-sql.svg)](https://www.npmjs.com/package/prettier-plugin-sql) |
+| Package                                                | Description                                                                                                                                                           | Version                                                                                                                           |
+| ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| [`prettier-plugin-autocorrect`](/packages/autocorrect) | An opinionated copywriting formatter plugin for Prettier                                                                                                              | [![npm](https://img.shields.io/npm/v/prettier-plugin-autocorrect.svg)](https://www.npmjs.com/package/prettier-plugin-autocorrect) |
+| [`prettier-plugin-pkg`](/packages/pkg)                 | An opinionated package.json formatter plugin for Prettier                                                                                                             | [![npm](https://img.shields.io/npm/v/prettier-plugin-pkg.svg)](https://www.npmjs.com/package/prettier-plugin-pkg)                 |
+| [`prettier-plugin-sh`](/packages/sh)                   | An opinionated `shellscript` formatter plugin for Prettier, also support simple format of `Dockerfile`, `properties`, `gitignore`, `dotenv`, `hosts`, `jvmoptions`... | [![npm](https://img.shields.io/npm/v/prettier-plugin-sh.svg)](https://www.npmjs.com/package/prettier-plugin-sh)                   |
+| [`prettier-plugin-sql`](/packages/sql)                 | An opinionated sql formatter plugin for Prettier                                                                                                                      | [![npm](https://img.shields.io/npm/v/prettier-plugin-sql.svg)](https://www.npmjs.com/package/prettier-plugin-sql)                 |
 
 ## Sponsors
 

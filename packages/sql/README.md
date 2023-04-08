@@ -60,6 +60,7 @@ interface SqlOptions {
     | 'singlestoredb'
     | 'spark'
     | 'sqlite'
+    | 'transactsql'
     | 'tsql'
     | 'trino' // default `sql`
   keywordCase: 'preserve' | 'upper' | 'lower' // default `preserve`

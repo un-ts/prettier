@@ -1,10 +1,10 @@
-import nodeSqlParser, { type AST, type Option } from 'node-sql-parser'
+import { type AST, type Option, Parser } from 'node-sql-parser'
 import type { Options, ParserOptions, Plugin } from 'prettier'
-import { format, Formatter, type FormatOptions } from 'sql-formatter'
+import { format, type FormatOptions } from 'sql-formatter'
 
 import { languages } from './languages.js'
 
-const parser = new nodeSqlParser.Parser()
+const parser = new Parser()
 
 const SQL_FORMATTER = 'sql-formatter'
 const NODE_SQL_PARSER = 'node-sql-parser'
@@ -17,6 +17,7 @@ const ENDINGS = {
 
 export type SqlBaseOptions = Option &
   Partial<FormatOptions> & {
+    language?: string
     formatter?: typeof NODE_SQL_PARSER | typeof SQL_FORMATTER
   }
 
@@ -137,14 +138,14 @@ const SqlPlugin: Plugin<AST | string> = {
           description: 'Trino: https://trino.io',
         },
         {
-          value: 'tsql',
+          value: 'transactsql',
           description:
             'SQL Server Transact-SQL: https://docs.microsoft.com/en-us/sql/sql-server/',
         },
         {
-          since: '0.11.0',
-          value: Formatter,
-          description: 'Custom formatter class (experimental)',
+          value: 'tsql',
+          description:
+            'SQL Server Transact-SQL: https://docs.microsoft.com/en-us/sql/sql-server/',
         },
       ],
     },

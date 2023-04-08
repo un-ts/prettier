@@ -1,4 +1,4 @@
-// Vitest Snapshot v1
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`parser and printer > should format all fixtures > 144.sql 1`] = `
 "CREATE TABLE
@@ -17,8 +17,7 @@ FROM
 WHERE
   foo = 'bar';
 
-UPDATE
-  a
+UPDATE a
 SET
   id = 1
 WHERE

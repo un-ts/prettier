@@ -39,7 +39,7 @@
   "dependencies": {
     "mvdan-sh": "^0.10.1",
     "sh-syntax": "^0.3.7",
-    "synckit": "^0.8.4"
+    "synckit": "^0.8.5"
   },
   "publishConfig": {
     "access": "public"
