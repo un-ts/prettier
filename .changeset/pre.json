@@ -8,6 +8,7 @@
     "prettier-plugin-sql": "0.13.0"
   },
   "changesets": [
+    "funny-camels-change",
     "stale-days-dance"
   ]
 }

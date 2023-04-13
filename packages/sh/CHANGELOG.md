@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.13.0-alpha.1
+
+### Minor Changes
+
+- [#259](https://github.com/un-ts/prettier/pull/259) [`01b32f0`](https://github.com/un-ts/prettier/commit/01b32f09760a85c16461a3ff541270644c72a31c) Thanks [@JounQin](https://github.com/JounQin)! - feat: upgrade sh-syntax which is much stable now
+
 ## 0.13.0-alpha.0
 
 ### Minor Changes
