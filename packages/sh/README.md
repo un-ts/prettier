@@ -17,7 +17,7 @@ Of course it should just work, but may not match [prettier][]'s format sometimes
 
 ## Requirements
 
-`prettier-plugin-sh` is an evergreen module. 🌲 This module requires an [LTS](https://github.com/nodejs/Release) Node version (v12.0.0+).
+`prettier-plugin-sh` is an evergreen module. 🌲 This module requires an [LTS](https://github.com/nodejs/Release) Node version (v16.0.0+).
 
 ## Install
 
@@ -61,7 +61,7 @@ interface ShOptions {
   minify: boolean
   functionNextLine: boolean
 
-  // use `sh-syntax` which is still buggy instead
+  // use `sh-syntax` instead
   experimentalWasm: boolean
 }
 ```
