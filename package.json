@@ -41,11 +41,11 @@
     "@types/lodash": "^4.14.192",
     "@types/mvdan-sh": "^0.10.0",
     "@types/node": "^18.15.11",
-    "@types/react": "^18.0.33",
+    "@types/react": "^18.0.35",
     "@types/react-dom": "^18.0.11",
     "@types/web": "^0.0.99",
-    "@vitejs/plugin-react-swc": "^3.2.0",
-    "@vitest/coverage-istanbul": "^0.29.8",
+    "@vitejs/plugin-react-swc": "^3.3.0",
+    "@vitest/coverage-istanbul": "^0.30.1",
     "github-markdown-css": "^5.2.0",
     "linguist-languages": "^7.21.0",
     "lodash": "^4.17.21",
@@ -58,7 +58,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.10.0",
     "remark-gfm": "^3.0.1",
-    "sass": "^1.61.0",
+    "sass": "^1.62.0",
     "sirv-cli": "^2.0.2",
     "size-limit": "^8.2.4",
     "size-limit-preset-node-lib": "^0.2.0",
@@ -67,7 +67,7 @@
     "typescript": "^5.0.4",
     "unplugin-auto-import": "^0.15.2",
     "vite": "^4.2.1",
-    "vitest": "^0.29.8"
+    "vitest": "^0.30.1"
   },
   "resolutions": {
     "eslint-plugin-prettier": "^5.0.0-alpha.1",
