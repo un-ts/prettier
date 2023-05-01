@@ -28,8 +28,8 @@ importers:
         specifier: ^2.3.0
         version: 2.3.0(rollup@3.20.2)
       '@types/lodash':
-        specifier: ^4.14.192
-        version: 4.14.192
+        specifier: ^4.14.194
+        version: 4.14.194
       '@types/mvdan-sh':
         specifier: ^0.10.0
         version: 0.10.0
@@ -4031,8 +4031,8 @@ packages:
       '@types/node': 18.15.11
     dev: true
 
-  /@types/lodash@4.14.192:
-    resolution: {integrity: sha512-km+Vyn3BYm5ytMO13k9KTp27O75rbQ0NFw+U//g+PX7VZyjCioXaRFisqSIJRECljcTv73G3i6BpglNGHgUQ5A==}
+  /@types/lodash@4.14.194:
+    resolution: {integrity: sha512-r22s9tAS7imvBt2lyHC9B8AGwWnXaYb1tY09oyLkXDs4vArpYJzw09nj8MLx5VfciBPGIb+ZwG0ssYnEPJxn/g==}
     dev: true
 
   /@types/mdast@3.0.10:
