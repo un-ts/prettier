@@ -34,7 +34,7 @@
     "prettier-plugin"
   ],
   "peerDependencies": {
-    "prettier": "^3.0.0-alpha.0"
+    "prettier": "^3.0.0"
   },
   "dependencies": {
     "mvdan-sh": "^0.10.1",

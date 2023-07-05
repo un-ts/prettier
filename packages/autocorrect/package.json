@@ -30,7 +30,7 @@
     "CJK"
   ],
   "peerDependencies": {
-    "prettier": "^3.0.0-alpha.0"
+    "prettier": "^3.0.0"
   },
   "dependencies": {
     "autocorrect-node": "^2.6.2",

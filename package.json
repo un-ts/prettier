@@ -49,7 +49,7 @@
     "github-markdown-css": "^5.2.0",
     "linguist-languages": "^7.21.0",
     "lodash": "^4.17.21",
-    "prettier": "^3.0.0-alpha.6",
+    "prettier": "^3.0.0",
     "prettier-plugin-autocorrect": "workspace:*",
     "prettier-plugin-pkg": "workspace:*",
     "prettier-plugin-sh": "workspace:*",
@@ -71,7 +71,7 @@
   },
   "resolutions": {
     "eslint-plugin-prettier": "^5.0.0-alpha.1",
-    "prettier": "^3.0.0-alpha.6",
+    "prettier": "^3.0.0",
     "prettier-plugin-autocorrect": "workspace:*",
     "prettier-plugin-pkg": "workspace:*",
     "prettier-plugin-sh": "workspace:*",
