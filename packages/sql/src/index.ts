@@ -1,10 +1,11 @@
-import { type AST, type Option, Parser } from 'node-sql-parser'
+import type { AST, Option } from 'node-sql-parser'
+import nodeSqlParser from 'node-sql-parser'
 import type { Options, ParserOptions, Plugin } from 'prettier'
 import { format, type FormatOptions } from 'sql-formatter'
 
 import { languages } from './languages.js'
 
-const parser = new Parser()
+const parser = new nodeSqlParser.Parser()
 
 const SQL_FORMATTER = 'sql-formatter'
 const NODE_SQL_PARSER = 'node-sql-parser'
