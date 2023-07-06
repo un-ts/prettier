@@ -27,7 +27,6 @@ describe('parser and printer', () => {
             filepath,
             parser: 'sh',
             plugins: [ShPlugin],
-            pluginSearchDirs: false,
           })
 
           expect(output).toMatchSnapshot(relativeFilepath)
@@ -44,7 +43,6 @@ describe('parser and printer', () => {
             filepath,
             parser: 'sh',
             plugins: [ShPlugin],
-            pluginSearchDirs: false,
             // @ts-expect-error
             experimentalWasm: true,
           })

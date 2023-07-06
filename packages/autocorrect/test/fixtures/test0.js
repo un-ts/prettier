@@ -4,9 +4,9 @@
 */
 function application() {
   let example = "这是single line单行注释";
-  console.log(\`这是string第1行
+  console.log(`这是string第1行
   这是string第2行
-  \`)
+  `)
   // autocorrect-disable
   const disable_1 = "这行将会disable掉";
   const disable_2 = "这行将也会disable掉";

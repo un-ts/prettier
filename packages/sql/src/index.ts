@@ -53,7 +53,7 @@ const SqlPlugin: Plugin<AST | string> = {
         // @see https://github.com/prettier/prettier/blob/ab72a2c11c806f3a8a5ef42314e291843e1b3e68/src/common/end-of-line.js#L3-L9
         const ending = ENDINGS[endOfLine as keyof typeof ENDINGS]
 
-        formatted = formatted.replace(/\r\n?|\n/g, ending)
+        formatted = formatted.replaceAll(/\r\n?|\n/g, ending)
 
         return formatted.endsWith(ending) ? formatted : formatted + ending
       },

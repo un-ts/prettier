@@ -41,12 +41,12 @@
     "prettier-plugin"
   ],
   "peerDependencies": {
-    "prettier": "^3.0.0-alpha.0"
+    "prettier": "^3.0.0"
   },
   "dependencies": {
-    "node-sql-parser": "^4.6.6",
-    "sql-formatter": "^12.2.0",
-    "tslib": "^2.5.0"
+    "node-sql-parser": "^4.7.0",
+    "sql-formatter": "^12.2.3",
+    "tslib": "^2.6.0"
   },
   "publishConfig": {
     "access": "public"

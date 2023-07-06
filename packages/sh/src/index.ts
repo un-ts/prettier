@@ -32,7 +32,7 @@ export interface Processor {
 const { syntax } = sh
 
 export interface ShParserOptions
-  extends ParserOptions<Node | ShSyntaxNode>,
+  extends Required<ParserOptions<Node | ShSyntaxNode>>,
     Required<ShOptions> {
   experimentalWasm: boolean
 }

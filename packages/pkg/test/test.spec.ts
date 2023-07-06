@@ -35,7 +35,6 @@ test('randomize', async () => {
     filepath: path.join(_dirname, 'package.json'),
     parser: JSON_STRINGIFY,
     plugins: [PkgPlugin],
-    pluginSearchDirs: false,
   })
 
   expect(output).toMatchSnapshot()
@@ -64,7 +63,6 @@ test('not package.json', async () => {
     filepath: 'batman.json',
     parser: JSON_STRINGIFY,
     plugins: [PkgPlugin],
-    pluginSearchDirs: false,
   })
 
   expect(input.trim()).toBe(output.trim())
@@ -81,7 +79,6 @@ test('broken json', () => {
       filepath: 'broken.json',
       parser: JSON_STRINGIFY,
       plugins: [PkgPlugin],
-      pluginSearchDirs: false,
     }),
   ).rejects.toThrow()
 })

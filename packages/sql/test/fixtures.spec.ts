@@ -29,7 +29,6 @@ describe('parser and printer', () => {
         filepath,
         parser: 'sql',
         plugins: [SqlPlugin],
-        pluginSearchDirs: false,
         ...PARSER_OPTIONS[caseName],
       })
 

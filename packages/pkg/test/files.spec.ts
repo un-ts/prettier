@@ -12,7 +12,6 @@ test('files', async () => {
     filepath: 'package.json',
     parser: 'json-stringify',
     plugins: [PkgPlugin],
-    pluginSearchDirs: false,
   })
 
   expect(output).toMatchSnapshot()

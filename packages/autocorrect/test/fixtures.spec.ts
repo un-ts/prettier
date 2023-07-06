@@ -23,7 +23,6 @@ describe('parser and printer', () => {
           filepath,
           parser: 'autocorrect',
           plugins: [AutocorrectPlugin],
-          pluginSearchDirs: false,
         })
 
         expect(output).toMatchSnapshot(relativeFilepath)

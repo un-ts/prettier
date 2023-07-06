@@ -49,25 +49,6 @@ exports[`parser and printer > should format all fixtures > test.html 1`] = `
 "
 `;
 
-exports[`parser and printer > should format all fixtures > test.js 1`] = `
-"/**
-* Hello 你好
-* 这是第 2 行
-*/
-function application() {
-  let example = \\"这是 single line 单行注释\\";
-  console.log(\\\\\`这是 string 第 1 行
-  这是 string 第 2 行
-  \\\\\`)
-  // autocorrect-disable
-  const disable_1 = \\"这行将会disable掉\\";
-  const disable_2 = \\"这行将也会disable掉\\";
-  // autocorrect-enable
-  const c = \\"这是 string 第 3 行\\";
-}
-"
-`;
-
 exports[`parser and printer > should format all fixtures > test.md 1`] = `
 "# 这是 Heading 1 大标题
 **加粗** 
@@ -150,5 +131,24 @@ def hello(a, b: \\"第 1 个参数\\")
   a = \\"hello 世界#{a}\\"
   b = '你好 hello 世界'
 end
+"
+`;
+
+exports[`parser and printer > should format all fixtures > test0.js 1`] = `
+"/**
+* Hello 你好
+* 这是第 2 行
+*/
+function application() {
+  let example = \\"这是 single line 单行注释\\";
+  console.log(\`这是 string 第 1 行
+  这是 string 第 2 行
+  \`)
+  // autocorrect-disable
+  const disable_1 = \\"这行将会disable掉\\";
+  const disable_2 = \\"这行将也会disable掉\\";
+  // autocorrect-enable
+  const c = \\"这是 string 第 3 行\\";
+}
 "
 `;

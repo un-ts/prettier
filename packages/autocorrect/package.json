@@ -30,13 +30,13 @@
     "CJK"
   ],
   "peerDependencies": {
-    "prettier": "^3.0.0-alpha.0"
+    "prettier": "^3.0.0"
   },
   "dependencies": {
     "autocorrect-node": "^2.6.2",
-    "cosmiconfig": "^8.1.3",
+    "cosmiconfig": "^8.2.0",
     "synckit": "^0.8.5",
-    "tslib": "^2.5.0"
+    "tslib": "^2.6.0"
   },
   "publishConfig": {
     "access": "public"

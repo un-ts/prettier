@@ -10,7 +10,7 @@
   "workspaces": [
     "packages/*"
   ],
-  "packageManager": "pnpm@8.1.1",
+  "packageManager": "pnpm@8.6.6",
   "scripts": {
     "build": "run-p build:*",
     "build:r": "r -f cjs",
@@ -33,45 +33,45 @@
     "vercel-build": "pnpm docs:build"
   },
   "devDependencies": {
-    "@1stg/app-config": "^8.0.1",
-    "@1stg/lib-config": "^11.0.1",
+    "@1stg/app-config": "^9.0.0",
+    "@1stg/lib-config": "^12.0.0",
     "@changesets/changelog-github": "^0.4.8",
-    "@changesets/cli": "^2.26.1",
+    "@changesets/cli": "^2.26.2",
     "@mdx-js/rollup": "^2.3.0",
-    "@types/lodash": "^4.14.192",
-    "@types/mvdan-sh": "^0.10.0",
-    "@types/node": "^18.15.11",
-    "@types/react": "^18.0.35",
-    "@types/react-dom": "^18.0.11",
-    "@types/web": "^0.0.99",
-    "@vitejs/plugin-react-swc": "^3.3.0",
-    "@vitest/coverage-istanbul": "^0.30.1",
+    "@types/lodash": "^4.14.195",
+    "@types/mvdan-sh": "^0.10.2",
+    "@types/node": "^20.4.0",
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
+    "@types/web": "^0.0.103",
+    "@vitejs/plugin-react-swc": "^3.3.2",
+    "@vitest/coverage-istanbul": "^0.32.4",
     "github-markdown-css": "^5.2.0",
     "linguist-languages": "^7.21.0",
     "lodash": "^4.17.21",
-    "prettier": "^3.0.0-alpha.6",
+    "prettier": "^3.0.0",
     "prettier-plugin-autocorrect": "workspace:*",
     "prettier-plugin-pkg": "workspace:*",
     "prettier-plugin-sh": "workspace:*",
     "prettier-plugin-sql": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.10.0",
+    "react-router-dom": "^6.14.1",
     "remark-gfm": "^3.0.1",
-    "sass": "^1.62.0",
+    "sass": "^1.63.6",
     "sirv-cli": "^2.0.2",
-    "size-limit": "^8.2.4",
+    "size-limit": "^8.2.6",
     "size-limit-preset-node-lib": "^0.2.0",
-    "tsx": "^3.12.6",
-    "type-coverage": "^2.25.0",
-    "typescript": "^5.0.4",
-    "unplugin-auto-import": "^0.15.2",
-    "vite": "^4.2.1",
-    "vitest": "^0.30.1"
+    "tsx": "^3.12.7",
+    "type-coverage": "^2.26.0",
+    "typescript": "^5.1.6",
+    "unplugin-auto-import": "^0.16.6",
+    "vite": "^4.3.9",
+    "vitest": "^0.32.4"
   },
   "resolutions": {
-    "eslint-plugin-prettier": "^5.0.0-alpha.1",
-    "prettier": "^3.0.0-alpha.6",
+    "eslint-plugin-prettier": "^5.0.0-alpha.2",
+    "prettier": "^3.0.0",
     "prettier-plugin-autocorrect": "workspace:*",
     "prettier-plugin-pkg": "workspace:*",
     "prettier-plugin-sh": "workspace:*",
@@ -97,6 +97,9 @@
     "!/.github",
     "!/.*.js"
   ],
+  "markuplint": {
+    "extends": "@1stg"
+  },
   "renovate": {
     "extends": [
       "@1stg"

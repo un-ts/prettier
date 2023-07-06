@@ -7,7 +7,6 @@ test('node-sql-parser', async () => {
     filepath: 'test.sql',
     parser: 'sql',
     plugins: [SqlPlugin],
-    pluginSearchDirs: false,
     formatter: 'node-sql-parser',
   }
   expect(await format('SELECT * FROM `t`', options)).toMatchSnapshot()

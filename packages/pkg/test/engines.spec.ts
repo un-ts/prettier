@@ -15,7 +15,6 @@ test('engines', async () => {
     filepath: 'package.json',
     parser: 'json-stringify',
     plugins: [PkgPlugin],
-    pluginSearchDirs: false,
   })
 
   expect(output).toMatchSnapshot()

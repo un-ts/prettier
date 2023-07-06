@@ -9,7 +9,6 @@ test('fatal parse error with meaningful message', async () => {
       filepath: 'broken.sh',
       parser: 'sh',
       plugins: [ShPlugin],
-      pluginSearchDirs: false,
     })
   } catch (err: unknown) {
     expect(((err as Error).cause as IShParseError).Text).toMatchSnapshot()
@@ -20,7 +19,6 @@ test('fatal parse error with meaningful message', async () => {
       filepath: 'broken.sh',
       parser: 'sh',
       plugins: [ShPlugin],
-      pluginSearchDirs: false,
       // @ts-expect-error
       experimentalWasm: true,
     })

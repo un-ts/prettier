@@ -34,11 +34,11 @@
     "prettier-plugin"
   ],
   "peerDependencies": {
-    "prettier": "^3.0.0-alpha.0"
+    "prettier": "^3.0.0"
   },
   "dependencies": {
     "mvdan-sh": "^0.10.1",
-    "sh-syntax": "^0.4.0",
+    "sh-syntax": "^0.4.1",
     "synckit": "^0.8.5"
   },
   "publishConfig": {
