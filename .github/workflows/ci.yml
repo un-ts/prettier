@@ -14,8 +14,8 @@ jobs:
           - 18
         os:
           - macos-latest
-          # - windows-latest
           - ubuntu-latest
+          - windows-latest
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout Repo
