@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.15.1
+
+### Patch Changes
+
+- [#271](https://github.com/un-ts/prettier/pull/271) [`038ccb7`](https://github.com/un-ts/prettier/commit/038ccb7e8f775b671c9019994820e1ec5ccff159) Thanks [@JounQin](https://github.com/JounQin)! - fix: commonjs module in ESM usage
+
 ## 0.15.0
 
 ### Minor Changes
