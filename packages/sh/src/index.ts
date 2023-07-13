@@ -1,33 +1,14 @@
-import path from 'node:path'
-import { fileURLToPath } from 'node:url'
-
 import sh, { type Node, type Pos } from 'mvdan-sh'
 import type { ParserOptions, Plugin } from 'prettier'
-import type {
-  File,
-  Node as ShSyntaxNode,
-  ParseError,
-  ShOptions,
+import {
+  type File,
+  type Node as ShSyntaxNode,
+  type ParseError,
+  type ShOptions,
+  processor,
 } from 'sh-syntax'
-import { createSyncFn } from 'synckit'
 
 import { languages } from './languages.js'
-
-const _dirname =
-  typeof __dirname === 'undefined'
-    ? path.dirname(fileURLToPath(import.meta.url))
-    : __dirname
-
-export interface Processor {
-  (text: string, options?: ShOptions): File
-  (text: string, options?: ShOptions & { print: true }): string
-  (
-    ast: File,
-    options?: ShOptions & {
-      originalText: string
-    },
-  ): string
-}
 
 const { syntax } = sh
 
@@ -36,10 +17,6 @@ export interface ShParserOptions
     Required<ShOptions> {
   experimentalWasm: boolean
 }
-
-const processor = createSyncFn<typeof import('sh-syntax').processor>(
-  path.resolve(_dirname, 'worker.js'),
-) as Processor
 
 export interface IShParseError extends Error {
   Filename: string
@@ -91,7 +68,7 @@ const ShPlugin: Plugin<Node | ShSyntaxNode> = {
   languages,
   parsers: {
     sh: {
-      parse: (
+      async parse(
         text,
         {
           filepath,
@@ -100,10 +77,10 @@ const ShPlugin: Plugin<Node | ShSyntaxNode> = {
           variant,
           experimentalWasm,
         }: Partial<ShParserOptions>,
-      ) => {
+      ) {
         if (experimentalWasm) {
           try {
-            return processor(text, {
+            return await processor(text, {
               filepath,
               keepComments,
               stopAt,
@@ -139,7 +116,7 @@ const ShPlugin: Plugin<Node | ShSyntaxNode> = {
   },
   printers: {
     sh: {
-      print: (
+      print(
         path,
         {
           originalText,
@@ -155,7 +132,7 @@ const ShPlugin: Plugin<Node | ShSyntaxNode> = {
           functionNextLine,
           experimentalWasm,
         }: ShParserOptions,
-      ) => {
+      ) {
         if (experimentalWasm) {
           return processor(path.getNode() as File, {
             originalText,
@@ -169,7 +146,8 @@ const ShPlugin: Plugin<Node | ShSyntaxNode> = {
             keepPadding,
             minify,
             functionNextLine,
-          })
+            // https://github.com/prettier/prettier/issues/15080#issuecomment-1630987744
+          }) as unknown as string
         }
 
         return syntax

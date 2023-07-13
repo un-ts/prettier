@@ -33,10 +33,7 @@
     "prettier": "^3.0.0"
   },
   "dependencies": {
-    "autocorrect-node": "^2.6.2",
-    "cosmiconfig": "^8.2.0",
-    "synckit": "^0.8.5",
-    "tslib": "^2.6.0"
+    "autocorrect-node": "^2.6.2"
   },
   "publishConfig": {
     "access": "public"
