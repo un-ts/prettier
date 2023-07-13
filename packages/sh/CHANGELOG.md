@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.13.1
+
+### Patch Changes
+
+- [#274](https://github.com/un-ts/prettier/pull/274) [`73d1099`](https://github.com/un-ts/prettier/commit/73d109967b6450332d705d5441173bcfb2c8ae05) Thanks [@JounQin](https://github.com/JounQin)! - feat: use async parser/printer directly
+
+- [#274](https://github.com/un-ts/prettier/pull/274) [`73d1099`](https://github.com/un-ts/prettier/commit/73d109967b6450332d705d5441173bcfb2c8ae05) Thanks [@JounQin](https://github.com/JounQin)! - feat: remove unnecessary deps
+
 ## 0.13.0
 
 ### Minor Changes
