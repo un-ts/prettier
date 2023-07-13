@@ -1,34 +1,61 @@
+import fs from 'node:fs'
 import path from 'node:path'
-import { fileURLToPath } from 'node:url'
 
+import { formatFor, loadConfig } from 'autocorrect-node'
 import { Plugin } from 'prettier'
-import { createSyncFn } from 'synckit'
 
 import { languages } from './languages.js'
-import { FormatFor } from './types.js'
 
-const _dirname =
-  typeof __dirname === 'undefined'
-    ? path.dirname(fileURLToPath(import.meta.url))
-    : __dirname
+const cache = new Map<string, string | void>()
 
-const formatFor = createSyncFn<FormatFor>(path.resolve(_dirname, 'worker.js'))
+const findConfig = (filepath: string, isFile?: boolean): string | void => {
+  if (isFile) {
+    cache.set(filepath)
+    filepath = path.dirname(filepath)
+  }
+
+  if (cache.has(filepath)) {
+    return cache.get(filepath)
+  }
+
+  const configPath = path.join(filepath, '.autocorrectrc')
+
+  if (fs.existsSync(configPath)) {
+    cache.set(filepath, configPath)
+    return configPath
+  }
+
+  cache.set(filepath)
+
+  const dirPath = path.dirname(filepath)
+
+  if (dirPath === filepath) {
+    return
+  }
+
+  return findConfig(dirPath)
+}
+
+let prevConfigPath: string | void
 
 const AutocorrectPlugin: Plugin<string> = {
   languages,
   parsers: {
     autocorrect: {
-      parse(text) {
-        return text
-      },
+      parse: text => text,
       astFormat: 'autocorrect',
-      locStart: () => -1,
-      locEnd: () => -1,
+      locStart: () => 0,
+      locEnd: node => node.length,
     },
   },
   printers: {
     autocorrect: {
       print(path, { filepath }) {
+        const configPath = findConfig(filepath, true)
+        if (prevConfigPath !== configPath) {
+          prevConfigPath = configPath
+          loadConfig(configPath ? fs.readFileSync(configPath, 'utf8') : '')
+        }
         return formatFor(path.node, filepath)
       },
     },
