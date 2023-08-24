@@ -29,8 +29,15 @@ yarn add -D prettier prettier-plugin-autocorrect
 
 ## Usage
 
-Once installed, [Prettier plugins](https://prettier.io/docs/en/plugins.html) should be automatically recognized by Prettier. To use this plugin, confirm that it's installed and run Prettier using your preferred method. For example:
+Once installed, [Prettier plugins](https://prettier.io/docs/en/plugins.html) must be added to `.prettierrc`:
 
+```json
+{
+  "plugins": ["prettier-plugin-autocorrect"]
+}
+```
+
+Then:
 ```sh
 # npx
 npx prettier --write writing.md
