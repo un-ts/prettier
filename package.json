@@ -41,7 +41,7 @@
     "@types/lodash": "^4.14.197",
     "@types/mvdan-sh": "^0.10.6",
     "@types/node": "^20.4.2",
-    "@types/react": "^18.2.14",
+    "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
     "@types/web": "^0.0.106",
     "@vitejs/plugin-react-swc": "^3.3.2",
