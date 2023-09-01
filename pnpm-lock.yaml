@@ -32,23 +32,23 @@ importers:
         specifier: ^2.3.0
         version: 2.3.0(rollup@3.26.1)
       '@types/lodash':
-        specifier: ^4.14.195
-        version: 4.14.195
+        specifier: ^4.14.200
+        version: 4.14.200
       '@types/mvdan-sh':
-        specifier: ^0.10.2
-        version: 0.10.2
+        specifier: ^0.10.6
+        version: 0.10.6
       '@types/node':
         specifier: ^20.4.2
         version: 20.4.2
       '@types/react':
-        specifier: ^18.2.14
-        version: 18.2.14
+        specifier: ^18.2.21
+        version: 18.2.21
       '@types/react-dom':
         specifier: ^18.2.7
         version: 18.2.7
       '@types/web':
-        specifier: ^0.0.106
-        version: 0.0.106
+        specifier: ^0.0.114
+        version: 0.0.114
       '@vitejs/plugin-react-swc':
         specifier: ^3.3.2
         version: 3.3.2(vite@4.4.3)
@@ -448,7 +448,7 @@ packages:
   /@1stg/prettier-config@3.9.2(prettier@3.0.0)(svelte@4.0.4):
     resolution: {integrity: sha512-MXCSY5l40CsB0ybiAeG4uuuYz5Yit0FnCPL1nLsymyKaLmElTGAepC+B2gEDmPaUeONql45Yh4eT+jYCfe8GzQ==}
     peerDependencies:
-      prettier: '>=1.18.0'
+      prettier: ^3.0.0
     dependencies:
       '@1stg/config': 0.2.1
       '@prettier/plugin-pug': 2.5.1(prettier@3.0.0)
@@ -4010,7 +4010,7 @@ packages:
     resolution: {integrity: sha512-rauAMYyTv6tgoo4DZ+1TwpytjaoJgcg+8btp0CfAUaHwjxfNo4cuAGgsJS6WVT7vx2Sz4Pkos50xuSNZuvJAWQ==}
     engines: {node: ^16.13.0 || >=18.0.0, npm: '>=7.10.0'}
     peerDependencies:
-      prettier: ^2.3.0
+      prettier: ^3.0.0
     dependencies:
       prettier: 3.0.0
       pug-lexer: 5.0.1
@@ -4410,8 +4410,8 @@ packages:
       '@types/node': 20.4.2
     dev: true
 
-  /@types/lodash@4.14.195:
-    resolution: {integrity: sha512-Hwx9EUgdwf2GLarOjQp5ZH8ZmblzcbTBC2wtQWNKARBSxM9ezRIAUpeDTgoQRAFB0+8CNWXVA9+MaSOzOF3nPg==}
+  /@types/lodash@4.14.200:
+    resolution: {integrity: sha512-YI/M/4HRImtNf3pJgbF+W6FrXovqj+T+/HpENLTooK9PnkacBsDpeP3IpHab40CClUfhNmdM2WTNP2sa2dni5Q==}
     dev: true
 
   /@types/mdast@3.0.11:
@@ -4451,8 +4451,8 @@ packages:
     resolution: {integrity: sha512-MUSpfpW0yZbTgjekDbH0shMYBUD+X/uJJJMm9LXN1d5yjl5lCY1vN/eWKD6D1tOtjA6206K0zcIPnUaFMurdNA==}
     dev: true
 
-  /@types/mvdan-sh@0.10.2:
-    resolution: {integrity: sha512-tJhC8qnNA42oC9LQpYnFCzn5smKnTLSuK3n6v0TB5WICC1YxOuVZ5aGGrAGoe56dVw95Sm6WjnApe0Jc7kxe3Q==}
+  /@types/mvdan-sh@0.10.6:
+    resolution: {integrity: sha512-3fZRMoC4IhKG0tgtsxM2XU4v0oOyjD07RLUVsXDwfe/5iyqlZKzqiKrvLXH9QN8cu7X+cRk/noVS3nRZSPtWlw==}
     dependencies:
       '@types/node': 20.4.2
     dev: true
@@ -4484,11 +4484,11 @@ packages:
   /@types/react-dom@18.2.7:
     resolution: {integrity: sha512-GRaAEriuT4zp9N4p1i8BDBYmEyfo+xQ3yHjJU4eiK5NDa1RmUZG+unZABUTK4/Ox/M+GaHwb6Ow8rUITrtjszA==}
     dependencies:
-      '@types/react': 18.2.14
+      '@types/react': 18.2.21
     dev: true
 
-  /@types/react@18.2.14:
-    resolution: {integrity: sha512-A0zjq+QN/O0Kpe30hA1GidzyFjatVvrpIvWLxD+xv67Vt91TWWgco9IvrJBkeyHm1trGaFS/FSGqPlhyeZRm0g==}
+  /@types/react@18.2.21:
+    resolution: {integrity: sha512-neFKG/sBAwGxHgXiIxnbm3/AAVQ/cMRS93hvBpg8xYRbeQSPVABp9U2bRnPf0iI4+Ucdv3plSxKK+3CW2ENJxA==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.3
@@ -4525,8 +4525,8 @@ packages:
     resolution: {integrity: sha512-kNnC1GFBLuhImSnV7w4njQkUiJi0ZXUycu1rUaouPqiKlXkh77JKgdRnTAp1x5eBwcIwbtI+3otwzuIDEuDoxQ==}
     dev: true
 
-  /@types/web@0.0.106:
-    resolution: {integrity: sha512-9ophELvNURgYky66MwP2qCricwmhRJW2xhEhktJX/7SrQ8UCvCSw8yN17ak5rNHwKypfwPCmzEK1V/PVi4tw/g==}
+  /@types/web@0.0.114:
+    resolution: {integrity: sha512-nrkwsB8u0VNHwElFSl6ZCgu0BCbsQu5BPq7mJtBpW7rYBmiLZNWE5KqcHDw8GXQMqWsnFB3EnXsAx7UysQwcMg==}
     dev: true
 
   /@types/whatwg-mimetype@3.0.0:
@@ -7500,7 +7500,7 @@ packages:
       '@types/eslint': '>=8.0.0'
       eslint: '>=8.0.0'
       eslint-config-prettier: '*'
-      prettier: '>=3.0.0'
+      prettier: ^3.0.0
     peerDependenciesMeta:
       '@types/eslint':
         optional: true
@@ -12897,7 +12897,7 @@ packages:
   /prettier-plugin-stylus@0.0.1-beta.9(prettier@3.0.0):
     resolution: {integrity: sha512-cDGHfycpkr60szzDIjpeDJOpvV/LRAHs9PF4B1VmGlQAplRaxI11EsEil+ciDHqhEFWhsD4LUhLXajUaVKx3Lw==}
     peerDependencies:
-      prettier: '*'
+      prettier: ^3.0.0
     dependencies:
       prettier: 3.0.0
       stylus: 0.57.0
@@ -12908,7 +12908,7 @@ packages:
   /prettier-plugin-svelte@2.10.1(prettier@3.0.0)(svelte@4.0.4):
     resolution: {integrity: sha512-Wlq7Z5v2ueCubWo0TZzKc9XHcm7TDxqcuzRuGd0gcENfzfT4JZ9yDlCbEgxWgiPmLHkBjfOtpAWkcT28MCDpUQ==}
     peerDependencies:
-      prettier: ^1.16.4 || ^2.0.0
+      prettier: ^3.0.0
       svelte: ^3.2.0 || ^4.0.0-next.0
     dependencies:
       prettier: 3.0.0
@@ -14041,7 +14041,7 @@ packages:
     resolution: {integrity: sha512-1+cZaM080zTlhQIvZDOj7SFWvW9zevfxsLjTZspLEsBYivMDwCyTodvNvaZLc9p5dUSMik/BjMFKicfhZXh7qg==}
     engines: {node: '>=14.8'}
     peerDependencies:
-      prettier: '>=1.0.0'
+      prettier: ^3.0.0
     dependencies:
       prettier: 3.0.0
     dev: true
@@ -15059,7 +15059,7 @@ packages:
     resolution: {integrity: sha512-kIks1xw6np0zElokMT2kP6ar3S4MBoj6vUtPJuND1pFELMpZxVS/0uHPR4HDAVn0WAD3I5oF0IA3qBFxBpMkLg==}
     engines: {node: ^14.17.0 || >=16.0.0}
     peerDependencies:
-      prettier: '>=2.0.0'
+      prettier: ^3.0.0
       stylelint: '>=14.0.0'
     dependencies:
       prettier: 3.0.0
