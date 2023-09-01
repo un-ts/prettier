@@ -35,8 +35,8 @@ importers:
         specifier: ^4.14.197
         version: 4.14.197
       '@types/mvdan-sh':
-        specifier: ^0.10.2
-        version: 0.10.2
+        specifier: ^0.10.6
+        version: 0.10.6
       '@types/node':
         specifier: ^20.4.2
         version: 20.4.2
@@ -4451,8 +4451,8 @@ packages:
     resolution: {integrity: sha512-MUSpfpW0yZbTgjekDbH0shMYBUD+X/uJJJMm9LXN1d5yjl5lCY1vN/eWKD6D1tOtjA6206K0zcIPnUaFMurdNA==}
     dev: true
 
-  /@types/mvdan-sh@0.10.2:
-    resolution: {integrity: sha512-tJhC8qnNA42oC9LQpYnFCzn5smKnTLSuK3n6v0TB5WICC1YxOuVZ5aGGrAGoe56dVw95Sm6WjnApe0Jc7kxe3Q==}
+  /@types/mvdan-sh@0.10.6:
+    resolution: {integrity: sha512-3fZRMoC4IhKG0tgtsxM2XU4v0oOyjD07RLUVsXDwfe/5iyqlZKzqiKrvLXH9QN8cu7X+cRk/noVS3nRZSPtWlw==}
     dependencies:
       '@types/node': 20.4.2
     dev: true
