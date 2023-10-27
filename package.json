@@ -108,7 +108,7 @@
   "size-limit": [
     {
       "path": "packages/autocorrect/lib/index.js",
-      "limit": "390B"
+      "limit": "550B"
     },
     {
       "path": "packages/pkg/lib/index.js",

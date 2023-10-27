@@ -1,6 +1,6 @@
 # @unts/prettier
 
-[![GitHub Actions](https://github.com/un-ts/prettier/workflows/Node%20CI/badge.svg)](https://github.com/un-ts/prettier/actions?query=workflow%3A%22Node+CI%22)
+[![GitHub Actions](https://img.shields.io/github/actions/workflow/status/un-ts/prettier/ci.yml)](https://github.com/un-ts/prettier/actions/workflows/ci.yml)
 [![Codecov](https://img.shields.io/codecov/c/gh/un-ts/prettier)](https://codecov.io/gh/un-ts/prettier)
 [![type-coverage](https://img.shields.io/badge/dynamic/json.svg?label=type-coverage&prefix=%E2%89%A5&suffix=%&query=$.typeCoverage.atLeast&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fun-ts%2Fprettier%2Fmaster%2Fpackage.json)](https://github.com/plantain-00/type-coverage)
 [![GitHub release](https://img.shields.io/github/release/un-ts/prettier)](https://github.com/un-ts/prettier/releases)
