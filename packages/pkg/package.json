@@ -31,7 +31,7 @@
     "prettier-plugin"
   ],
   "peerDependencies": {
-    "prettier": "^3.0.0"
+    "prettier": "^3.0.3"
   },
   "publishConfig": {
     "access": "public"
