@@ -36,7 +36,9 @@ Once installed, [Prettier plugins](https://prettier.io/docs/en/plugins.html) mus
   "plugins": ["prettier-plugin-sql"]
 }
 ```
+
 Then:
+
 ```sh
 # npx
 npx prettier --write db.sql

@@ -33,6 +33,7 @@ Once installed, [Prettier plugins](https://prettier.io/docs/en/plugins.html) mus
 ```
 
 Then:
+
 ```sh
 # npx
 npx prettier --write package.json
