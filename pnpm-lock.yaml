@@ -41,11 +41,11 @@ importers:
         specifier: ^20.4.2
         version: 20.4.2
       '@types/react':
-        specifier: ^18.2.21
-        version: 18.2.21
+        specifier: ^18.2.33
+        version: 18.2.33
       '@types/react-dom':
-        specifier: ^18.2.7
-        version: 18.2.7
+        specifier: ^18.2.14
+        version: 18.2.14
       '@types/web':
         specifier: ^0.0.119
         version: 0.0.119
@@ -3631,7 +3631,7 @@ packages:
       cosmiconfig-typescript-loader: 4.3.0(@types/node@20.4.2)(cosmiconfig@8.2.0)(ts-node@10.9.1)(typescript@5.1.6)
       glob: 10.3.1
       jsonc: 2.0.0
-      minimatch: 9.0.2
+      minimatch: 9.0.3
       tslib: 2.6.0
     transitivePeerDependencies:
       - '@types/node'
@@ -3912,7 +3912,7 @@ packages:
     dependencies:
       '@npmcli/name-from-folder': 2.0.0
       glob: 10.3.1
-      minimatch: 9.0.2
+      minimatch: 9.0.3
       read-package-json-fast: 3.0.2
     dev: true
 
@@ -4496,14 +4496,14 @@ packages:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
     dev: true
 
-  /@types/react-dom@18.2.7:
-    resolution: {integrity: sha512-GRaAEriuT4zp9N4p1i8BDBYmEyfo+xQ3yHjJU4eiK5NDa1RmUZG+unZABUTK4/Ox/M+GaHwb6Ow8rUITrtjszA==}
+  /@types/react-dom@18.2.14:
+    resolution: {integrity: sha512-V835xgdSVmyQmI1KLV2BEIUgqEuinxp9O4G6g3FqO/SqLac049E53aysv0oEFD2kHfejeKU+ZqL2bcFWj9gLAQ==}
     dependencies:
-      '@types/react': 18.2.21
+      '@types/react': 18.2.33
     dev: true
 
-  /@types/react@18.2.21:
-    resolution: {integrity: sha512-neFKG/sBAwGxHgXiIxnbm3/AAVQ/cMRS93hvBpg8xYRbeQSPVABp9U2bRnPf0iI4+Ucdv3plSxKK+3CW2ENJxA==}
+  /@types/react@18.2.33:
+    resolution: {integrity: sha512-v+I7S+hu3PIBoVkKGpSYYpiBT1ijqEzWpzQD62/jm4K74hPpSP7FF9BnKG6+fg2+62weJYkkBWDJlZt5JO/9hg==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.3
@@ -4977,7 +4977,7 @@ packages:
       '@vue/reactivity-transform': 3.3.4
       '@vue/shared': 3.3.4
       estree-walker: 2.0.2
-      magic-string: 0.30.1
+      magic-string: 0.30.5
       postcss: 8.4.25
       source-map-js: 1.0.2
     dev: true
@@ -4996,7 +4996,7 @@ packages:
       '@vue/compiler-core': 3.3.4
       '@vue/shared': 3.3.4
       estree-walker: 2.0.2
-      magic-string: 0.30.1
+      magic-string: 0.30.5
     dev: true
 
   /@vue/shared@3.3.4:
@@ -8550,7 +8550,7 @@ packages:
     dependencies:
       foreground-child: 3.1.1
       jackspeak: 2.2.1
-      minimatch: 9.0.2
+      minimatch: 9.0.3
       minipass: 6.0.2
       path-scurry: 1.10.0
     dev: true
@@ -15305,7 +15305,7 @@ packages:
       estree-walker: 3.0.3
       is-reference: 3.0.1
       locate-character: 3.0.0
-      magic-string: 0.30.1
+      magic-string: 0.30.5
       periscopic: 3.1.0
     dev: true
 
