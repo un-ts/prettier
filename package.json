@@ -70,7 +70,7 @@
     "vitest": "^0.33.0"
   },
   "resolutions": {
-    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
     "prettier": "^3.0.3",
     "prettier-plugin-autocorrect": "workspace:*",
     "prettier-plugin-pkg": "workspace:*",

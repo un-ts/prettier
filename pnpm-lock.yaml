@@ -5,7 +5,7 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
-  eslint-plugin-prettier: ^5.0.0
+  eslint-plugin-prettier: ^5.0.1
   prettier: ^3.0.3
   prettier-plugin-autocorrect: workspace:*
   prettier-plugin-pkg: workspace:*
@@ -332,7 +332,7 @@ packages:
       eslint-plugin-markup: 0.11.0(@types/node@20.4.2)(eslint@8.44.0)(ts-node@10.9.1)(typescript@5.1.6)
       eslint-plugin-mdx: 2.1.0(eslint@8.44.0)
       eslint-plugin-n: 16.0.1(eslint@8.44.0)
-      eslint-plugin-prettier: 5.0.0(eslint-config-prettier@8.8.0)(eslint@8.44.0)(prettier@3.0.3)
+      eslint-plugin-prettier: 5.0.1(eslint-config-prettier@8.8.0)(eslint@8.44.0)(prettier@3.0.3)
       eslint-plugin-promise: 6.1.1(eslint@8.44.0)
       eslint-plugin-react: 7.32.2(eslint@8.44.0)
       eslint-plugin-react-hooks: 4.6.0(eslint@8.44.0)
@@ -7493,8 +7493,8 @@ packages:
       semver: 7.5.3
     dev: true
 
-  /eslint-plugin-prettier@5.0.0(eslint-config-prettier@8.8.0)(eslint@8.44.0)(prettier@3.0.3):
-    resolution: {integrity: sha512-AgaZCVuYDXHUGxj/ZGu1u8H8CYgDY3iG6w5kUFw4AzMVXzB7VvbKgYR4nATIN+OvUrghMbiDLeimVjVY5ilq3w==}
+  /eslint-plugin-prettier@5.0.1(eslint-config-prettier@8.8.0)(eslint@8.44.0)(prettier@3.0.3):
+    resolution: {integrity: sha512-m3u5RnR56asrwV/lDC4GHorlW75DsFfmUcjfCYylTUs85dBRnB7VM6xG8eCMJdeDRnppzmxZVf1GEPJvl1JmNg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       '@types/eslint': '>=8.0.0'
