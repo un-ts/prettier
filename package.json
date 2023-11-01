@@ -65,7 +65,7 @@
     "tsx": "^3.12.7",
     "type-coverage": "^2.26.0",
     "typescript": "^5.1.6",
-    "unplugin-auto-import": "^0.16.6",
+    "unplugin-auto-import": "^0.16.7",
     "vite": "^4.4.3",
     "vitest": "^0.33.0"
   },
