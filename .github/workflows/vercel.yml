@@ -16,8 +16,8 @@ jobs:
         id: branch
         if: ${{ github.ref  == 'refs/heads/master' }}
         run: |
-          echo "::set-output name=args::--prod"
-          echo "::set-output name=comment::false"
+          echo "args=--prod" >> $GITHUB_OUTPUT
+          echo "comment=false" >> $GITHUB_OUTPUT
 
       - name: Deploy
         uses: amondnet/vercel-action@v25

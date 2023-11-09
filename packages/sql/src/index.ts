@@ -1,7 +1,10 @@
+/// <reference path="../shim.d.ts" />
+
+import { JSOX } from 'jsox'
 import type { AST, Option } from 'node-sql-parser'
 import nodeSqlParser from 'node-sql-parser'
 import type { Options, ParserOptions, Plugin } from 'prettier'
-import { format, type FormatOptions } from 'sql-formatter'
+import { format, type FormatOptions, type ParamTypes } from 'sql-formatter'
 
 import { languages } from './languages.js'
 
@@ -20,6 +23,7 @@ export type SqlBaseOptions = Option &
   Partial<FormatOptions> & {
     language?: string
     formatter?: typeof NODE_SQL_PARSER | typeof SQL_FORMATTER
+    paramTypes?: string
   }
 
 export type SqlOptions = ParserOptions<AST> & SqlBaseOptions
@@ -42,12 +46,21 @@ const SqlPlugin: Plugin<AST | string> = {
   },
   printers: {
     sql: {
-      print(path, { type, database, endOfLine, ...options }: SqlOptions) {
+      print(
+        path,
+        { type, database, endOfLine, paramTypes, ...options }: SqlOptions,
+      ) {
         const value = path.node
 
         let formatted =
           typeof value === 'string'
-            ? format(value, options)
+            ? format(value, {
+                ...options,
+                paramTypes:
+                  paramTypes == null
+                    ? undefined
+                    : (JSOX.parse(paramTypes) as ParamTypes),
+              })
             : parser.sqlify(value, { type, database })
 
         // It can never be `auto`
@@ -297,6 +310,7 @@ const SqlPlugin: Plugin<AST | string> = {
       type: 'choice',
       description:
         'Specifies parameter values to fill in for placeholders inside SQL for `sql-formatter`. This option is designed to be used through API (though nothing really prevents usage from command line).',
+      // TODO: migrate to stringified JSOX instead
       choices: [
         {
           value: Array,
@@ -309,7 +323,7 @@ const SqlPlugin: Plugin<AST | string> = {
             '`Object` of name-value pairs for named (and indexed) placeholders',
         },
       ],
-      // @ts-expect-error
+      // @ts-expect-error -- https://github.com/prettier/prettier/blob/953937dc63a8b37d2b7b7b6fc7f83a3201a716e9/src/main/normalize-options.js#L167
       exception(value: unknown) {
         return (
           value == null ||
@@ -324,16 +338,9 @@ const SqlPlugin: Plugin<AST | string> = {
     paramTypes: {
       // since: '0.11.0',
       category: 'Config',
-      type: 'choice',
+      type: 'string',
       description:
-        'Specifies parameter types to support when parsing SQL prepared statements for `sql-formatter`.',
-      choices: [
-        {
-          value: Object,
-          description:
-            'Specifies parameter types to support when parsing SQL prepared statements.',
-        },
-      ],
+        'Specifies `JSOX` **stringified** parameter types to support when parsing SQL prepared statements for `sql-formatter`.',
     },
     type: {
       // since: '0.1.0',

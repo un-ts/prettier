@@ -151,6 +151,9 @@ importers:
 
   packages/sql:
     dependencies:
+      jsox:
+        specifier: ^1.2.118
+        version: 1.2.118
       node-sql-parser:
         specifier: ^4.7.0
         version: 4.7.0
@@ -9812,7 +9815,6 @@ packages:
   /jsox@1.2.118:
     resolution: {integrity: sha512-ubYWn4WOc7HA7icvcQuIni1I7Xx4bI4KbRXbXzlr5e48hvdizeAbflBx97B629ZNH5RZnQ657Z5Z8dFgxFVrSQ==}
     hasBin: true
-    dev: true
 
   /jsx-ast-utils@3.3.4:
     resolution: {integrity: sha512-fX2TVdCViod6HwKEtSWGHs57oFhVfCMwieb9PuRDgjDPh5XeqJiHFFFJCHxU5cnTc3Bu/GRL+kPiFmw8XWOfKw==}

@@ -1,0 +1,1 @@
+SELECT  *, current_date - interval {interval} {period} FROM {database_name}.{table_name}

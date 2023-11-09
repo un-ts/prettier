@@ -10,6 +10,6 @@
   "linked": [],
   "access": "restricted",
   "baseBranch": "master",
-  "updateInternalDependencies": "minor",
+  "updateInternalDependencies": "patch",
   "ignore": []
 }
