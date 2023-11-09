@@ -136,7 +136,7 @@ const SqlPlugin: Plugin<AST | string> = {
         },
         {
           value: 'sqlite',
-          description: 'SQLite: https://www.sqlite.org/index.html',
+          description: 'SQLite: https://www.sqlite.org',
         },
         {
           value: 'trino',
