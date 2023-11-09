@@ -3,12 +3,29 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 import { format } from 'prettier'
+import type { ParamTypes } from 'sql-formatter'
 
 import SqlPlugin, { type SqlFormatOptions } from 'prettier-plugin-sql'
 
 const PARSER_OPTIONS: Record<string, SqlFormatOptions> = {
   144: {
     language: 'postgresql',
+  },
+  233: {
+    paramTypes: JSON.stringify({
+      named: [':'],
+    } satisfies ParamTypes),
+  },
+  277: {
+    language: 'mysql',
+    paramTypes: JSON.stringify({
+      custom: [{ regex: String.raw`\{\w+\}` }],
+    } satisfies ParamTypes),
+  },
+  279: {
+    paramTypes: JSON.stringify({
+      custom: [{ regex: String.raw`\\c` }],
+    } satisfies ParamTypes),
   },
 }
 
@@ -25,14 +42,18 @@ describe('parser and printer', () => {
 
       const caseName = filepath.slice(0, filepath.lastIndexOf('.'))
 
-      const output = await format(input, {
-        filepath,
-        parser: 'sql',
-        plugins: [SqlPlugin],
-        ...PARSER_OPTIONS[caseName],
-      })
+      try {
+        const output = await format(input, {
+          filepath,
+          parser: 'sql',
+          plugins: [SqlPlugin],
+          ...PARSER_OPTIONS[caseName],
+        })
 
-      expect(output).toMatchSnapshot(filepath)
+        expect(output).toMatchSnapshot(filepath)
+      } catch (error) {
+        expect(error).toMatchSnapshot(filepath)
+      }
     }
   })
 })

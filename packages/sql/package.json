@@ -20,7 +20,8 @@
   },
   "types": "./lib/index.d.ts",
   "files": [
-    "lib"
+    "lib",
+    "shim.d.ts"
   ],
   "keywords": [
     "sql",
@@ -44,6 +45,7 @@
     "prettier": "^3.0.3"
   },
   "dependencies": {
+    "jsox": "^1.2.118",
     "node-sql-parser": "^4.7.0",
     "sql-formatter": "^12.2.4",
     "tslib": "^2.6.0"
