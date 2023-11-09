@@ -135,6 +135,10 @@ const SqlPlugin: Plugin<AST | string> = {
           description: 'Spark: https://spark.apache.org',
         },
         {
+          value: 'sqlite',
+          description: 'SQLite: https://www.sqlite.org',
+        },
+        {
           value: 'trino',
           description: 'Trino: https://trino.io',
         },
