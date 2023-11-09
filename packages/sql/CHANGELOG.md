@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.15.2
+
+### Patch Changes
+
+- [#299](https://github.com/un-ts/prettier/pull/299) [`a8a0ff4`](https://github.com/un-ts/prettier/commit/a8a0ff495b4984928e69f317616196fc21808f2f) Thanks [@jlarmstrongiv](https://github.com/jlarmstrongiv)! - fix: enable SQLite which is actually supported
+
 ## 0.15.1
 
 ### Patch Changes
