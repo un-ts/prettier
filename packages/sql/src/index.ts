@@ -4,7 +4,7 @@ import { JSOX } from 'jsox'
 import type { AST, Option } from 'node-sql-parser'
 import nodeSqlParser from 'node-sql-parser'
 import type { Options, ParserOptions, Plugin } from 'prettier'
-import { format, type FormatOptions, type ParamTypes } from 'sql-formatter'
+import { format, type FormatOptions } from 'sql-formatter'
 
 import { languages } from './languages.js'
 
@@ -12,6 +12,7 @@ const parser = new nodeSqlParser.Parser()
 
 const SQL_FORMATTER = 'sql-formatter'
 const NODE_SQL_PARSER = 'node-sql-parser'
+const SQL_CST = 'sql-cst'
 
 const ENDINGS = {
   lf: '\n',
@@ -22,7 +23,8 @@ const ENDINGS = {
 export type SqlBaseOptions = Option &
   Partial<FormatOptions> & {
     language?: string
-    formatter?: typeof NODE_SQL_PARSER | typeof SQL_FORMATTER
+    formatter?: typeof NODE_SQL_PARSER | typeof SQL_CST | typeof SQL_FORMATTER
+    params?: string
     paramTypes?: string
   }
 
@@ -48,7 +50,14 @@ const SqlPlugin: Plugin<AST | string> = {
     sql: {
       print(
         path,
-        { type, database, endOfLine, paramTypes, ...options }: SqlOptions,
+        {
+          type,
+          database,
+          endOfLine,
+          params,
+          paramTypes,
+          ...options
+        }: SqlOptions,
       ) {
         const value = path.node
 
@@ -56,10 +65,14 @@ const SqlPlugin: Plugin<AST | string> = {
           typeof value === 'string'
             ? format(value, {
                 ...options,
+                params:
+                  params == null
+                    ? undefined
+                    : (JSOX.parse(params) as FormatOptions['params']),
                 paramTypes:
                   paramTypes == null
                     ? undefined
-                    : (JSOX.parse(paramTypes) as ParamTypes),
+                    : (JSOX.parse(paramTypes) as FormatOptions['paramTypes']),
               })
             : parser.sqlify(value, { type, database })
 
@@ -89,6 +102,10 @@ const SqlPlugin: Plugin<AST | string> = {
           value: NODE_SQL_PARSER,
           description: 'use `node-sql-parser` as formatter',
         },
+        {
+          value: SQL_CST,
+          description: 'use `prettier-plugin-sql-cst` under the hood',
+        },
       ],
     },
     language: {
@@ -108,6 +125,19 @@ const SqlPlugin: Plugin<AST | string> = {
             'Google Standard SQL (Bigquery): https://cloud.google.com/bigquery',
         },
         {
+          value: 'db2',
+          description: 'IBM DB2: https://www.ibm.com/products/db2',
+        },
+        {
+          value: 'db2i',
+          description:
+            'IBM DB2i (experimental): https://www.ibm.com/docs/en/i/7.5?topic=overview-db2-i',
+        },
+        {
+          value: 'hive',
+          description: 'Apache Hive: https://hive.apache.org',
+        },
+        {
           value: 'mariadb',
           description: 'MariaDB: https://mariadb.com',
         },
@@ -116,12 +146,9 @@ const SqlPlugin: Plugin<AST | string> = {
           description: 'MySQL: https://www.mysql.com',
         },
         {
-          value: 'postgresql',
-          description: 'PostgreSQL: https://www.postgresql.org',
-        },
-        {
-          value: 'db2',
-          description: 'IBM DB2: https://www.ibm.com/analytics/db2',
+          value: 'n1ql',
+          description:
+            'Couchbase N1QL: https://www.couchbase.com/products/n1ql',
         },
         {
           value: 'plsql',
@@ -129,9 +156,8 @@ const SqlPlugin: Plugin<AST | string> = {
             'Oracle PL/SQL: https://www.oracle.com/database/technologies/appdev/plsql.html',
         },
         {
-          value: 'n1ql',
-          description:
-            'Couchbase N1QL: https://www.couchbase.com/products/n1ql',
+          value: 'postgresql',
+          description: 'PostgreSQL: https://www.postgresql.org',
         },
         {
           value: 'redshift',
@@ -144,16 +170,16 @@ const SqlPlugin: Plugin<AST | string> = {
             'SingleStoreDB: https://docs.singlestore.com/db/v7.8/en/introduction/singlestore-documentation.html',
         },
         {
+          value: 'snowflake',
+          description: 'Snowflake: https://docs.snowflake.com',
+        },
+        {
           value: 'spark',
           description: 'Spark: https://spark.apache.org',
         },
         {
           value: 'sqlite',
           description: 'SQLite: https://www.sqlite.org',
-        },
-        {
-          value: 'trino',
-          description: 'Trino: https://trino.io',
         },
         {
           value: 'transactsql',
@@ -164,6 +190,10 @@ const SqlPlugin: Plugin<AST | string> = {
           value: 'tsql',
           description:
             'SQL Server Transact-SQL: https://docs.microsoft.com/en-us/sql/sql-server/',
+        },
+        {
+          value: 'trino',
+          description: 'Trino: https://trino.io',
         },
       ],
     },
@@ -307,33 +337,9 @@ const SqlPlugin: Plugin<AST | string> = {
     params: {
       // since: '0.7.0',
       category: 'Format',
-      type: 'choice',
+      type: 'string',
       description:
-        'Specifies parameter values to fill in for placeholders inside SQL for `sql-formatter`. This option is designed to be used through API (though nothing really prevents usage from command line).',
-      // TODO: migrate to stringified JSOX instead
-      choices: [
-        {
-          value: Array,
-          description:
-            '`Array` of strings and/or numbers for position placeholders',
-        },
-        {
-          value: Object,
-          description:
-            '`Object` of name-value pairs for named (and indexed) placeholders',
-        },
-      ],
-      // @ts-expect-error -- https://github.com/prettier/prettier/blob/953937dc63a8b37d2b7b7b6fc7f83a3201a716e9/src/main/normalize-options.js#L167
-      exception(value: unknown) {
-        return (
-          value == null ||
-          (Array.isArray(value)
-            ? value.every(
-                (v: unknown) => typeof v === 'string' || typeof v === 'number',
-              )
-            : typeof value === 'object')
-        )
-      },
+        'Specifies `JSOX` **stringified** parameter values to fill in for placeholders inside SQL for `sql-formatter`. This option is designed to be used through API (though nothing really prevents usage from command line).',
     },
     paramTypes: {
       // since: '0.11.0',
@@ -399,6 +405,10 @@ const SqlPlugin: Plugin<AST | string> = {
           value: 'flinksql',
           description:
             'FlinkSQL: https://ci.apache.org/projects/flink/flink-docs-stable',
+        },
+        {
+          value: 'snowflake',
+          description: 'Snowflake (alpha): https://docs.snowflake.com',
         },
       ],
     },
