@@ -46,9 +46,9 @@
   },
   "dependencies": {
     "jsox": "^1.2.118",
-    "node-sql-parser": "^4.7.0",
-    "sql-formatter": "^12.2.4",
-    "tslib": "^2.6.0"
+    "node-sql-parser": "^4.11.0",
+    "sql-formatter": "^13.0.4",
+    "tslib": "^2.6.2"
   },
   "publishConfig": {
     "access": "public"

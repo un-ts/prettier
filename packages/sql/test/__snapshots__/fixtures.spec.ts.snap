@@ -24,8 +24,10 @@ A LINE_COMMENT token based on:
     comment →  ● %LINE_COMMENT
     _$ebnf$1 → _$ebnf$1 ● comment
     _ →  ● _$ebnf$1
-    property_access → expression _ %DOT ● _ property_access$subexpression$1
-    asteriskless_andless_expression$subexpression$1 →  ● property_access
+    property_access → atomic_expression _ %DOT ● _ property_access$subexpression$1
+    atomic_expression$subexpression$1 →  ● property_access
+    atomic_expression →  ● atomic_expression$subexpression$1
+    asteriskless_andless_expression$subexpression$1 →  ● atomic_expression
     asteriskless_andless_expression →  ● asteriskless_andless_expression$subexpression$1
     asteriskless_free_form_sql$subexpression$1 →  ● asteriskless_andless_expression
     asteriskless_free_form_sql →  ● asteriskless_free_form_sql$subexpression$1
@@ -44,8 +46,10 @@ A BLOCK_COMMENT token based on:
     comment →  ● %BLOCK_COMMENT
     _$ebnf$1 → _$ebnf$1 ● comment
     _ →  ● _$ebnf$1
-    property_access → expression _ %DOT ● _ property_access$subexpression$1
-    asteriskless_andless_expression$subexpression$1 →  ● property_access
+    property_access → atomic_expression _ %DOT ● _ property_access$subexpression$1
+    atomic_expression$subexpression$1 →  ● property_access
+    atomic_expression →  ● atomic_expression$subexpression$1
+    asteriskless_andless_expression$subexpression$1 →  ● atomic_expression
     asteriskless_andless_expression →  ● asteriskless_andless_expression$subexpression$1
     asteriskless_free_form_sql$subexpression$1 →  ● asteriskless_andless_expression
     asteriskless_free_form_sql →  ● asteriskless_free_form_sql$subexpression$1
@@ -63,8 +67,10 @@ A BLOCK_COMMENT token based on:
 A ARRAY_IDENTIFIER token based on:
     array_subscript →  ● %ARRAY_IDENTIFIER _ square_brackets
     property_access$subexpression$1 →  ● array_subscript
-    property_access → expression _ %DOT _ ● property_access$subexpression$1
-    asteriskless_andless_expression$subexpression$1 →  ● property_access
+    property_access → atomic_expression _ %DOT _ ● property_access$subexpression$1
+    atomic_expression$subexpression$1 →  ● property_access
+    atomic_expression →  ● atomic_expression$subexpression$1
+    asteriskless_andless_expression$subexpression$1 →  ● atomic_expression
     asteriskless_andless_expression →  ● asteriskless_andless_expression$subexpression$1
     asteriskless_free_form_sql$subexpression$1 →  ● asteriskless_andless_expression
     asteriskless_free_form_sql →  ● asteriskless_free_form_sql$subexpression$1
@@ -82,8 +88,10 @@ A ARRAY_IDENTIFIER token based on:
 A ARRAY_KEYWORD token based on:
     array_subscript →  ● %ARRAY_KEYWORD _ square_brackets
     property_access$subexpression$1 →  ● array_subscript
-    property_access → expression _ %DOT _ ● property_access$subexpression$1
-    asteriskless_andless_expression$subexpression$1 →  ● property_access
+    property_access → atomic_expression _ %DOT _ ● property_access$subexpression$1
+    atomic_expression$subexpression$1 →  ● property_access
+    atomic_expression →  ● atomic_expression$subexpression$1
+    asteriskless_andless_expression$subexpression$1 →  ● atomic_expression
     asteriskless_andless_expression →  ● asteriskless_andless_expression$subexpression$1
     asteriskless_free_form_sql$subexpression$1 →  ● asteriskless_andless_expression
     asteriskless_free_form_sql →  ● asteriskless_free_form_sql$subexpression$1
@@ -101,8 +109,10 @@ A ARRAY_KEYWORD token based on:
 A ASTERISK token based on:
     all_columns_asterisk →  ● %ASTERISK
     property_access$subexpression$1 →  ● all_columns_asterisk
-    property_access → expression _ %DOT _ ● property_access$subexpression$1
-    asteriskless_andless_expression$subexpression$1 →  ● property_access
+    property_access → atomic_expression _ %DOT _ ● property_access$subexpression$1
+    atomic_expression$subexpression$1 →  ● property_access
+    atomic_expression →  ● atomic_expression$subexpression$1
+    asteriskless_andless_expression$subexpression$1 →  ● atomic_expression
     asteriskless_andless_expression →  ● asteriskless_andless_expression$subexpression$1
     asteriskless_free_form_sql$subexpression$1 →  ● asteriskless_andless_expression
     asteriskless_free_form_sql →  ● asteriskless_free_form_sql$subexpression$1
@@ -121,8 +131,10 @@ A IDENTIFIER token based on:
     identifier$subexpression$1 →  ● %IDENTIFIER
     identifier →  ● identifier$subexpression$1
     property_access$subexpression$1 →  ● identifier
-    property_access → expression _ %DOT _ ● property_access$subexpression$1
-    asteriskless_andless_expression$subexpression$1 →  ● property_access
+    property_access → atomic_expression _ %DOT _ ● property_access$subexpression$1
+    atomic_expression$subexpression$1 →  ● property_access
+    atomic_expression →  ● atomic_expression$subexpression$1
+    asteriskless_andless_expression$subexpression$1 →  ● atomic_expression
     asteriskless_andless_expression →  ● asteriskless_andless_expression$subexpression$1
     asteriskless_free_form_sql$subexpression$1 →  ● asteriskless_andless_expression
     asteriskless_free_form_sql →  ● asteriskless_free_form_sql$subexpression$1
@@ -141,8 +153,10 @@ A QUOTED_IDENTIFIER token based on:
     identifier$subexpression$1 →  ● %QUOTED_IDENTIFIER
     identifier →  ● identifier$subexpression$1
     property_access$subexpression$1 →  ● identifier
-    property_access → expression _ %DOT _ ● property_access$subexpression$1
-    asteriskless_andless_expression$subexpression$1 →  ● property_access
+    property_access → atomic_expression _ %DOT _ ● property_access$subexpression$1
+    atomic_expression$subexpression$1 →  ● property_access
+    atomic_expression →  ● atomic_expression$subexpression$1
+    asteriskless_andless_expression$subexpression$1 →  ● atomic_expression
     asteriskless_andless_expression →  ● asteriskless_andless_expression$subexpression$1
     asteriskless_free_form_sql$subexpression$1 →  ● asteriskless_andless_expression
     asteriskless_free_form_sql →  ● asteriskless_free_form_sql$subexpression$1
@@ -161,8 +175,10 @@ A VARIABLE token based on:
     identifier$subexpression$1 →  ● %VARIABLE
     identifier →  ● identifier$subexpression$1
     property_access$subexpression$1 →  ● identifier
-    property_access → expression _ %DOT _ ● property_access$subexpression$1
-    asteriskless_andless_expression$subexpression$1 →  ● property_access
+    property_access → atomic_expression _ %DOT _ ● property_access$subexpression$1
+    atomic_expression$subexpression$1 →  ● property_access
+    atomic_expression →  ● atomic_expression$subexpression$1
+    asteriskless_andless_expression$subexpression$1 →  ● atomic_expression
     asteriskless_andless_expression →  ● asteriskless_andless_expression$subexpression$1
     asteriskless_free_form_sql$subexpression$1 →  ● asteriskless_andless_expression
     asteriskless_free_form_sql →  ● asteriskless_free_form_sql$subexpression$1
