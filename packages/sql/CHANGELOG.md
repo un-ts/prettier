@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.16.0
+
+### Minor Changes
+
+- [#304](https://github.com/un-ts/prettier/pull/304) [`432933e`](https://github.com/un-ts/prettier/commit/432933eeafd2e767644fe9ec8c31726605c552d8) Thanks [@JounQin](https://github.com/JounQin)! - chore: bump `sql-formatter` v13
+
+### Patch Changes
+
+- [#306](https://github.com/un-ts/prettier/pull/306) [`eb58d37`](https://github.com/un-ts/prettier/commit/eb58d373644f789d5fcec34e0d760bf67dfc06a5) Thanks [@JounQin](https://github.com/JounQin)! - feat: support `JSOX` **stringified** `params` option
+
 ## 0.15.3
 
 ### Patch Changes
