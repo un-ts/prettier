@@ -27,6 +27,11 @@ const PARSER_OPTIONS: Record<string, SqlFormatOptions> = {
       custom: [{ regex: String.raw`\\c` }],
     } satisfies ParamTypes),
   },
+  291: {
+    paramTypes: JSON.stringify({
+      custom: [{ regex: String.raw`:\w+(\$\w+)?` }],
+    } satisfies ParamTypes),
+  },
 }
 
 const _dirname =
