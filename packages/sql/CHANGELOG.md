@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.15.3
+
+### Patch Changes
+
+- [#301](https://github.com/un-ts/prettier/pull/301) [`841bc35`](https://github.com/un-ts/prettier/commit/841bc3591ccf2a149ef09eedb06546e893a4d5a1) Thanks [@JounQin](https://github.com/JounQin)! - feat: support `JSOX` **stringified** `paramTypes` option
+
 ## 0.15.2
 
 ### Patch Changes
