@@ -57,20 +57,23 @@ interface SqlOptions {
   language:
     | 'sql'
     | 'bigquery'
+    | 'db2'
+    | 'db2i' // (experimental)
     | 'hive'
     | 'mariadb'
     | 'mysql'
-    | 'postgresql'
-    | 'db2'
-    | 'plsql'
     | 'n1ql'
+    | 'postgresql'
+    | 'plsql'
     | 'redshift'
     | 'singlestoredb'
+    | 'snowflake'
     | 'spark'
     | 'sqlite'
     | 'transactsql'
     | 'tsql'
-    | 'trino' // default `sql`
+    | 'trino'
+  // default `sql`
   keywordCase: 'preserve' | 'upper' | 'lower' // default `preserve`
   indentStyle: 'standard' | 'tabularLeft' | 'tabularRight' // default `standard`
   logicalOperatorNewline: 'before' | 'after' // default `before`
@@ -80,7 +83,8 @@ interface SqlOptions {
   linesBetweenQueries: number // default `1`
   denseOperators: boolean // default `false`
   newlineBeforeSemicolon: boolean // default `false`
-  params: Array | Object
+  params: string // `JSOX` **stringified**, please refer https://github.com/sql-formatter-org/sql-formatter/blob/master/docs/params.md for more details
+  paramTypes: string // `JSOX` **stringified**, please refer https://github.com/sql-formatter-org/sql-formatter/blob/master/docs/paramTypes.md for more details
 
   // node-sql-parser
   type: 'table' | 'column' // default `table`
@@ -92,7 +96,9 @@ interface SqlOptions {
     | 'mysql'
     | 'postgresql'
     | 'transactsql'
-    | 'flinksql' // default `mysql`
+    | 'flinksql'
+    | 'snowflake' // (alpha)
+  // default `mysql`
 }
 ```
 
