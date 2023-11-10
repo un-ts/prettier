@@ -101,8 +101,8 @@ importers:
         specifier: ^10.0.2
         version: 10.0.2
       size-limit-preset-node-lib:
-        specifier: ^0.2.0
-        version: 0.2.0(size-limit@10.0.2)
+        specifier: ^0.3.0
+        version: 0.3.0(size-limit@10.0.2)
       tsx:
         specifier: ^4.0.0
         version: 4.0.0
@@ -4146,24 +4146,13 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /@size-limit/esbuild@8.2.6(size-limit@10.0.2):
-    resolution: {integrity: sha512-a4c8xVDuDMYw5jF655ADjQDluw3jGPPYer6UJock5rSnUlWnIbmT/Ohud7gJGq5gqyLUQOCrBD7NB3g+mlhj4g==}
-    engines: {node: ^14.0.0 || ^16.0.0 || >=18.0.0}
+  /@size-limit/file@10.0.2(size-limit@10.0.2):
+    resolution: {integrity: sha512-27jzgQtER/2WP4+ciLe8aExkceSfqQFSDEbFVhXnbpFvQBqGZ7uEQG9bDX7a5VGxTdMtGwzZndMsCOlinmLzSg==}
+    engines: {node: ^18.0.0 || >=20.0.0}
     peerDependencies:
-      size-limit: 8.2.6
-    dependencies:
-      esbuild: 0.18.11
-      nanoid: 3.3.6
       size-limit: 10.0.2
-    dev: true
-
-  /@size-limit/file@8.2.6(size-limit@10.0.2):
-    resolution: {integrity: sha512-B7ayjxiJsbtXdIIWazJkB5gezi5WBMecdHTFPMDhI3NwEML1RVvUjAkrb1mPAAkIpt2LVHPnhdCUHjqDdjugwg==}
-    engines: {node: ^14.0.0 || ^16.0.0 || >=18.0.0}
-    peerDependencies:
-      size-limit: 8.2.6
     dependencies:
-      semver: 7.5.3
+      semver: 7.5.4
       size-limit: 10.0.2
     dev: true
 
@@ -11825,6 +11814,12 @@ packages:
     hasBin: true
     dev: true
 
+  /nanoid@5.0.3:
+    resolution: {integrity: sha512-I7X2b22cxA4LIHXPSqbBCEQSL+1wv8TuoefejsX4HFWyC6jc5JG7CEaxOltiKjc1M+YCS2YkrZZcj4+dytw9GA==}
+    engines: {node: ^18 || >=20}
+    hasBin: true
+    dev: true
+
   /nanospinner@1.1.0:
     resolution: {integrity: sha512-yFvNYMig4AthKYfHFl1sLj7B2nkHL4lzdig4osvl9/LdGbXwrdFRoqBS98gsEsOakr0yH+r5NZ/1Y9gdVB8trA==}
     dependencies:
@@ -15207,23 +15202,21 @@ packages:
       totalist: 3.0.1
     dev: true
 
-  /size-limit-node-esbuild@0.2.0(size-limit@10.0.2):
-    resolution: {integrity: sha512-iiIfHBH/+ZxgsE7YVQDEejAUGZYEu4QIai/QNZloEGxA+cmow79O8uGdu4sK64V8kafryqR1grK7nl7xIGv6rw==}
+  /size-limit-node-esbuild@0.3.0:
+    resolution: {integrity: sha512-wgKcHikiJLnz9pTzZsJXBUaFzWnZsVftmHLKu6eJJx2+wh0EgyzIPhOad/FFVBhErDacAmR4FYD3tgEagr033g==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
     dependencies:
-      '@size-limit/esbuild': 8.2.6(size-limit@10.0.2)
-      nanoid: 3.3.6
+      nanoid: 5.0.3
+      size-limit: 10.0.2
       tslib: 2.6.2
-    transitivePeerDependencies:
-      - size-limit
     dev: true
 
-  /size-limit-preset-node-lib@0.2.0(size-limit@10.0.2):
-    resolution: {integrity: sha512-qWfiB6VPcxgyCZq85WhnIC5D5fjLz82pKo0ehmxJYi0oqLNvYouSquDcMF5mEG7Rh+Qwl3lKG9yjKl9omFALbg==}
+  /size-limit-preset-node-lib@0.3.0(size-limit@10.0.2):
+    resolution: {integrity: sha512-EiBUPqhJD5tHG6+nRbMTJLRRZvsgE32Ugxd9Pnzf+JQn/hijg2LhqncqcnH+dU9yuRVcVV7Nqp85dxQoBySNIg==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
     dependencies:
-      '@size-limit/file': 8.2.6(size-limit@10.0.2)
-      size-limit-node-esbuild: 0.2.0(size-limit@10.0.2)
+      '@size-limit/file': 10.0.2(size-limit@10.0.2)
+      size-limit-node-esbuild: 0.3.0
       tslib: 2.6.2
     transitivePeerDependencies:
       - size-limit
