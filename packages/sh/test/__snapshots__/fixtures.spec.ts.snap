@@ -426,7 +426,9 @@ main \\"$@\\"
 "
 `;
 
-exports[`parser and printer > should format all fixtures > 146-wasm-no.ini 1`] = `"; can only immediately follow a statement"`;
+exports[`parser and printer > should format all fixtures > 146.ini 1`] = `"; can only immediately follow a statement"`;
+
+exports[`parser and printer > should format all fixtures > 146.ini 2`] = `"; can only immediately follow a statement"`;
 
 exports[`parser and printer > should format all fixtures > 147.cfg 1`] = `"a command can only contain words and redirects; encountered ("`;
 
@@ -1671,6 +1673,14 @@ case \\"$@\\" in
 esac
 "
 `;
+
+exports[`parser and printer > should format all fixtures > 278.Dockerfile 1`] = `"\\"foo(\\" must be followed by )"`;
+
+exports[`parser and printer > should format all fixtures > 278.Dockerfile 2`] = `"\\"foo(\\" must be followed by )"`;
+
+exports[`parser and printer > should format all fixtures > 292.Dockerfile 1`] = `"\\"then\\" can only be used in an if"`;
+
+exports[`parser and printer > should format all fixtures > 292.Dockerfile 2`] = `"\\"then\\" can only be used in an if"`;
 
 exports[`parser and printer > should format all fixtures > Dockerfile 1`] = `
 "FROM node:lts-alpine as builder

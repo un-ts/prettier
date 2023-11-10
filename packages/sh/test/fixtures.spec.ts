@@ -19,42 +19,34 @@ describe('parser and printer', () => {
       const filepath = path.resolve(fixtures, relativeFilepath)
       const input = fs.readFileSync(filepath, 'utf8')
 
-      const filename = path.basename(filepath, path.extname(filepath))
+      try {
+        const output = await format(input, {
+          filepath,
+          parser: 'sh',
+          plugins: [ShPlugin],
+        })
 
-      if (!filename.endsWith('-wasm')) {
-        try {
-          const output = await format(input, {
-            filepath,
-            parser: 'sh',
-            plugins: [ShPlugin],
-          })
-
-          expect(output).toMatchSnapshot(relativeFilepath)
-        } catch (err: unknown) {
-          expect(((err as Error).cause as IShParseError).Text).toMatchSnapshot(
-            relativeFilepath,
-          )
-        }
+        expect(output).toMatchSnapshot(relativeFilepath)
+      } catch (err: unknown) {
+        expect(((err as Error).cause as IShParseError).Text).toMatchSnapshot(
+          relativeFilepath,
+        )
       }
 
-      if (!filename.endsWith('-wasm-no')) {
-        try {
-          const output = await format(input, {
-            filepath,
-            parser: 'sh',
-            plugins: [ShPlugin],
-            // @ts-expect-error
-            experimentalWasm: true,
-          })
+      try {
+        const output = await format(input, {
+          filepath,
+          parser: 'sh',
+          plugins: [ShPlugin],
+          // @ts-expect-error
+          experimentalWasm: true,
+        })
 
-          expect(output).toMatchSnapshot(relativeFilepath)
-        } catch (err: unknown) {
-          const error = (err as Error).cause as ParseError | undefined
+        expect(output).toMatchSnapshot(relativeFilepath)
+      } catch (err: unknown) {
+        const error = (err as Error).cause as ParseError | undefined
 
-          expect(error?.Text || error?.message).toMatchSnapshot(
-            relativeFilepath,
-          )
-        }
+        expect(error?.Text || error?.message).toMatchSnapshot(relativeFilepath)
       }
     }
   })
