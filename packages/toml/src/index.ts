@@ -4,9 +4,7 @@ import type { Plugin } from 'prettier'
 import { defaultOptions, options } from './options'
 import type { AST, PrettierOptions, TaploOptions } from './types'
 
-const LANGUAGE = 'toml'
-const PARSER = 'toml'
-const AST_NAME = 'toml-ast'
+const PLUGIN_NAME = 'toml'
 
 let taplo: Taplo | null = null
 
@@ -28,12 +26,12 @@ function removeBeginningTrailingNewline(code: string) {
 const TomlPlugin: Plugin<AST> = {
   languages: [
     {
-      name: LANGUAGE,
-      parsers: [PARSER],
+      name: PLUGIN_NAME,
+      parsers: [PLUGIN_NAME],
     },
   ],
   parsers: {
-    [PARSER]: {
+    [PLUGIN_NAME]: {
       async parse(code: string, options: PrettierOptions) {
         const indentString = options.useTabs
           ? '\t'
@@ -65,13 +63,13 @@ const TomlPlugin: Plugin<AST> = {
           ),
         }
       },
-      astFormat: AST_NAME,
+      astFormat: PLUGIN_NAME,
       locStart: () => -1,
       locEnd: () => -1,
     },
   },
   printers: {
-    [AST_NAME]: {
+    [PLUGIN_NAME]: {
       print: ({ node: { formatted } }) => formatted,
     },
   },
