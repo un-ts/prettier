@@ -1,10 +1,6 @@
 import type { FormatOptions } from '@taplo/lib'
 import type { ParserOptions } from 'prettier'
 
-export interface AST {
-  formatted: string
-}
-
 export type TaploOptions = NonNullable<FormatOptions['options']>
 export type PrettierTaploOptions = Omit<
   TaploOptions,
@@ -15,4 +11,4 @@ export type PrettierTaploOptions = Omit<
   | 'indentString'
   | 'trailingNewline'
 >
-export type PrettierOptions = ParserOptions<AST> & PrettierTaploOptions
+export type PrettierOptions = ParserOptions & PrettierTaploOptions

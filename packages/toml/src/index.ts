@@ -2,7 +2,7 @@ import { Taplo } from '@taplo/lib'
 import type { Plugin } from 'prettier'
 
 import { defaultOptions, options } from './options'
-import type { AST, PrettierOptions, TaploOptions } from './types'
+import type { PrettierOptions, TaploOptions } from './types'
 
 const PLUGIN_NAME = 'toml'
 
@@ -23,7 +23,7 @@ function removeBeginningTrailingNewline(code: string) {
   return code
 }
 
-const TomlPlugin: Plugin<AST> = {
+const TomlPlugin: Plugin<string> = {
   languages: [
     {
       name: PLUGIN_NAME,
@@ -47,12 +47,7 @@ const TomlPlugin: Plugin<AST> = {
           crlf: options.endOfLine === 'crlf',
         }
 
-        return {
-          formatted: await format(
-            removeBeginningTrailingNewline(code),
-            taploOptions,
-          ),
-        }
+        return await format(removeBeginningTrailingNewline(code), taploOptions)
       },
       astFormat: PLUGIN_NAME,
       locStart: () => -1,
@@ -61,7 +56,7 @@ const TomlPlugin: Plugin<AST> = {
   },
   printers: {
     [PLUGIN_NAME]: {
-      print: ({ node: { formatted } }) => formatted,
+      print: ({ node }) => node,
     },
   },
   defaultOptions,
