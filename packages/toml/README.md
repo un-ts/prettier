@@ -67,10 +67,10 @@ Detailed changes for each release are documented in [CHANGELOG.md](./CHANGELOG.m
 
 ## License
 
-[MIT][] © [JounQin][]@[1stG.me][]
+[MIT][] © [Ray][]@[mk1.io][]
 
-[1stg.me]: https://www.1stg.me
-[jounqin]: https://GitHub.com/JounQin
+[mk1.io]: https://mk1.io
 [mit]: http://opensource.org/licenses/MIT
 [prettier]: https://prettier.io
+[ray]: https://GitHub.com/so1ve
 [taplo]: https://github.com/tamasfe/taplo
