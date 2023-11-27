@@ -54,6 +54,7 @@
     "prettier-plugin-pkg": "workspace:*",
     "prettier-plugin-sh": "workspace:*",
     "prettier-plugin-sql": "workspace:*",
+    "prettier-plugin-toml": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.18.0",
@@ -75,7 +76,8 @@
     "prettier-plugin-autocorrect": "workspace:*",
     "prettier-plugin-pkg": "workspace:*",
     "prettier-plugin-sh": "workspace:*",
-    "prettier-plugin-sql": "workspace:*"
+    "prettier-plugin-sql": "workspace:*",
+    "prettier-plugin-toml": "workspace:*"
   },
   "browserslist": [
     "extends @1stg/browserslist-config/modern"

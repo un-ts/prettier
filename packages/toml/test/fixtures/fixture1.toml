@@ -1,0 +1,3 @@
+[foo]
+asfd  =            1
+bar=['averyloooooooooooooooooooooooooooooooooooooooooooooooooooong', "arrrrrrrrrrrrrrrrrrrrrrrray",'thatexceedsthemaximumcolumnwidth']

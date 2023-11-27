@@ -1,0 +1,12 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`parser and printer > should format all fixtures > fixture1.toml 1`] = `
+"[foo]
+asfd = 1
+bar = [
+  'averyloooooooooooooooooooooooooooooooooooooooooooooooooooong',
+  \\"arrrrrrrrrrrrrrrrrrrrrrrray\\",
+  'thatexceedsthemaximumcolumnwidth',
+]
+"
+`;
