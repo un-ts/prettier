@@ -6,7 +6,7 @@ exports[`parser and printer > should format all fixtures > comments.toml 1`] = `
 # This is a multiline
 # TOML comment
 
-str = \\"I'm a string.\\"
+str1 = \\"I'm a string.\\"
 "
 `;
 
