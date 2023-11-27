@@ -7,7 +7,7 @@ import type { PrettierOptions, TaploOptions } from './types.js'
 
 const PLUGIN_NAME = 'toml'
 
-let taplo: Taplo | null = null
+let taplo: Taplo | undefined
 
 async function format(code: string, options: TaploOptions) {
   if (!taplo) {
