@@ -17,13 +17,6 @@ async function format(code: string, options: TaploOptions) {
   return taplo.format(code, { options })
 }
 
-function removeBeginningTrailingNewline(code: string) {
-  code = code.replace(/^(?:\r?\n)+/, '')
-  code = code.replace(/(?:\r?\n)+$/, '')
-
-  return code
-}
-
 const TomlPlugin: Plugin<string> = {
   languages,
   parsers: {
@@ -33,7 +26,7 @@ const TomlPlugin: Plugin<string> = {
           ? '\t'
           : ' '.repeat(options.tabWidth)
 
-        return await format(removeBeginningTrailingNewline(code), {
+        return await format(code.trim(), {
           ...options,
           columnWidth: options.printWidth,
           indentString,
