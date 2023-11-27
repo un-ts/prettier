@@ -4,7 +4,7 @@ import { JSOX } from 'jsox'
 import type { AST, Option } from 'node-sql-parser'
 import nodeSqlParser from 'node-sql-parser'
 import type { Options, ParserOptions, Plugin } from 'prettier'
-import { format, type FormatOptions } from 'sql-formatter'
+import { format, type FormatOptionsWithLanguage } from 'sql-formatter'
 
 import { languages } from './languages.js'
 
@@ -21,8 +21,7 @@ const ENDINGS = {
 } as const
 
 export type SqlBaseOptions = Option &
-  Partial<FormatOptions> & {
-    language?: string
+  Partial<FormatOptionsWithLanguage> & {
     formatter?: typeof NODE_SQL_PARSER | typeof SQL_CST | typeof SQL_FORMATTER
     params?: string
     paramTypes?: string
@@ -68,11 +67,15 @@ const SqlPlugin: Plugin<AST | string> = {
                 params:
                   params == null
                     ? undefined
-                    : (JSOX.parse(params) as FormatOptions['params']),
+                    : (JSOX.parse(
+                        params,
+                      ) as FormatOptionsWithLanguage['params']),
                 paramTypes:
                   paramTypes == null
                     ? undefined
-                    : (JSOX.parse(paramTypes) as FormatOptions['paramTypes']),
+                    : (JSOX.parse(
+                        paramTypes,
+                      ) as FormatOptionsWithLanguage['paramTypes']),
               })
             : parser.sqlify(value, { type, database })
 
@@ -219,6 +222,28 @@ const SqlPlugin: Plugin<AST | string> = {
         },
       ],
     },
+    identifierCase: {
+      // since: '0.17.0',
+      category: 'Output',
+      type: 'choice',
+      default: 'preserve',
+      description:
+        'Converts identifiers to upper- or lowercase for `sql-formatter`. Only unquoted identifiers are converted. (experimental)',
+      choices: [
+        {
+          value: 'preserve',
+          description: 'preserves the original case',
+        },
+        {
+          value: 'upper',
+          description: 'converts to uppercase',
+        },
+        {
+          value: 'lower',
+          description: 'converts to lowercase',
+        },
+      ],
+    },
     uppercase: {
       // since: '0.1.0',
       category: 'Output',
@@ -269,36 +294,6 @@ const SqlPlugin: Plugin<AST | string> = {
         {
           value: 'after',
           description: 'adds newline after the operator',
-        },
-      ],
-    },
-    tabulateAlias: {
-      // since: '0.7.0',
-      category: 'Format',
-      type: 'boolean',
-      default: false,
-      description:
-        'Aligns column aliases into a single column  for `sql-formatter`. Does not effect table name aliases.',
-    },
-    commaPosition: {
-      // since: '0.7.0',
-      category: 'Format',
-      type: 'choice',
-      default: 'after',
-      description:
-        'Defines where to place commas in lists of columns for `sql-formatter`',
-      choices: [
-        {
-          value: 'after',
-          description: 'places comma at the end of line',
-        },
-        {
-          value: 'before',
-          description: 'places comma at the start of line',
-        },
-        {
-          value: 'tabular',
-          description: 'aligns commas in a column at the end of line',
         },
       ],
     },
