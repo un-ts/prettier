@@ -224,7 +224,7 @@ const SqlPlugin: Plugin<AST | string> = {
       type: 'choice',
       default: 'preserve',
       description:
-        'Converts identifiers to upper- or lowercase for `sql-formatter`. Only unquoted identifiers are converted.',
+        'Converts identifiers to upper- or lowercase for `sql-formatter`. Only unquoted identifiers are converted. (experimental)',
       choices: [
         {
           value: 'preserve',
