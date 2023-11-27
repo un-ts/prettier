@@ -21,8 +21,8 @@ const TomlPlugin: Plugin<string> = {
   languages,
   parsers: {
     [PLUGIN_NAME]: {
-      async parse(code: string, options: PrettierOptions) {
-        return await format(code.trim(), {
+      parse(code: string, options: PrettierOptions) {
+        return format(code.trim(), {
           ...options,
           columnWidth: options.printWidth,
           indentString: options.useTabs ? '\t' : ' '.repeat(options.tabWidth),
