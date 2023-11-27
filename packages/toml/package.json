@@ -36,5 +36,8 @@
   },
   "dependencies": {
     "@taplo/lib": "^0.4.0-alpha.2"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
