@@ -38,20 +38,11 @@ const TomlPlugin: Plugin<AST> = {
           : ' '.repeat(options.tabWidth)
 
         const taploOptions: TaploOptions = {
-          alignEntries: options.taploAlignEntries,
-          alignComments: options.taploAlignComments,
-          arrayTrailingComma: options.trailingComma !== 'none',
-          arrayAutoExpand: options.taploArrayAutoExpand,
-          arrayAutoCollapse: options.taploArrayAutoCollapse,
-          compactArrays: options.taploCompactArrays,
-          compactInlineTables: options.taploCompactInlineTables,
-          compactEntries: options.taploCompactEntries,
+          ...options,
           columnWidth: options.printWidth,
-          indentTables: options.taploIndentTables,
-          indentEntries: options.taploIndentEntries,
           indentString,
           trailingNewline: true,
-          reorderKeys: options.taploReorderKeys,
+          arrayTrailingComma: options.trailingComma !== 'none',
           allowedBlankLines: 1,
           crlf: options.endOfLine === 'crlf',
         }
