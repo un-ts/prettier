@@ -11,6 +11,7 @@ overrides:
   prettier-plugin-pkg: workspace:*
   prettier-plugin-sh: workspace:*
   prettier-plugin-sql: workspace:*
+  prettier-plugin-toml: workspace:*
 
 importers:
 
