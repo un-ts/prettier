@@ -1,4 +1,4 @@
-import type { RequiredOptions, SupportOption } from 'prettier'
+import type { SupportOption } from 'prettier'
 
 import type { PrettierTaploOptions } from './types'
 
@@ -83,17 +83,3 @@ export const options = {
       'Alphabetically reorder keys that are not separated by empty lines.',
   },
 } satisfies Record<keyof PrettierTaploOptions, SupportOption>
-
-export const defaultOptions: Partial<RequiredOptions> &
-  Required<PrettierTaploOptions> = {
-  alignEntries: options.alignComments.default,
-  alignComments: options.alignComments.default,
-  arrayAutoExpand: options.arrayAutoExpand.default,
-  arrayAutoCollapse: options.arrayAutoCollapse.default,
-  compactArrays: options.compactArrays.default,
-  compactInlineTables: options.compactInlineTables.default,
-  compactEntries: options.compactEntries.default,
-  indentTables: options.indentTables.default,
-  indentEntries: options.indentEntries.default,
-  reorderKeys: options.reorderKeys.default,
-}
