@@ -33,7 +33,7 @@ const TomlPlugin: Plugin<string> = {
           ? '\t'
           : ' '.repeat(options.tabWidth)
 
-        const taploOptions: TaploOptions = {
+        return await format(removeBeginningTrailingNewline(code), {
           ...options,
           columnWidth: options.printWidth,
           indentString,
@@ -41,9 +41,7 @@ const TomlPlugin: Plugin<string> = {
           arrayTrailingComma: options.trailingComma !== 'none',
           allowedBlankLines: 1,
           crlf: options.endOfLine === 'crlf',
-        }
-
-        return await format(removeBeginningTrailingNewline(code), taploOptions)
+        })
       },
       astFormat: PLUGIN_NAME,
       locStart: () => -1,
