@@ -219,6 +219,28 @@ const SqlPlugin: Plugin<AST | string> = {
         },
       ],
     },
+    identifierCase: {
+      // since: '0.17.0',
+      category: 'Output',
+      type: 'choice',
+      default: 'preserve',
+      description:
+        'Converts identifiers to upper- or lowercase for `sql-formatter`. Only unquoted identifiers are converted.',
+      choices: [
+        {
+          value: 'preserve',
+          description: 'preserves the original case',
+        },
+        {
+          value: 'upper',
+          description: 'converts to uppercase',
+        },
+        {
+          value: 'lower',
+          description: 'converts to lowercase',
+        },
+      ],
+    },
     uppercase: {
       // since: '0.1.0',
       category: 'Output',
@@ -269,36 +291,6 @@ const SqlPlugin: Plugin<AST | string> = {
         {
           value: 'after',
           description: 'adds newline after the operator',
-        },
-      ],
-    },
-    tabulateAlias: {
-      // since: '0.7.0',
-      category: 'Format',
-      type: 'boolean',
-      default: false,
-      description:
-        'Aligns column aliases into a single column  for `sql-formatter`. Does not effect table name aliases.',
-    },
-    commaPosition: {
-      // since: '0.7.0',
-      category: 'Format',
-      type: 'choice',
-      default: 'after',
-      description:
-        'Defines where to place commas in lists of columns for `sql-formatter`',
-      choices: [
-        {
-          value: 'after',
-          description: 'places comma at the end of line',
-        },
-        {
-          value: 'before',
-          description: 'places comma at the start of line',
-        },
-        {
-          value: 'tabular',
-          description: 'aligns commas in a column at the end of line',
         },
       ],
     },
