@@ -1,4 +1,4 @@
-import { Taplo } from '@taplo/lib'
+import taplo from '@taplo/lib'
 import type { Plugin } from 'prettier'
 
 import { languages } from './languages.js'
@@ -7,29 +7,25 @@ import type { PrettierOptions, TaploOptions } from './types.js'
 
 const PLUGIN_NAME = 'toml'
 
-let taplo: Taplo | undefined
+let taploIns: taplo.Taplo | undefined
 
 async function format(code: string, options: TaploOptions) {
-  if (!taplo) {
-    taplo = await Taplo.initialize()
+  if (!taploIns) {
+    taploIns = await taplo.Taplo.initialize()
   }
 
-  return taplo.format(code, { options })
+  return taploIns.format(code, { options })
 }
 
 const TomlPlugin: Plugin<string> = {
   languages,
   parsers: {
     [PLUGIN_NAME]: {
-      async parse(code: string, options: PrettierOptions) {
-        const indentString = options.useTabs
-          ? '\t'
-          : ' '.repeat(options.tabWidth)
-
-        return await format(code.trim(), {
+      parse(code: string, options: PrettierOptions) {
+        return format(code.trim(), {
           ...options,
           columnWidth: options.printWidth,
-          indentString,
+          indentString: options.useTabs ? '\t' : ' '.repeat(options.tabWidth),
           trailingNewline: true,
           arrayTrailingComma: options.trailingComma !== 'none',
           crlf: options.endOfLine === 'crlf',
@@ -47,5 +43,8 @@ const TomlPlugin: Plugin<string> = {
   },
   options: prettierOptionsDefinitions,
 }
+
+export type * from './options.js'
+export type * from './types.js'
 
 export default TomlPlugin
