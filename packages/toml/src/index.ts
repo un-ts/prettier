@@ -32,7 +32,6 @@ const TomlPlugin: Plugin<string> = {
           indentString,
           trailingNewline: true,
           arrayTrailingComma: options.trailingComma !== 'none',
-          allowedBlankLines: 1,
           crlf: options.endOfLine === 'crlf',
         })
       },

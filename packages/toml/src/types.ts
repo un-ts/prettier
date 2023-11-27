@@ -4,7 +4,6 @@ import type { ParserOptions } from 'prettier'
 export type TaploOptions = NonNullable<FormatOptions['options']>
 export type PrettierTaploOptions = Omit<
   TaploOptions,
-  | 'allowedBlankLines'
   | 'arrayTrailingComma'
   | 'columnWidth'
   | 'crlf'

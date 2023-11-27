@@ -82,4 +82,12 @@ export const prettierOptionsDefinitions = {
     description:
       'Alphabetically reorder keys that are not separated by empty lines.',
   },
+  allowedBlankLines: {
+    name: 'allowedBlankLines',
+    type: 'int',
+    category: 'taplo',
+    default: 1,
+    description:
+      'The maximum number of allowed blank lines between entries and tables.',
+  },
 } satisfies Record<keyof PrettierTaploOptions, SupportOption>
