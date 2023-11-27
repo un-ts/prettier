@@ -4,7 +4,7 @@ import { JSOX } from 'jsox'
 import type { AST, Option } from 'node-sql-parser'
 import nodeSqlParser from 'node-sql-parser'
 import type { Options, ParserOptions, Plugin } from 'prettier'
-import { format, type FormatOptions } from 'sql-formatter'
+import { format, type FormatOptionsWithLanguage } from 'sql-formatter'
 
 import { languages } from './languages.js'
 
@@ -21,8 +21,7 @@ const ENDINGS = {
 } as const
 
 export type SqlBaseOptions = Option &
-  Partial<FormatOptions> & {
-    language?: string
+  Partial<FormatOptionsWithLanguage> & {
     formatter?: typeof NODE_SQL_PARSER | typeof SQL_CST | typeof SQL_FORMATTER
     params?: string
     paramTypes?: string
@@ -68,11 +67,11 @@ const SqlPlugin: Plugin<AST | string> = {
                 params:
                   params == null
                     ? undefined
-                    : (JSOX.parse(params) as FormatOptions['params']),
+                    : (JSOX.parse(params) as FormatOptionsWithLanguage['params']),
                 paramTypes:
                   paramTypes == null
                     ? undefined
-                    : (JSOX.parse(paramTypes) as FormatOptions['paramTypes']),
+                    : (JSOX.parse(paramTypes) as FormatOptionsWithLanguage['paramTypes']),
               })
             : parser.sqlify(value, { type, database })
 
