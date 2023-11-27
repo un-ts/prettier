@@ -1,7 +1,7 @@
 import { Taplo } from '@taplo/lib'
 import type { Plugin } from 'prettier'
 
-import { options } from './options'
+import { prettierOptionsDefinitions } from './options'
 import type { PrettierOptions, TaploOptions } from './types'
 
 const PLUGIN_NAME = 'toml'
@@ -59,7 +59,7 @@ const TomlPlugin: Plugin<string> = {
       print: ({ node }) => node,
     },
   },
-  options,
+  options: prettierOptionsDefinitions,
 }
 
 export default TomlPlugin
