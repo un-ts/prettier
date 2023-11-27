@@ -13,7 +13,7 @@ Of course it should just work, but may not match [prettier][]'s format sometimes
 
 ## Requirements
 
-`prettier-plugin-toml` is an evergreen module. 🌲 This module requires an [LTS](https://github.com/nodejs/Release) Node version (v14.0.0+).
+`prettier-plugin-toml` is an evergreen module. 🌲 This module requires an [LTS](https://github.com/nodejs/Release) Node version (v16.0.0+).
 
 ## Install
 
