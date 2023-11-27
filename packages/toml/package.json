@@ -32,6 +32,6 @@
     "prettier": "^3.0.3"
   },
   "dependencies": {
-    "@taplo/lib": "0.4.0-alpha.2"
+    "@taplo/lib": "^0.4.0-alpha.2"
   }
 }
