@@ -11,6 +11,7 @@ overrides:
   prettier-plugin-pkg: workspace:*
   prettier-plugin-sh: workspace:*
   prettier-plugin-sql: workspace:*
+  prettier-plugin-toml: workspace:*
 
 importers:
 
@@ -79,6 +80,9 @@ importers:
       prettier-plugin-sql:
         specifier: workspace:*
         version: link:packages/sql
+      prettier-plugin-toml:
+        specifier: workspace:*
+        version: link:packages/toml
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -166,6 +170,15 @@ importers:
       tslib:
         specifier: ^2.6.2
         version: 2.6.2
+
+  packages/toml:
+    dependencies:
+      '@taplo/lib':
+        specifier: ^0.4.0-alpha.2
+        version: 0.4.0-alpha.2
+      prettier:
+        specifier: ^3.0.3
+        version: 3.0.3
 
 packages:
 
@@ -3890,7 +3903,7 @@ packages:
       nopt: 7.2.0
       proc-log: 3.0.0
       read-package-json-fast: 3.0.2
-      semver: 7.5.3
+      semver: 7.5.4
       walk-up-path: 3.0.1
     dev: true
 
@@ -4278,6 +4291,16 @@ packages:
   /@swc/types@0.1.5:
     resolution: {integrity: sha512-myfUej5naTBWnqOCc/MdVOLVjXUXtIA+NpDrDBKJtLLg2shUjBu3cZmB/85RyitKc55+lUUyl7oRfLOvkr2hsw==}
     dev: true
+
+  /@taplo/core@0.1.1:
+    resolution: {integrity: sha512-BG/zLGf5wiNXGEVPvUAAX/4ilB3PwDUY2o0MV0y47mZbDZ9ad9UK/cIQsILat3bqbPJsALVbU6k3cskNZ3vAQg==}
+    dev: false
+
+  /@taplo/lib@0.4.0-alpha.2:
+    resolution: {integrity: sha512-DV/Re3DPVY+BhBtLZ3dmP4mP6YMLSsgq9qGLXwOV38lvNF/fBlgvQswzlXmzCEefL/3q2eMoefZpOI/+GLuCNA==}
+    dependencies:
+      '@taplo/core': 0.1.1
+    dev: false
 
   /@tokenizer/token@0.3.0:
     resolution: {integrity: sha512-OvjF+z51L3ov0OyAU0duzsYuvO01PH7x4t6DJx+guahgTnBHkhJdG7soQeTSFLWN3efnHyibZ4Z8l2EuWwJN3A==}
@@ -4682,7 +4705,7 @@ packages:
       debug: 4.3.4
       globby: 11.1.0
       is-glob: 4.0.3
-      semver: 7.5.3
+      semver: 7.5.4
       tsutils: 3.21.0(typescript@5.2.2)
       typescript: 5.2.2
     transitivePeerDependencies:
@@ -4703,7 +4726,7 @@ packages:
       debug: 4.3.4
       globby: 11.1.0
       is-glob: 4.0.3
-      semver: 7.5.3
+      semver: 7.5.4
       tsutils: 3.21.0(typescript@5.2.2)
       typescript: 5.2.2
     transitivePeerDependencies:
@@ -4724,7 +4747,7 @@ packages:
       '@typescript-eslint/typescript-estree': 5.59.7(typescript@5.2.2)
       eslint: 8.44.0
       eslint-scope: 5.1.1
-      semver: 7.5.3
+      semver: 7.5.4
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -4744,7 +4767,7 @@ packages:
       '@typescript-eslint/typescript-estree': 5.61.0(typescript@5.2.2)
       eslint: 8.44.0
       eslint-scope: 5.1.1
-      semver: 7.5.3
+      semver: 7.5.4
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -5701,7 +5724,7 @@ packages:
   /builtins@5.0.1:
     resolution: {integrity: sha512-qwVpFEHNfhYJIzNRBvd2C1kyo6jz3ZSMPyyuR47OPdiKWlbYnZNyDWuyR175qDnAJLiCo5fBBqPb3RiXgWlkOQ==}
     dependencies:
-      semver: 7.5.3
+      semver: 7.5.4
     dev: true
 
   /bundle-name@3.0.0:
@@ -9831,7 +9854,7 @@ packages:
       acorn: 8.10.0
       eslint-visitor-keys: 3.4.1
       espree: 9.6.0
-      semver: 7.5.3
+      semver: 7.5.4
     dev: true
 
   /jsonc-parser@3.2.0:
@@ -11907,7 +11930,7 @@ packages:
     dependencies:
       hosted-git-info: 4.1.0
       is-core-module: 2.12.1
-      semver: 7.5.3
+      semver: 7.5.4
       validate-npm-package-license: 3.0.4
     dev: true
 
@@ -11948,7 +11971,7 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       hosted-git-info: 3.0.8
-      semver: 7.5.3
+      semver: 7.5.4
       validate-npm-package-name: 3.0.0
     dev: true
 
@@ -16994,7 +17017,7 @@ packages:
       espree: 9.6.0
       esquery: 1.5.0
       lodash: 4.17.21
-      semver: 7.5.3
+      semver: 7.5.4
     transitivePeerDependencies:
       - supports-color
     dev: true

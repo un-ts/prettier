@@ -23,6 +23,7 @@ This repository is a monorepo managed by [changesets][] what means we actually p
 | [`prettier-plugin-pkg`](/packages/pkg)                 | An opinionated package.json formatter plugin for Prettier                                                                                                             | [![npm](https://img.shields.io/npm/v/prettier-plugin-pkg.svg)](https://www.npmjs.com/package/prettier-plugin-pkg)                 |
 | [`prettier-plugin-sh`](/packages/sh)                   | An opinionated `shellscript` formatter plugin for Prettier, also support simple format of `Dockerfile`, `properties`, `gitignore`, `dotenv`, `hosts`, `jvmoptions`... | [![npm](https://img.shields.io/npm/v/prettier-plugin-sh.svg)](https://www.npmjs.com/package/prettier-plugin-sh)                   |
 | [`prettier-plugin-sql`](/packages/sql)                 | An opinionated sql formatter plugin for Prettier                                                                                                                      | [![npm](https://img.shields.io/npm/v/prettier-plugin-sql.svg)](https://www.npmjs.com/package/prettier-plugin-sql)                 |
+| [`prettier-plugin-toml`](/packages/toml)               | An opinionated `toml` formatter plugin for Prettier                                                                                                                   | [![npm](https://img.shields.io/npm/v/prettier-plugin-toml.svg)](https://www.npmjs.com/package/prettier-plugin-toml)               |
 
 ## Sponsors
 

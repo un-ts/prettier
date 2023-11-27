@@ -1,0 +1,6 @@
+# This is a TOML comment
+
+# This is a multiline
+# TOML comment
+
+str1 = "I'm a string."

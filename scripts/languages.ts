@@ -30,7 +30,7 @@ const EXTRA_SH_LANGUAGES: SupportLanguage[] = [
 ]
 
 const getSupportLanguages = (
-  parser: 'autocorrect' | 'sh' | 'sql',
+  parser: 'autocorrect' | 'sh' | 'sql' | 'toml',
   aceModes: string[],
 ) =>
   Object.values(LinguistLanguages).reduce<SupportLanguage[]>(
@@ -93,6 +93,17 @@ fs.writeFileSync(
 
 export const languages = ${JSON.stringify(
     [...getSupportLanguages('sql', ['sql', 'pgsql'])],
+    null,
+    2,
+  )} as SupportLanguage[]`,
+)
+
+fs.writeFileSync(
+  'packages/toml/src/languages.ts',
+  `import { SupportLanguage } from 'prettier'
+
+export const languages = ${JSON.stringify(
+    [...getSupportLanguages('toml', ['toml'])],
     null,
     2,
   )} as SupportLanguage[]`,

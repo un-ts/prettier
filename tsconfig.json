@@ -12,6 +12,9 @@
     },
     {
       "path": "packages/sql"
+    },
+    {
+      "path": "packages/toml"
     }
   ]
 }
