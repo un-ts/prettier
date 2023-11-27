@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.17.0
+
+### Minor Changes
+
+- [#315](https://github.com/un-ts/prettier/pull/315) [`ac2b2fb`](https://github.com/un-ts/prettier/commit/ac2b2fb0241bfb3b4fe7aa69390b41f97229355e) Thanks [@karlhorky](https://github.com/karlhorky)! - feat: upgrade to sql-formatter v14, remove `tabulateAlias` and `commaPosition` options
+
 ## 0.16.0
 
 ### Minor Changes
