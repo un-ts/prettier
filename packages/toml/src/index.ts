@@ -1,8 +1,9 @@
 import { Taplo } from '@taplo/lib'
 import type { Plugin } from 'prettier'
 
-import { prettierOptionsDefinitions } from './options'
-import type { PrettierOptions, TaploOptions } from './types'
+import { languages } from './languages.js'
+import { prettierOptionsDefinitions } from './options.js'
+import type { PrettierOptions, TaploOptions } from './types.js'
 
 const PLUGIN_NAME = 'toml'
 
@@ -24,12 +25,7 @@ function removeBeginningTrailingNewline(code: string) {
 }
 
 const TomlPlugin: Plugin<string> = {
-  languages: [
-    {
-      name: PLUGIN_NAME,
-      parsers: [PLUGIN_NAME],
-    },
-  ],
+  languages,
   parsers: {
     [PLUGIN_NAME]: {
       async parse(code: string, options: PrettierOptions) {
