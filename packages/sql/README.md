@@ -75,7 +75,7 @@ interface SqlOptions {
     | 'trino'
   // default `sql`
   keywordCase: 'preserve' | 'upper' | 'lower' // default `preserve`
-  identifierCase: 'preserve' | 'upper' | 'lower' // default `preserve`
+  identifierCase: 'preserve' | 'upper' | 'lower' // default `preserve`, experimental
   indentStyle: 'standard' | 'tabularLeft' | 'tabularRight' // default `standard`
   logicalOperatorNewline: 'before' | 'after' // default `before`
   expressionWidth: number // default `50`
