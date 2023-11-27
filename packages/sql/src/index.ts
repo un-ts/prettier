@@ -67,11 +67,15 @@ const SqlPlugin: Plugin<AST | string> = {
                 params:
                   params == null
                     ? undefined
-                    : (JSOX.parse(params) as FormatOptionsWithLanguage['params']),
+                    : (JSOX.parse(
+                        params,
+                      ) as FormatOptionsWithLanguage['params']),
                 paramTypes:
                   paramTypes == null
                     ? undefined
-                    : (JSOX.parse(paramTypes) as FormatOptionsWithLanguage['paramTypes']),
+                    : (JSOX.parse(
+                        paramTypes,
+                      ) as FormatOptionsWithLanguage['paramTypes']),
               })
             : parser.sqlify(value, { type, database })
 
