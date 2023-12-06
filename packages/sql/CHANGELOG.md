@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.17.1
+
+### Patch Changes
+
+- [#324](https://github.com/un-ts/prettier/pull/324) [`e709986`](https://github.com/un-ts/prettier/commit/e709986a9cedbb2c07f1d0162a4fb5bf579ee8b2) Thanks [@jayrave](https://github.com/jayrave)! - chore: revert LICENSE to be MIT
+
 ## 0.17.0
 
 ### Minor Changes
