@@ -7,7 +7,7 @@
   "homepage": "https://github.com/un-ts/prettier/tree/master/packages/sql",
   "author": "JounQin (https://www.1stG.me) <admin@1stg.me>",
   "funding": "https://opencollective.com/unts",
-  "license": "GPLv2",
+  "license": "MIT",
   "engines": {
     "node": "^14.18.0 || >=16.0.0"
   },
