@@ -57,7 +57,7 @@ Format SQL-in-JS tagged template literals by installing [`prettier-plugin-embed`
 /** @type {import('prettier').Config} */
 const prettierConfig = {
   plugins: ['prettier-plugin-embed', 'prettier-plugin-sql'],
-};
+}
 
 /** @type {import('prettier-plugin-embed').PrettierPluginEmbedOptions} */
 const prettierPluginEmbedConfig = {
@@ -74,9 +74,9 @@ const config = {
   ...prettierConfig,
   ...prettierPluginEmbedConfig,
   ...prettierPluginSqlConfig,
-};
+}
 
-export default config;
+export default config
 ```
 
 Before formatting:
@@ -87,7 +87,7 @@ const animals = await sql`
    animals
          WhERE
  id = ${id}
-`;
+`
 ```
 
 After formatting:
@@ -101,7 +101,7 @@ const animals = await sql`
     animals
   WHERE
     id = ${id}
-`;
+`
 ```
 
 ## Parser Options
