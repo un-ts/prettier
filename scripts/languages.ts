@@ -1,7 +1,7 @@
 import fs from 'node:fs'
 
 import LinguistLanguages from 'linguist-languages'
-import { SupportLanguage } from 'prettier'
+import type { SupportLanguage } from 'prettier'
 
 const EXTRA_SH_LANGUAGES: SupportLanguage[] = [
   {
