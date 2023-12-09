@@ -165,8 +165,8 @@ importers:
         specifier: ^3.0.3
         version: 3.0.3
       sql-formatter:
-        specifier: ^14.0.0
-        version: 14.0.0
+        specifier: ^15.0.0
+        version: 15.0.0
       tslib:
         specifier: ^2.6.2
         version: 2.6.2
@@ -15421,8 +15421,8 @@ packages:
     resolution: {integrity: sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==}
     dev: true
 
-  /sql-formatter@14.0.0:
-    resolution: {integrity: sha512-VcHYMRvZqg3RNjjxNB/puT9O1hR5QLXTvgTaBtxXcvmRQwSnH9M+oW2Ti+uFuVVU8HoNlOjU2uKHv8c0FQNsdQ==}
+  /sql-formatter@15.0.0:
+    resolution: {integrity: sha512-Xkoeup/vtEs2M0uQg1bKsYcAHA6Ahu7hE7pqQRVbQLxHo3hxa/p1ac4FchzFPzYqd/KsHcra0bUYKGoQkiFbqw==}
     hasBin: true
     dependencies:
       argparse: 2.0.1

@@ -206,19 +206,63 @@ const SqlPlugin: Plugin<AST | string> = {
       type: 'choice',
       default: 'preserve',
       description:
-        'Converts reserved keywords and builtin function names to upper or lowercase for `sql-formatter`',
+        'Converts reserved keywords to upper- or lowercase for `sql-formatter`',
       choices: [
         {
           value: 'preserve',
-          description: 'preserves the original case',
+          description: 'preserves the original case of reserved keywords',
         },
         {
           value: 'upper',
-          description: 'converts to uppercase',
+          description: 'converts reserved keywords to uppercase',
         },
         {
           value: 'lower',
-          description: 'converts to lowercase',
+          description: 'converts reserved keywords to lowercase',
+        },
+      ],
+    },
+    dataTypeCase: {
+      // since: '0.18.0',
+      category: 'Output',
+      type: 'choice',
+      default: 'preserve',
+      description:
+        'Converts data types to upper- or lowercase for `sql-formatter`',
+      choices: [
+        {
+          value: 'preserve',
+          description: 'preserves the original case of data types',
+        },
+        {
+          value: 'upper',
+          description: 'converts data types to uppercase',
+        },
+        {
+          value: 'lower',
+          description: 'converts data types to lowercase',
+        },
+      ],
+    },
+    functionCase: {
+      // since: '0.18.0',
+      category: 'Output',
+      type: 'choice',
+      default: 'preserve',
+      description:
+        'Converts functions to upper- or lowercase for `sql-formatter`',
+      choices: [
+        {
+          value: 'preserve',
+          description: 'preserves the original case of functions',
+        },
+        {
+          value: 'upper',
+          description: 'converts functions to uppercase',
+        },
+        {
+          value: 'lower',
+          description: 'converts functions to lowercase',
         },
       ],
     },
@@ -232,15 +276,15 @@ const SqlPlugin: Plugin<AST | string> = {
       choices: [
         {
           value: 'preserve',
-          description: 'preserves the original case',
+          description: 'preserves the original case of identifiers',
         },
         {
           value: 'upper',
-          description: 'converts to uppercase',
+          description: 'converts identifiers to uppercase',
         },
         {
           value: 'lower',
-          description: 'converts to lowercase',
+          description: 'converts identifiers to lowercase',
         },
       ],
     },
