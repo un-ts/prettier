@@ -49,11 +49,6 @@ yarn prettier --write db.sql
 
 ### SQL-in-JS with `prettier-plugin-embed`
 
-
-### Config Examples
-
-#### `prettier-plugin-sql` and `sql-formatter`
-
 Format SQL-in-JS tagged template literals by installing [`prettier-plugin-embed`](https://github.com/Sec-ant/prettier-plugin-embed) and configuring as follows:
 
 `prettier.config.mjs`
