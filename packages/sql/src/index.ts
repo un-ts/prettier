@@ -210,15 +210,15 @@ const SqlPlugin: Plugin<AST | string> = {
       choices: [
         {
           value: 'preserve',
-          description: 'preserves the original case',
+          description: 'preserves the original case of reserved keywords',
         },
         {
           value: 'upper',
-          description: 'converts to uppercase',
+          description: 'converts reserved keywords to uppercase',
         },
         {
           value: 'lower',
-          description: 'converts to lowercase',
+          description: 'converts reserved keywords to lowercase',
         },
       ],
     },
@@ -232,15 +232,15 @@ const SqlPlugin: Plugin<AST | string> = {
       choices: [
         {
           value: 'preserve',
-          description: 'preserves the original case',
+          description: 'preserves the original case of data types',
         },
         {
           value: 'upper',
-          description: 'converts to uppercase',
+          description: 'converts data types to uppercase',
         },
         {
           value: 'lower',
-          description: 'converts to lowercase',
+          description: 'converts data types to lowercase',
         },
       ],
     },
@@ -254,15 +254,15 @@ const SqlPlugin: Plugin<AST | string> = {
       choices: [
         {
           value: 'preserve',
-          description: 'preserves the original case',
+          description: 'preserves the original case of functions',
         },
         {
           value: 'upper',
-          description: 'converts to uppercase',
+          description: 'converts functions to uppercase',
         },
         {
           value: 'lower',
-          description: 'converts to lowercase',
+          description: 'converts functions to lowercase',
         },
       ],
     },
@@ -276,15 +276,15 @@ const SqlPlugin: Plugin<AST | string> = {
       choices: [
         {
           value: 'preserve',
-          description: 'preserves the original case',
+          description: 'preserves the original case of identifiers',
         },
         {
           value: 'upper',
-          description: 'converts to uppercase',
+          description: 'converts identifiers to uppercase',
         },
         {
           value: 'lower',
-          description: 'converts to lowercase',
+          description: 'converts identifiers to lowercase',
         },
       ],
     },
