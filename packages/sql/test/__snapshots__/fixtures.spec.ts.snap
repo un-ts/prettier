@@ -1,16 +1,14 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`parser and printer > should format all fixtures > 144.sql 1`] = `
-"CREATE TABLE
-  \\"test\\" (\\"id\\" uuid NOT NULL)
+"CREATE TABLE \\"test\\" (\\"id\\" uuid NOT NULL)
 WITH
   (oids = false);
 "
 `;
 
 exports[`parser and printer > should format all fixtures > 233.sql 1`] = `
-"CREATE TABLE
-  \\"test\\" (\\"id\\" uuid NOT NULL)
+"CREATE TABLE \\"test\\" (\\"id\\" uuid NOT NULL)
 WITH
   (oids = false);
 "
