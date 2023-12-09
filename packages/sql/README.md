@@ -47,6 +47,68 @@ npx prettier --write db.sql
 yarn prettier --write db.sql
 ```
 
+### SQL-in-JS with `prettier-plugin-embed`
+
+
+### Config Examples
+
+#### `prettier-plugin-sql` and `sql-formatter`
+
+Format SQL-in-JS tagged template literals by installing [`prettier-plugin-embed`](https://github.com/Sec-ant/prettier-plugin-embed) and configuring as follows:
+
+`prettier.config.mjs`
+
+```js
+/** @type {import('prettier').Config} */
+const prettierConfig = {
+  plugins: ['prettier-plugin-embed', 'prettier-plugin-sql'],
+};
+
+/** @type {import('prettier-plugin-embed').PrettierPluginEmbedOptions} */
+const prettierPluginEmbedConfig = {
+  embeddedSqlIdentifiers: ['sql'],
+}
+
+/** @type {import('prettier-plugin-sql').SqlBaseOptions} */
+const prettierPluginSqlConfig = {
+  language: 'postgresql',
+  keywordCase: 'upper',
+}
+
+const config = {
+  ...prettierConfig,
+  ...prettierPluginEmbedConfig,
+  ...prettierPluginSqlConfig,
+};
+
+export default config;
+```
+
+Before formatting:
+
+```ts
+const animals = await sql`
+  sELect  first_name,    species froM
+   animals
+         WhERE
+ id = ${id}
+`;
+```
+
+After formatting:
+
+```ts
+const animals = await sql`
+  SELECT
+    first_name,
+    species
+  FROM
+    animals
+  WHERE
+    id = ${id}
+`;
+```
+
 ## Parser Options
 
 ```ts
