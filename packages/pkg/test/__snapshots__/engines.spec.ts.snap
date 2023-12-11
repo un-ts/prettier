@@ -2,9 +2,9 @@
 
 exports[`engines 1`] = `
 "{
-  \\"engines\\": {
-    \\"node\\": \\"batman\\",
-    \\"npm\\": \\"joker\\"
+  "engines": {
+    "node": "batman",
+    "npm": "joker"
   }
 }
 "

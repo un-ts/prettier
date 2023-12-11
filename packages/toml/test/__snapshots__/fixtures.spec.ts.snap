@@ -6,7 +6,7 @@ exports[`parser and printer > should format all fixtures > comments.toml 1`] = `
 # This is a multiline
 # TOML comment
 
-str1 = \\"I'm a string.\\"
+str1 = "I'm a string."
 "
 `;
 
@@ -15,7 +15,7 @@ exports[`parser and printer > should format all fixtures > fixture1.toml 1`] = `
 asfd = 1
 bar = [
   'averyloooooooooooooooooooooooooooooooooooooooooooooooooooong',
-  \\"arrrrrrrrrrrrrrrrrrrrrrrray\\",
+  "arrrrrrrrrrrrrrrrrrrrrrrray",
   'thatexceedsthemaximumcolumnwidth',
 ]
 "

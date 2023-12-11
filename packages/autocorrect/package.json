@@ -33,7 +33,7 @@
     "prettier": "^3.0.3"
   },
   "dependencies": {
-    "autocorrect-node": "^2.8.4"
+    "autocorrect-node": "^2.9.0"
   },
   "publishConfig": {
     "access": "public"
