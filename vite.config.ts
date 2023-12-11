@@ -5,12 +5,9 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
   plugins: [
-    {
-      enforce: 'pre',
-      ...mdx({
-        remarkPlugins: [remarkGfm],
-      }),
-    },
+    mdx({
+      remarkPlugins: [remarkGfm],
+    }),
     react(),
   ],
 })

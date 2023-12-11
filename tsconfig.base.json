@@ -1,6 +1,6 @@
 {
   // used by all files but do not include paths
-  "extends": "@1stg/tsconfig/lib",
+  "extends": "./node_modules/@1stg/tsconfig/lib.json",
   "compilerOptions": {
     "moduleResolution": "bundler",
     "target": "ES2020"

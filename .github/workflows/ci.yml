@@ -11,8 +11,8 @@ jobs:
       matrix:
         node:
           - 16
-          - 18.18
-          - 20.9
+          - 18
+          - 20
         os:
           - macos-latest
           - ubuntu-latest

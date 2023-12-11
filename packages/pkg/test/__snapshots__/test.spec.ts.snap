@@ -2,39 +2,39 @@
 
 exports[`preprocess 1`] = `
 "{
-  \\"name\\": \\"prettier-plugin-pkg\\",
-  \\"version\\": \\"0.0.0\\",
-  \\"description\\": \\"An opinionated package.json formatter plugin for Prettier\\",
-  \\"repository\\": \\"git@github.com/un-ts/prettier.git\\",
-  \\"homepage\\": \\"https://github.com/un-ts/prettier/tree/master/packages/pkg\\",
-  \\"author\\": \\"JounQin (https://www.1stG.me) <admin@1stg.me>\\",
-  \\"license\\": \\"MPL-2.0\\",
-  \\"engines\\": {
-    \\"node\\": \\">= 8.0.0\\"
+  "name": "prettier-plugin-pkg",
+  "version": "0.0.0",
+  "description": "An opinionated package.json formatter plugin for Prettier",
+  "repository": "git@github.com/un-ts/prettier.git",
+  "homepage": "https://github.com/un-ts/prettier/tree/master/packages/pkg",
+  "author": "JounQin (https://www.1stG.me) <admin@1stg.me>",
+  "license": "MPL-2.0",
+  "engines": {
+    "node": ">= 8.0.0"
   },
-  \\"main\\": \\"lib/cjs\\",
-  \\"module\\": \\"lib/esm\\",
-  \\"es2015\\": \\"lib/es2015\\",
-  \\"files\\": [
-    \\"lib\\",
-    \\"rules\\",
-    \\"README.md\\",
-    \\"LICENSE\\"
+  "main": "lib/cjs",
+  "module": "lib/esm",
+  "es2015": "lib/es2015",
+  "files": [
+    "lib",
+    "rules",
+    "README.md",
+    "LICENSE"
   ],
-  \\"keywords\\": [
-    \\"package\\",
-    \\"package.json\\",
-    \\"pkg\\",
-    \\"plugin\\",
-    \\"prettier\\",
-    \\"prettier-plugin\\"
+  "keywords": [
+    "package",
+    "package.json",
+    "pkg",
+    "plugin",
+    "prettier",
+    "prettier-plugin"
   ],
-  \\"scripts\\": {
-    \\"bootstrap\\": \\"yarn build && tsc --module commonjs --outDir lib/cjs\\",
-    \\"build\\": \\"ts-node -O '{\\\\\\"module\\\\\\":\\\\\\"commonjs\\\\\\"}' build\\"
+  "scripts": {
+    "bootstrap": "yarn build && tsc --module commonjs --outDir lib/cjs",
+    "build": "ts-node -O '{\\"module\\":\\"commonjs\\"}' build"
   },
-  \\"peerDependencies\\": {
-    \\"prettier\\": \\"^1.18.2\\"
+  "peerDependencies": {
+    "prettier": "^1.18.2"
   }
 }
 "
@@ -42,51 +42,51 @@ exports[`preprocess 1`] = `
 
 exports[`randomize 1`] = `
 "{
-  \\"name\\": \\"prettier-plugin-pkg\\",
-  \\"version\\": \\"0.0.0\\",
-  \\"description\\": \\"An opinionated package.json formatter plugin for Prettier\\",
-  \\"repository\\": \\"git@github.com/un-ts/prettier.git\\",
-  \\"homepage\\": \\"https://github.com/un-ts/prettier/tree/master/packages/pkg\\",
-  \\"author\\": \\"JounQin (https://www.1stG.me) <admin@1stg.me>\\",
-  \\"license\\": \\"MPL-2.0\\",
-  \\"engines\\": {
-    \\"node\\": \\">= 8.0.0\\"
+  "name": "prettier-plugin-pkg",
+  "version": "0.0.0",
+  "description": "An opinionated package.json formatter plugin for Prettier",
+  "repository": "git@github.com/un-ts/prettier.git",
+  "homepage": "https://github.com/un-ts/prettier/tree/master/packages/pkg",
+  "author": "JounQin (https://www.1stG.me) <admin@1stg.me>",
+  "license": "MPL-2.0",
+  "engines": {
+    "node": ">= 8.0.0"
   },
-  \\"main\\": \\"lib/cjs\\",
-  \\"module\\": \\"lib/esm\\",
-  \\"es2015\\": \\"lib/es2015\\",
-  \\"files\\": [
-    \\"lib\\",
-    \\"rules\\"
+  "main": "lib/cjs",
+  "module": "lib/esm",
+  "es2015": "lib/es2015",
+  "files": [
+    "lib",
+    "rules"
   ],
-  \\"keywords\\": [
-    \\"package\\",
-    \\"package.json\\",
-    \\"pkg\\",
-    \\"plugin\\",
-    \\"prettier\\",
-    \\"prettier-plugin\\"
+  "keywords": [
+    "package",
+    "package.json",
+    "pkg",
+    "plugin",
+    "prettier",
+    "prettier-plugin"
   ],
-  \\"peerDependencies\\": {
-    \\"prettier\\": \\"^1.18.2\\"
+  "peerDependencies": {
+    "prettier": "^1.18.2"
   },
-  \\"resolutions\\": {
-    \\"@babel/core\\": \\"^7.9.0\\",
-    \\"@babel/preset-env\\": \\"^7.12.1\\",
-    \\"eslint-plugin-prettier\\": \\"^3.1.2\\",
-    \\"imagemin-gifsicle\\": \\"^6.0.1\\",
-    \\"prettier\\": \\"^2.0.4\\",
-    \\"typescript\\": \\"^3.8.3\\"
+  "resolutions": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.12.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "imagemin-gifsicle": "^6.0.1",
+    "prettier": "^2.0.4",
+    "typescript": "^3.8.3"
   },
-  \\"commitlint\\": {
-    \\"extends\\": [
-      \\"@1stg\\"
+  "commitlint": {
+    "extends": [
+      "@1stg"
     ]
   },
-  \\"eslintIgnore\\": [
-    \\"CHANGELOG.md\\",
-    \\"lib\\",
-    \\"!.*.js\\"
+  "eslintIgnore": [
+    "CHANGELOG.md",
+    "lib",
+    "!.*.js"
   ]
 }
 "
