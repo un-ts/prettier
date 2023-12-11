@@ -1,12 +1,14 @@
 *.log
 *.tsbuildinfo
 .*cache
-.changelog
 .type-coverage
 .vercel
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
 coverage
 dist
 lib
 node_modules
 packages/*/src/languages.ts
-yarn.lock
+/auto-imports.d.ts

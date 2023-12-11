@@ -1,4 +1,4 @@
+.yarn
 coverage
 dist
 **/test/fixtures
-/pnpm-lock.yaml

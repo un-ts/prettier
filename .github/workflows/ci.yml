@@ -22,23 +22,33 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v4
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+      - name: Enable Corepack
+        run: corepack enable
 
       - name: Setup Node.js ${{ matrix.node }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
-          cache: pnpm
+          cache: yarn
+        env:
+          # https://github.com/actions/setup-node/issues/531#issuecomment-1819151412
+          SKIP_YARN_COREPACK_CHECK: 1
+          # https://github.com/actions/setup-node/issues/531#issuecomment-1819151412
+          YARN_IGNORE_NODE: 1
 
       - name: Install Dependencies
-        run: pnpm i
+        run: yarn --immutable
+        env:
+          SKIP_YARN_COREPACK_CHECK: 1
+          YARN_IGNORE_NODE: 1
 
       - name: Build, Lint and Test
-        run: pnpm run-s build lint test
+        run: yarn run-s test-build lint
         env:
           EFF_NO_LINK_RULES: true
           PARSER_NO_WATCH: true
+          SKIP_YARN_COREPACK_CHECK: 1
+          YARN_IGNORE_NODE: 1
 
       - name: Codecov
         uses: codecov/codecov-action@v3

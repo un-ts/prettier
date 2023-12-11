@@ -1,0 +1,13 @@
+diff --git a/dist/node/chunks/dep-wTaJK0Jt.js b/dist/node/chunks/dep-wTaJK0Jt.js
+index 101079c6bd9419729c11174dd792c82757793f9c..b9b36d66af89733a77ed92896a1f25bbb73a7ac8 100644
+--- a/dist/node/chunks/dep-wTaJK0Jt.js
++++ b/dist/node/chunks/dep-wTaJK0Jt.js
+@@ -63867,6 +63867,8 @@ function esbuildScanPlugin(config, container, depImports, missing, entries) {
+                     contents,
+                 };
+             });
++
++            setupExternalize(/.*/, () => true);
+         },
+     };
+ }
