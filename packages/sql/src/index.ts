@@ -1,12 +1,15 @@
 /// <reference path="../shim.d.ts" />
 
-import { JSOX } from 'jsox'
+import * as _JSOX from 'jsox'
 import type { AST, Option } from 'node-sql-parser'
 import nodeSqlParser from 'node-sql-parser'
 import type { Options, ParserOptions, Plugin } from 'prettier'
 import { format, type FormatOptionsWithLanguage } from 'sql-formatter'
 
 import { languages } from './languages.js'
+
+// see #332 for more details
+const JSOX = _JSOX.JSOX || _JSOX
 
 const parser = new nodeSqlParser.Parser()
 

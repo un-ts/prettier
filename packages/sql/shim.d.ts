@@ -1,3 +1,5 @@
 declare module 'jsox' {
-  export const JSOX: typeof JSON
+  const JSOX: typeof JSON & { JSOX?: typeof JSON }
+
+  export = JSOX
 }
