@@ -29,7 +29,7 @@ const ENDINGS = {
 export type SqlBaseOptions = Option &
   Partial<
     | (FormatOptions & { dialect: string })
-    | (FormatOptionsWithLanguage & { dialect?: undefined })
+    | (FormatOptionsWithLanguage & { dialect?: never })
   > & {
     formatter?: typeof NODE_SQL_PARSER | typeof SQL_CST | typeof SQL_FORMATTER
     params?: string
