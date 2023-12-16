@@ -10,7 +10,8 @@ import { languages } from './languages.js'
 
 // see #332 for more details
 const JSOX = _JSOX.JSOX || _JSOX
-const parser = new nodeSqlParser.Parser()
+
+ const parser = new nodeSqlParser.Parser()
 
 const SQL_FORMATTER = 'sql-formatter'
 const NODE_SQL_PARSER = 'node-sql-parser'
