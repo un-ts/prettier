@@ -72,10 +72,7 @@ const SqlPlugin: Plugin<AST | string> = {
 
         let formatted: string
 
-        // eslint-disable-next-line unicorn/no-negated-condition -- Keep first block short
-        if (typeof value !== 'string') {
-          formatted = parser.sqlify(value, { type, database })
-        } else {
+        if (typeof value === 'string') {
           const sqlFormatterOptions = {
             ...options,
             params:
@@ -97,6 +94,8 @@ const SqlPlugin: Plugin<AST | string> = {
                   ...sqlFormatterOptions,
                   dialect: JSOX.parse(dialect) as DialectOptions,
                 })
+        } else {
+          formatted = parser.sqlify(value, { type, database })
         }
 
         // It can never be `auto`
