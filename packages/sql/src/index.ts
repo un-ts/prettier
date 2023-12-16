@@ -90,14 +90,13 @@ const SqlPlugin: Plugin<AST | string> = {
                   ) as FormatOptionsWithLanguage['paramTypes']),
           }
 
-          if (dialect == null) {
-            formatted = format(value, sqlFormatterOptions)
-          } else {
-            formatted = formatDialect(value, {
-              ...sqlFormatterOptions,
-              dialect: JSOX.parse(dialect) as DialectOptions,
-            })
-          }
+          formatted =
+            dialect == null
+              ? format(value, sqlFormatterOptions)
+              : formatDialect(value, {
+                  ...sqlFormatterOptions,
+                  dialect: JSOX.parse(dialect) as DialectOptions,
+                })
         }
 
         // It can never be `auto`
