@@ -4,7 +4,13 @@ import * as _JSOX from 'jsox'
 import type { AST, Option } from 'node-sql-parser'
 import nodeSqlParser from 'node-sql-parser'
 import type { Options, ParserOptions, Plugin } from 'prettier'
-import { format, type FormatOptionsWithLanguage } from 'sql-formatter'
+import {
+  DialectOptions,
+  format,
+  formatDialect,
+  type FormatOptions,
+  type FormatOptionsWithLanguage,
+} from 'sql-formatter'
 
 import { languages } from './languages.js'
 
@@ -24,7 +30,10 @@ const ENDINGS = {
 } as const
 
 export type SqlBaseOptions = Option &
-  Partial<FormatOptionsWithLanguage> & {
+  Partial<
+    | (FormatOptions & { dialect: string })
+    | (FormatOptionsWithLanguage & { dialect?: never })
+  > & {
     formatter?: typeof NODE_SQL_PARSER | typeof SQL_CST | typeof SQL_FORMATTER
     params?: string
     paramTypes?: string
@@ -55,6 +64,7 @@ const SqlPlugin: Plugin<AST | string> = {
         {
           type,
           database,
+          dialect,
           endOfLine,
           params,
           paramTypes,
@@ -63,24 +73,33 @@ const SqlPlugin: Plugin<AST | string> = {
       ) {
         const value = path.node
 
-        let formatted =
-          typeof value === 'string'
-            ? format(value, {
-                ...options,
-                params:
-                  params == null
-                    ? undefined
-                    : (JSOX.parse(
-                        params,
-                      ) as FormatOptionsWithLanguage['params']),
-                paramTypes:
-                  paramTypes == null
-                    ? undefined
-                    : (JSOX.parse(
-                        paramTypes,
-                      ) as FormatOptionsWithLanguage['paramTypes']),
-              })
-            : parser.sqlify(value, { type, database })
+        let formatted: string
+
+        if (typeof value === 'string') {
+          const sqlFormatterOptions = {
+            ...options,
+            params:
+              params == null
+                ? undefined
+                : (JSOX.parse(params) as FormatOptionsWithLanguage['params']),
+            paramTypes:
+              paramTypes == null
+                ? undefined
+                : (JSOX.parse(
+                    paramTypes,
+                  ) as FormatOptionsWithLanguage['paramTypes']),
+          }
+
+          formatted =
+            dialect == null
+              ? format(value, sqlFormatterOptions)
+              : formatDialect(value, {
+                  ...sqlFormatterOptions,
+                  dialect: JSOX.parse(dialect) as DialectOptions,
+                })
+        } else {
+          formatted = parser.sqlify(value, { type, database })
+        }
 
         // It can never be `auto`
         // @see https://github.com/prettier/prettier/blob/ab72a2c11c806f3a8a5ef42314e291843e1b3e68/src/common/end-of-line.js#L3-L9
@@ -114,12 +133,18 @@ const SqlPlugin: Plugin<AST | string> = {
         },
       ],
     },
+    dialect: {
+      // since: '0.18.0',
+      category: 'Config',
+      type: 'string',
+      description: 'SQL dialect for `sql-formatter` formatDialect()',
+    },
     language: {
       // since: '0.1.0',
       category: 'Config',
       type: 'choice',
       default: 'sql',
-      description: 'SQL Formatter dialect for `sql-formatter`',
+      description: 'SQL dialect for `sql-formatter` format()',
       choices: [
         {
           value: 'sql',

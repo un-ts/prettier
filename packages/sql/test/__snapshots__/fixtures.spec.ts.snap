@@ -72,6 +72,12 @@ END;
 "
 `;
 
+exports[`parser and printer > should format all fixtures > 334.sql 1`] = `
+"SELECT
+  1::int;
+"
+`;
+
 exports[`parser and printer > should format all fixtures > basic.sql 1`] = `
 "-- this is a comment
 SELECT

@@ -131,6 +131,7 @@ interface SqlOptions {
     | 'tsql'
     | 'trino'
   // default `sql`
+  dialect: string // `JSOX` **stringified**, please refer https://github.com/sql-formatter-org/sql-formatter/blob/master/docs/dialect.md for more details
   keywordCase: 'preserve' | 'upper' | 'lower' // default `preserve`
   dataTypeCase: 'preserve' | 'upper' | 'lower' // default `preserve`
   functionCase: 'preserve' | 'upper' | 'lower' // default `preserve`
