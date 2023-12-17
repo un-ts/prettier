@@ -1,5 +1,1 @@
-SELECT *
-FROM
-tbl
-WHERE
-  foo = 'bar';
+SELECT 1::int;

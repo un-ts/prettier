@@ -74,11 +74,7 @@ END;
 
 exports[`parser and printer > should format all fixtures > 334.sql 1`] = `
 "SELECT
-  *
-FROM
-  tbl
-WHERE
-  foo = 'bar';
+  1::int;
 "
 `;
 
