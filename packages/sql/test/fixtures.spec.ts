@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url'
 
 import { format } from 'prettier'
 import { type ParamTypes, postgresql } from 'sql-formatter'
+
 import SqlPlugin, { type SqlFormatOptions } from 'prettier-plugin-sql'
 
 const PARSER_OPTIONS: Record<string, SqlFormatOptions> = {
