@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.18.0
+
+### Minor Changes
+
+- [#328](https://github.com/un-ts/prettier/pull/328) [`ea85a65`](https://github.com/un-ts/prettier/commit/ea85a650fc9a1eb849e921c6b0a464b8781bc6cb) Thanks [@karlhorky](https://github.com/karlhorky)! - feat: upgrade to sql-formatter v15, add `dataTypeCase` and `keywordCase` options
+
+- [#334](https://github.com/un-ts/prettier/pull/334) [`372ea30`](https://github.com/un-ts/prettier/commit/372ea30503d7e5d7a67825020e5493b262d76167) Thanks [@karlhorky](https://github.com/karlhorky)! - feat: add sql-formatter `dialect` option
+
+### Patch Changes
+
+- [#333](https://github.com/un-ts/prettier/pull/333) [`909e30a`](https://github.com/un-ts/prettier/commit/909e30a421bdc63150e6067562fc9d2efcddcac3) Thanks [@Brookke](https://github.com/Brookke)! - fix: handle inconsistent exports of JSOX
+
 ## 0.17.1
 
 ### Patch Changes
