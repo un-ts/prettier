@@ -59,7 +59,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.20.1",
     "remark-gfm": "^4.0.0",
-    "sass": "^1.69.5",
+    "sass": "^1.69.6",
     "sirv-cli": "^2.0.2",
     "size-limit": "^11.0.1",
     "size-limit-preset-node-lib": "^0.3.0",
