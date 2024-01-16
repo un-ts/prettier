@@ -2,4 +2,4 @@
 "prettier-plugin-sh": minor
 ---
 
-feat: add `.nvmrc` support
+feat: add `.node-version` and `.nvmrc` support
