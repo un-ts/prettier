@@ -31,8 +31,8 @@ const EXTRA_SH_LANGUAGES: SupportLanguage[] = [
     name: 'nvmrc',
     since: '0.14.0',
     parsers: ['sh'],
-    extensions: ['.nvmrc'],
-    filenames: ['.nvmrc'],
+    extensions: ['.node-version', '.nvmrc'],
+    filenames: ['.node-version', '.nvmrc'],
     vscodeLanguageIds: ['ignore'],
   },
 ]
