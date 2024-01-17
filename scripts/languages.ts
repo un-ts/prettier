@@ -27,6 +27,13 @@ const EXTRA_SH_LANGUAGES: SupportLanguage[] = [
     filenames: ['.env.*'],
     vscodeLanguageIds: ['dotenv'],
   },
+  {
+    name: 'nvmrc',
+    since: '0.14.0',
+    parsers: ['sh'],
+    extensions: ['.node-version', '.nvmrc'],
+    filenames: ['.node-version', '.nvmrc'],
+  },
 ]
 
 const getSupportLanguages = (
