@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.14.0
+
+### Minor Changes
+
+- [#341](https://github.com/un-ts/prettier/pull/341) [`0009cf2`](https://github.com/un-ts/prettier/commit/0009cf220690f33f1059b41578b96602c5a2f18a) Thanks [@JoshuaKGoldberg](https://github.com/JoshuaKGoldberg)! - feat: add `.node-version` and `.nvmrc` support
+
 ## 0.13.1
 
 ### Patch Changes
