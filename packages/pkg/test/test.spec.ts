@@ -6,10 +6,11 @@ import { type Options, format } from 'prettier'
 
 import pkg1 from './fixtures/fixture1.json'
 import pkg2 from './fixtures/fixture2.json'
+import pkg3 from './fixtures/fixture3.json'
 
 import PkgPlugin from 'prettier-plugin-pkg'
 
-const pkgs = [pkg1, pkg2]
+const pkgs = [pkg1, pkg2, pkg3]
 
 const createFixture = (index: 0 | 1 = 0) => {
   const pkg: Record<string, unknown> = pkgs[index]
