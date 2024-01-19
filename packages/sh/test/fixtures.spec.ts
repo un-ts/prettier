@@ -38,7 +38,6 @@ describe('parser and printer', () => {
           filepath,
           parser: 'sh',
           plugins: [ShPlugin],
-          // @ts-expect-error
           experimentalWasm: true,
         })
 

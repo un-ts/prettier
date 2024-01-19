@@ -19,7 +19,6 @@ test('fatal parse error with meaningful message', async () => {
       filepath: 'broken.sh',
       parser: 'sh',
       plugins: [ShPlugin],
-      // @ts-expect-error
       experimentalWasm: true,
     })
   } catch (err: unknown) {

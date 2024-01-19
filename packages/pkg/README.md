@@ -62,6 +62,7 @@ Keys in `scripts` are ordered alphabetically. Use prefixes wisely to properly or
 
 Top-level keys are sorted according to a style commonly seen in the packages of [@JounQin](https://github.com/JounQin), [@1stG](https://github.com/1stG) and [@unts](https://github.com/un-ts). Known keys, and their order are
 
+<!-- prettier-ignore -->
 ```jsonc
 [
   // schema definition
