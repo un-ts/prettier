@@ -7,14 +7,18 @@
   included in all copies or substantial portions of this Source Code Form.
 */
 
-import type { ObjectExpression, ObjectProperty } from '../types.js'
-import { sortObject } from '../utils.js'
+import type { ObjectProperty, StringLiteral } from '../types.js'
+import { sortObject, sortStringArray } from '../utils.js'
 
 const process = (props: ObjectProperty[], key: string) => {
   const item = props.find(prop => prop.key.value === key)
 
   if (item) {
-    ;(item.value as ObjectExpression).properties.sort(sortObject)
+    if ('elements' in item.value) {
+      ;(item.value.elements as StringLiteral[]).sort(sortStringArray)
+    } else if ('properties' in item.value) {
+      item.value.properties.sort(sortObject)
+    }
   }
 
   return props
