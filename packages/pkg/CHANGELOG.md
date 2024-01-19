@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.18.1
+
+### Patch Changes
+
+- [#343](https://github.com/un-ts/prettier/pull/343) [`cd94a16`](https://github.com/un-ts/prettier/commit/cd94a162b114b5c47957184cf7c289841db55667) Thanks [@JounQin](https://github.com/JounQin)! - fix: handle `bundledDependencies` correctly
+
 ## 0.18.0
 
 ### Minor Changes
