@@ -49,8 +49,8 @@ importers:
         specifier: ^18.2.17
         version: 18.2.17
       '@types/web':
-        specifier: ^0.0.133
-        version: 0.0.133
+        specifier: ^0.0.136
+        version: 0.0.136
       '@vitejs/plugin-react-swc':
         specifier: ^3.5.0
         version: 3.5.0(vite@5.0.7)
@@ -4686,8 +4686,8 @@ packages:
     resolution: {integrity: sha512-WUtIVRUZ9i5dYXefDEAI7sh9/O7jGvHg7Df/5O/gtH3Yabe5odI3UWopVR1qbPXQtvOxWu3mM4XxlYeZtMWF4g==}
     dev: true
 
-  /@types/web@0.0.133:
-    resolution: {integrity: sha512-bMltBnq85kOyPMk3x65ABdo98RuL49U11sXhi7wiiReyXfzPGIJTeXdPGujLciONPh32ri3sLKLw5E6Nli+bsw==}
+  /@types/web@0.0.136:
+    resolution: {integrity: sha512-RyYwkZNwWJoTb5vb/LMuRVHStqiZC6w0ZacXtLO33eAvErKFVd/5BrjgyNO9Egj3g5BLyRLOX7sQAAgQGc0QJA==}
     dev: true
 
   /@types/whatwg-mimetype@3.0.0:
