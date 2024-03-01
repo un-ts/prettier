@@ -31,8 +31,8 @@ importers:
         specifier: ^2.27.1
         version: 2.27.1
       '@mdx-js/rollup':
-        specifier: ^3.0.0
-        version: 3.0.0(rollup@4.12.0)
+        specifier: ^3.0.1
+        version: 3.0.1(rollup@4.12.0)
       '@types/lodash':
         specifier: ^4.14.202
         version: 4.14.202
@@ -3937,8 +3937,8 @@ packages:
       - supports-color
     dev: true
 
-  /@mdx-js/rollup@3.0.0(rollup@4.12.0):
-    resolution: {integrity: sha512-ITvGiwPGEBW+D7CCnpSA9brzAosIWHAi4y+Air8wgfLnez8aWue50avHtWMfnFLCp7vt+JQ9UM8nwfuQuuydxw==}
+  /@mdx-js/rollup@3.0.1(rollup@4.12.0):
+    resolution: {integrity: sha512-j0II91OCm4ld+l5QVgXXMQGxVVcAWIQJakYWi1dv5pefDHASJyCYER2TsdH7Alf958GoFSM7ugukWyvDq/UY4A==}
     peerDependencies:
       rollup: ^4.8.0
     dependencies:
@@ -4926,7 +4926,7 @@ packages:
       '@typescript-eslint/typescript-estree': 5.61.0(typescript@5.3.3)
       eslint: 8.44.0
       eslint-scope: 5.1.1
-      semver: 7.5.4
+      semver: 7.6.0
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -12175,7 +12175,7 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       hosted-git-info: 3.0.8
-      semver: 7.5.2
+      semver: 7.6.0
       validate-npm-package-name: 3.0.0
     dev: true
 
@@ -17209,7 +17209,7 @@ packages:
       espree: 9.6.0
       esquery: 1.5.0
       lodash: 4.17.21
-      semver: 7.5.4
+      semver: 7.6.0
     transitivePeerDependencies:
       - supports-color
     dev: true
