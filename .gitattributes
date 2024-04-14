@@ -1,2 +1,5 @@
 * text=auto eol=lf
 pnpm-lock.yaml -diff
+
+packages/sql/test/fixtures-eol/556.sql text=auto eol=crlf
+packages/sql/test/fixtures-eol/559.sql text=auto eol=crlf
