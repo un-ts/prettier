@@ -49,8 +49,8 @@ importers:
         specifier: ^18.2.23
         version: 18.2.23
       '@types/web':
-        specifier: ^0.0.142
-        version: 0.0.142
+        specifier: ^0.0.143
+        version: 0.0.143
       '@vitejs/plugin-react-swc':
         specifier: ^3.5.0
         version: 3.5.0(vite@5.0.13)
@@ -4762,8 +4762,8 @@ packages:
     resolution: {integrity: sha512-WUtIVRUZ9i5dYXefDEAI7sh9/O7jGvHg7Df/5O/gtH3Yabe5odI3UWopVR1qbPXQtvOxWu3mM4XxlYeZtMWF4g==}
     dev: true
 
-  /@types/web@0.0.142:
-    resolution: {integrity: sha512-QWDvMW+P3sdq8rhiw3dNyBR64O5adSY80gBjRd2xI3BADGsAFpAglblWucsGUjKVKyPm4EbYZkvFs7BRxPsBOg==}
+  /@types/web@0.0.143:
+    resolution: {integrity: sha512-TazK16/OqeeqfQRB/Tv/NwzJagHbLi/w5g26FLbiFte/8LpPq6BuTyXHO/cpgwJpE6KGgFSNYb6Ap05Tz9XvCA==}
     dev: true
 
   /@types/whatwg-mimetype@3.0.0:
@@ -12277,7 +12277,7 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       hosted-git-info: 3.0.8
-      semver: 7.5.2
+      semver: 7.6.0
       validate-npm-package-name: 3.0.0
     dev: true
 
@@ -17321,7 +17321,7 @@ packages:
       espree: 9.6.0
       esquery: 1.5.0
       lodash: 4.17.21
-      semver: 7.5.4
+      semver: 7.6.0
     transitivePeerDependencies:
       - supports-color
     dev: true
