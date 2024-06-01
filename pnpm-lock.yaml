@@ -118,8 +118,8 @@ importers:
         specifier: ^5.3.3
         version: 5.3.3
       unplugin-auto-import:
-        specifier: ^0.17.5
-        version: 0.17.5(rollup@4.14.0)
+        specifier: ^0.17.6
+        version: 0.17.6(rollup@4.14.0)
       vite:
         specifier: ^5.0.7
         version: 5.0.13(@types/node@20.10.4)(sass@1.69.6)
@@ -635,8 +635,8 @@ packages:
       - supports-color
     dev: true
 
-  /@antfu/utils@0.7.7:
-    resolution: {integrity: sha512-gFPqTG7otEJ8uP6wrhDv6mqwGWYZKNvAcCq6u9hOj0c+IKCEsY4L1oC9trPq2SaWIzAfHvqfBDxF591JkMf+kg==}
+  /@antfu/utils@0.7.8:
+    resolution: {integrity: sha512-rWQkqXRESdjXtc+7NRfK9lASQjpXJu1ayp7qi1d23zZorY+wBHVLHHoVcMsEnkqEBWTFqbztO7/QdJFzyEcLTg==}
     dev: true
 
   /@babel/code-frame@7.0.0:
@@ -5050,7 +5050,7 @@ packages:
   /@vitest/snapshot@1.0.4:
     resolution: {integrity: sha512-vkfXUrNyNRA/Gzsp2lpyJxh94vU2OHT1amoD6WuvUAA12n32xeVZQ0KjjQIf8F6u7bcq2A2k969fMVxEsxeKYA==}
     dependencies:
-      magic-string: 0.30.7
+      magic-string: 0.30.8
       pathe: 1.1.1
       pretty-format: 29.7.0
     dev: true
@@ -10591,15 +10591,14 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
 
-  /magic-string@0.30.5:
-    resolution: {integrity: sha512-7xlpfBaQaP/T6Vh8MO/EqXSW5En6INHEvEXQiuff7Gku0PWjU3uf6w/j9o7O+SpB5fOAkrI5HeoNgwjEO0pFsA==}
-    engines: {node: '>=12'}
+  /magic-string@0.30.10:
+    resolution: {integrity: sha512-iIRwTIf0QKV3UAnYK4PU8uiEc4SRh5jX0mwpIwETPpHdhVM4f53RSwS/vXvN1JhGX+Cs7B8qIq3d6AH49O5fAQ==}
     dependencies:
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
 
-  /magic-string@0.30.7:
-    resolution: {integrity: sha512-8vBuFF/I/+OSLRmdf2wwFCJCz+nSn0m6DPvGH1fS/KiQoSaR+sETbov0eIk9KhEKy8CYqIkIAnbohxT/4H0kuA==}
+  /magic-string@0.30.5:
+    resolution: {integrity: sha512-7xlpfBaQaP/T6Vh8MO/EqXSW5En6INHEvEXQiuff7Gku0PWjU3uf6w/j9o7O+SpB5fOAkrI5HeoNgwjEO0pFsA==}
     engines: {node: '>=12'}
     dependencies:
       '@jridgewell/sourcemap-codec': 1.4.15
@@ -10713,7 +10712,7 @@ packages:
       '@types/has-yarn': 1.0.1
       '@types/meow': 6.0.0
       '@types/uuid': 9.0.7
-      chokidar: 3.5.3
+      chokidar: 3.6.0
       cli-color: 2.0.3
       debug: 4.3.4
       detect-installed: 2.0.4
@@ -12033,13 +12032,6 @@ packages:
   /minimatch@5.1.6:
     resolution: {integrity: sha512-lKwV/1brpG6mBUFHtb7NUmtABCb2WZZmm2wNiOA5hAb8VdCS4B3dtMWyvcoViccwAW/COERjXLt0zP1zXUN26g==}
     engines: {node: '>=10'}
-    dependencies:
-      brace-expansion: 2.0.1
-    dev: true
-
-  /minimatch@9.0.3:
-    resolution: {integrity: sha512-RHiac9mvaRw0x3AYRgDC1CxAP7HTcNrrECeA8YYJeWnpo+2Q5CegtZjaotWTWxDG3UeGA1coE05iH1mPjT/2mg==}
-    engines: {node: '>=16 || 14 >=14.17'}
     dependencies:
       brace-expansion: 2.0.1
     dev: true
@@ -15544,7 +15536,7 @@ packages:
     hasBin: true
     dependencies:
       bytes-iec: 3.1.1
-      chokidar: 3.5.3
+      chokidar: 3.6.0
       globby: 13.2.2
       lilconfig: 2.1.0
       nanospinner: 1.1.0
@@ -16623,7 +16615,7 @@ packages:
       typescript: 2 || 3 || 4 || 5
     dependencies:
       fast-glob: 3.3.2
-      minimatch: 9.0.3
+      minimatch: 9.0.4
       normalize-path: 3.0.0
       tslib: 2.6.2
       tsutils: 3.21.0(typescript@5.3.3)
@@ -16872,7 +16864,7 @@ packages:
       estree-walker: 3.0.3
       fast-glob: 3.3.2
       local-pkg: 0.5.0
-      magic-string: 0.30.7
+      magic-string: 0.30.10
       mlly: 1.4.2
       pathe: 1.1.1
       pkg-types: 1.0.3
@@ -17016,8 +17008,8 @@ packages:
     engines: {node: '>= 10.0.0'}
     dev: true
 
-  /unplugin-auto-import@0.17.5(rollup@4.14.0):
-    resolution: {integrity: sha512-fHNDkDSxv3PGagX1wmKBYBkgaM4AKAgZmdJw/bxjhNljx9KSXSgHpGfX0MwUrq9qw6q1bhHIZVWyOwoY2koo4w==}
+  /unplugin-auto-import@0.17.6(rollup@4.14.0):
+    resolution: {integrity: sha512-dmX0Pex5DzMzVuALkexboOZvh51fL/BD6aoPO7qHoTYGlQp0GRKsREv2KMF1lzYI9SXKQiRxAjwzbQnrFFNydQ==}
     engines: {node: '>=14'}
     peerDependencies:
       '@nuxt/kit': ^3.2.2
@@ -17028,12 +17020,12 @@ packages:
       '@vueuse/core':
         optional: true
     dependencies:
-      '@antfu/utils': 0.7.7
+      '@antfu/utils': 0.7.8
       '@rollup/pluginutils': 5.1.0(rollup@4.14.0)
       fast-glob: 3.3.2
       local-pkg: 0.5.0
-      magic-string: 0.30.7
-      minimatch: 9.0.3
+      magic-string: 0.30.10
+      minimatch: 9.0.4
       unimport: 3.7.1(rollup@4.14.0)
       unplugin: 1.10.1
     transitivePeerDependencies:
