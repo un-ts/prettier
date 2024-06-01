@@ -13,7 +13,7 @@ Of course it should just work, but may not match [prettier][]'s format sometimes
 
 ## Requirements
 
-`prettier-plugin-sql` is an evergreen module. 🌲 This module requires an [LTS](https://github.com/nodejs/Release) Node version (v12.0.0+).
+`prettier-plugin-sql` is an evergreen module. 🌲 This module requires an [LTS](https://github.com/nodejs/Release) Node version (v14.18.0+).
 
 ## Install
 
