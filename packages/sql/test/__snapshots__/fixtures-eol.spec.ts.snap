@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`parser and printer > printer should handle eol correctly > 556.sql 1`] = `""CREATE TABLE \\"test\\" (\\"id\\" uuid NOT NULL)\\r\\nWITH\\r\\n  (oids = false);\\r\\n""`;
+
+exports[`parser and printer > printer should handle eol correctly > 557.sql 1`] = `""CREATE TABLE \\"test\\" (\\"id\\" uuid NOT NULL)\\rWITH\\r  (oids = false);\\r""`;
+
+exports[`parser and printer > printer should handle eol correctly > 558.sql 1`] = `""CREATE TABLE \\"test\\" (\\"id\\" uuid NOT NULL)\\nWITH\\n  (oids = false);\\n""`;
+
+exports[`parser and printer > printer should handle eol correctly > 559.sql 1`] = `""CREATE TABLE \\"test\\" (\\"id\\" uuid NOT NULL)\\r\\nWITH\\r\\n  (oids = false);\\r\\n""`;
