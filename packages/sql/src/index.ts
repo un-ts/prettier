@@ -55,14 +55,7 @@ const SqlPlugin: Plugin<AST | string> = {
     sql: {
       print(
         path,
-        {
-          type,
-          database,
-          dialect,
-          params,
-          paramTypes,
-          ...options
-        }: SqlOptions,
+        { type, database, dialect, params, paramTypes, ...options }: SqlOptions,
       ) {
         const value = path.node
 
