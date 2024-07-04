@@ -23,12 +23,6 @@ const SQL_FORMATTER = 'sql-formatter'
 const NODE_SQL_PARSER = 'node-sql-parser'
 const SQL_CST = 'sql-cst'
 
-const ENDINGS = {
-  lf: '\n',
-  cr: '\r',
-  crlf: '\r\n',
-} as const
-
 export type SqlBaseOptions = Option &
   Partial<
     | (FormatOptions & { dialect: string })
@@ -61,15 +55,7 @@ const SqlPlugin: Plugin<AST | string> = {
     sql: {
       print(
         path,
-        {
-          type,
-          database,
-          dialect,
-          endOfLine,
-          params,
-          paramTypes,
-          ...options
-        }: SqlOptions,
+        { type, database, dialect, params, paramTypes, ...options }: SqlOptions,
       ) {
         const value = path.node
 
@@ -101,13 +87,7 @@ const SqlPlugin: Plugin<AST | string> = {
           formatted = parser.sqlify(value, { type, database })
         }
 
-        // It can never be `auto`
-        // @see https://github.com/prettier/prettier/blob/ab72a2c11c806f3a8a5ef42314e291843e1b3e68/src/common/end-of-line.js#L3-L9
-        const ending = ENDINGS[endOfLine as keyof typeof ENDINGS]
-
-        formatted = formatted.replaceAll(/\r\n?|\n/g, ending)
-
-        return formatted.endsWith(ending) ? formatted : formatted + ending
+        return formatted + '\n'
       },
     },
   },
