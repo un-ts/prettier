@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.18.1
+
+### Patch Changes
+
+- [#374](https://github.com/un-ts/prettier/pull/374) [`6754c3d`](https://github.com/un-ts/prettier/commit/6754c3db50a46f1272d51cf8559cce4c62cdd4ef) Thanks [@JounQin](https://github.com/JounQin)! - fix(sql): printer to handle eol correctly
+
 ## 0.18.0
 
 ### Minor Changes
