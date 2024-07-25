@@ -46,6 +46,7 @@
     "@types/web": "^0.0.150",
     "@vitejs/plugin-react-swc": "^3.5.0",
     "@vitest/coverage-istanbul": "^1.0.4",
+    "common-tags": "^1.8.2",
     "github-markdown-css": "^5.4.0",
     "linguist-languages": "^7.27.0",
     "lodash": "^4.17.21",
