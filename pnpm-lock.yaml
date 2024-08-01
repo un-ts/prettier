@@ -34,8 +34,8 @@ importers:
         specifier: ^3.0.1
         version: 3.0.1(rollup@4.14.0)
       '@types/lodash':
-        specifier: ^4.14.202
-        version: 4.14.202
+        specifier: ^4.17.7
+        version: 4.17.7
       '@types/mvdan-sh':
         specifier: ^0.10.9
         version: 0.10.9
@@ -4650,8 +4650,8 @@ packages:
       '@types/node': 20.10.4
     dev: true
 
-  /@types/lodash@4.14.202:
-    resolution: {integrity: sha512-OvlIYQK9tNneDlS0VN54LLd5uiPCBOp7gS5Z0f1mjoJYBrtStzgmJBxONW3U6OZqdtNzZPmn9BS/7WI7BFFcFQ==}
+  /@types/lodash@4.17.7:
+    resolution: {integrity: sha512-8wTvZawATi/lsmNu10/j2hk1KEP0IvjubqPE3cu1Xz7xfXXt5oCq3SNUz4fMIP4XGF9Ky+Ue2tBA3hcS7LSBlA==}
     dev: true
 
   /@types/mdast@3.0.11:
