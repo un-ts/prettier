@@ -44,7 +44,7 @@
     "@types/react": "^18.2.73",
     "@types/react-dom": "^18.2.23",
     "@types/web": "^0.0.159",
-    "@vitejs/plugin-react-swc": "^3.5.0",
+    "@vitejs/plugin-react-swc": "^3.7.0",
     "@vitest/coverage-istanbul": "^1.0.4",
     "github-markdown-css": "^5.4.0",
     "linguist-languages": "^7.27.0",
