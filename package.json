@@ -78,7 +78,7 @@
     "prettier-plugin-sh": "workspace:*",
     "prettier-plugin-sql": "workspace:*",
     "prettier-plugin-toml": "workspace:*",
-    "rollup": "^4.8.0"
+    "rollup": "^4.22.4"
   },
   "browserslist": [
     "extends @1stg/browserslist-config/modern"
