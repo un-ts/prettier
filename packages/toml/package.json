@@ -4,7 +4,7 @@
   "type": "module",
   "description": "An opinionated `toml` formatter plugin for Prettier",
   "repository": "git@github.com/un-ts/prettier.git",
-  "homepage": "https://github.com/un-ts/prettier/tree/master/packages/prettier",
+  "homepage": "https://github.com/un-ts/prettier/tree/master/packages/toml",
   "author": "Ray (https://mk1.io) <i@mk1.io>",
   "contributors": [
     "JounQin (https://www.1stG.me) <admin@1stg.me>"
