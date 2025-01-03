@@ -127,6 +127,7 @@ Top-level keys are sorted according to a style commonly seen in the packages of 
   "directories",
   "files",
   "keywords",
+  "prettier",
   "scripts",
   "config",
 
