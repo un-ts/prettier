@@ -36,7 +36,7 @@
     "@1stg/app-config": "^9.0.1",
     "@1stg/lib-config": "^12.0.1",
     "@changesets/changelog-github": "^0.5.0",
-    "@changesets/cli": "^2.27.11",
+    "@changesets/cli": "^2.27.12",
     "@mdx-js/rollup": "^3.0.1",
     "@types/lodash": "^4.17.13",
     "@types/mvdan-sh": "^0.10.9",
