@@ -91,6 +91,7 @@ const primary = [
   'directories',
   'files',
   'keywords',
+  'prettier',
   'scripts',
   'config',
 
