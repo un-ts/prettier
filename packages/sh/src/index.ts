@@ -108,6 +108,44 @@ const ShPlugin: Plugin<Node | ShSyntaxNode> = {
         }
       },
       astFormat: 'sh',
+      hasPragma: (text: string): boolean => {
+        // We don't want to parse every file twice but Prettier's interface
+        // isn't conducive to caching/memoizing an upstream Parser, so we're
+        // going with some minor Regex hackery.
+        //
+        // Only read empty lines, comments, and shebangs at the start of the file.
+        // We do not support Bash's pseudo-block comments.
+
+        // No, we don't support unofficial block comments.
+        const commentLineRegex = /^\s*(#(?<comment>.*))?$/gm
+        let lastIndex = -1
+
+        // Only read leading comments, skip shebangs, and check for the pragma.
+        // We don't want to have to parse every file twice.
+        for (;;) {
+          const match = commentLineRegex.exec(text)
+
+          // Found "real" content, EoF, or stuck in a loop.
+          if (match == null || match.index !== lastIndex + 1) {
+            return false
+          }
+
+          lastIndex = commentLineRegex.lastIndex
+          const comment = match.groups?.comment?.trim()
+
+          // Empty lines and shebangs have no captures
+          if (comment == null) {
+            continue
+          }
+
+          if (
+            comment.startsWith('@prettier') ||
+            comment.startsWith('@format')
+          ) {
+            return true
+          }
+        }
+      },
       locStart: node =>
         isFunction(node.Pos) ? node.Pos().Offset() : node.Pos.Offset,
       locEnd: node =>
