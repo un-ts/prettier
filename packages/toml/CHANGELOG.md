@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.0.2
+
+### Patch Changes
+
+- [#392](https://github.com/un-ts/prettier/pull/392) [`11cf08a`](https://github.com/un-ts/prettier/commit/11cf08a0c2ee224b9f02efb4e5732a41a5b34506) Thanks [@ntnyq](https://github.com/ntnyq)! - chore(toml): fix homepage url
+
 ## 2.0.1
 
 ### Patch Changes
