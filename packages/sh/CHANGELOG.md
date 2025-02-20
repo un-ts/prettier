@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.15.0
+
+### Minor Changes
+
+- [#378](https://github.com/un-ts/prettier/pull/378) [`e02bd2f`](https://github.com/un-ts/prettier/commit/e02bd2ffa38add49776eda05bdd408f70fe6e3a3) Thanks [@Kenneth-Sills](https://github.com/Kenneth-Sills)! - add support for file pragmas
+
 ## 0.14.0
 
 ### Minor Changes
