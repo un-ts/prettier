@@ -53,11 +53,13 @@ yarn prettier --write foo.toml
 interface prettierOptions {
   // 'Align consecutive entries vertically.'
   alignEntries: boolean // default `false`
-  // Align consecutive comments after entries and items vertically. This applies to comments that are after entries or array items.
+  // Align consecutive comments after entries and items vertically. This applies
+  // to comments that are after entries or array items.
   alignComments: boolean // default `true`
   // Expand arrays to multiple lines that exceed the maximum column width.
   arrayAutoExpand: boolean // default `true`
-  // Collapse arrays that don't exceed the maximum column width and don't contain comments.
+  // Collapse arrays that don't exceed the maximum column width and don't
+  // contain comments.
   arrayAutoCollapse: boolean // default `true`
   // Omit white space padding from single-line arrays.
   compactArrays: boolean // default `true`
@@ -65,7 +67,8 @@ interface prettierOptions {
   compactInlineTables:  boolean // default `false`
   // Omit white space around `=`.
   compactEntries: boolean // default `false`
-  // Indent based on tables and arrays of tables and their subtables, subtables out of order are not indented.
+  // Indent based on tables and arrays of tables and their subtables, subtables
+  // out of order are not indented.
   indentTables: boolean // default `false`
   // Indent entries under tables.
   indentEntries: boolean // default `false`
