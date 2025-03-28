@@ -50,7 +50,7 @@ yarn prettier --write foo.toml
 ## Parse Options
 
 ```ts
-interface prettierOptions {
+interface PrettierOptions {
   // 'Align consecutive entries vertically.'
   alignEntries: boolean // default `false`
   // Align consecutive comments after entries and items vertically. This applies
