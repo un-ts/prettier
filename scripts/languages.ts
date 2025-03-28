@@ -36,9 +36,10 @@ const EXTRA_SH_LANGUAGES: SupportLanguage[] = [
   },
 ]
 
-const getSupportLanguages = (
+const getSupportedLanguages = (
   parser: 'autocorrect' | 'sh' | 'sql' | 'toml',
   aceModes: string[],
+  excludeNames?: string[],
 ) =>
   Object.values(LinguistLanguages).reduce<SupportLanguage[]>(
     (
@@ -53,6 +54,9 @@ const getSupportLanguages = (
       },
     ) => {
       if (!aceModes.includes('all') && !aceModes.includes(aceMode)) {
+        return acc
+      }
+      if (excludeNames?.includes(name)) {
         return acc
       }
       acc.push({
@@ -74,7 +78,7 @@ fs.writeFileSync(
   `import { SupportLanguage } from 'prettier'
 
 export const languages = ${JSON.stringify(
-    getSupportLanguages('autocorrect', ['all']),
+    getSupportedLanguages('autocorrect', ['all']),
     null,
     2,
   )} as SupportLanguage[]`,
@@ -86,7 +90,15 @@ fs.writeFileSync(
 
 export const languages = ${JSON.stringify(
     [
-      ...getSupportLanguages('sh', ['dockerfile', 'gitignore', 'sh']),
+      ...getSupportedLanguages(
+        'sh',
+        ['dockerfile', 'gitignore', 'sh'],
+        [
+          // `ShellSession` includes both commands and output. We can't reliably
+          // format the latter, so we exclude this language entirely.
+          'ShellSession',
+        ],
+      ),
       ...EXTRA_SH_LANGUAGES,
     ],
     null,
@@ -99,7 +111,7 @@ fs.writeFileSync(
   `import { SupportLanguage } from 'prettier'
 
 export const languages = ${JSON.stringify(
-    [...getSupportLanguages('sql', ['sql', 'pgsql'])],
+    [...getSupportedLanguages('sql', ['sql', 'pgsql'])],
     null,
     2,
   )} as SupportLanguage[]`,
@@ -110,7 +122,7 @@ fs.writeFileSync(
   `import { SupportLanguage } from 'prettier'
 
 export const languages = ${JSON.stringify(
-    [...getSupportLanguages('toml', ['toml'])],
+    [...getSupportedLanguages('toml', ['toml'])],
     null,
     2,
   )} as SupportLanguage[]`,
