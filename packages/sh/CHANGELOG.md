@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.16.0
+
+### Minor Changes
+
+- [#416](https://github.com/un-ts/prettier/pull/416) [`82835c7`](https://github.com/un-ts/prettier/commit/82835c770f07792e97e3667a0e0ea0d5c78c8355) Thanks [@nwalters512](https://github.com/nwalters512)! - fix(sh): exclude `ShellSession` language
+
 ## 0.15.0
 
 ### Minor Changes
