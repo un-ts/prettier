@@ -64,7 +64,7 @@ interface PrettierOptions {
   // Omit white space padding from single-line arrays.
   compactArrays: boolean // default `true`
   // Omit white space padding from the start and end of inline tables.
-  compactInlineTables:  boolean // default `false`
+  compactInlineTables: boolean // default `false`
   // Omit white space around `=`.
   compactEntries: boolean // default `false`
   // Indent based on tables and arrays of tables and their subtables, subtables
