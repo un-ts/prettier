@@ -47,6 +47,38 @@ npx prettier --write foo.toml
 yarn prettier --write foo.toml
 ```
 
+## Parser Options
+
+```ts
+interface PrettierOptions {
+  // 'Align consecutive entries vertically.'
+  alignEntries: boolean // default `false`
+  // Align consecutive comments after entries and items vertically. This applies
+  // to comments that are after entries or array items.
+  alignComments: boolean // default `true`
+  // Expand arrays to multiple lines that exceed the maximum column width.
+  arrayAutoExpand: boolean // default `true`
+  // Collapse arrays that don't exceed the maximum column width and don't
+  // contain comments.
+  arrayAutoCollapse: boolean // default `true`
+  // Omit white space padding from single-line arrays.
+  compactArrays: boolean // default `true`
+  // Omit white space padding from the start and end of inline tables.
+  compactInlineTables: boolean // default `false`
+  // Omit white space around `=`.
+  compactEntries: boolean // default `false`
+  // Indent based on tables and arrays of tables and their subtables, subtables
+  // out of order are not indented.
+  indentTables: boolean // default `false`
+  // Indent entries under tables.
+  indentEntries: boolean // default `false`
+  // Alphabetically reorder keys that are not separated by empty lines.
+  reorderKeys: boolean // default `false`
+  // The maximum number of allowed blank lines between entries and tables.
+  allowedBlankLines: number // integer, default `1`
+}
+```
+
 ## Sponsors
 
 | 1stG                                                                                                                               | RxTS                                                                                                                               | UnTS                                                                                                                               |
