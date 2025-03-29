@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.0.3
+
+### Patch Changes
+
+- [#418](https://github.com/un-ts/prettier/pull/418) [`4716026`](https://github.com/un-ts/prettier/commit/4716026ed1599ef96dd27d842740487ed4db1cb8) Thanks [@esacteksab](https://github.com/esacteksab)! - docs: add `TOML` parser options to README
+
 ## 2.0.2
 
 ### Patch Changes
