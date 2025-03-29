@@ -47,7 +47,7 @@ npx prettier --write foo.toml
 yarn prettier --write foo.toml
 ```
 
-## Parse Options
+## Parser Options
 
 ```ts
 interface PrettierOptions {
