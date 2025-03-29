@@ -75,7 +75,7 @@ interface PrettierOptions {
   // Alphabetically reorder keys that are not separated by empty lines.
   reorderKeys: boolean // default `false`
   // The maximum number of allowed blank lines between entries and tables.
-  allowedBlankLines: int // default `1`
+  allowedBlankLines: number // integer, default `1`
 }
 ```
 
