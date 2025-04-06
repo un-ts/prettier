@@ -102,6 +102,9 @@ Top-level keys are sorted according to a style commonly seen in the packages of 
   "man",
   "bin",
   "main",
+  "types",
+  "typings",
+  "typesVersions",
   "module",
   "imports",
   "exports",
@@ -119,9 +122,6 @@ Top-level keys are sorted according to a style commonly seen in the packages of 
   "umd",
   "jsdelivr",
   "unpkg",
-  "types",
-  "typings",
-  "typesVersions",
 
   // contents and utils
   "directories",
