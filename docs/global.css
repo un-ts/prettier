@@ -2,6 +2,14 @@
   :root {
     background-color: #0d1117;
   }
+
+  .shiki.github-dark {
+    background-color: var(--shiki-dark-bg) !important;
+  }
+
+  .shiki.github-dark .line > span {
+    color: var(--shiki-dark) !important;
+  }
 }
 
 body {

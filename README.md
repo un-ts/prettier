@@ -1,8 +1,9 @@
 # @unts/prettier
 
-[![GitHub Actions](https://img.shields.io/github/actions/workflow/status/un-ts/prettier/ci.yml)](https://github.com/un-ts/prettier/actions/workflows/ci.yml)
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/un-ts/prettier/ci.yml?branch=master)](https://github.com/un-ts/prettier/actions/workflows/ci.yml?query=branch%3Amaster)
 [![Codecov](https://img.shields.io/codecov/c/gh/un-ts/prettier)](https://codecov.io/gh/un-ts/prettier)
 [![type-coverage](https://img.shields.io/badge/dynamic/json.svg?label=type-coverage&prefix=%E2%89%A5&suffix=%&query=$.typeCoverage.atLeast&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fun-ts%2Fprettier%2Fmaster%2Fpackage.json)](https://github.com/plantain-00/type-coverage)
+[![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/un-ts/pkgr)](https://coderabbit.ai)
 [![GitHub release](https://img.shields.io/github/release/un-ts/prettier)](https://github.com/un-ts/prettier/releases)
 
 [![Conventional Commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
@@ -47,7 +48,7 @@ Detailed changes for each release are documented in [CHANGELOG.md](./CHANGELOG.m
 
 [MIT][] © [JounQin][]@[1stG.me][]
 
-[1stg.me]: https://www.1stg.me
+[1stG.me]: https://www.1stg.me
 [changesets]: https://github.com/changesets/changesets
-[jounqin]: https://github.com/JounQin
-[mit]: http://opensource.org/licenses/MIT
+[JounQin]: https://github.com/JounQin
+[MIT]: http://opensource.org/licenses/MIT
