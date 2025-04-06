@@ -5007,7 +5007,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/utils@npm:8.29.0, @typescript-eslint/utils@npm:^6.0.0 || ^7.0.0 || ^8.0.0, @typescript-eslint/utils@npm:^8.0.0, @typescript-eslint/utils@npm:^8.28.0, @typescript-eslint/utils@npm:^8.29.0":
+"@typescript-eslint/utils@npm:8.29.0, @typescript-eslint/utils@npm:^6.0.0 || ^7.0.0 || ^8.0.0, @typescript-eslint/utils@npm:^8.0.0, @typescript-eslint/utils@npm:^8.29.0":
   version: 8.29.0
   resolution: "@typescript-eslint/utils@npm:8.29.0"
   dependencies:
@@ -8159,12 +8159,12 @@ __metadata:
   linkType: hard
 
 "eslint-plugin-import-x@npm:^4.10.0":
-  version: 4.10.0
-  resolution: "eslint-plugin-import-x@npm:4.10.0"
+  version: 4.10.1
+  resolution: "eslint-plugin-import-x@npm:4.10.1"
   dependencies:
     "@pkgr/core": "npm:^0.2.0"
     "@types/doctrine": "npm:^0.0.9"
-    "@typescript-eslint/utils": "npm:^8.28.0"
+    "@typescript-eslint/utils": "npm:^8.29.0"
     debug: "npm:^4.4.0"
     doctrine: "npm:^3.0.0"
     eslint-import-resolver-node: "npm:^0.3.9"
@@ -8177,7 +8177,7 @@ __metadata:
     unrs-resolver: "npm:^1.3.3"
   peerDependencies:
     eslint: ^8.57.0 || ^9.0.0
-  checksum: 10c0/d5e48667bd98dd12776ecc05d2aea604bd6952f40fd94885b5512a209f2f335091fc6ecd0e58d99f7d6703137a575797850df3674113979679dbadf775d6a543
+  checksum: 10c0/9f33047c18f5f190769f44653d073a7c67d0210c7e34e2316163e18c8c5cadcca473f465366286e35464554590070dd487c93c5a4c637d428a799cdb9f879351
   languageName: node
   linkType: hard
 
