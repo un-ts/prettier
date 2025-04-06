@@ -3,11 +3,11 @@
   "version": "2.0.3",
   "type": "module",
   "description": "An opinionated `toml` formatter plugin for Prettier",
-  "repository": "git@github.com/un-ts/prettier.git",
+  "repository": "git+https://github.com/un-ts/prettier.git",
   "homepage": "https://github.com/un-ts/prettier/tree/master/packages/toml",
   "author": "Ray (https://mk1.io) <i@mk1.io>",
-  "contributors": [
-    "JounQin (https://www.1stG.me) <admin@1stg.me>"
+  "maintainers": [
+    "JounQin <admin@1stg.me> (https://www.1stG.me)"
   ],
   "funding": "https://opencollective.com/unts",
   "license": "MIT",
@@ -15,14 +15,24 @@
     "node": ">=16.0.0"
   },
   "main": "./lib/index.cjs",
+  "types": "./index.d.cts",
   "module": "./lib/index.js",
   "exports": {
-    "types": "./lib/index.d.ts",
-    "import": "./lib/index.js",
-    "require": "./lib/index.cjs"
+    "import": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "module-sync": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "require": {
+      "types": "./index.d.cts",
+      "default": "./lib/index.cjs"
+    }
   },
-  "types": "./lib/index.d.ts",
   "files": [
+    "index.d.cts",
     "lib"
   ],
   "keywords": [
@@ -35,7 +45,7 @@
     "prettier": "^3.0.3"
   },
   "dependencies": {
-    "@taplo/lib": "^0.4.0-alpha.2"
+    "@taplo/lib": "^0.5.0"
   },
   "publishConfig": {
     "access": "public"

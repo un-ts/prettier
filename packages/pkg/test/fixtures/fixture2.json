@@ -4,7 +4,7 @@
   "description": "An opinionated package.json formatter plugin for Prettier",
   "license": "MPL-2.0",
   "repository": "git@github.com/un-ts/prettier.git",
-  "author": "JounQin (https://www.1stG.me) <admin@1stg.me>",
+  "author": "JounQin <admin@1stg.me> (https://www.1stG.me)",
   "scripts": {
     "bootstrap": "yarn build && tsc --module commonjs --outDir lib/cjs",
     "build": "ts-node -O '{\"module\":\"commonjs\"}' build"

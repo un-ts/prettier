@@ -16,20 +16,14 @@ jobs:
           # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
           fetch-depth: 0
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-
       - name: Setup Node.js LTS
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
-          cache: pnpm
+          cache: yarn
 
       - name: Install Dependencies
-        run: pnpm i
-
-      - name: Build
-        run: pnpm build
+        run: yarn --immutable
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets
@@ -37,8 +31,9 @@ jobs:
         with:
           commit: 'chore: release package(s)'
           title: 'chore: release package(s)'
-          # This expects you to have a script called release which does a build for your packages and calls changeset publish
-          publish: pnpm release
+          publish: yarn release
+          version: yarn run version
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_CONFIG_PROVENANCE: true
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

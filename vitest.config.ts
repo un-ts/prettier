@@ -1,6 +1,5 @@
 import path from 'node:path'
 
-import autoImport from 'unplugin-auto-import/vite'
 import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
@@ -12,13 +11,10 @@ export default defineConfig({
       },
     ],
   },
-  plugins: [
-    autoImport({
-      imports: 'vitest',
-    }),
-  ],
   test: {
+    globals: true,
     coverage: {
+      enabled: true,
       include: ['packages/*/src/**/*.ts'],
       provider: 'istanbul',
       reporter: ['lcov', 'json', 'text'],

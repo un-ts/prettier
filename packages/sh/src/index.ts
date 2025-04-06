@@ -61,7 +61,7 @@ class ShSyntaxParseError<
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-types
+// eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
 const isFunction = (val: unknown): val is Function => typeof val === 'function'
 
 const ShPlugin: Plugin<Node | ShSyntaxNode> = {
@@ -131,6 +131,7 @@ const ShPlugin: Plugin<Node | ShSyntaxNode> = {
           }
 
           lastIndex = commentLineRegex.lastIndex
+          // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- incorrect typing
           const comment = match.groups?.comment?.trim()
 
           // Empty lines and shebangs have no captures

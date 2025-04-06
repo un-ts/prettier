@@ -42,4 +42,4 @@ export interface StringArrayExpression extends ArrayExpression {
   elements: StringLiteral[]
 }
 
-export { StringLiteral } from '@babel/types'
+export type { StringLiteral } from '@babel/types'

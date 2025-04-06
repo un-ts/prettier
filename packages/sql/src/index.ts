@@ -5,11 +5,11 @@ import type { AST, Option } from 'node-sql-parser'
 import nodeSqlParser from 'node-sql-parser'
 import type { Options, ParserOptions, Plugin } from 'prettier'
 import {
-  DialectOptions,
-  format,
-  formatDialect,
+  type DialectOptions,
   type FormatOptions,
   type FormatOptionsWithLanguage,
+  format,
+  formatDialect,
 } from 'sql-formatter'
 
 import { languages } from './languages.js'
@@ -41,6 +41,7 @@ const SqlPlugin: Plugin<AST | string> = {
   languages,
   parsers: {
     sql: {
+      // eslint-disable-next-line sonarjs/function-return-type
       parse(text, { formatter, type, database }: SqlOptions) {
         return formatter === SQL_FORMATTER
           ? text

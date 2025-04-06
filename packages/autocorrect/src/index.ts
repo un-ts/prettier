@@ -2,7 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 import { formatFor, loadConfig } from 'autocorrect-node'
-import { Plugin } from 'prettier'
+import type { Plugin } from 'prettier'
 
 import { languages } from './languages.js'
 

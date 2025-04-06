@@ -1,7 +1,6 @@
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-import _ from 'lodash'
 import { type Options, format } from 'prettier'
 
 import pkg1 from './fixtures/fixture1.json'
@@ -12,9 +11,18 @@ import PkgPlugin from 'prettier-plugin-pkg'
 
 const pkgs = [pkg1, pkg2, pkg3]
 
+function shuffle<T>(array: T[]) {
+  for (let i = array.length - 1; i > 0; i--) {
+    // eslint-disable-next-line sonarjs/pseudo-random
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[array[i], array[j]] = [array[j], array[i]]
+  }
+  return array
+}
+
 const createFixture = (index: 0 | 1 = 0) => {
   const pkg: Record<string, unknown> = pkgs[index]
-  return _.shuffle(Object.keys(pkg)).reduce(
+  return shuffle(Object.keys(pkg)).reduce(
     (acc, key) =>
       Object.assign(acc, {
         [key]: pkg[key],

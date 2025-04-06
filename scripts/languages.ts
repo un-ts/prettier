@@ -75,7 +75,7 @@ const getSupportedLanguages = (
 
 fs.writeFileSync(
   'packages/autocorrect/src/languages.ts',
-  `import { SupportLanguage } from 'prettier'
+  `import type { SupportLanguage } from 'prettier'
 
 export const languages = ${JSON.stringify(
     getSupportedLanguages('autocorrect', ['all']),
@@ -86,7 +86,7 @@ export const languages = ${JSON.stringify(
 
 fs.writeFileSync(
   'packages/sh/src/languages.ts',
-  `import { SupportLanguage } from 'prettier'
+  `import type { SupportLanguage } from 'prettier'
 
 export const languages = ${JSON.stringify(
     [
@@ -103,27 +103,30 @@ export const languages = ${JSON.stringify(
     ],
     null,
     2,
-  )} as SupportLanguage[]`,
+  )} as SupportLanguage[]
+`,
 )
 
 fs.writeFileSync(
   'packages/sql/src/languages.ts',
-  `import { SupportLanguage } from 'prettier'
+  `import type { SupportLanguage } from 'prettier'
 
 export const languages = ${JSON.stringify(
     [...getSupportedLanguages('sql', ['sql', 'pgsql'])],
     null,
     2,
-  )} as SupportLanguage[]`,
+  )} as SupportLanguage[]
+`,
 )
 
 fs.writeFileSync(
   'packages/toml/src/languages.ts',
-  `import { SupportLanguage } from 'prettier'
+  `import type { SupportLanguage } from 'prettier'
 
 export const languages = ${JSON.stringify(
     [...getSupportedLanguages('toml', ['toml'])],
     null,
     2,
-  )} as SupportLanguage[]`,
+  )} as SupportLanguage[]
+`,
 )
