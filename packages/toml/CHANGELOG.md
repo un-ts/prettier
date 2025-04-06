@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.0.4
+
+### Patch Changes
+
+- [`facf7ac`](https://github.com/un-ts/prettier/commit/facf7acb0eff0520a74de4f8f710c8bdaeeb40e9) Thanks [@JounQin](https://github.com/JounQin)! - fix: incorrect `require` entry types, add `module-sync` entry
+
 ## 2.0.3
 
 ### Patch Changes

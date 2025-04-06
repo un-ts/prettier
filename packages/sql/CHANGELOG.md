@@ -1,5 +1,19 @@
 # Change Log
 
+## 0.19.0
+
+### Minor Changes
+
+- [#427](https://github.com/un-ts/prettier/pull/427) [`f11e517`](https://github.com/un-ts/prettier/commit/f11e517d917c2769b11b94826fa7e1838c0b7033) Thanks [@JounQin](https://github.com/JounQin)! - chore(deps): bump `node-sql-parser` to v5
+
+- [`facf7ac`](https://github.com/un-ts/prettier/commit/facf7acb0eff0520a74de4f8f710c8bdaeeb40e9) Thanks [@JounQin](https://github.com/JounQin)! - chore(deps): bump `node-sql-parser` to v5
+
+### Patch Changes
+
+- [#427](https://github.com/un-ts/prettier/pull/427) [`f11e517`](https://github.com/un-ts/prettier/commit/f11e517d917c2769b11b94826fa7e1838c0b7033) Thanks [@JounQin](https://github.com/JounQin)! - refactor: simplify jsox usage
+
+- [`facf7ac`](https://github.com/un-ts/prettier/commit/facf7acb0eff0520a74de4f8f710c8bdaeeb40e9) Thanks [@JounQin](https://github.com/JounQin)! - fix: incorrect `require` entry types, add `module-sync` entry
+
 ## 0.18.1
 
 ### Patch Changes
