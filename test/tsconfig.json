@@ -1,0 +1,12 @@
+{
+  "extends": "../tsconfig.base",
+  "compilerOptions": {
+    "noEmit": true,
+    "rootDir": "../packages"
+  },
+  "include": [
+    "../packages/**/*.spec.ts",
+    "../packages/**/fixtures/*.json",
+    "./global.d.ts"
+  ]
+}

@@ -66,6 +66,9 @@ const primary = [
   'man',
   'bin',
   'main',
+  'types',
+  'typings',
+  'typesVersions',
   'module',
   'imports',
   'exports',
@@ -83,9 +86,6 @@ const primary = [
   'umd',
   'jsdelivr',
   'unpkg',
-  'types',
-  'typings',
-  'typesVersions',
 
   // contents and utils
   'directories',

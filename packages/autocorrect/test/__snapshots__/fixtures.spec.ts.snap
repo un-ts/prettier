@@ -51,49 +51,54 @@ exports[`parser and printer > should format all fixtures > test.html 1`] = `
 
 exports[`parser and printer > should format all fixtures > test.md 1`] = `
 "# 这是 Heading 1 大标题
-**加粗** 
-*倾斜*
+
+**加粗**
+_倾斜_
 ~~删除线~~
 这是**Bold 加粗**在 1 个段落中，这端会 correct 掉，如果是 inline code，例如\`Rust语言\`，也可以应该处理。
+
 > 引用文本：Quote 也是可以的。
+
 \`\`\`rust
 // Codeblock 里面也会处理
 let a = "你好 hello";
 \`\`\`
+
 - ![img 图片](https://google.com/a/b/url不处理)
 - [link 链接](https://google.com/a/b/url不处理)\`,
   },
   rust: {
     title: 'Rust',
     raw: \`fn main() {
-let number_list = vec![34, 50, 25, 100, 65];
-let mut largest = number_list[0];
-let regexp = %r"包含#regexp 测试";
-// 1 第一行 Single line 注释
-// 2 第二行注释
-for number in number_list {
-    if number > largest {
-        largest = number;
-    }
-}
-// autocorrect: false
-let disable_1 = "这行将会 disable 掉";
-let disable_2 = "这行将也会 disable 掉";
-// autocorrect: true
-let a = r#"
-这是第 1 行
-这是第 2 行
-"#;
-let b = r##"
-这是第 3 行
-这是第 4 行
-"##;
-/**
- * 多行 Rust 注释
- * 第二行 Rust 注释
-*/
-println!("最大的数字 number 是{}", largest);
-}
+  let number\\_list = vec!\\[34, 50, 25, 100, 65];
+  let mut largest = number\\_list\\[0];
+  let regexp = %r"包含#regexp 测试";
+  // 1 第一行 Single line 注释
+  // 2 第二行注释
+  for number in number\\_list {
+  if number > largest {
+  largest = number;
+  }
+  }
+  // autocorrect: false
+  let disable\\_1 = "这行将会 disable 掉";
+  let disable\\_2 = "这行将也会 disable 掉";
+  // autocorrect: true
+  let a = r#"
+  这是第 1 行
+  这是第 2 行
+  "#;
+  let b = r##"
+  这是第 3 行
+  这是第 4 行
+  "##;
+  /\\*\\*
+
+* 多行 Rust 注释
+* 第二行 Rust 注释
+  \\*/
+  println!("最大的数字 number 是{}", largest);
+  }
 "
 `;
 
@@ -135,12 +140,13 @@ end
 `;
 
 exports[`parser and printer > should format all fixtures > test0.js 1`] = `
-"/**
-* Hello 你好
-* 这是第 2 行
-*/
+"/* eslint-disable camelcase, no-unused-vars, sonarjs/no-dead-store, sonarjs/no-unused-vars */
+/**
+ * Hello 你好
+ * 这是第 2 行
+ */
 function application() {
-  let example = "这是 single line 单行注释";
+  const example = "这是 single line 单行注释";
   console.log(\`这是 string 第 1 行
   这是 string 第 2 行
   \`)

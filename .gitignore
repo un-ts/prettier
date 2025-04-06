@@ -4,9 +4,11 @@
 .changelog
 .type-coverage
 .vercel
+.yarn/*
+!.yarn/plugins
+!.yarn/releases
 coverage
 dist
 lib
 node_modules
 packages/*/src/languages.ts
-yarn.lock

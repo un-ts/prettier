@@ -7,13 +7,12 @@ import {
   Navigate,
 } from 'react-router-dom'
 
-import './global.scss'
+import './global.css'
 import 'github-markdown-css'
 
 const Readme = () => {
   const { name } = useParams<{ name: string }>()
   const Readme = lazy(() =>
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     name ? import(`../packages/${name}/README.md`) : import('../README.md'),
   )
   return (
@@ -26,7 +25,6 @@ const Readme = () => {
 const Changelog = () => {
   const { name } = useParams<{ name: string }>()
   const Changelog = lazy(() =>
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     name
       ? import(`../packages/${name}/CHANGELOG.md`)
       : import('../CHANGELOG.md'),

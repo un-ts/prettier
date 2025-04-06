@@ -14,6 +14,7 @@ import type {
 } from '../types.js'
 import { sortStringArray } from '../utils.js'
 
+// eslint-disable-next-line sonarjs/no-invariant-returns
 const process = (props: ObjectProperty[]) => {
   const filesNode = props.find(prop => prop.key.value === 'files')
 

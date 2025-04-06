@@ -98,8 +98,8 @@ Detailed changes for each release are documented in [CHANGELOG.md](./CHANGELOG.m
 
 [MIT][] © [JounQin][]@[1stG.me][]
 
-[1stg.me]: https://www.1stg.me
-[jounqin]: https://GitHub.com/JounQin
-[mit]: http://opensource.org/licenses/MIT
+[1stG.me]: https://www.1stG.me
+[JounQin]: https://github.com/JounQin
+[MIT]: http://opensource.org/licenses/MIT
 [mvdan-sh]: https://github.com/mvdan/sh
 [prettier]: https://prettier.io

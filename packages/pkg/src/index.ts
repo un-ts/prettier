@@ -13,7 +13,7 @@ import babelParser from 'prettier/plugins/babel.js'
 import { files } from './rules/files.js'
 import { object } from './rules/object.js'
 import { dependencyNames, sort } from './rules/sort.js'
-import { ObjectExpression, ObjectProperty } from './types.js'
+import type { ObjectExpression, ObjectProperty } from './types.js'
 
 const PKG_REG = /[/\\]?package\.json$/
 

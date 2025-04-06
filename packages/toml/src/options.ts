@@ -1,6 +1,6 @@
 import type { SupportOption } from 'prettier'
 
-import type { PrettierTaploOptions } from './types'
+import type { PrettierTaploOptions } from './types.js'
 
 /**
  * @see https://github.com/tamasfe/taplo/blob/848722f2c604de68535e5a3e0bb2a2c1d3c7dc74/crates/taplo/src/formatter/mod.rs#L150-L168
