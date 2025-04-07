@@ -13,7 +13,7 @@
   "packageManager": "yarn@4.8.1",
   "scripts": {
     "build": "run-p 'build:*'",
-    "build:r": "r -f cjs",
+    "build:r": "r -f cjs -e named",
     "build:ts": "tsc -b",
     "clean": "rimraf dist coverage 'packages/*/{lib,*.tsbuildinfo}'",
     "dev": "vitest",
@@ -41,7 +41,7 @@
     "@mdx-js/rollup": "^3.1.0",
     "@pkgr/rollup": "^6.0.2",
     "@shikijs/rehype": "^3.2.1",
-    "@types/mvdan-sh": "^0.10.9",
+    "@stylistic/eslint-plugin-js": "^4.2.0",
     "@types/node": "^22.14.0",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.1",

@@ -436,15 +436,42 @@ main "$@"
 "
 `;
 
-exports[`parser and printer > should format all fixtures > 146.ini 1`] = `"; can only immediately follow a statement"`;
+exports[`parser and printer > should format all fixtures > 146.ini 1`] = `
+"; can only immediately follow a statement
+   6 | disallow_untyped_defs = True
+   7 | disallow_any_generics = True
+>  8 | ; disallow_any_unimported = True
+     | ^
+   9 | ; warn_redundant_casts = True
+  10 | ; warn_return_any = True
+  11 | ; warn_unused_configs = True"
+`;
 
 exports[`parser and printer > should format all fixtures > 146.ini 2`] = `"; can only immediately follow a statement"`;
 
-exports[`parser and printer > should format all fixtures > 147.cfg 1`] = `"a command can only contain words and redirects; encountered ("`;
+exports[`parser and printer > should format all fixtures > 147.cfg 1`] = `
+"a command can only contain words and redirects; encountered (
+  31 |   Operating System :: OS Independent
+  32 |
+> 33 |   License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+     |                                                            ^
+  34 |
+  35 |   Programming Language :: Python
+  36 |   Programming Language :: Python :: 3"
+`;
 
 exports[`parser and printer > should format all fixtures > 147.cfg 2`] = `"a command can only contain words and redirects; encountered ("`;
 
-exports[`parser and printer > should format all fixtures > 148.ini 1`] = `"reached EOF without closing quote '"`;
+exports[`parser and printer > should format all fixtures > 148.ini 1`] = `
+"reached EOF without closing quote '
+  33 |     ignore:Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated, and in 3.8 it will stop working:DeprecationWarning
+  34 |     ignore:Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.9 it will stop working:DeprecationWarning
+> 35 |     ignore:Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3,and in 3.9 it will stop working:DeprecationWarning
+     |                                                                                           ^
+  36 | junit_duration_report = call
+  37 | # Our github annotation parser from .github/workflows/tox.yml requires xunit1 format. Ref:
+  38 | # https://github.com/shyim/junit-report-annotations-action/issues/3#issuecomment-663241378"
+`;
 
 exports[`parser and printer > should format all fixtures > 148.ini 2`] = `"reached EOF without closing quote '"`;
 
@@ -1684,11 +1711,24 @@ esac
 "
 `;
 
-exports[`parser and printer > should format all fixtures > 278.Dockerfile 1`] = `""foo(" must be followed by )"`;
+exports[`parser and printer > should format all fixtures > 278.Dockerfile 1`] = `
+""foo(" must be followed by )
+  1 | FROM ubuntu
+  2 |
+> 3 | RUN (cd out && ls)
+    | ^
+  4 |"
+`;
 
 exports[`parser and printer > should format all fixtures > 278.Dockerfile 2`] = `""foo(" must be followed by )"`;
 
-exports[`parser and printer > should format all fixtures > 292.Dockerfile 1`] = `""then" can only be used in an if"`;
+exports[`parser and printer > should format all fixtures > 292.Dockerfile 1`] = `
+""then" can only be used in an if
+  1 | FROM node:20.9.0-alpine
+> 2 | RUN if [[ x$LATEST_NPM = xtrue ]]; then yarn global add npm@latest; fi
+    |                                    ^
+  3 |"
+`;
 
 exports[`parser and printer > should format all fixtures > 292.Dockerfile 2`] = `""then" can only be used in an if"`;
 

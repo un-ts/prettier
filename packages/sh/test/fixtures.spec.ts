@@ -1,16 +1,12 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import { fileURLToPath } from 'node:url'
 
 import { format } from 'prettier'
 import type { ParseError } from 'sh-syntax'
 
-import ShPlugin, { type IShParseError } from 'prettier-plugin-sh'
+import ShPlugin from 'prettier-plugin-sh'
 
-const _dirname =
-  typeof __dirname === 'undefined'
-    ? path.dirname(fileURLToPath(import.meta.url))
-    : __dirname
+const _dirname = import.meta.dirname
 
 describe('parser and printer', () => {
   it('should format all fixtures', async () => {
@@ -28,9 +24,7 @@ describe('parser and printer', () => {
 
         expect(output).toMatchSnapshot(relativeFilepath)
       } catch (err: unknown) {
-        expect(((err as Error).cause as IShParseError).Text).toMatchSnapshot(
-          relativeFilepath,
-        )
+        expect((err as Error).message).toMatchSnapshot(relativeFilepath)
       }
 
       try {
