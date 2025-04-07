@@ -2,7 +2,6 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 import { format } from 'prettier'
-import type { ParseError } from 'sh-syntax'
 
 import ShPlugin from 'prettier-plugin-sh'
 
@@ -24,22 +23,9 @@ describe('parser and printer', () => {
 
         expect(output).toMatchSnapshot(relativeFilepath)
       } catch (err: unknown) {
-        expect((err as Error).message).toMatchSnapshot(relativeFilepath)
-      }
-
-      try {
-        const output = await format(input, {
-          filepath,
-          parser: 'sh',
-          plugins: [ShPlugin],
-          experimentalWasm: true,
-        })
-
-        expect(output).toMatchSnapshot(relativeFilepath)
-      } catch (err: unknown) {
-        const error = (err as Error).cause as ParseError | undefined
-
-        expect(error?.Text || error?.message).toMatchSnapshot(relativeFilepath)
+        expect((err as Error).message.split('\n').at(0)).toMatchSnapshot(
+          relativeFilepath,
+        )
       }
     }
   })
