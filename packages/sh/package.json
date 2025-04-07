@@ -50,7 +50,7 @@
     "prettier": "^3.0.3"
   },
   "dependencies": {
-    "sh-syntax": "^0.5.2"
+    "sh-syntax": "^0.5.3"
   },
   "devDependencies": {
     "@types/common-tags": "^1.8.4",

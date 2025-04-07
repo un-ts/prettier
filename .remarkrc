@@ -1,5 +1,13 @@
 {
   "plugins": [
-    "@1stg/preset"
+    "@1stg/preset",
+    [
+      "lint-no-undefined-references",
+      {
+        "allow": [
+          "!WARNING"
+        ]
+      }
+    ]
   ]
 }
