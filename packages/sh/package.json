@@ -50,7 +50,7 @@
     "prettier": "^3.0.3"
   },
   "dependencies": {
-    "sh-syntax": "https://pkg.csb.dev/un-ts/sh-syntax/commit/418a03c4/sh-syntax/_pkg.tgz"
+    "sh-syntax": "^0.5.4"
   },
   "devDependencies": {
     "@types/common-tags": "^1.8.4",

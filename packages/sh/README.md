@@ -18,6 +18,7 @@ Of course it should just work, but may not match [prettier][]'s format sometimes
 > [!WARNING]
 >
 > `Dockerfile` and `ignore` files are not officially supported by <https://github.com/mvdan/sh> what means only basic and simple `Dockerfile` and `ignore` usage cases can be handled correctly. We can not do much on our side.
+> See also <https://github.com/un-ts/prettier/issues/278> and <https://github.com/un-ts/prettier/issues/336>.
 
 ## Requirements
 
@@ -35,7 +36,6 @@ npm i -D prettier prettier-plugin-sh
 yarn add -D prettier prettier-plugin-sh
 ```
 
-See also <https://github.com/un-ts/prettier/issues/278> and <https://github.com/un-ts/prettier/issues/336>.
 
 ## Usage
 
