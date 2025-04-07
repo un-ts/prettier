@@ -14022,7 +14022,7 @@ __metadata:
   dependencies:
     "@types/common-tags": "npm:^1.8.4"
     common-tags: "npm:^1.8.2"
-    sh-syntax: "https://pkg.csb.dev/un-ts/sh-syntax/commit/418a03c4/sh-syntax/_pkg.tgz"
+    sh-syntax: "npm:^0.5.4"
   peerDependencies:
     prettier: ^3.0.3
   languageName: unknown
@@ -15891,12 +15891,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sh-syntax@https://pkg.csb.dev/un-ts/sh-syntax/commit/418a03c4/sh-syntax/_pkg.tgz":
-  version: 0.5.3
-  resolution: "sh-syntax@https://pkg.csb.dev/un-ts/sh-syntax/commit/418a03c4/sh-syntax/_pkg.tgz"
+"sh-syntax@npm:^0.5.4":
+  version: 0.5.4
+  resolution: "sh-syntax@npm:0.5.4"
   dependencies:
     tslib: "npm:^2.8.1"
-  checksum: 10c0/a9f4d246112164a7c9d4de5354046378c8f61b7af93e60dde3e169b75b1745bc978326acb6ab8f4cfb819e0a2aaab045d062aa36c8c9ba35ed1ddfff34413956
+  checksum: 10c0/e7c708e1c1ccf7bb71f134d08b326aee1521ba562e172ccdd3630eff5d45865728b8f0c2039bb083749e2d214d1e1cc0ec9ef4b924a2cf9965647bb5e81fc705
   languageName: node
   linkType: hard
 
