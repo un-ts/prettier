@@ -39,8 +39,12 @@ jobs:
         run: yarn --immutable
 
       - name: Build, Lint and Test
-        run: yarn run-s build lint test
+        run: |
+          yarn build
+          yarn lint
+          yarn test
         env:
+          NODE_OPTIONS: --max-old-space-size=12288
           PARSER_NO_WATCH: true
 
       - name: Codecov

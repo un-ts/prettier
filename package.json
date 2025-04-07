@@ -78,6 +78,7 @@
     "yarn-berry-deduplicate": "^6.1.1"
   },
   "resolutions": {
+    "es5-ext": "npm:@unes/es5-ext@latest",
     "prettier": "^3.5.3",
     "prettier-plugin-autocorrect": "workspace:*",
     "prettier-plugin-pkg": "workspace:*",
