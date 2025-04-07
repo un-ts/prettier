@@ -36,7 +36,6 @@ npm i -D prettier prettier-plugin-sh
 yarn add -D prettier prettier-plugin-sh
 ```
 
-
 ## Usage
 
 Once installed, [Prettier plugins](https://prettier.io/docs/en/plugins.html) must be added to `.prettierrc`:
