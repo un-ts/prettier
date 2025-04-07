@@ -97,24 +97,6 @@
   "markuplint": {
     "extends": "@1stg"
   },
-  "size-limit": [
-    {
-      "path": "packages/autocorrect/lib/index.js",
-      "limit": "540B"
-    },
-    {
-      "path": "packages/pkg/lib/index.js",
-      "limit": "450B"
-    },
-    {
-      "path": "packages/sh/lib/index.js",
-      "limit": "2.4kB"
-    },
-    {
-      "path": "packages/sql/lib/index.js",
-      "limit": "2.5kB"
-    }
-  ],
   "typeCoverage": {
     "atLeast": 100,
     "cache": true,

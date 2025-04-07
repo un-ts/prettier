@@ -41,10 +41,8 @@ jobs:
       - name: Build, Lint and Test
         run: |
           yarn build
-          yarn lint
-          yarn test
+          yarn run-p lint test typecov
         env:
-          NODE_OPTIONS: --max-old-space-size=12288
           PARSER_NO_WATCH: true
 
       - name: Codecov
