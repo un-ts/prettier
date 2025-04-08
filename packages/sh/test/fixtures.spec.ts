@@ -8,12 +8,14 @@ import * as sh from 'prettier-plugin-sh'
 const _dirname = import.meta.dirname
 
 describe('parser and printer', () => {
-  it('should format all fixtures', async () => {
-    const fixtures = path.resolve(_dirname, 'fixtures')
-    for (const relativeFilepath of fs.readdirSync(fixtures)) {
-      const filepath = path.resolve(fixtures, relativeFilepath)
-      const input = fs.readFileSync(filepath, 'utf8')
+  const fixtures = path.resolve(_dirname, 'fixtures')
+  for (const relativeFilepath of fs.readdirSync(fixtures)) {
+    const filepath = path.resolve(fixtures, relativeFilepath)
+    const input = fs.readFileSync(filepath, 'utf8')
 
+    const filename = path.basename(filepath)
+
+    it(`should format ${relativeFilepath} fixtures - sh`, async () => {
       try {
         const output = await format(input, {
           filepath,
@@ -27,13 +29,13 @@ describe('parser and printer', () => {
           relativeFilepath,
         )
       }
+    })
 
-      const filename = path.basename(filepath)
+    if (filename !== 'Dockerfile' && !filename.endsWith('.Dockerfile')) {
+      return
+    }
 
-      if (filename !== 'Dockerfile' && !filename.endsWith('.Dockerfile')) {
-        continue
-      }
-
+    it(`should format ${relativeFilepath} fixtures - dockerfile`, async () => {
       try {
         const output = await format(input, {
           filepath,
@@ -47,6 +49,6 @@ describe('parser and printer', () => {
           relativeFilepath,
         )
       }
-    }
-  })
+    })
+  }
 })
