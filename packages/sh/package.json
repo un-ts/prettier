@@ -50,7 +50,7 @@
     "prettier": "^3.0.3"
   },
   "dependencies": {
-    "@reteps/dockerfmt": "^0.2.3",
+    "@reteps/dockerfmt": "^0.2.5",
     "sh-syntax": "^0.5.6"
   },
   "devDependencies": {

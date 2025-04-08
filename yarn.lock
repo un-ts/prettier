@@ -4015,12 +4015,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reteps/dockerfmt@npm:^0.2.3":
-  version: 0.2.3
-  resolution: "@reteps/dockerfmt@npm:0.2.3"
+"@reteps/dockerfmt@npm:^0.2.5":
+  version: 0.2.5
+  resolution: "@reteps/dockerfmt@npm:0.2.5"
   dependencies:
     typescript: "npm:^5.8.3"
-  checksum: 10c0/040bfbf13b31b749dae42cb7c8baf41d650cceb6b36ab029d3da291b52558bd2fc1dc39adc2d6b4390364797c00f5dd2875499df3b3ce86f9c858676b15a8ce3
+  checksum: 10c0/632545c00b9f4dae9d2ecea82a73356f744f7cb94d4a35f8721b7bd858b996bc88da3e3c7e864287aa909b1b70b45442b1cc94933ee46f8e39127f775f4eba8c
   languageName: node
   linkType: hard
 
@@ -14029,7 +14029,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "prettier-plugin-sh@workspace:packages/sh"
   dependencies:
-    "@reteps/dockerfmt": "npm:^0.2.3"
+    "@reteps/dockerfmt": "npm:^0.2.5"
     "@types/common-tags": "npm:^1.8.4"
     common-tags: "npm:^1.8.2"
     sh-syntax: "npm:^0.5.6"
