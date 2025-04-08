@@ -9,7 +9,7 @@
   },
   {
     "path": "packages/sh/lib/index.js",
-    "limit": "3.2kB"
+    "limit": "3.4kB"
   },
   {
     "path": "packages/sql/lib/index.js",

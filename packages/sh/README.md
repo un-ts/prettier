@@ -17,8 +17,26 @@ Of course it should just work, but may not match [prettier][]'s format sometimes
 
 > [!WARNING]
 >
-> `Dockerfile` and `ignore` files are not officially supported by <https://github.com/mvdan/sh> what means only basic and simple `Dockerfile` and `ignore` usage cases can be handled correctly. We can not do much on our side.
-> See also <https://github.com/un-ts/prettier/issues/278> and <https://github.com/un-ts/prettier/issues/336>.
+> 1. `Dockerfile` files: previously, only simple format was supported, but with [dockerfmt][], now we support them better.
+>    But still be aware that `dockerfmt` is still a new project, so by default it's only enabled when `sh-syntax` fails to parse,
+>
+>    To use it specifically, you can set `dockerfile` as the `parser` in your `.prettierrc`:
+>
+>    ```json
+>    {
+>      "overrides": [
+>        {
+>          "files": "*.Dockerfile",
+>          "options": {
+>            "parser": "dockerfile"
+>          }
+>        }
+>      ]
+>    }
+>    ```
+>
+> 2. `ignore` files are not officially supported by mvdan-sh[] what means only basic and simple `ignore` usage cases can be handled correctly.
+>    We can not do much on our side. See also <https://github.com/un-ts/prettier/issues/336>.
 
 ## Requirements
 
@@ -241,6 +259,7 @@ Detailed changes for each release are documented in [CHANGELOG.md](./CHANGELOG.m
 [1stG.me]: https://www.1stG.me
 [JounQin]: https://github.com/JounQin
 [MIT]: http://opensource.org/licenses/MIT
+[dockerfmt]: https://github.com/reteps/dockerfmt
 [mvdan-sh]: https://github.com/mvdan/sh
 [prettier]: https://prettier.io
 [sh-syntax]: https://github.com/un-ts/sh-syntax
