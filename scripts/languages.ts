@@ -38,7 +38,7 @@ const EXTRA_SH_LANGUAGES: SupportLanguage[] = [
 
 const getSupportedLanguages = (
   parser: 'autocorrect' | 'sh' | 'sql' | 'toml',
-  aceModes: string[],
+  aceModes: string[] = [parser],
   excludeNames?: string[],
 ) =>
   Object.values(LinguistLanguages).reduce<SupportLanguage[]>(
@@ -92,7 +92,7 @@ export const languages = ${JSON.stringify(
     [
       ...getSupportedLanguages(
         'sh',
-        ['dockerfile', 'gitignore', 'sh'],
+        ['dockerfile', 'gitignore', 'properties', 'sh'],
         [
           /**
            * `ShellSession` includes both commands and output. We can't reliably
@@ -126,7 +126,7 @@ fs.writeFileSync(
   `import type { SupportLanguage } from 'prettier'
 
 export const languages = ${JSON.stringify(
-    [...getSupportedLanguages('toml', ['toml'])],
+    [...getSupportedLanguages('toml')],
     null,
     2,
   )} as SupportLanguage[]
