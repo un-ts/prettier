@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.17.0
+
+### Minor Changes
+
+- [#430](https://github.com/un-ts/prettier/pull/430) [`f7e38ae`](https://github.com/un-ts/prettier/commit/f7e38ae6584a42dca99bfdcd5d0237279dcfc865) Thanks [@JounQin](https://github.com/JounQin)! - feat(sh): use `sh-syntax` without experimental flag, remove `mvdan-sh` support
+
+  Please view <https://github.com/mvdan/sh/issues/1145> for more details.
+
+- [#432](https://github.com/un-ts/prettier/pull/432) [`d49d6e5`](https://github.com/un-ts/prettier/commit/d49d6e59151de0e875109fbab9baeb70afa3f090) Thanks [@JounQin](https://github.com/JounQin)! - feat: prototype to use `dockerfmt` as fallback `printer`, you can also use `parser: dockerfile` to enable it specifically
+
 ## 0.16.1
 
 ### Patch Changes
