@@ -94,8 +94,10 @@ export const languages = ${JSON.stringify(
         'sh',
         ['dockerfile', 'gitignore', 'sh'],
         [
-          // `ShellSession` includes both commands and output. We can't reliably
-          // format the latter, so we exclude this language entirely.
+          /**
+           * `ShellSession` includes both commands and output. We can't reliably
+           * format the latter, so we exclude this language entirely.
+           */
           'ShellSession',
         ],
       ),

@@ -13,7 +13,7 @@
   "packageManager": "yarn@4.8.1",
   "scripts": {
     "build": "run-p 'build:*'",
-    "build:r": "r -f cjs",
+    "build:r": "r -f cjs -e named",
     "build:ts": "tsc -b",
     "clean": "rimraf dist coverage 'packages/*/{lib,*.tsbuildinfo}'",
     "dev": "vitest",
@@ -41,7 +41,7 @@
     "@mdx-js/rollup": "^3.1.0",
     "@pkgr/rollup": "^6.0.2",
     "@shikijs/rehype": "^3.2.1",
-    "@types/mvdan-sh": "^0.10.9",
+    "@stylistic/eslint-plugin-js": "^4.2.0",
     "@types/node": "^22.14.0",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.1",
@@ -50,6 +50,7 @@
     "@vitest/coverage-istanbul": "^3.1.1",
     "clean-pkg-json": "^1.2.1",
     "eslint": "^9.24.0",
+    "eslint-plugin-tsdoc": "^0.4.0",
     "github-markdown-css": "^5.8.1",
     "linguist-languages": "^7.29.0",
     "lint-staged": "^15.5.0",
@@ -77,6 +78,7 @@
     "yarn-berry-deduplicate": "^6.1.1"
   },
   "resolutions": {
+    "es5-ext": "npm:@unes/es5-ext@latest",
     "prettier": "^3.5.3",
     "prettier-plugin-autocorrect": "workspace:*",
     "prettier-plugin-pkg": "workspace:*",
@@ -95,24 +97,6 @@
   "markuplint": {
     "extends": "@1stg"
   },
-  "size-limit": [
-    {
-      "path": "packages/autocorrect/lib/index.js",
-      "limit": "540B"
-    },
-    {
-      "path": "packages/pkg/lib/index.js",
-      "limit": "450B"
-    },
-    {
-      "path": "packages/sh/lib/index.js",
-      "limit": "2.4kB"
-    },
-    {
-      "path": "packages/sql/lib/index.js",
-      "limit": "2.5kB"
-    }
-  ],
   "typeCoverage": {
     "atLeast": 100,
     "cache": true,

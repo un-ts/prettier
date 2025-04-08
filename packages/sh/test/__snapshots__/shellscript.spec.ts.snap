@@ -1,5 +1,13 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`fatal parse error with meaningful message 1`] = `"a command can only contain words and redirects; encountered )"`;
+exports[`fatal parse error with meaningful message 1`] = `
+[SyntaxError: a command can only contain words and redirects; encountered )
+> 1 | echo )
+    |      ^]
+`;
 
-exports[`fatal parse error with meaningful message 2`] = `"a command can only contain words and redirects; encountered )"`;
+exports[`fatal parse error with meaningful message 2`] = `
+[SyntaxError: a command can only contain words and redirects; encountered )
+> 1 | echo )
+    |      ^]
+`;

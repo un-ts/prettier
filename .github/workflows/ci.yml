@@ -39,7 +39,9 @@ jobs:
         run: yarn --immutable
 
       - name: Build, Lint and Test
-        run: yarn run-s build lint test
+        run: |
+          yarn build
+          yarn run-p lint test typecov
         env:
           PARSER_NO_WATCH: true
 
