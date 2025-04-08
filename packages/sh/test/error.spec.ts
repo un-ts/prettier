@@ -1,7 +1,7 @@
 import { format } from 'prettier'
 import { ParseError } from 'sh-syntax'
 
-import ShPlugin from 'prettier-plugin-sh'
+import * as sh from 'prettier-plugin-sh'
 
 test('fatal parse error with meaningful message', async () => {
   // eslint-disable-next-line vitest/valid-expect
@@ -9,7 +9,7 @@ test('fatal parse error with meaningful message', async () => {
     format(`echo )`, {
       filepath: 'broken.sh',
       parser: 'sh',
-      plugins: [ShPlugin],
+      plugins: [sh],
     }),
   )
   await rejects.toThrow(ParseError)

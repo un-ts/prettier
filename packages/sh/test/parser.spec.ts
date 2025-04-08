@@ -1,10 +1,10 @@
 import { stripIndent } from 'common-tags'
 import { describe, it, assert, expect } from 'vitest'
 
-import ShPlugin from 'prettier-plugin-sh'
+import { parsers } from 'prettier-plugin-sh'
 
 describe('parser', () => {
-  const hasPragma = ShPlugin.parsers?.sh.hasPragma
+  const hasPragma = parsers.sh.hasPragma
   assert(hasPragma != null)
 
   describe('should detect pragmas', () => {

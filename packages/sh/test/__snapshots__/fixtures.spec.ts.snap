@@ -932,7 +932,18 @@ exports[`parser and printer > should format all fixtures > 278.Dockerfile 1`] = 
 RUN (cd out && ls)"
 `;
 
+exports[`parser and printer > should format all fixtures > 278.Dockerfile 2`] = `
+"FROM ubuntu
+
+RUN (cd out && ls)"
+`;
+
 exports[`parser and printer > should format all fixtures > 292.Dockerfile 1`] = `
+"FROM node:20.9.0-alpine
+RUN if [[ x$LATEST_NPM = xtrue ]]; then yarn global add npm@latest; fi"
+`;
+
+exports[`parser and printer > should format all fixtures > 292.Dockerfile 2`] = `
 "FROM node:20.9.0-alpine
 RUN if [[ x$LATEST_NPM = xtrue ]]; then yarn global add npm@latest; fi"
 `;
@@ -959,7 +970,24 @@ EOF
 "
 `;
 
+exports[`parser and printer > should format all fixtures > 376.Dockerfile 2`] = `
+"FROM debian:12.6-slim
+
+RUN set -eux; for x in {1..3}; do echo 'foo'; echo 'bar'; echo "$x"; done
+
+RUN <<EOF
+set -eux
+for x in {1..3}; do
+ echo 'foo'
+ echo 'bar'
+ echo "$x"
+done
+EOF"
+`;
+
 exports[`parser and printer > should format all fixtures > 384.Dockerfile 1`] = `"LABEL org.opencontainers.image.authors="Jean Luc Picard <picardj@starfleet.gov>""`;
+
+exports[`parser and printer > should format all fixtures > 384.Dockerfile 2`] = `"LABEL org.opencontainers.image.authors="Jean Luc Picard <picardj@starfleet.gov>""`;
 
 exports[`parser and printer > should format all fixtures > 398.Dockerfile 1`] = `
 "ENV a=1 \\
@@ -970,6 +998,16 @@ c=3 \\
 # comment
 e=5
 "
+`;
+
+exports[`parser and printer > should format all fixtures > 398.Dockerfile 2`] = `
+"ENV a=1 \\
+ b=2 \\
+ # comment
+ c=3 \\
+ d=4 \\
+ # comment
+ e=5"
 `;
 
 exports[`parser and printer > should format all fixtures > Dockerfile 1`] = `
@@ -987,6 +1025,22 @@ FROM abiosoft/caddy
 COPY --from=builder /app/packages/ufc-host-app/build /srv
 EXPOSE 2015
 "
+`;
+
+exports[`parser and printer > should format all fixtures > Dockerfile 2`] = `
+"FROM node:lts-alpine          as       builder
+
+# 安装与编译代码
+COPY . /app
+WORKDIR         /app
+RUN yarn           --frozen-lockfile &&            \\
+    yarn       build &&           \\
+    find . -name      '*.map' -type f -exec rm -f {} \\;
+
+# 最终的应用
+FROM          abiosoft/caddy
+COPY --from=builder /app/packages/ufc-host-app/build /srv
+EXPOSE      2015"
 `;
 
 exports[`parser and printer > should format all fixtures > hosts 1`] = `
