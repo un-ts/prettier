@@ -3,7 +3,7 @@ import path from 'node:path'
 
 import { format } from 'prettier'
 
-import ShPlugin from 'prettier-plugin-sh'
+import sh from 'prettier-plugin-sh'
 
 const _dirname = import.meta.dirname
 
@@ -18,7 +18,7 @@ describe('parser and printer', () => {
         const output = await format(input, {
           filepath,
           parser: 'sh',
-          plugins: [ShPlugin],
+          plugins: [sh],
         })
 
         expect(output).toMatchSnapshot(relativeFilepath)

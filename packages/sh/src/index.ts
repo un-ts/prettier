@@ -1,3 +1,4 @@
+import { formatDockerfileContents } from '@reteps/dockerfmt'
 import type { ParserOptions, Plugin } from 'prettier'
 import {
   type File,
@@ -5,15 +6,25 @@ import {
   type Node,
   type ParseError,
   type ShOptions,
-  type ShPrintOptions,
+  type ShPrintOptions as ShFormatOptions,
   processor,
 } from 'sh-syntax'
 
 import { languages } from './languages.js'
 
+export interface DockerfilePrintOptions extends ParserOptions<string> {
+  indent?: number
+}
+
 export interface ShParserOptions
   extends Partial<ParserOptions<Node>>,
-    ShOptions {}
+    ShOptions {
+  filepath: string
+}
+
+export interface ShPrintOptions extends ShFormatOptions {
+  filepath: string
+}
 
 export class ShSyntaxParseError<
   E extends Error = ParseError | SyntaxError,
@@ -33,36 +44,14 @@ export class ShSyntaxParseError<
   }
 }
 
-const ShPlugin: Plugin<Node> = {
+const errorCache = new Map<string, ShSyntaxParseError>()
+
+const ShPlugin: Plugin<Node | string> = {
   languages,
   parsers: {
     sh: {
-      async parse(
-        text,
-        {
-          filepath,
-          keepComments = true,
-          /** The following \@link doesn't work as expected, see {@link https://github.com/microsoft/tsdoc/issues/9} */
-          /** TODO: support {@link LangVariant.LangAuto} */ // eslint-disable-line sonarjs/todo-tag
-          variant,
-          stopAt,
-          recoverErrors,
-        }: ShParserOptions,
-      ) {
-        try {
-          return await processor(text, {
-            filepath,
-            keepComments,
-            variant,
-            stopAt,
-            recoverErrors,
-          })
-        } catch (err: unknown) {
-          throw new ShSyntaxParseError(err as Error)
-        }
-      },
       astFormat: 'sh',
-      hasPragma: (text: string): boolean => {
+      hasPragma(text: string) {
         /**
          * We don't want to parse every file twice but Prettier's interface
          * isn't conducive to caching/memoizing an upstream Parser, so we're
@@ -105,20 +94,56 @@ const ShPlugin: Plugin<Node> = {
           }
         }
       },
-      locStart: node => node.Pos.Offset,
-      locEnd: node => node.End.Offset,
+      locStart: node => (typeof node === 'string' ? 0 : node.Pos.Offset),
+      locEnd: node =>
+        typeof node === 'string' ? node.length : node.End.Offset,
+      async parse(
+        text,
+        {
+          filepath,
+          keepComments = true,
+          /** The following \@link doesn't work as expected, see {@link https://github.com/microsoft/tsdoc/issues/9} */
+          /** TODO: support {@link LangVariant.LangAuto} */ // eslint-disable-line sonarjs/todo-tag
+          variant,
+          stopAt,
+          recoverErrors,
+        }: ShParserOptions,
+      ) {
+        try {
+          return await processor(text, {
+            filepath,
+            keepComments,
+            variant,
+            stopAt,
+            recoverErrors,
+          })
+        } catch (err) {
+          errorCache.set(filepath, err as ShSyntaxParseError)
+          // fallback to dockerfile parser
+          return text
+        }
+      },
     },
   },
   printers: {
     sh: {
-      print(
+      // @ts-expect-error -- https://github.com/prettier/prettier/issues/15080#issuecomment-1630987744
+      async print(
         path,
         {
           originalText,
           filepath,
+
+          // parser options
+          keepComments = true,
+          variant,
+          stopAt,
+          recoverErrors,
+
+          // printer options
           useTabs,
           tabWidth,
-          indent = useTabs ? 0 : tabWidth,
+          indent = useTabs ? 0 : (tabWidth ?? 2),
           binaryNextLine = true,
           switchCaseIndent = true,
           spaceRedirects = true,
@@ -129,21 +154,43 @@ const ShPlugin: Plugin<Node> = {
           functionNextLine,
         }: ShPrintOptions,
       ) {
-        return processor(path.getNode() as File, {
-          originalText,
-          filepath,
-          useTabs,
-          tabWidth,
-          indent,
-          binaryNextLine,
-          switchCaseIndent,
-          spaceRedirects,
-          keepPadding,
-          minify,
-          singleLine,
-          functionNextLine,
-          // https://github.com/prettier/prettier/issues/15080#issuecomment-1630987744
-        }) as unknown as string
+        const node = path.getNode()
+        if (!node) {
+          return ''
+        }
+        if (typeof node !== 'string') {
+          return processor(node as File, {
+            originalText,
+            filepath,
+            keepComments,
+            variant,
+            stopAt,
+            recoverErrors,
+            useTabs,
+            tabWidth,
+            indent,
+            binaryNextLine,
+            switchCaseIndent,
+            spaceRedirects,
+            keepPadding,
+            minify,
+            singleLine,
+            functionNextLine,
+          })
+        }
+
+        try {
+          return await formatDockerfileContents(node, {
+            indent,
+            trailingNewline: true,
+          })
+        } catch (err) {
+          const error = errorCache.get(filepath)
+          if (error) {
+            throw error
+          }
+          throw err
+        }
       },
     },
   },
@@ -160,7 +207,6 @@ const ShPlugin: Plugin<Node> = {
       // since: '0.1.0',
       category: 'Config',
       type: 'choice',
-      default: undefined,
       choices: [
         {
           value: LangVariant.LangBash,

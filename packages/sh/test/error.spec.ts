@@ -1,4 +1,5 @@
 import { format } from 'prettier'
+import { ParseError } from 'sh-syntax'
 
 import ShPlugin from 'prettier-plugin-sh'
 
@@ -11,7 +12,7 @@ test('fatal parse error with meaningful message', async () => {
       plugins: [ShPlugin],
     }),
   )
-  await rejects.toThrow(SyntaxError)
+  await rejects.toThrow(ParseError)
   await rejects.toThrow(
     'a command can only contain words and redirects; encountered )',
   )
