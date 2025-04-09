@@ -37,7 +37,7 @@ const EXTRA_SH_LANGUAGES: SupportLanguage[] = [
 ]
 
 const getSupportedLanguages = (
-  parser: 'autocorrect' | 'sh' | 'sql' | 'toml',
+  parser: 'autocorrect' | 'dockerfile' | 'sh' | 'sql' | 'toml',
   aceModes: string[] = [parser],
   excludeNames?: string[],
 ) =>
@@ -90,9 +90,10 @@ fs.writeFileSync(
 
 export const languages = ${JSON.stringify(
     [
+      ...getSupportedLanguages('dockerfile'),
       ...getSupportedLanguages(
         'sh',
-        ['dockerfile', 'gitignore', 'properties', 'sh'],
+        ['gitignore', 'properties', 'sh'],
         [
           /**
            * `ShellSession` includes both commands and output. We can't reliably

@@ -8,7 +8,6 @@ test('fatal parse error with meaningful message', async () => {
   const { rejects } = expect(
     format(`echo )`, {
       filepath: 'broken.sh',
-      parser: 'sh',
       plugins: [sh],
     }),
   )
