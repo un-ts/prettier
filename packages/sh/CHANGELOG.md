@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.17.1
+
+### Patch Changes
+
+- [#433](https://github.com/un-ts/prettier/pull/433) [`6650f9d`](https://github.com/un-ts/prettier/commit/6650f9d1f24379b9cf167bfadf338ef8a75c4862) Thanks [@reteps](https://github.com/reteps)! - chore: bump `@reteps/dockerfmt`, fix related ESM only usage
+
 ## 0.17.0
 
 ### Minor Changes
