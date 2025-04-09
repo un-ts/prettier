@@ -115,12 +115,8 @@ const dockerPrinter: Printer<string> = {
       indent = useTabs ? 0 : tabWidth,
     }: DockerfilePrintOptions,
   ) {
-    const node = path.getNode()
-    if (!node) {
-      return ''
-    }
     const formatDockerfileContents = await getFormatDockerfileContents()
-    return formatDockerfileContents(node, {
+    return formatDockerfileContents(path.node, {
       indent,
       trailingNewline: true,
     })
@@ -182,11 +178,7 @@ const shPrinter: Printer<Node | string> = {
       functionNextLine,
     }: ShPrintOptions,
   ) {
-    const node = path.getNode()
-    if (!node) {
-      return ''
-    }
-    return processor(node as File, {
+    return processor(path.node as File, {
       originalText,
       filepath,
       keepComments,
