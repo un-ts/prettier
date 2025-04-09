@@ -8,7 +8,7 @@
 
 Prettier is an opinionated code formatter. It enforces a consistent style by parsing your code and re-printing, taking various rules into account.
 
-This plugin adds support for a lot of files through [mvdan-sh][] via [sh-syntax][] and [dockerfmt][].
+This plugin adds support for various file formats through [mvdan-sh][] via [sh-syntax][] and [dockerfmt][].
 
 ## Notice
 
@@ -18,7 +18,7 @@ Of course it should just work, but may not match [prettier][]'s format sometimes
 > [!WARNING]
 >
 > `ignore` files are not officially supported by [mvdan-sh][] what means only basic and simple `ignore` usage cases can be handled correctly.
-> We can not do much on our side. See also <https://github.com/un-ts/prettier/issues/336>.
+> We cannot do much on our side. See also <https://github.com/un-ts/prettier/issues/336>.
 
 ## Requirements
 
