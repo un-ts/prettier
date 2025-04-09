@@ -16,7 +16,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
 
       - name: Check Branch
         id: branch
@@ -26,7 +26,7 @@ jobs:
           echo "comment=false" >> $GITHUB_OUTPUT
 
       - name: Deploy
-        uses: amondnet/vercel-action@v25
+        uses: amondnet/vercel-action@16e87c0a08142b0d0d33b76aeaf20823c381b9b9 # v25
         with:
           vercel-args: ${{ steps.branch.outputs.args }}
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
