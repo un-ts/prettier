@@ -127,13 +127,11 @@ const dockerPrinter: Printer<string> = {
   },
 }
 
-const errorCache = new Map<string, ShSyntaxParseError>()
-
-const shParser: Parser<Node | string> = {
+const shParser: Parser<Node> = {
   astFormat: 'sh',
   hasPragma,
-  locStart: node => (typeof node === 'string' ? 0 : node.Pos.Offset),
-  locEnd: node => (typeof node === 'string' ? node.length : node.End.Offset),
+  locStart: node => node.Pos.Offset,
+  locEnd: node => node.End.Offset,
   async parse(
     text,
     {
@@ -146,19 +144,13 @@ const shParser: Parser<Node | string> = {
       recoverErrors,
     }: ShParserOptions,
   ) {
-    try {
-      return await processor(text, {
-        filepath,
-        keepComments,
-        variant,
-        stopAt,
-        recoverErrors,
-      })
-    } catch (err) {
-      errorCache.set(filepath, err as ShSyntaxParseError)
-      // fallback to dockerfile parser
-      return text
-    }
+    return processor(text, {
+      filepath,
+      keepComments,
+      variant,
+      stopAt,
+      recoverErrors,
+    })
   },
 }
 
@@ -194,40 +186,24 @@ const shPrinter: Printer<Node | string> = {
     if (!node) {
       return ''
     }
-    if (typeof node !== 'string') {
-      return processor(node as File, {
-        originalText,
-        filepath,
-        keepComments,
-        variant,
-        stopAt,
-        recoverErrors,
-        useTabs,
-        tabWidth,
-        indent,
-        binaryNextLine,
-        switchCaseIndent,
-        spaceRedirects,
-        keepPadding,
-        minify,
-        singleLine,
-        functionNextLine,
-      })
-    }
-
-    try {
-      const formatDockerfileContents = await getFormatDockerfileContents()
-      return await formatDockerfileContents(node, {
-        indent,
-        trailingNewline: true,
-      })
-    } catch (err) {
-      const error = errorCache.get(filepath)
-      if (error) {
-        throw error
-      }
-      throw err
-    }
+    return processor(node as File, {
+      originalText,
+      filepath,
+      keepComments,
+      variant,
+      stopAt,
+      recoverErrors,
+      useTabs,
+      tabWidth,
+      indent,
+      binaryNextLine,
+      switchCaseIndent,
+      spaceRedirects,
+      keepPadding,
+      minify,
+      singleLine,
+      functionNextLine,
+    })
   },
 }
 
