@@ -9,6 +9,7 @@ const _dirname = import.meta.dirname
 
 describe('parser and printer', () => {
   const fixtures = path.resolve(_dirname, 'fixtures')
+
   for (const relativeFilepath of fs.readdirSync(fixtures)) {
     const filepath = path.resolve(fixtures, relativeFilepath)
     const input = fs.readFileSync(filepath, 'utf8')
@@ -32,7 +33,7 @@ describe('parser and printer', () => {
     })
 
     if (filename !== 'Dockerfile' && !filename.endsWith('.Dockerfile')) {
-      return
+      continue
     }
 
     it(`should format ${relativeFilepath} fixtures - dockerfile`, async () => {
