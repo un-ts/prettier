@@ -1,4 +1,3 @@
-import { formatDockerfileContents } from '@reteps/dockerfmt'
 import type { Parser, ParserOptions, Plugin, Printer } from 'prettier'
 import {
   type File,
@@ -94,6 +93,18 @@ const dockerfileParser: Parser<string> = {
   locEnd: node => node.length,
 }
 
+let formatDockerfileContents_:
+  | typeof import('@reteps/dockerfmt').formatDockerfileContents
+  | undefined
+
+const getFormatDockerfileContents = async () => {
+  if (!formatDockerfileContents_) {
+    const dockerfmt = await import('@reteps/dockerfmt')
+    formatDockerfileContents_ = dockerfmt.formatDockerfileContents
+  }
+  return formatDockerfileContents_
+}
+
 const dockerPrinter: Printer<string> = {
   // @ts-expect-error -- https://github.com/prettier/prettier/issues/15080#issuecomment-1630987744
   async print(
@@ -108,6 +119,7 @@ const dockerPrinter: Printer<string> = {
     if (!node) {
       return ''
     }
+    const formatDockerfileContents = await getFormatDockerfileContents()
     return formatDockerfileContents(node, {
       indent,
       trailingNewline: true,
@@ -204,6 +216,7 @@ const shPrinter: Printer<Node | string> = {
     }
 
     try {
+      const formatDockerfileContents = await getFormatDockerfileContents()
       return await formatDockerfileContents(node, {
         indent,
         trailingNewline: true,
