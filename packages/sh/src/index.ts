@@ -13,6 +13,7 @@ export { languages } from './languages.js'
 
 export interface DockerfilePrintOptions extends ParserOptions<string> {
   indent?: number
+  spaceRedirects?: boolean
 }
 
 export interface ShParserOptions
@@ -113,11 +114,13 @@ const dockerPrinter: Printer<string> = {
       useTabs,
       tabWidth,
       indent = useTabs ? 0 : tabWidth,
+      spaceRedirects = false,
     }: DockerfilePrintOptions,
   ) {
     const formatDockerfileContents = await getFormatDockerfileContents()
     return formatDockerfileContents(path.node, {
       indent,
+      spaceRedirects,
       trailingNewline: true,
     })
   },

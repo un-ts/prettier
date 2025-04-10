@@ -839,12 +839,14 @@ esac
 exports[`parser and printer > should format 278.Dockerfile fixtures > 278.Dockerfile 1`] = `
 "FROM ubuntu
 
-RUN (cd out && ls)"
+RUN (cd out && ls)
+"
 `;
 
 exports[`parser and printer > should format 292.Dockerfile fixtures > 292.Dockerfile 1`] = `
 "FROM node:20.9.0-alpine
-RUN if [[ x$LATEST_NPM = xtrue ]]; then yarn global add npm@latest; fi"
+RUN if [[ x$LATEST_NPM = xtrue ]]; then yarn global add npm@latest; fi
+"
 `;
 
 exports[`parser and printer > should format 376.Dockerfile fixtures > 376.Dockerfile 1`] = `
@@ -859,10 +861,14 @@ for x in {1..3}; do
  echo 'bar'
  echo "$x"
 done
-EOF"
+EOF
+"
 `;
 
-exports[`parser and printer > should format 384.Dockerfile fixtures > 384.Dockerfile 1`] = `"LABEL org.opencontainers.image.authors="Jean Luc Picard <picardj@starfleet.gov>""`;
+exports[`parser and printer > should format 384.Dockerfile fixtures > 384.Dockerfile 1`] = `
+"LABEL org.opencontainers.image.authors="Jean Luc Picard <picardj@starfleet.gov>"
+"
+`;
 
 exports[`parser and printer > should format 398.Dockerfile fixtures > 398.Dockerfile 1`] = `
 "ENV a=1 \\
@@ -871,7 +877,14 @@ exports[`parser and printer > should format 398.Dockerfile fixtures > 398.Docker
  c=3 \\
  d=4 \\
  # comment
- e=5"
+ e=5
+"
+`;
+
+exports[`parser and printer > should format 441.Dockerfile fixtures > 441.Dockerfile 1`] = `
+"RUN # cleanup
+ ls -la
+"
 `;
 
 exports[`parser and printer > should format Dockerfile fixtures > Dockerfile 1`] = `
@@ -887,7 +900,8 @@ RUN yarn --frozen-lockfile \\
 # 最终的应用
 FROM abiosoft/caddy
 COPY --from=builder /app/packages/ufc-host-app/build /srv
-EXPOSE 2015"
+EXPOSE 2015
+"
 `;
 
 exports[`parser and printer > should format hosts fixtures > hosts 1`] = `

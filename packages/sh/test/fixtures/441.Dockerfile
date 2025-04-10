@@ -1,0 +1,3 @@
+RUN \
+    # cleanup
+    ls -la
