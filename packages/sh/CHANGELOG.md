@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.17.2
+
+### Patch Changes
+
+- [#436](https://github.com/un-ts/prettier/pull/436) [`560ba3f`](https://github.com/un-ts/prettier/commit/560ba3f1baaf73007366ba7c1285836e15f0db4a) Thanks [@JounQin](https://github.com/JounQin)! - feat: make `dockerfile` default, no fallback needed
+
+- [#442](https://github.com/un-ts/prettier/pull/442) [`dea6b3f`](https://github.com/un-ts/prettier/commit/dea6b3f7dd8f929d35f1615bace58a6130cef6f7) Thanks [@JounQin](https://github.com/JounQin)! - chore: bump `@reteps/dockerfmt` to v0.3.2
+
 ## 0.17.1
 
 ### Patch Changes
