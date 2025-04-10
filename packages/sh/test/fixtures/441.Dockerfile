@@ -1,3 +1,6 @@
 RUN \
+    # install dependencies
+    NODE_ENV=production npm install-clean \
+    \
     # cleanup
-    ls -la
+    && /usr/bin/env bash <(curl -fsSL https://raw.githubusercontent.com/softvisio/scripts/main/env-build-node.sh) cleanup
