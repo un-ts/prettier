@@ -1,13 +1,12 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import { fileURLToPath } from 'node:url'
 
 import { format } from 'prettier'
 import { type ParamTypes, postgresql } from 'sql-formatter'
 
-import SqlPlugin, { type SqlFormatOptions } from 'prettier-plugin-sql'
+import sql, { type SqlFormatOptions } from 'prettier-plugin-sql'
 
-const PARSER_OPTIONS: Record<string, SqlFormatOptions> = {
+const PARSER_OPTIONS: Partial<Record<string, SqlFormatOptions>> = {
   144: {
     language: 'postgresql',
   },
@@ -35,33 +34,37 @@ const PARSER_OPTIONS: Record<string, SqlFormatOptions> = {
   334: {
     dialect: JSON.stringify(postgresql),
   },
+  405: {
+    language: 'postgresql',
+  },
 }
 
-const _dirname =
-  typeof __dirname === 'undefined'
-    ? path.dirname(fileURLToPath(import.meta.url))
-    : __dirname
-
 describe('parser and printer', () => {
-  it('should format all fixtures', async () => {
-    const fixtures = path.resolve(_dirname, 'fixtures')
-    for (const filepath of fs.readdirSync(fixtures)) {
-      const input = fs.readFileSync(path.resolve(fixtures, filepath)).toString()
+  const fixtures = path.resolve(import.meta.dirname, 'fixtures')
 
-      const caseName = filepath.slice(0, filepath.lastIndexOf('.'))
+  for (const relativeFilepath of fs.readdirSync(fixtures)) {
+    const filepath = path.resolve(fixtures, relativeFilepath)
+    const input = fs.readFileSync(filepath, 'utf8')
 
+    const caseName = relativeFilepath.slice(
+      0,
+      relativeFilepath.lastIndexOf('.'),
+    )
+
+    const overrideOptions = PARSER_OPTIONS[caseName]
+
+    it(`should format ${relativeFilepath} fixture correctly${overrideOptions ? ' with options: ' + JSON.stringify(overrideOptions) : ''}`, async () => {
       try {
         const output = await format(input, {
           filepath,
-          parser: 'sql',
-          plugins: [SqlPlugin],
-          ...PARSER_OPTIONS[caseName],
+          plugins: [sql],
+          ...overrideOptions,
         })
 
-        expect(output).toMatchSnapshot(filepath)
+        expect(output).toMatchSnapshot()
       } catch (error) {
-        expect(error).toMatchSnapshot(filepath)
+        expect(error).toMatchSnapshot()
       }
-    }
-  })
+    })
+  }
 })
