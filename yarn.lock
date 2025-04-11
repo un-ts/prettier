@@ -4015,10 +4015,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reteps/dockerfmt@npm:^0.3.2":
-  version: 0.3.2
-  resolution: "@reteps/dockerfmt@npm:0.3.2"
-  checksum: 10c0/dadb4f9f8c4ef1c5d448c793096237fc86362c98324d4206a0e655901bb6d8e4c7d8ae1e5e38815bc09ffbbf3fd8a079edb8006b1e034cbeb5c9bd1955ef0d26
+"@reteps/dockerfmt@npm:^0.3.4":
+  version: 0.3.4
+  resolution: "@reteps/dockerfmt@npm:0.3.4"
+  checksum: 10c0/f270e221267d0ea3957a58b2a24291c70b98cdfda14131b736d61363a7c9f89936e0c5da8196743b27d5dda397f8a7805c9afad827bfbe2489b0b02a1391b53a
   languageName: node
   linkType: hard
 
@@ -5179,18 +5179,17 @@ __metadata:
   linkType: hard
 
 "@vitest/eslint-plugin@npm:^1.1.39":
-  version: 1.1.40
-  resolution: "@vitest/eslint-plugin@npm:1.1.40"
+  version: 1.1.42
+  resolution: "@vitest/eslint-plugin@npm:1.1.42"
   peerDependencies:
+    "@typescript-eslint/utils": ">= 8.24.0"
     eslint: ">= 8.57.0"
     typescript: ">= 5.0.0"
     vitest: "*"
   peerDependenciesMeta:
     typescript:
       optional: true
-    vitest:
-      optional: true
-  checksum: 10c0/2cc7c2242d106fdb5fd97f85b7d94466b6c5db414e38e1a7224ce446800fcd661a36148a6b4580d362398720ba0b6faec843f2cbcff04fc4ef19141d29e03f1a
+  checksum: 10c0/55eb0e56a514059190402a07fd1ac9786ae050bc22d6874d8fb1259feabd86e9d4bb879b8910a0a32aefb0e88740f7dfcd8d1033755aa561e04c8ead04867bf9
   languageName: node
   linkType: hard
 
@@ -7459,9 +7458,9 @@ __metadata:
   linkType: hard
 
 "dotenv@npm:^16.3.1":
-  version: 16.4.7
-  resolution: "dotenv@npm:16.4.7"
-  checksum: 10c0/be9f597e36a8daf834452daa1f4cc30e5375a5968f98f46d89b16b983c567398a330580c88395069a77473943c06b877d1ca25b4afafcdd6d4adb549e8293462
+  version: 16.5.0
+  resolution: "dotenv@npm:16.5.0"
+  checksum: 10c0/5bc94c919fbd955bf0ba44d33922a1e93d1078e64a1db5c30faeded1d996e7a83c55332cb8ea4fae5a9ca4d0be44cbceb95c5811e70f9f095298df09d1997dd9
   languageName: node
   linkType: hard
 
@@ -7498,9 +7497,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.5.73":
-  version: 1.5.135
-  resolution: "electron-to-chromium@npm:1.5.135"
-  checksum: 10c0/d431751080e659dd089423cbf7e5efcd1c6672a06b9552b2ebfb80caf0e2c442a2ee883f445f70ffb53c4f740b3fe8f6607760d9a15d6db2d3ba44dff39fc901
+  version: 1.5.136
+  resolution: "electron-to-chromium@npm:1.5.136"
+  checksum: 10c0/6a207e397638b0428b31c87d409a73f6bd953598cb7359ee4c3c175e645c3ae0cc99fc5128eaca19e2f1052200fd016eb4bb1012a55e5824eb1dce85b0396184
   languageName: node
   linkType: hard
 
@@ -14026,7 +14025,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "prettier-plugin-sh@workspace:packages/sh"
   dependencies:
-    "@reteps/dockerfmt": "npm:^0.3.2"
+    "@reteps/dockerfmt": "npm:^0.3.4"
     "@types/common-tags": "npm:^1.8.4"
     common-tags: "npm:^1.8.2"
     sh-syntax: "npm:^0.5.6"
