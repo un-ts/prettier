@@ -5,7 +5,7 @@ import {
   type Node,
   type ParseError,
   type ShOptions,
-  type ShPrintOptions as ShFormatOptions,
+  type ShPrintOptions,
   processor,
 } from 'sh-syntax'
 
@@ -22,7 +22,9 @@ export interface ShParserOptions
   filepath: string
 }
 
-export interface ShPrintOptions extends ShFormatOptions {
+export type { ShPrintOptions }
+
+export interface ShPrinterOptions extends ShPrintOptions {
   filepath: string
   tabWidth: number
 }
