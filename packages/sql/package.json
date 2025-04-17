@@ -54,7 +54,7 @@
     "prettier": "^3.0.3"
   },
   "dependencies": {
-    "jsox": "^1.2.121",
+    "jsox": "^1.2.123",
     "node-sql-parser": "^5.3.8",
     "sql-formatter": "^15.5.2",
     "tslib": "^2.8.1"

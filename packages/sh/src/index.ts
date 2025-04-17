@@ -5,7 +5,7 @@ import {
   type Node,
   type ParseError,
   type ShOptions,
-  type ShPrintOptions as ShFormatOptions,
+  type ShPrintOptions,
   processor,
 } from 'sh-syntax'
 
@@ -22,7 +22,9 @@ export interface ShParserOptions
   filepath: string
 }
 
-export interface ShPrintOptions extends ShFormatOptions {
+export type { ShPrintOptions }
+
+export interface ShPrinterOptions extends ShPrintOptions {
   filepath: string
   tabWidth: number
 }
@@ -47,12 +49,12 @@ export class ShSyntaxParseError<
 
 function hasPragma(text: string) {
   /**
-   * We don't want to parse every file twice but Prettier's interface
-   * isn't conducive to caching/memoizing an upstream Parser, so we're
-   * going with some minor Regex hackery.
+   * We don't want to parse every file twice but Prettier's interface isn't
+   * conducive to caching/memoizing an upstream Parser, so we're going with some
+   * minor Regex hackery.
    *
-   * Only read empty lines, comments, and shebangs at the start of the file.
-   * We do not support Bash's pseudo-block comments.
+   * Only read empty lines, comments, and shebangs at the start of the file. We
+   * do not support Bash's pseudo-block comments.
    */
 
   // No, we don't support unofficial block comments.
@@ -60,8 +62,8 @@ function hasPragma(text: string) {
   let lastIndex = -1
 
   /**
-   * Only read leading comments, skip shebangs, and check for the pragma.
-   * We don't want to have to parse every file twice.
+   * Only read leading comments, skip shebangs, and check for the pragma. We
+   * don't want to have to parse every file twice.
    */
   for (;;) {
     const match = commentLineRegex.exec(text)
@@ -136,7 +138,10 @@ const shParser: Parser<Node> = {
     {
       filepath,
       keepComments = true,
-      /** The following \@link doesn't work as expected, see {@link https://github.com/microsoft/tsdoc/issues/9} */
+      /**
+       * The following `@link` doesn't work as expected, see
+       * {@link https://github.com/microsoft/tsdoc/issues/9}
+       */
       /** TODO: support {@link LangVariant.LangAuto} */ // eslint-disable-line sonarjs/todo-tag
       variant,
       stopAt,

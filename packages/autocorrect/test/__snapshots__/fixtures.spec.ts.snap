@@ -37,7 +37,7 @@ func (d *Dao) WithContext(ctx context.Context) (db *gorm.DB) {
 exports[`parser and printer > should format all fixtures > test.html 1`] = `
 "<h1>编译 rust 为 WebAssembly</h1>
 <div></div>
-<p class="summary">如果你写了一些 RUST 代码，你可以把它编译成 webAssembly！这份教程将带你编译 Rust 项目为 wasm 并在一个现存的 web 应用中使用它。</p></div>
+<p class="summary">如果你写了一些 RUST 代码，你可以把它编译成 webAssembly！这份教程将带你编译 Rust 项目为 wasm 并在一个现存的 web 应用中使用它。</p>
 <h2 id="rust_和_webassembly_用例"><a href="#rust_和_webassembly_用例" title="Permalink to Rust和WebAssembly用例">Rust 和 WebAssembly 用例</a></h2>
 <div><p>rust 和 webassembly 有两大主要用例：</p>
 <ul>

@@ -22,8 +22,6 @@ jobs:
           - ubuntu-latest
           - windows-latest
       fail-fast: false
-    env:
-      YARN_IGNORE_NODE: 1
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout Repo

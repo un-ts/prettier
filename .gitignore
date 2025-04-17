@@ -12,3 +12,4 @@ dist
 lib
 node_modules
 packages/*/src/languages.ts
+/test.*
