@@ -1,5 +1,3 @@
-/// <reference path="../shim.d.ts" />
-
 import { JSOX } from 'jsox'
 import type { AST, Option } from 'node-sql-parser'
 import nodeSqlParser from 'node-sql-parser'
@@ -65,13 +63,13 @@ const SqlPlugin: Plugin<AST | string> = {
             params:
               params == null
                 ? undefined
-                : (JSOX.parse(params) as FormatOptionsWithLanguage['params']),
+                : JSOX.parse<FormatOptionsWithLanguage['params']>(params),
             paramTypes:
               paramTypes == null
                 ? undefined
-                : (JSOX.parse(
+                : JSOX.parse<FormatOptionsWithLanguage['paramTypes']>(
                     paramTypes,
-                  ) as FormatOptionsWithLanguage['paramTypes']),
+                  ),
           }
 
           formatted =
@@ -79,7 +77,7 @@ const SqlPlugin: Plugin<AST | string> = {
               ? format(value, sqlFormatterOptions)
               : formatDialect(value, {
                   ...sqlFormatterOptions,
-                  dialect: JSOX.parse(dialect) as DialectOptions,
+                  dialect: JSOX.parse<DialectOptions>(dialect),
                 })
         } else {
           formatted = parser.sqlify(value, { type, database })

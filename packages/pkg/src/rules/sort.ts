@@ -1,10 +1,10 @@
 /**
- * Copyright © 2019 Andrew Powell
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of this Source Code Form.
+ * Copyright © 2019 Andrew Powell This Source Code Form is subject to the terms
+ * of the Mozilla Public License, v. 2.0. If a copy of the MPL was not
+ * distributed with this file, You can obtain one at
+ * http://mozilla.org/MPL/2.0/. The above copyright notice and this permission
+ * notice shall be included in all copies or substantial portions of this Source
+ * Code Form.
  */
 
 import type { ObjectProperty } from '../types.js'
@@ -23,10 +23,9 @@ export const dependencyNames = [
 ]
 
 /**
- * reference:
- * npm - https://docs.npmjs.com/files/package.json
- * yarn - https://yarnpkg.com/configuration/manifest
- * vscode - https://code.visualstudio.com/api/references/extension-manifest
+ * Reference: npm - https://docs.npmjs.com/files/package.json yarn -
+ * https://yarnpkg.com/configuration/manifest vscode -
+ * https://code.visualstudio.com/api/references/extension-manifest
  */
 const primary = [
   // schema definition
