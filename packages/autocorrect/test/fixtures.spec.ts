@@ -12,12 +12,13 @@ const _dirname =
     : __dirname
 
 describe('parser and printer', () => {
-  it('should format all fixtures', async () => {
-    const fixtures = path.resolve(_dirname, 'fixtures')
-    for (const relativeFilepath of fs.readdirSync(fixtures)) {
-      const filepath = path.resolve(fixtures, relativeFilepath)
-      const input = fs.readFileSync(filepath, 'utf8')
+  const fixtures = path.resolve(_dirname, 'fixtures')
 
+  for (const relativeFilepath of fs.readdirSync(fixtures)) {
+    const filepath = path.resolve(fixtures, relativeFilepath)
+    const input = fs.readFileSync(filepath, 'utf8')
+
+    it(`should format ${relativeFilepath} fixture`, async () => {
       try {
         const output = await format(input, {
           filepath,
@@ -25,10 +26,10 @@ describe('parser and printer', () => {
           plugins: [AutocorrectPlugin],
         })
 
-        expect(output).toMatchSnapshot(relativeFilepath)
+        expect(output).toMatchSnapshot()
       } catch (err: unknown) {
-        expect((err as Error).message).toMatchSnapshot(relativeFilepath)
+        expect((err as Error).message).toMatchSnapshot()
       }
-    }
-  })
+    })
+  }
 })

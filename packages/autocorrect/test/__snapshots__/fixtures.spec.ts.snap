@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`parser and printer > should format all fixtures > test.css 1`] = `
+exports[`parser and printer > should format test.css fixture 1`] = `
 "/* 
   这是多行 CSS 第 1 行
   这是第 2 行
@@ -14,7 +14,7 @@ exports[`parser and printer > should format all fixtures > test.css 1`] = `
 "
 `;
 
-exports[`parser and printer > should format all fixtures > test.go 1`] = `
+exports[`parser and printer > should format test.go fixture 1`] = `
 "// WithContext 创建基于 ctx 的 db
 // 第 2 行注释
 func (d *Dao) WithContext(ctx context.Context) (db *gorm.DB) {
@@ -34,7 +34,7 @@ func (d *Dao) WithContext(ctx context.Context) (db *gorm.DB) {
 "
 `;
 
-exports[`parser and printer > should format all fixtures > test.html 1`] = `
+exports[`parser and printer > should format test.html fixture 1`] = `
 "<h1>编译 rust 为 WebAssembly</h1>
 <div></div>
 <p class="summary">如果你写了一些 RUST 代码，你可以把它编译成 webAssembly！这份教程将带你编译 Rust 项目为 wasm 并在一个现存的 web 应用中使用它。</p>
@@ -49,7 +49,7 @@ exports[`parser and printer > should format all fixtures > test.html 1`] = `
 "
 `;
 
-exports[`parser and printer > should format all fixtures > test.md 1`] = `
+exports[`parser and printer > should format test.md fixture 1`] = `
 "# 这是 Heading 1 大标题
 
 **加粗**
@@ -102,7 +102,7 @@ let a = "你好 hello";
 "
 `;
 
-exports[`parser and printer > should format all fixtures > test.py 1`] = `
+exports[`parser and printer > should format test.py fixture 1`] = `
 "'''
 这是多行 1 注释
 这是多行 2 注释
@@ -125,7 +125,7 @@ def hello(a):
   "
 `;
 
-exports[`parser and printer > should format all fixtures > test.rb 1`] = `
+exports[`parser and printer > should format test.rb fixture 1`] = `
 "# 第 1 行注释
 # 第 2 行注释
 def hello(a, b: "第 1 个参数")
@@ -139,7 +139,7 @@ end
 "
 `;
 
-exports[`parser and printer > should format all fixtures > test0.js 1`] = `
+exports[`parser and printer > should format test0.js fixture 1`] = `
 "/* eslint-disable camelcase, no-unused-vars, sonarjs/no-dead-store, sonarjs/no-unused-vars */
 /**
  * Hello 你好

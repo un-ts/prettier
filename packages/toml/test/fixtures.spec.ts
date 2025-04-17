@@ -1,23 +1,17 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import { fileURLToPath } from 'node:url'
 
 import { format } from 'prettier'
 
 import TomlPlugin from 'prettier-plugin-toml'
 
-const _dirname =
-  typeof __dirname === 'undefined'
-    ? path.dirname(fileURLToPath(import.meta.url))
-    : __dirname
-
 describe('parser and printer', () => {
-  it('should format all fixtures', async () => {
-    const fixtures = path.resolve(_dirname, 'fixtures')
-    for (const relativeFilepath of fs.readdirSync(fixtures)) {
-      const filepath = path.resolve(fixtures, relativeFilepath)
-      const input = fs.readFileSync(filepath, 'utf8')
+  const fixtures = path.resolve(import.meta.dirname, 'fixtures')
+  for (const relativeFilepath of fs.readdirSync(fixtures)) {
+    const filepath = path.resolve(fixtures, relativeFilepath)
+    const input = fs.readFileSync(filepath, 'utf8')
 
+    it(`should format ${relativeFilepath} fixture correctly`, async () => {
       try {
         const output = await format(input, {
           filepath,
@@ -25,10 +19,10 @@ describe('parser and printer', () => {
           plugins: [TomlPlugin],
         })
 
-        expect(output).toMatchSnapshot(relativeFilepath)
+        expect(output).toMatchSnapshot()
       } catch (err: unknown) {
-        expect((err as Error).message).toMatchSnapshot(relativeFilepath)
+        expect((err as Error).message).toMatchSnapshot()
       }
-    }
-  })
+    })
+  }
 })

@@ -1,12 +1,11 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import { fileURLToPath } from 'node:url'
 
 import { format } from 'prettier'
 
 import SqlPlugin, { type SqlFormatOptions } from 'prettier-plugin-sql'
 
-const PARSER_OPTIONS: Record<string, SqlFormatOptions> = {
+const PARSER_OPTIONS: Partial<Record<string, SqlFormatOptions>> = {
   556: {
     language: 'mysql',
     endOfLine: 'crlf',
@@ -25,31 +24,35 @@ const PARSER_OPTIONS: Record<string, SqlFormatOptions> = {
   },
 }
 
-const _dirname =
-  typeof __dirname === 'undefined'
-    ? path.dirname(fileURLToPath(import.meta.url))
-    : __dirname
-
 describe('parser and printer', () => {
-  it('printer should handle eol correctly', async () => {
-    const fixtures = path.resolve(_dirname, 'fixtures-eol')
-    for (const filepath of fs.readdirSync(fixtures)) {
-      const input = fs.readFileSync(path.resolve(fixtures, filepath)).toString()
+  const fixtures = path.resolve(import.meta.dirname, 'fixtures-eol')
 
-      const caseName = filepath.slice(0, filepath.lastIndexOf('.'))
+  for (const relativeFilepath of fs.readdirSync(fixtures)) {
+    const filepath = path.resolve(fixtures, relativeFilepath)
+    const input = fs.readFileSync(filepath, 'utf8')
 
+    const caseName = relativeFilepath.slice(
+      0,
+      relativeFilepath.lastIndexOf('.'),
+    )
+
+    const overrideOptions = PARSER_OPTIONS[caseName]
+
+    it(`printer should handle ${relativeFilepath} eol correctly${
+      overrideOptions ? ' with options: ' + JSON.stringify(overrideOptions) : ''
+    }`, async () => {
       try {
         const output = await format(input, {
           filepath,
           parser: 'sql',
           plugins: [SqlPlugin],
-          ...PARSER_OPTIONS[caseName],
+          ...overrideOptions,
         })
 
-        expect(JSON.stringify(output)).toMatchSnapshot(filepath)
+        expect(output).toMatchSnapshot()
       } catch (error) {
-        expect(error).toMatchSnapshot(filepath)
+        expect(error).toMatchSnapshot()
       }
-    }
-  })
+    })
+  }
 })
