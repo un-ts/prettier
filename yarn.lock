@@ -4585,10 +4585,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/web@npm:^0.0.219":
-  version: 0.0.219
-  resolution: "@types/web@npm:0.0.219"
-  checksum: 10c0/563f046a78332b0386f2dacddb448ac894af1f6acd3ca08be3bad8a928b8e48c3f4dc4f70174fc849e16d9fbb8243062c1122194f8973bab87d94b99609b89cb
+"@types/web@npm:^0.0.228":
+  version: 0.0.228
+  resolution: "@types/web@npm:0.0.228"
+  checksum: 10c0/6597914cfa0ed85d76253618dd115b3766bff7c38c3056aebf5fc36694ef015bb1cbca2fae84f5e4bbcb92c420a624105f99ecf8f52889b4e0a054ece6a1ae4e
   languageName: node
   linkType: hard
 
@@ -4849,7 +4849,7 @@ __metadata:
     "@types/node": "npm:^22.14.1"
     "@types/react": "npm:^19.1.2"
     "@types/react-dom": "npm:^19.1.2"
-    "@types/web": "npm:^0.0.219"
+    "@types/web": "npm:^0.0.228"
     "@vitejs/plugin-react-swc": "npm:^3.9.0"
     "@vitest/coverage-istanbul": "npm:^3.1.1"
     "@vitest/eslint-plugin": "npm:^1.1.42"
