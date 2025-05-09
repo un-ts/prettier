@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.19.1
+
+### Patch Changes
+
+- [#453](https://github.com/un-ts/prettier/pull/453) [`b44651a`](https://github.com/un-ts/prettier/commit/b44651a38d8f87da584f898fb46db0ec69005725) Thanks [@JounQin](https://github.com/JounQin)! - fix: remove buggy `module-sync` exports field
+
 ## 0.19.0
 
 ### Minor Changes
