@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.17.4
+
+### Patch Changes
+
+- [#455](https://github.com/un-ts/prettier/pull/455) [`9f4a401`](https://github.com/un-ts/prettier/commit/9f4a4018fb0c16cfd5777b4fb12aa447d7c7f1c8) Thanks [@JounQin](https://github.com/JounQin)! - fix: fallback to `sh` printer when `dockerfmt` throws
+
 ## 0.17.3
 
 ### Patch Changes
