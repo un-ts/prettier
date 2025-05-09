@@ -890,6 +890,17 @@ exports[`parser and printer > should format 441.Dockerfile fixture correctly wit
 "
 `;
 
+exports[`parser and printer > should format 445.Dockerfile fixture correctly 1`] = `
+"FROM nginx
+WORKDIR /app
+ARG PROJECT_DIR=/
+ARG NGINX_CONF=nginx.conf
+COPY $NGINX_CONF /etc/nginx/conf.d/nginx.conf
+COPY $PROJECT_DIR /app
+CMD mkdir --parents /var/log/nginx && nginx -g "daemon off;"
+"
+`;
+
 exports[`parser and printer > should format 445.sh fixture correctly 1`] = `"reached EOF without closing quote '"`;
 
 exports[`parser and printer > should format Dockerfile fixture correctly 1`] = `
