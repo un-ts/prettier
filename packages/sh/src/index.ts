@@ -113,18 +113,62 @@ const dockerPrinter: Printer<string> = {
   async print(
     path,
     {
+      filepath,
+
+      // parser options
+      keepComments = true,
+      variant,
+      stopAt,
+      recoverErrors,
+
+      // printer options
       useTabs,
       tabWidth,
-      indent = useTabs ? 0 : tabWidth,
-      spaceRedirects = false,
-    }: DockerfilePrintOptions,
+      indent = useTabs ? 0 : (tabWidth ?? 2),
+      binaryNextLine = true,
+      switchCaseIndent = true,
+      spaceRedirects,
+      // eslint-disable-next-line sonarjs/deprecation
+      keepPadding,
+      minify,
+      singleLine,
+      functionNextLine,
+    }: ShPrintOptions,
   ) {
     const formatDockerfileContents = await getFormatDockerfileContents()
-    return formatDockerfileContents(path.node, {
-      indent,
-      spaceRedirects,
-      trailingNewline: true,
-    })
+    try {
+      return await formatDockerfileContents(path.node, {
+        indent,
+        spaceRedirects: spaceRedirects ?? false,
+        trailingNewline: true,
+      })
+    } catch {
+      /*
+       * `dockerfmt` is buggy now and could throw unexpectedly, so we fallback to
+       * the `sh` printer automatically in this case.
+       *
+       * @see {https://github.com/reteps/dockerfmt/issues/21}
+       * @see {https://github.com/reteps/dockerfmt/issues/25}
+       */
+      return processor(path.node, {
+        print: true,
+        filepath,
+        keepComments,
+        variant,
+        stopAt,
+        recoverErrors,
+        useTabs,
+        tabWidth,
+        indent,
+        binaryNextLine,
+        switchCaseIndent,
+        spaceRedirects: spaceRedirects ?? true,
+        keepPadding,
+        minify,
+        singleLine,
+        functionNextLine,
+      })
+    }
   },
 }
 
