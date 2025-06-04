@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.20.0
+
+### Minor Changes
+
+- [#464](https://github.com/un-ts/prettier/pull/464) [`13957de`](https://github.com/un-ts/prettier/commit/13957debc6b1089414127c271a01a5dbbaf69e4f) Thanks [@JounQin](https://github.com/JounQin)! - feat(pkg): add `libc` and `devEngines` support
+
 ## 0.19.1
 
 ### Patch Changes
