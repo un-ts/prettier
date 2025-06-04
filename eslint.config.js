@@ -1,5 +1,5 @@
 import base from '@1stg/eslint-config'
-import stylisticJs from '@stylistic/eslint-plugin-js'
+import stylistic from '@stylistic/eslint-plugin'
 import tsdoc from 'eslint-plugin-tsdoc'
 
 export default [
@@ -9,11 +9,11 @@ export default [
   },
   {
     plugins: {
-      '@stylistic/js': stylisticJs,
+      '@stylistic': stylistic,
       tsdoc,
     },
     rules: {
-      '@stylistic/js/multiline-comment-style': ['error', 'starred-block'],
+      '@stylistic/multiline-comment-style': ['error', 'starred-block'],
       'tsdoc/syntax': 'error',
     },
   },
