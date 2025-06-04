@@ -60,6 +60,8 @@ const primary = [
   'engines',
   'cpu',
   'os',
+  'libc',
+  'devEngines',
 
   // entries
   'man',

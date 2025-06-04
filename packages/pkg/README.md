@@ -97,6 +97,8 @@ Top-level keys are sorted according to a style commonly seen in the packages of 
   "engines",
   "cpu",
   "os",
+  "libc",
+  "devEngines",
 
   // entries
   "man",
