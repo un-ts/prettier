@@ -22,7 +22,7 @@ const {
 } = babelParser.parsers
 
 const format = (properties: ObjectProperty[]) => {
-  let props = ['engines', 'scripts', ...dependencyNames].reduce(
+  let props = ['engines', 'devEngines', 'scripts', ...dependencyNames].reduce(
     (acc, item) => object(acc, item),
     sort(properties),
   )
