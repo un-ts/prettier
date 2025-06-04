@@ -50,7 +50,7 @@ Detailed changes for each release are documented in [CHANGELOG.md](./CHANGELOG.m
 
 [MIT][] © [JounQin][]@[1stG.me][]
 
-[1stG.me]: https://www.1stg.me
+[1stG.me]: https://www.1stG.me
 [changesets]: https://github.com/changesets/changesets
 [JounQin]: https://github.com/JounQin
 [MIT]: http://opensource.org/licenses/MIT
