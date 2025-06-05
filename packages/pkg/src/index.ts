@@ -13,7 +13,11 @@ import babelParser from 'prettier/plugins/babel.js'
 import { files } from './rules/files.js'
 import { object } from './rules/object.js'
 import { dependencyNames, sort } from './rules/sort.js'
-import type { ObjectExpression, ObjectProperty } from './types.js'
+import type {
+  ObjectExpression,
+  ObjectProperty,
+  FormatOptions,
+} from './types.js'
 
 const PKG_REG = /[/\\]?package\.json$/
 
@@ -21,10 +25,10 @@ const {
   json: { parse },
 } = babelParser.parsers
 
-const format = (properties: ObjectProperty[]) => {
+const format = (properties: ObjectProperty[], options: FormatOptions) => {
   let props = ['engines', 'devEngines', 'scripts', ...dependencyNames].reduce(
     (acc, item) => object(acc, item),
-    sort(properties),
+    sort(properties, options),
   )
   props = files(props)
   return props
@@ -36,13 +40,30 @@ export default {
     'json-stringify': {
       ...babelParser.parsers['json-stringify'],
       parse(text, options) {
+        console.log(options)
+
         const { filepath } = options
         const ast = parse(text, options) as { node: ObjectExpression }
         if (PKG_REG.test(filepath)) {
-          ast.node.properties = format(ast.node.properties)
+          ast.node.properties = format(
+            ast.node.properties,
+            options as FormatOptions,
+          )
         }
         return ast
       },
     },
   },
+  options: {
+    packageSortOrder: {
+      since: '0.21.0',
+      category: 'Package',
+      type: 'string',
+      array: true,
+      default: [{ value: [] }],
+      description:
+        'An array of property names to sort the package.json properties by.',
+    },
+  },
+  defaultOptions: {},
 } as Plugin

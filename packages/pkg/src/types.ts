@@ -43,3 +43,7 @@ export interface StringArrayExpression extends ArrayExpression {
 }
 
 export type { StringLiteral } from '@babel/types'
+
+export interface FormatOptions {
+  packageSortOrder?: string[]
+}
