@@ -7,7 +7,7 @@
  * Code Form.
  */
 
-import type { ObjectProperty } from '../types.js'
+import type { FormatOptions, ObjectProperty } from '../types.js'
 import { alphabetSort, sortObject } from '../utils.js'
 
 export const dependencyNames = [
@@ -27,7 +27,7 @@ export const dependencyNames = [
  * https://yarnpkg.com/configuration/manifest vscode -
  * https://code.visualstudio.com/api/references/extension-manifest
  */
-const primary = [
+const primary: readonly string[] = [
   // schema definition
   '$schema',
 
@@ -113,10 +113,18 @@ const primary = [
   'extensionKind',
 ]
 
-export const sort = (props: ObjectProperty[]) => {
+const uniqueArray = <T>(arr: readonly T[]) => {
+  return [...new Set(arr)]
+}
+
+export const sort = (props: ObjectProperty[], options: FormatOptions) => {
+  let { packageSortOrder } = options
+
+  packageSortOrder = uniqueArray([...(packageSortOrder ?? []), ...primary])
+
   const others: ObjectProperty[] = []
   const known = props.filter(prop => {
-    if (primary.includes(prop.key.value)) {
+    if (packageSortOrder.includes(prop.key.value)) {
       return true
     }
     others.push(prop)
@@ -124,7 +132,10 @@ export const sort = (props: ObjectProperty[]) => {
   })
 
   known.sort((a, b) =>
-    alphabetSort(primary.indexOf(a.key.value), primary.indexOf(b.key.value)),
+    alphabetSort(
+      packageSortOrder.indexOf(a.key.value),
+      packageSortOrder.indexOf(b.key.value),
+    ),
   )
   others.sort(sortObject)
 
