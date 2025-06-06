@@ -40,8 +40,6 @@ export default {
     'json-stringify': {
       ...babelParser.parsers['json-stringify'],
       parse(text, options) {
-        console.log(options)
-
         const { filepath } = options
         const ast = parse(text, options) as { node: ObjectExpression }
         if (PKG_REG.test(filepath)) {
