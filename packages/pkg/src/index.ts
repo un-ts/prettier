@@ -27,7 +27,7 @@ const {
 
 const format = (properties: ObjectProperty[], options: FormatOptions) => {
   let props = ['engines', 'devEngines', 'scripts', ...dependencyNames].reduce(
-    (acc, item) => object(acc, item),
+    (acc, item) => object(acc, item, options),
     sort(properties, options),
   )
   props = files(props)
@@ -61,6 +61,15 @@ export default {
       default: [{ value: [] }],
       description:
         'An array of property names to sort the package.json properties by.',
+    },
+    packageIgnoreSort: {
+      since: '0.21.0',
+      category: 'Package',
+      type: 'string',
+      array: true,
+      default: [{ value: [] }],
+      description:
+        'An array of property names to ignore when sorting the package.json properties.',
     },
   },
 } as Plugin

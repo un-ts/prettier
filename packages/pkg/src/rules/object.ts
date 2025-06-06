@@ -7,10 +7,18 @@
  * Code Form.
  */
 
-import type { ObjectProperty, StringLiteral } from '../types.js'
+import type { FormatOptions, ObjectProperty, StringLiteral } from '../types.js'
 import { sortObject, sortStringArray } from '../utils.js'
 
-const process = (props: ObjectProperty[], key: string) => {
+const process = (
+  props: ObjectProperty[],
+  key: string,
+  options: FormatOptions,
+) => {
+  if (options.packageIgnoreSort?.includes(key)) {
+    return props
+  }
+
   const item = props.find(prop => prop.key.value === key)
 
   if (item) {
