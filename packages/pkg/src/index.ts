@@ -63,5 +63,4 @@ export default {
         'An array of property names to sort the package.json properties by.',
     },
   },
-  defaultOptions: {},
 } as Plugin
