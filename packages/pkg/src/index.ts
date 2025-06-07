@@ -14,9 +14,9 @@ import { files } from './rules/files.js'
 import { object } from './rules/object.js'
 import { dependencyNames, sort } from './rules/sort.js'
 import type {
+  FormatOptions,
   ObjectExpression,
   ObjectProperty,
-  FormatOptions,
 } from './types.js'
 
 const PKG_REG = /[/\\]?package\.json$/
@@ -26,10 +26,9 @@ const {
 } = babelParser.parsers
 
 const format = (properties: ObjectProperty[], options: FormatOptions) => {
-  let props = ['engines', 'devEngines', 'scripts', ...dependencyNames].reduce(
-    (acc, item) => object(acc, item, options),
-    sort(properties, options),
-  )
+  let props = ['engines', 'devEngines', 'scripts', ...dependencyNames]
+    .filter(item => !options.packageIgnoreSort?.includes(item))
+    .reduce((acc, item) => object(acc, item), sort(properties, options))
   props = files(props)
   return props
 }
