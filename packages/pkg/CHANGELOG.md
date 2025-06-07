@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.21.0
+
+### Minor Changes
+
+- [#468](https://github.com/un-ts/prettier/pull/468) [`db3e235`](https://github.com/un-ts/prettier/commit/db3e235a3fa4961b381e3c85e07e3b354e26de33) Thanks [@Shinigami92](https://github.com/Shinigami92)! - feat(pkg): add option `packageSortOrder`
+
+- [#472](https://github.com/un-ts/prettier/pull/472) [`d5442c8`](https://github.com/un-ts/prettier/commit/d5442c8488335d1e11de821d3014c617ae09c6e4) Thanks [@Shinigami92](https://github.com/Shinigami92)! - feat(pkg): add option `packageIgnoreSort`
+
 ## 0.20.0
 
 ### Minor Changes
