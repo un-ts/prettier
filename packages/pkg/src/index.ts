@@ -25,10 +25,15 @@ const {
   json: { parse },
 } = babelParser.parsers
 
+const DEFAULT_SORTS = ['engines', 'devEngines', 'scripts', ...dependencyNames]
+
 const format = (properties: ObjectProperty[], options: FormatOptions) => {
-  let props = ['engines', 'devEngines', 'scripts', ...dependencyNames]
-    .filter(item => !options.packageIgnoreSort?.includes(item))
-    .reduce((acc, item) => object(acc, item), sort(properties, options))
+  const { packageIgnoreSort } = options
+  let props = (
+    packageIgnoreSort?.length
+      ? DEFAULT_SORTS.filter(item => !packageIgnoreSort.includes(item))
+      : DEFAULT_SORTS
+  ).reduce((acc, item) => object(acc, item), sort(properties, options))
   props = files(props)
   return props
 }
