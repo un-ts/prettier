@@ -1,0 +1,361 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`sort-order-preset 'npm' 1`] = `
+"{
+  "name": "prettier-plugin-pkg",
+  "version": "0.0.0",
+  "description": "An opinionated package.json formatter plugin for Prettier",
+  "keywords": [
+    "package",
+    "package.json",
+    "pkg",
+    "plugin",
+    "prettier",
+    "prettier-plugin"
+  ],
+  "homepage": "https://github.com/un-ts/prettier/tree/master/packages/pkg",
+  "license": "MPL-2.0",
+  "author": "JounQin <admin@1stg.me> (https://www.1stG.me)",
+  "files": [
+    "lib",
+    "rules"
+  ],
+  "main": "lib/cjs",
+  "repository": "git@github.com/un-ts/prettier.git",
+  "peerDependencies": {
+    "prettier": "^1.18.2"
+  },
+  "engines": {
+    "node": ">= 8.0.0"
+  },
+  "commitlint": {
+    "extends": [
+      "@1stg"
+    ]
+  },
+  "es2015": "lib/es2015",
+  "eslintIgnore": [
+    "CHANGELOG.md",
+    "lib",
+    "!.*.js"
+  ],
+  "module": "lib/esm",
+  "resolutions": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.12.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "imagemin-gifsicle": "^6.0.1",
+    "prettier": "^2.0.4",
+    "typescript": "^3.8.3"
+  }
+}
+"
+`;
+
+exports[`sort-order-preset 'npm' 2`] = `
+"{
+  "name": "prettier-plugin-pkg",
+  "version": "0.0.0",
+  "description": "An opinionated package.json formatter plugin for Prettier",
+  "keywords": [
+    "package",
+    "package.json",
+    "pkg",
+    "plugin",
+    "prettier",
+    "prettier-plugin"
+  ],
+  "homepage": "https://github.com/un-ts/prettier/tree/master/packages/pkg",
+  "license": "MPL-2.0",
+  "author": "JounQin <admin@1stg.me> (https://www.1stG.me)",
+  "files": [
+    "lib",
+    "rules",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "lib/cjs",
+  "repository": "git@github.com/un-ts/prettier.git",
+  "scripts": {
+    "bootstrap": "yarn build && tsc --module commonjs --outDir lib/cjs",
+    "build": "ts-node -O '{\\"module\\":\\"commonjs\\"}' build"
+  },
+  "peerDependencies": {
+    "prettier": "^1.18.2"
+  },
+  "engines": {
+    "node": ">= 8.0.0"
+  },
+  "es2015": "lib/es2015",
+  "module": "lib/esm"
+}
+"
+`;
+
+exports[`sort-order-preset 'npm' 3`] = `
+"{
+  "dependencies": {
+    "@org/package": "^1.0.0",
+    "esm-package": "^1.0.0",
+    "find-up": "^1.0.0",
+    "jquery": "^3.1.0",
+    "lodash.cond": "^4.3.0",
+    "rxjs": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "2.x",
+    "glob": "1.0.0"
+  },
+  "peerDependencies": {
+    "eslint": "2.x"
+  },
+  "optionalDependencies": {
+    "lodash.isarray": "^4.0.0"
+  },
+  "bundledDependencies": [
+    "@generated/foo"
+  ],
+  "dummy": true
+}
+"
+`;
+
+exports[`sort-order-preset 'npm-plus' 1`] = `
+"{
+  "name": "prettier-plugin-pkg",
+  "version": "0.0.0",
+  "description": "An opinionated package.json formatter plugin for Prettier",
+  "keywords": [
+    "package",
+    "package.json",
+    "pkg",
+    "plugin",
+    "prettier",
+    "prettier-plugin"
+  ],
+  "homepage": "https://github.com/un-ts/prettier/tree/master/packages/pkg",
+  "repository": "git@github.com/un-ts/prettier.git",
+  "license": "MPL-2.0",
+  "author": "JounQin <admin@1stg.me> (https://www.1stG.me)",
+  "main": "lib/cjs",
+  "module": "lib/esm",
+  "files": [
+    "lib",
+    "rules"
+  ],
+  "commitlint": {
+    "extends": [
+      "@1stg"
+    ]
+  },
+  "eslintIgnore": [
+    "CHANGELOG.md",
+    "lib",
+    "!.*.js"
+  ],
+  "resolutions": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.12.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "imagemin-gifsicle": "^6.0.1",
+    "prettier": "^2.0.4",
+    "typescript": "^3.8.3"
+  },
+  "peerDependencies": {
+    "prettier": "^1.18.2"
+  },
+  "engines": {
+    "node": ">= 8.0.0"
+  },
+  "es2015": "lib/es2015"
+}
+"
+`;
+
+exports[`sort-order-preset 'npm-plus' 2`] = `
+"{
+  "name": "prettier-plugin-pkg",
+  "version": "0.0.0",
+  "description": "An opinionated package.json formatter plugin for Prettier",
+  "keywords": [
+    "package",
+    "package.json",
+    "pkg",
+    "plugin",
+    "prettier",
+    "prettier-plugin"
+  ],
+  "homepage": "https://github.com/un-ts/prettier/tree/master/packages/pkg",
+  "repository": "git@github.com/un-ts/prettier.git",
+  "license": "MPL-2.0",
+  "author": "JounQin <admin@1stg.me> (https://www.1stG.me)",
+  "main": "lib/cjs",
+  "module": "lib/esm",
+  "files": [
+    "lib",
+    "rules",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "bootstrap": "yarn build && tsc --module commonjs --outDir lib/cjs",
+    "build": "ts-node -O '{\\"module\\":\\"commonjs\\"}' build"
+  },
+  "peerDependencies": {
+    "prettier": "^1.18.2"
+  },
+  "engines": {
+    "node": ">= 8.0.0"
+  },
+  "es2015": "lib/es2015"
+}
+"
+`;
+
+exports[`sort-order-preset 'npm-plus' 3`] = `
+"{
+  "dependencies": {
+    "@org/package": "^1.0.0",
+    "esm-package": "^1.0.0",
+    "find-up": "^1.0.0",
+    "jquery": "^3.1.0",
+    "lodash.cond": "^4.3.0",
+    "rxjs": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "2.x",
+    "glob": "1.0.0"
+  },
+  "peerDependencies": {
+    "eslint": "2.x"
+  },
+  "optionalDependencies": {
+    "lodash.isarray": "^4.0.0"
+  },
+  "bundledDependencies": [
+    "@generated/foo"
+  ],
+  "dummy": true
+}
+"
+`;
+
+exports[`sort-order-preset 'unts' 1`] = `
+"{
+  "name": "prettier-plugin-pkg",
+  "version": "0.0.0",
+  "description": "An opinionated package.json formatter plugin for Prettier",
+  "repository": "git@github.com/un-ts/prettier.git",
+  "homepage": "https://github.com/un-ts/prettier/tree/master/packages/pkg",
+  "author": "JounQin <admin@1stg.me> (https://www.1stG.me)",
+  "license": "MPL-2.0",
+  "engines": {
+    "node": ">= 8.0.0"
+  },
+  "main": "lib/cjs",
+  "module": "lib/esm",
+  "es2015": "lib/es2015",
+  "files": [
+    "lib",
+    "rules"
+  ],
+  "keywords": [
+    "package",
+    "package.json",
+    "pkg",
+    "plugin",
+    "prettier",
+    "prettier-plugin"
+  ],
+  "peerDependencies": {
+    "prettier": "^1.18.2"
+  },
+  "resolutions": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.12.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "imagemin-gifsicle": "^6.0.1",
+    "prettier": "^2.0.4",
+    "typescript": "^3.8.3"
+  },
+  "commitlint": {
+    "extends": [
+      "@1stg"
+    ]
+  },
+  "eslintIgnore": [
+    "CHANGELOG.md",
+    "lib",
+    "!.*.js"
+  ]
+}
+"
+`;
+
+exports[`sort-order-preset 'unts' 2`] = `
+"{
+  "name": "prettier-plugin-pkg",
+  "version": "0.0.0",
+  "description": "An opinionated package.json formatter plugin for Prettier",
+  "repository": "git@github.com/un-ts/prettier.git",
+  "homepage": "https://github.com/un-ts/prettier/tree/master/packages/pkg",
+  "author": "JounQin <admin@1stg.me> (https://www.1stG.me)",
+  "license": "MPL-2.0",
+  "engines": {
+    "node": ">= 8.0.0"
+  },
+  "main": "lib/cjs",
+  "module": "lib/esm",
+  "es2015": "lib/es2015",
+  "files": [
+    "lib",
+    "rules",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "package",
+    "package.json",
+    "pkg",
+    "plugin",
+    "prettier",
+    "prettier-plugin"
+  ],
+  "scripts": {
+    "bootstrap": "yarn build && tsc --module commonjs --outDir lib/cjs",
+    "build": "ts-node -O '{\\"module\\":\\"commonjs\\"}' build"
+  },
+  "peerDependencies": {
+    "prettier": "^1.18.2"
+  }
+}
+"
+`;
+
+exports[`sort-order-preset 'unts' 3`] = `
+"{
+  "bundledDependencies": [
+    "@generated/foo"
+  ],
+  "peerDependencies": {
+    "eslint": "2.x"
+  },
+  "dependencies": {
+    "@org/package": "^1.0.0",
+    "esm-package": "^1.0.0",
+    "find-up": "^1.0.0",
+    "jquery": "^3.1.0",
+    "lodash.cond": "^4.3.0",
+    "rxjs": "^1.0.0"
+  },
+  "optionalDependencies": {
+    "lodash.isarray": "^4.0.0"
+  },
+  "devDependencies": {
+    "eslint": "2.x",
+    "glob": "1.0.0"
+  },
+  "dummy": true
+}
+"
+`;

@@ -44,6 +44,7 @@ test('randomize', async () => {
     filepath: path.join(_dirname, 'package.json'),
     parser: JSON_STRINGIFY,
     plugins: [PkgPlugin],
+    packageSortOrderPreset: 'unts',
   })
 
   expect(output).toMatchSnapshot()
@@ -56,6 +57,7 @@ test('preprocess', async () => {
     parser: JSON_STRINGIFY,
     plugins: [PkgPlugin],
     pluginSearchDirs: false,
+    packageSortOrderPreset: 'unts',
     preprocess(content: string) {
       const { version, repository } = JSON.parse(content) as typeof pkg1
       return { repository, version }

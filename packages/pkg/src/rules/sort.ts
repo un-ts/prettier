@@ -10,7 +10,7 @@
 import type { FormatOptions, ObjectProperty } from '../types.js'
 import { alphabetSort, sortObject } from '../utils.js'
 
-export const dependencyNames = [
+export const dependencyNames: readonly string[] = [
   'bundledDependencies',
   'peerDependencies',
   'peerDependenciesMeta',
@@ -22,12 +22,160 @@ export const dependencyNames = [
   'resolutions',
 ]
 
+/** Reference: npm - https://docs.npmjs.com/cli/v11/configuring-npm/package-json */
+const NPM_SORTS: readonly string[] = [
+  '$schema',
+  'name',
+  'version',
+  'description',
+  'keywords',
+  'homepage',
+  'bugs',
+  'license',
+  'author',
+  'contributors',
+  'funding',
+  'files',
+  'exports',
+  'main',
+  'browser',
+  'bin',
+  'man',
+  'directories',
+  'repository',
+  'scripts',
+  'config',
+  'dependencies',
+  'devDependencies',
+  'peerDependencies',
+  'peerDependenciesMeta',
+  'bundleDependencies',
+  'optionalDependencies',
+  'overrides',
+  'engines',
+  'os',
+  'cpu',
+  'libc',
+  'devEngines',
+  'private',
+  'publishConfig',
+  'workspaces',
+]
+
+/**
+ * Reference: npm -
+ * https://github.com/keithamus/sort-package-json/blob/aa6774ad937feb83178c8bc981f08305e1d22b5c/defaultRules.md
+ */
+const NPM_PLUS_SORTS: readonly string[] = [
+  '$schema',
+  'name',
+  'displayName',
+  'version',
+  'private',
+  'description',
+  'categories',
+  'keywords',
+  'homepage',
+  'bugs',
+  'repository',
+  'funding',
+  'license',
+  'qna',
+  'author',
+  'maintainers',
+  'contributors',
+  'publisher',
+  'sideEffects',
+  'type',
+  'imports',
+  'exports',
+  'main',
+  'svelte',
+  'umd:main',
+  'jsdelivr',
+  'unpkg',
+  'module',
+  'source',
+  'jsnext:main',
+  'browser',
+  'react-native',
+  'types',
+  'typesVersions',
+  'typings',
+  'style',
+  'example',
+  'examplestyle',
+  'assets',
+  'bin',
+  'man',
+  'directories',
+  'files',
+  'workspaces',
+  'binary',
+  'scripts',
+  'betterScripts',
+  'contributes',
+  'activationEvents',
+  'husky',
+  'simple-git-hooks',
+  'pre-commit',
+  'commitlint',
+  'lint-staged',
+  'nano-staged',
+  'config',
+  'nodemonConfig',
+  'browserify',
+  'babel',
+  'browserslist',
+  'xo',
+  'prettier',
+  'eslintConfig',
+  'eslintIgnore',
+  'npmpackagejsonlint',
+  'release',
+  'remarkConfig',
+  'stylelint',
+  'ava',
+  'jest',
+  'mocha',
+  'nyc',
+  'tap',
+  'oclif',
+  'resolutions',
+  'dependencies',
+  'devDependencies',
+  'dependenciesMeta',
+  'peerDependencies',
+  'peerDependenciesMeta',
+  'optionalDependencies',
+  'bundledDependencies',
+  'bundleDependencies',
+  'extensionPack',
+  'extensionDependencies',
+  'flat',
+  'packageManager',
+  'engines',
+  'engineStrict',
+  'volta',
+  'languageName',
+  'os',
+  'cpu',
+  'preferGlobal',
+  'publishConfig',
+  'icon',
+  'badges',
+  'galleryBanner',
+  'preview',
+  'markdown',
+  'pnpm',
+]
+
 /**
  * Reference: npm - https://docs.npmjs.com/files/package.json yarn -
  * https://yarnpkg.com/configuration/manifest vscode -
  * https://code.visualstudio.com/api/references/extension-manifest
  */
-const primary: readonly string[] = [
+const UNTS_SORT: readonly string[] = [
   // schema definition
   '$schema',
 
@@ -118,9 +266,18 @@ const uniqueArray = <T>(arr: readonly T[]) => {
 }
 
 export const sort = (props: ObjectProperty[], options: FormatOptions) => {
-  let { packageSortOrder } = options
+  let { packageSortOrder, packageSortOrderPreset } = options
 
-  packageSortOrder = uniqueArray([...(packageSortOrder ?? []), ...primary])
+  const defaultSortOrder = {
+    npm: NPM_SORTS,
+    'npm-plus': NPM_PLUS_SORTS,
+    unts: UNTS_SORT,
+  }[packageSortOrderPreset || 'npm']
+
+  packageSortOrder = uniqueArray([
+    ...(packageSortOrder ?? []),
+    ...defaultSortOrder,
+  ])
 
   const others: ObjectProperty[] = []
   const known = props.filter(prop => {
