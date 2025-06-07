@@ -12,6 +12,7 @@ concurrency:
 
 jobs:
   deploy:
+    if: ${{ github.repository_owner == 'un-ts' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo

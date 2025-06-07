@@ -1,15 +1,15 @@
 [
   {
     "path": "packages/autocorrect/lib/index.js",
-    "limit": "540B"
-  },
-  {
-    "path": "packages/pkg/lib/index.js",
     "limit": "500B"
   },
   {
+    "path": "packages/pkg/lib/index.js",
+    "limit": "600B"
+  },
+  {
     "path": "packages/sh/lib/index.js",
-    "limit": "3.4kB"
+    "limit": "3kB"
   },
   {
     "path": "packages/sql/lib/index.js",

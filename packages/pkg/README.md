@@ -168,6 +168,17 @@ Forthcoming rules include:
 - [ ] Author format
 - [ ] Repository format
 
+## Format Options
+
+```ts
+interface FormatOptions {
+  // An array of property names to sort the package.json properties by.
+  packageSortOrder?: string[]
+  // An array of property names to ignore when sorting the package.json properties.
+  packageIgnoreSort?: string[]
+}
+```
+
 ## Acknowledgements
 
 Thanks for [@shellscape](https://github.com/shellscape)'s original great work of [prettier-plugin-package][] again.
