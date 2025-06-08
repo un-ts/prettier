@@ -1,6 +1,6 @@
 import fs from 'node:fs'
 
-import LinguistLanguages from 'linguist-languages'
+import * as linguistLanguages from 'linguist-languages'
 import type { SupportLanguage } from 'prettier'
 
 const EXTRA_SH_LANGUAGES: SupportLanguage[] = [
@@ -41,23 +41,20 @@ const getSupportedLanguages = (
   aceModes: string[] = [parser],
   excludeNames?: string[],
 ) =>
-  Object.values(LinguistLanguages).reduce<SupportLanguage[]>(
+  Object.values(linguistLanguages).reduce<SupportLanguage[]>(
     (
       acc,
-      {
-        aceMode,
-        name,
-        type: _type,
-        color: _color,
-        languageId: linguistLanguageId,
-        ...rest
-      },
+      { aceMode, name, type: _type, languageId: linguistLanguageId, ...rest },
     ) => {
       if (!aceModes.includes('all') && !aceModes.includes(aceMode)) {
         return acc
       }
       if (excludeNames?.includes(name)) {
         return acc
+      }
+      if ('color' in rest) {
+        // @ts-expect-error -- annoying
+        delete rest.color
       }
       acc.push({
         name,
