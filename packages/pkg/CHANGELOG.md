@@ -1,5 +1,18 @@
 # Change Log
 
+## 0.21.1
+
+### Patch Changes
+
+- [#475](https://github.com/un-ts/prettier/pull/475) [`8f1aef9`](https://github.com/un-ts/prettier/commit/8f1aef94b22fa1d2559f249290ed0255301d3374) Thanks [@Shinigami92](https://github.com/Shinigami92)! - feat(pkg): add option `packageSortOrderPreset`
+
+  This option allows you to specify a preset for sorting packages in the `package.json` file.
+
+  The available presets are: `npm`, `npm-plus`:
+
+  - `npm`: sorts by [`npm`'s document](https://docs.npmjs.com/cli/v11/configuring-npm/package-json)
+  - `npm-plus`: sorts by [`sort-package-json`](https://github.com/keithamus/sort-package-json/blob/aa6774ad937feb83178c8bc981f08305e1d22b5c/defaultRules.md) and therefore is compatible to [`prettier-plugin-packagejson`](https://github.com/matzkoh/prettier-plugin-packagejson)
+
 ## 0.21.0
 
 ### Minor Changes
