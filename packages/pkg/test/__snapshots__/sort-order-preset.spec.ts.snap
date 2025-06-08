@@ -28,18 +28,8 @@ exports[`sort-order-preset 'npm' 1`] = `
   "engines": {
     "node": ">= 8.0.0"
   },
-  "commitlint": {
-    "extends": [
-      "@1stg"
-    ]
-  },
-  "es2015": "lib/es2015",
-  "eslintIgnore": [
-    "CHANGELOG.md",
-    "lib",
-    "!.*.js"
-  ],
   "module": "lib/esm",
+  "es2015": "lib/es2015",
   "resolutions": {
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.12.1",
@@ -47,7 +37,17 @@ exports[`sort-order-preset 'npm' 1`] = `
     "imagemin-gifsicle": "^6.0.1",
     "prettier": "^2.0.4",
     "typescript": "^3.8.3"
-  }
+  },
+  "commitlint": {
+    "extends": [
+      "@1stg"
+    ]
+  },
+  "eslintIgnore": [
+    "CHANGELOG.md",
+    "lib",
+    "!.*.js"
+  ]
 }
 "
 `;
@@ -86,8 +86,8 @@ exports[`sort-order-preset 'npm' 2`] = `
   "engines": {
     "node": ">= 8.0.0"
   },
-  "es2015": "lib/es2015",
-  "module": "lib/esm"
+  "module": "lib/esm",
+  "es2015": "lib/es2015"
 }
 "
 `;
@@ -240,7 +240,7 @@ exports[`sort-order-preset 'npm-plus' 3`] = `
 "
 `;
 
-exports[`sort-order-preset 'unts' 1`] = `
+exports[`sort-order-preset 'undefined' 1`] = `
 "{
   "name": "prettier-plugin-pkg",
   "version": "0.0.0",
@@ -292,7 +292,7 @@ exports[`sort-order-preset 'unts' 1`] = `
 "
 `;
 
-exports[`sort-order-preset 'unts' 2`] = `
+exports[`sort-order-preset 'undefined' 2`] = `
 "{
   "name": "prettier-plugin-pkg",
   "version": "0.0.0",
@@ -332,7 +332,7 @@ exports[`sort-order-preset 'unts' 2`] = `
 "
 `;
 
-exports[`sort-order-preset 'unts' 3`] = `
+exports[`sort-order-preset 'undefined' 3`] = `
 "{
   "bundledDependencies": [
     "@generated/foo"

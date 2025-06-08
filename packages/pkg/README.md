@@ -161,6 +161,11 @@ Top-level keys are sorted according to a style commonly seen in the packages of 
 
 Unknown keys, or keys not part of the list above, will be alphabetically sorted and added to the end of the file. Note that this list takes into account both `npm` and `yarn` keys.
 
+You can also use the `packageSortOrder` option to specify a custom sort order, or use the `packageSortOrderPreset` option to use a preset sort order:
+
+- `npm`: sorts by [`npm`'s document](https://docs.npmjs.com/cli/v11/configuring-npm/package-json)
+- `npm-plus`: sorts by [`sort-package-json`](https://github.com/keithamus/sort-package-json/blob/aa6774ad937feb83178c8bc981f08305e1d22b5c/defaultRules.md) and therefore is compatible to [`prettier-plugin-packagejson`](https://github.com/matzkoh/prettier-plugin-packagejson)
+
 ### Forthcoming
 
 Forthcoming rules include:
@@ -176,6 +181,8 @@ interface FormatOptions {
   packageSortOrder?: string[]
   // An array of property names to ignore when sorting the package.json properties.
   packageIgnoreSort?: string[]
+  // A preset for the package.json sort order.
+  packageSortOrderPreset?: 'npm' | 'npm-plus'
 }
 ```
 

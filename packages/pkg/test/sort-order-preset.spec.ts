@@ -6,7 +6,7 @@ import pkg3 from './fixtures/fixture3.json'
 
 import PkgPlugin from 'prettier-plugin-pkg'
 
-const sortOrderPresets = ['npm', 'npm-plus', 'unts']
+const sortOrderPresets = ['npm', 'npm-plus', undefined]
 const pkgs = [pkg1, pkg2, pkg3]
 
 const matrix = sortOrderPresets.flatMap(preset =>

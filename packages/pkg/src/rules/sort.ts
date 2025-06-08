@@ -22,7 +22,10 @@ export const dependencyNames: readonly string[] = [
   'resolutions',
 ]
 
-/** Reference: npm - https://docs.npmjs.com/cli/v11/configuring-npm/package-json */
+/**
+ * Reference: `npm` -
+ * https://docs.npmjs.com/cli/v11/configuring-npm/package-json
+ */
 const NPM_SORTS: readonly string[] = [
   '$schema',
   'name',
@@ -63,7 +66,7 @@ const NPM_SORTS: readonly string[] = [
 ]
 
 /**
- * Reference: npm -
+ * Reference: `sort-package-json` -
  * https://github.com/keithamus/sort-package-json/blob/aa6774ad937feb83178c8bc981f08305e1d22b5c/defaultRules.md
  */
 const NPM_PLUS_SORTS: readonly string[] = [
@@ -171,11 +174,13 @@ const NPM_PLUS_SORTS: readonly string[] = [
 ]
 
 /**
- * Reference: npm - https://docs.npmjs.com/files/package.json yarn -
- * https://yarnpkg.com/configuration/manifest vscode -
- * https://code.visualstudio.com/api/references/extension-manifest
+ * Reference:
+ *
+ * 1. `npm` - https://docs.npmjs.com/files/package.json
+ * 2. `yarn` - https://yarnpkg.com/configuration/manifest
+ * 3. `vscode` - https://code.visualstudio.com/api/references/extension-manifest
  */
-const UNTS_SORT: readonly string[] = [
+const primary: readonly string[] = [
   // schema definition
   '$schema',
 
@@ -261,6 +266,11 @@ const UNTS_SORT: readonly string[] = [
   'extensionKind',
 ]
 
+const DEFAULT_SORT_ORDERS = {
+  npm: NPM_SORTS,
+  'npm-plus': NPM_PLUS_SORTS,
+}
+
 const uniqueArray = <T>(arr: readonly T[]) => {
   return [...new Set(arr)]
 }
@@ -268,15 +278,15 @@ const uniqueArray = <T>(arr: readonly T[]) => {
 export const sort = (props: ObjectProperty[], options: FormatOptions) => {
   let { packageSortOrder, packageSortOrderPreset } = options
 
-  const defaultSortOrder = {
-    npm: NPM_SORTS,
-    'npm-plus': NPM_PLUS_SORTS,
-    unts: UNTS_SORT,
-  }[packageSortOrderPreset || 'npm']
+  const defaultSortOrder =
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+    (packageSortOrderPreset && DEFAULT_SORT_ORDERS[packageSortOrderPreset]) ||
+    []
 
   packageSortOrder = uniqueArray([
     ...(packageSortOrder ?? []),
     ...defaultSortOrder,
+    ...primary,
   ])
 
   const others: ObjectProperty[] = []

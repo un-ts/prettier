@@ -5,6 +5,20 @@ exports[`ignore-sort 1`] = `
   "name": "prettier-plugin-pkg",
   "version": "0.0.0",
   "description": "An opinionated package.json formatter plugin for Prettier",
+  "repository": "git@github.com/un-ts/prettier.git",
+  "homepage": "https://github.com/un-ts/prettier/tree/master/packages/pkg",
+  "author": "JounQin <admin@1stg.me> (https://www.1stG.me)",
+  "license": "MPL-2.0",
+  "engines": {
+    "node": ">= 8.0.0"
+  },
+  "main": "lib/cjs",
+  "module": "lib/esm",
+  "es2015": "lib/es2015",
+  "files": [
+    "lib",
+    "rules"
+  ],
   "keywords": [
     "package",
     "package.json",
@@ -13,33 +27,9 @@ exports[`ignore-sort 1`] = `
     "prettier",
     "prettier-plugin"
   ],
-  "homepage": "https://github.com/un-ts/prettier/tree/master/packages/pkg",
-  "license": "MPL-2.0",
-  "author": "JounQin <admin@1stg.me> (https://www.1stG.me)",
-  "files": [
-    "lib",
-    "rules"
-  ],
-  "main": "lib/cjs",
-  "repository": "git@github.com/un-ts/prettier.git",
   "peerDependencies": {
     "prettier": "^1.18.2"
   },
-  "engines": {
-    "node": ">= 8.0.0"
-  },
-  "commitlint": {
-    "extends": [
-      "@1stg"
-    ]
-  },
-  "es2015": "lib/es2015",
-  "eslintIgnore": [
-    "CHANGELOG.md",
-    "lib",
-    "!.*.js"
-  ],
-  "module": "lib/esm",
   "resolutions": {
     "imagemin-gifsicle": "^6.0.1",
     "@babel/core": "^7.9.0",
@@ -47,7 +37,17 @@ exports[`ignore-sort 1`] = `
     "prettier": "^2.0.4",
     "@babel/preset-env": "^7.12.1",
     "eslint-plugin-prettier": "^3.1.2"
-  }
+  },
+  "commitlint": {
+    "extends": [
+      "@1stg"
+    ]
+  },
+  "eslintIgnore": [
+    "CHANGELOG.md",
+    "lib",
+    "!.*.js"
+  ]
 }
 "
 `;

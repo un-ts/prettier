@@ -76,7 +76,7 @@ export default {
         'An array of property names to ignore when sorting the package.json properties.',
     },
     packageSortOrderPreset: {
-      since: '0.22.0',
+      since: '0.21.1',
       category: 'Package',
       type: 'choice',
       choices: [
@@ -90,19 +90,8 @@ export default {
           description:
             'Sorted according to https://github.com/keithamus/sort-package-json/blob/aa6774ad937feb83178c8bc981f08305e1d22b5c/defaultRules.md.',
         },
-        {
-          value: 'unts',
-          description:
-            'Sorted according to a style commonly seen in the packages of @JounQin, @1stG and @unts.',
-        },
       ],
-      default: 'npm',
       description: 'A preset for the package.json sort order.',
     },
-  },
-  defaultOptions: {
-    packageSortOrder: [],
-    packageIgnoreSort: [],
-    packageSortOrderPreset: 'npm',
   },
 } as Plugin
