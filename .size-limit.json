@@ -5,7 +5,7 @@
   },
   {
     "path": "packages/pkg/lib/index.js",
-    "limit": "600B"
+    "limit": "800B"
   },
   {
     "path": "packages/sh/lib/index.js",

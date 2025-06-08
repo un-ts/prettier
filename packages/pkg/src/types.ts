@@ -47,4 +47,5 @@ export type { StringLiteral } from '@babel/types'
 export interface FormatOptions {
   packageSortOrder?: string[]
   packageIgnoreSort?: string[]
+  packageSortOrderPreset?: 'npm-plus' | 'npm'
 }
