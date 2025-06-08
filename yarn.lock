@@ -4613,10 +4613,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/web@npm:^0.0.238":
-  version: 0.0.238
-  resolution: "@types/web@npm:0.0.238"
-  checksum: 10c0/c35960c5b785542af2d85181018d0728c8b911ce1307a591e82c60069a44055892c56d9853204770db22197fa4cec3c4ffa854353272a40078bcb4e635255acd
+"@types/web@npm:^0.0.239":
+  version: 0.0.239
+  resolution: "@types/web@npm:0.0.239"
+  checksum: 10c0/d44aaf050c11d832735cbe8bb71ed20d96204d91a3f5cbcf3218e9afd4ead4e6ffae31c88364147b60d5dc4fd354bbe0763e165745e3cddb97bf877eed4a0418
   languageName: node
   linkType: hard
 
@@ -4908,7 +4908,7 @@ __metadata:
     "@types/node": "npm:^22.15.29"
     "@types/react": "npm:^19.1.6"
     "@types/react-dom": "npm:^19.1.6"
-    "@types/web": "npm:^0.0.238"
+    "@types/web": "npm:^0.0.239"
     "@vitejs/plugin-react-swc": "npm:^3.10.1"
     "@vitest/coverage-istanbul": "npm:^3.2.1"
     "@vitest/eslint-plugin": "npm:^1.2.1"
@@ -4916,7 +4916,7 @@ __metadata:
     eslint: "npm:^9.28.0"
     eslint-plugin-tsdoc: "npm:^0.4.0"
     github-markdown-css: "npm:^5.8.1"
-    linguist-languages: "npm:^7.31.2"
+    linguist-languages: "npm:^8.0.0"
     nano-staged: "npm:^0.8.0"
     npm-run-all2: "npm:^8.0.4"
     prettier: "npm:^3.5.3"
@@ -9912,10 +9912,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"linguist-languages@npm:^7.31.2":
-  version: 7.31.2
-  resolution: "linguist-languages@npm:7.31.2"
-  checksum: 10c0/ed28967c5e3088ddf4de0363de0c7cbbe03d8dbe91655edfce440b84c51aeac1c295df8807c05ae23411246d6c2f3155da2cceda8ed678e8476d0e0d16d5cb15
+"linguist-languages@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "linguist-languages@npm:8.0.0"
+  checksum: 10c0/eaae46254247b9aa5b287ac98e062e7fe859314328ce305e34e152bc7bb172d69633999320cb47dc2a710388179712a76bb1ddd6e39e249af2684a4f0a66256c
   languageName: node
   linkType: hard
 
