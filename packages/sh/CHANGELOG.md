@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.18.0
+
+### Minor Changes
+
+- [#479](https://github.com/un-ts/prettier/pull/479) [`a607eef`](https://github.com/un-ts/prettier/commit/a607eefef98326071d8c247721faa320b31a516c) Thanks [@JounQin](https://github.com/JounQin)! - feat: better support for `dotenv` and `husky` files out of box
+
 ## 0.17.4
 
 ### Patch Changes
