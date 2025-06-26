@@ -11,6 +11,17 @@ node_modules
 "
 `;
 
+exports[`parser and printer > should format .env.development fixture correctly 1`] = `
+"VITE_API_BASE_URL= /api
+"
+`;
+
+exports[`parser and printer > should format .husky/precommit fixture correctly 1`] = `
+"yarn \\
+  lint
+"
+`;
+
 exports[`parser and printer > should format .nvmrc fixture correctly 1`] = `
 "v1.2.3
 "
