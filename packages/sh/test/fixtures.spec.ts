@@ -16,14 +16,25 @@ const PARSER_OPTIONS: Partial<
 describe('parser and printer', () => {
   const fixtures = path.resolve(import.meta.dirname, 'fixtures')
 
-  for (const relativeFilepath of fs.readdirSync(fixtures)) {
-    const filepath = path.resolve(fixtures, relativeFilepath)
+  for (const dirent of fs.readdirSync(fixtures, {
+    recursive: true,
+    withFileTypes: true,
+  })) {
+    if (dirent.isDirectory()) {
+      continue
+    }
+
+    const filepath = path.resolve(dirent.parentPath, dirent.name)
+
+    const relativeFilepath = path
+      .relative(fixtures, filepath)
+      .replaceAll(path.win32.sep, path.posix.sep)
+
     const input = fs.readFileSync(filepath, 'utf8')
 
-    const caseName = relativeFilepath.slice(
-      0,
-      relativeFilepath.lastIndexOf('.'),
-    )
+    const caseName = dirent.name.includes('.')
+      ? relativeFilepath.slice(0, relativeFilepath.lastIndexOf('.'))
+      : relativeFilepath
 
     const overrideOptions = PARSER_OPTIONS[caseName]
 

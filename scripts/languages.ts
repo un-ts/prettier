@@ -1,12 +1,13 @@
 import fs from 'node:fs'
+import path from 'node:path'
 
 import * as linguistLanguages from 'linguist-languages'
 import type { SupportLanguage } from 'prettier'
+import serializeJavascript from 'serialize-javascript'
 
 const EXTRA_SH_LANGUAGES: SupportLanguage[] = [
   {
     name: 'JvmOptions',
-    since: '0.1.0',
     parsers: ['sh'],
     extensions: ['.vmoptions'],
     filenames: ['jvm.options'],
@@ -14,22 +15,30 @@ const EXTRA_SH_LANGUAGES: SupportLanguage[] = [
   },
   {
     name: 'hosts',
-    since: '0.1.0',
     parsers: ['sh'],
     filenames: ['hosts'],
     vscodeLanguageIds: ['hosts'],
   },
   {
     name: 'dotenv',
-    since: '0.1.0',
     parsers: ['sh'],
     extensions: ['.env'],
-    filenames: ['.env.*'],
     vscodeLanguageIds: ['dotenv'],
+    isSupported({ filepath }) {
+      const basename = path.basename(filepath)
+      return basename === '.env' || basename.startsWith('.env.')
+    },
+  },
+  {
+    name: 'husky',
+    parsers: ['sh'],
+    isSupported({ filepath }) {
+      const dirname = path.dirname(filepath)
+      return path.basename(dirname) === '.husky'
+    },
   },
   {
     name: 'nvmrc',
-    since: '0.14.0',
     parsers: ['sh'],
     extensions: ['.node-version', '.nvmrc'],
     filenames: ['.node-version', '.nvmrc'],
@@ -59,7 +68,6 @@ const getSupportedLanguages = (
       acc.push({
         name,
         aceMode,
-        since: '0.1.0',
         parsers: [parser],
         linguistLanguageId,
         vscodeLanguageIds: [aceMode === 'sh' ? 'shellscript' : aceMode],
@@ -70,40 +78,39 @@ const getSupportedLanguages = (
     [],
   )
 
+const serialize = (input: unknown) =>
+  serializeJavascript(input, { space: 2, unsafe: true })
+
 fs.writeFileSync(
   'packages/autocorrect/src/languages.ts',
   `import type { SupportLanguage } from 'prettier'
 
-export const languages = ${JSON.stringify(
+export const languages = ${serialize(
     getSupportedLanguages('autocorrect', ['all']),
-    null,
-    2,
   )} as SupportLanguage[]`,
 )
 
 fs.writeFileSync(
   'packages/sh/src/languages.ts',
-  `import type { SupportLanguage } from 'prettier'
+  `import path from 'node:path'
 
-export const languages = ${JSON.stringify(
-    [
-      ...getSupportedLanguages('dockerfile'),
-      ...getSupportedLanguages(
-        'sh',
-        ['gitignore', 'properties', 'sh'],
-        [
-          /**
-           * `ShellSession` includes both commands and output. We can't reliably
-           * format the latter, so we exclude this language entirely.
-           */
-          'ShellSession',
-        ],
-      ),
-      ...EXTRA_SH_LANGUAGES,
-    ],
-    null,
-    2,
-  )} as SupportLanguage[]
+  import type { SupportLanguage } from 'prettier'
+
+export const languages = ${serialize([
+    ...getSupportedLanguages('dockerfile'),
+    ...getSupportedLanguages(
+      'sh',
+      ['gitignore', 'properties', 'sh'],
+      [
+        /**
+         * `ShellSession` includes both commands and output. We can't reliably
+         * format the latter, so we exclude this language entirely.
+         */
+        'ShellSession',
+      ],
+    ),
+    ...EXTRA_SH_LANGUAGES,
+  ])} as SupportLanguage[]
 `,
 )
 
@@ -111,11 +118,9 @@ fs.writeFileSync(
   'packages/sql/src/languages.ts',
   `import type { SupportLanguage } from 'prettier'
 
-export const languages = ${JSON.stringify(
-    [...getSupportedLanguages('sql', ['sql', 'pgsql'])],
-    null,
-    2,
-  )} as SupportLanguage[]
+export const languages = ${serialize([
+    ...getSupportedLanguages('sql', ['sql', 'pgsql']),
+  ])} as SupportLanguage[]
 `,
 )
 
@@ -123,10 +128,8 @@ fs.writeFileSync(
   'packages/toml/src/languages.ts',
   `import type { SupportLanguage } from 'prettier'
 
-export const languages = ${JSON.stringify(
-    [...getSupportedLanguages('toml')],
-    null,
-    2,
-  )} as SupportLanguage[]
+export const languages = ${serialize([
+    ...getSupportedLanguages('toml'),
+  ])} as SupportLanguage[]
 `,
 )
