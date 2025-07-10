@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.0.6
+
+### Patch Changes
+
+- [#485](https://github.com/un-ts/prettier/pull/485) [`9e0233e`](https://github.com/un-ts/prettier/commit/9e0233eb1909e415bf6e6a0c7a24d1de39a8f087) Thanks [@JounQin](https://github.com/JounQin)! - fix: do not use named exports for commonjs
+
 ## 2.0.5
 
 ### Patch Changes
