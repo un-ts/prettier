@@ -46,7 +46,7 @@
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@types/serialize-javascript": "^5.0.4",
-    "@types/web": "^0.0.243",
+    "@types/web": "^0.0.246",
     "@vitejs/plugin-react-swc": "^3.10.2",
     "@vitest/coverage-istanbul": "^3.2.4",
     "@vitest/eslint-plugin": "^1.2.7",
