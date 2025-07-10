@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.21.2
+
+### Patch Changes
+
+- [#485](https://github.com/un-ts/prettier/pull/485) [`9e0233e`](https://github.com/un-ts/prettier/commit/9e0233eb1909e415bf6e6a0c7a24d1de39a8f087) Thanks [@JounQin](https://github.com/JounQin)! - fix: do not use named exports for commonjs
+
 ## 0.21.1
 
 ### Patch Changes
@@ -9,7 +15,6 @@
   This option allows you to specify a preset for sorting packages in the `package.json` file.
 
   The available presets are: `npm`, `npm-plus`:
-
   - `npm`: sorts by [`npm`'s document](https://docs.npmjs.com/cli/v11/configuring-npm/package-json)
   - `npm-plus`: sorts by [`sort-package-json`](https://github.com/keithamus/sort-package-json/blob/aa6774ad937feb83178c8bc981f08305e1d22b5c/defaultRules.md) and therefore is compatible to [`prettier-plugin-packagejson`](https://github.com/matzkoh/prettier-plugin-packagejson)
 

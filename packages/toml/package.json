@@ -1,6 +1,6 @@
 {
   "name": "prettier-plugin-toml",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "type": "module",
   "description": "An opinionated `toml` formatter plugin for Prettier",
   "repository": "git+https://github.com/un-ts/prettier.git",
