@@ -13,7 +13,7 @@
   "packageManager": "yarn@4.9.2",
   "scripts": {
     "build": "run-p 'build:*'",
-    "build:r": "r -f cjs -e named",
+    "build:r": "r -f cjs",
     "build:ts": "tsc -b",
     "clean": "rimraf -g .type-coverage dist coverage '.*cache' 'packages/*/{lib,*.tsbuildinfo}'",
     "dev": "vitest",
