@@ -49,14 +49,15 @@ const getScriptSortProps = (
 
   return {
     base,
-    ranks: ranks.toReversed(),
+    // eslint-disable-next-line sonarjs/no-misleading-array-reverse
+    ranks: ranks.reverse(),
   }
 }
 
 export const sortScriptNames = (scriptNames: string[]) => {
   scriptNames = [...new Set(scriptNames)]
 
-  return scriptNames.toSorted((a, b) => {
+  return [...scriptNames].sort((a, b) => {
     const left = getScriptSortProps(a, scriptNames)
     const right = getScriptSortProps(b, scriptNames)
 
