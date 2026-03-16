@@ -12,3 +12,44 @@ export const sortObject = (a: ObjectProperty, b: ObjectProperty) =>
 
 export const sortStringArray = (a: StringLiteral, b: StringLiteral) =>
   alphabetSort(a.value, b.value)
+
+const getScriptSortMeta = (value: string, scriptNames: string[]) => {
+  if (value.length > 3 && value.startsWith('pre')) {
+    const base = value.slice(3)
+
+    if (scriptNames.includes(base)) {
+      return { base, order: -1 }
+    }
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-magic-numbers
+  if (value.length > 4 && value.startsWith('post')) {
+    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
+    const base = value.slice(4)
+
+    if (scriptNames.includes(base)) {
+      return { base, order: 1 }
+    }
+  }
+
+  return { base: value, order: 0 }
+}
+
+export const sortScriptNames = (scriptNames: string[]) => {
+  const uniqueScriptNames = [...new Set(scriptNames)]
+
+  return uniqueScriptNames.toSorted((a, b) => {
+    const left = getScriptSortMeta(a, uniqueScriptNames)
+    const right = getScriptSortMeta(b, uniqueScriptNames)
+
+    if (left.base !== right.base) {
+      return alphabetSort(left.base, right.base)
+    }
+
+    if (left.order !== right.order) {
+      return alphabetSort(left.order, right.order)
+    }
+
+    return alphabetSort(a, b)
+  })
+}
