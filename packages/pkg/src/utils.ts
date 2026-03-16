@@ -13,43 +13,87 @@ export const sortObject = (a: ObjectProperty, b: ObjectProperty) =>
 export const sortStringArray = (a: StringLiteral, b: StringLiteral) =>
   alphabetSort(a.value, b.value)
 
-const getScriptSortMeta = (value: string, scriptNames: string[]) => {
-  if (value.length > 3 && value.startsWith('pre')) {
-    const base = value.slice(3)
+const getScriptSortProps = (
+  currentScriptName: string,
+  allScriptNames: string[],
+) => {
+  const ranks: number[] = []
+  let base = currentScriptName
 
-    if (scriptNames.includes(base)) {
-      return { base, order: -1 }
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+  while (true) {
+    if (base.length > 3 && base.startsWith('pre')) {
+      const currentBase = base.slice(3)
+
+      if (allScriptNames.includes(currentBase)) {
+        ranks.push(-1)
+        base = currentBase
+        continue
+      }
     }
-  }
 
-  // eslint-disable-next-line @typescript-eslint/no-magic-numbers
-  if (value.length > 4 && value.startsWith('post')) {
     // eslint-disable-next-line @typescript-eslint/no-magic-numbers
-    const base = value.slice(4)
+    if (base.length > 4 && base.startsWith('post')) {
+      // eslint-disable-next-line @typescript-eslint/no-magic-numbers
+      const currentBase = base.slice(4)
 
-    if (scriptNames.includes(base)) {
-      return { base, order: 1 }
+      if (allScriptNames.includes(currentBase)) {
+        ranks.push(1)
+        base = currentBase
+        continue
+      }
     }
+
+    break
   }
 
-  return { base: value, order: 0 }
+  return {
+    base,
+    ranks: ranks.toReversed(),
+  }
 }
 
 export const sortScriptNames = (scriptNames: string[]) => {
-  const uniqueScriptNames = [...new Set(scriptNames)]
+  scriptNames = [...new Set(scriptNames)]
 
-  return uniqueScriptNames.toSorted((a, b) => {
-    const left = getScriptSortMeta(a, uniqueScriptNames)
-    const right = getScriptSortMeta(b, uniqueScriptNames)
+  return scriptNames.toSorted((a, b) => {
+    const left = getScriptSortProps(a, scriptNames)
+    const right = getScriptSortProps(b, scriptNames)
 
+    /*
+     * Attempt to compare resolved base names first. Example: `prebuild`,
+     * `build`, and `postbuild` all compare on the base name `build`.
+     */
     if (left.base !== right.base) {
       return alphabetSort(left.base, right.base)
     }
 
-    if (left.order !== right.order) {
-      return alphabetSort(left.order, right.order)
+    /*
+     * For scripts with the same base name, compare rank arrays. Instead of
+     * a single comparator value, we compare arrays of ranks in order to
+     * properly handle nested prefixes.
+     */
+    const length = Math.max(left.ranks.length, right.ranks.length)
+    let priority = 0
+
+    for (let i = 0; i < length; i++) {
+      const leftOrder = left.ranks[i] ?? 0
+      const rightOrder = right.ranks[i] ?? 0
+
+      if (leftOrder !== rightOrder) {
+        priority = alphabetSort(leftOrder, rightOrder)
+        break
+      }
     }
 
+    if (priority !== 0) {
+      return priority
+    }
+
+    /*
+     * If both the base name and ranks are equal, fall back to alphabetical
+     * comparison of the full script names.
+     */
     return alphabetSort(a, b)
   })
 }
