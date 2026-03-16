@@ -78,6 +78,7 @@ exports[`sort-order-preset 'npm' 2`] = `
   "repository": "git@github.com/un-ts/prettier.git",
   "scripts": {
     "bootstrap": "yarn build && tsc --module commonjs --outDir lib/cjs",
+    "prebuild": "tsc --noEmit",
     "build": "ts-node -O '{\\"module\\":\\"commonjs\\"}' build"
   },
   "peerDependencies": {
@@ -199,6 +200,7 @@ exports[`sort-order-preset 'npm-plus' 2`] = `
   ],
   "scripts": {
     "bootstrap": "yarn build && tsc --module commonjs --outDir lib/cjs",
+    "prebuild": "tsc --noEmit",
     "build": "ts-node -O '{\\"module\\":\\"commonjs\\"}' build"
   },
   "peerDependencies": {
@@ -323,6 +325,7 @@ exports[`sort-order-preset 'undefined' 2`] = `
   ],
   "scripts": {
     "bootstrap": "yarn build && tsc --module commonjs --outDir lib/cjs",
+    "prebuild": "tsc --noEmit",
     "build": "ts-node -O '{\\"module\\":\\"commonjs\\"}' build"
   },
   "peerDependencies": {

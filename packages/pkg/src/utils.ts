@@ -53,3 +53,16 @@ export const sortScriptNames = (scriptNames: string[]) => {
     return alphabetSort(a, b)
   })
 }
+
+export const sortScripts = (props: ObjectProperty[]) => {
+  const scriptOrder = Object.fromEntries(
+    sortScriptNames(props.map(prop => prop.key.value)).map((name, index) => [
+      name,
+      index,
+    ]),
+  )
+
+  props.sort((a, b) =>
+    alphabetSort(scriptOrder[a.key.value], scriptOrder[b.key.value]),
+  )
+}

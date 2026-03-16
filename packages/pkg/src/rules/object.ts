@@ -8,7 +8,7 @@
  */
 
 import type { ObjectProperty, StringLiteral } from '../types.js'
-import { sortObject, sortStringArray } from '../utils.js'
+import { sortObject, sortScripts, sortStringArray } from '../utils.js'
 
 const process = (props: ObjectProperty[], key: string) => {
   const item = props.find(prop => prop.key.value === key)
@@ -17,7 +17,11 @@ const process = (props: ObjectProperty[], key: string) => {
     if ('elements' in item.value) {
       ;(item.value.elements as StringLiteral[]).sort(sortStringArray)
     } else if ('properties' in item.value) {
-      item.value.properties.sort(sortObject)
+      if (key === 'scripts') {
+        sortScripts(item.value.properties)
+      } else {
+        item.value.properties.sort(sortObject)
+      }
     }
   }
 
