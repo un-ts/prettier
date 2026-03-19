@@ -1,5 +1,20 @@
 # Change Log
 
+## 0.22.0
+
+### Minor Changes
+
+- [#500](https://github.com/un-ts/prettier/pull/500) [`041b9e5`](https://github.com/un-ts/prettier/commit/041b9e50928f078ac109f334c3c2e16ddd064c29) Thanks [@porada](https://github.com/porada)! - feat(prettier-plugin-pkg): Sort `pre`/`post` scripts around the base script, except the following cases:
+
+  ```
+  pare
+  postpare
+
+  preprepare
+  prepare
+  postprepare
+  ```
+
 ## 0.21.2
 
 ### Patch Changes
