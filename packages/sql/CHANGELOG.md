@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.20.0
+
+### Minor Changes
+
+- [#496](https://github.com/un-ts/prettier/pull/496) [`2059ba0`](https://github.com/un-ts/prettier/commit/2059ba0ddd7ebc79b83210a6ff47d50b5dfbe7d3) Thanks [@derN3rd](https://github.com/derN3rd)! - feat: add support for clickhouse sql formatting
+
 ## 0.19.2
 
 ### Patch Changes
