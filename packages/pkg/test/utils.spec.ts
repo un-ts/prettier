@@ -61,15 +61,17 @@ describe('sortScriptNames', () => {
     expect(
       sortScriptNames([
         /* prettier-ignore */
-        'pare',
         'postprepare',
         'prepare',
         'preprepare',
         'test',
+        'postpare',
+        'pare',
       ]),
     ).toEqual([
       /* prettier-ignore */
       'pare',
+      'postpare',
       'preprepare',
       'prepare',
       'postprepare',
