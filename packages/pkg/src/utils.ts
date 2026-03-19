@@ -1,5 +1,23 @@
 import type { ObjectProperty, StringLiteral } from './types.js'
 
+/**
+ * The list of default lifecycle scripts defined by `npm`.
+ * @see https://docs.npmjs.com/cli/v11/using-npm/scripts
+ */
+const NPM_LIFECYCLE_SCRIPTS = new Set([
+  'dependencies',
+  'install',
+  'pack',
+  'prepare',
+  'publish',
+  'restart',
+  'shrinkwrap',
+  'start',
+  'stop',
+  'test',
+  'version',
+])
+
 export function alphabetSort(a: number, b: number): number
 export function alphabetSort(a: string, b: string): number
 export function alphabetSort(a: number | string, b: number | string) {
@@ -17,6 +35,13 @@ const getScriptSortProps = (
   scriptName: string,
   allScriptNames: Set<string>,
 ) => {
+  if (NPM_LIFECYCLE_SCRIPTS.has(scriptName)) {
+    return {
+      base: scriptName,
+      order: 0,
+    }
+  }
+
   if (scriptName.length > 3 && scriptName.startsWith('pre')) {
     const base = scriptName.slice(3)
 

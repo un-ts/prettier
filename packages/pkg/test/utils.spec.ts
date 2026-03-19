@@ -21,22 +21,6 @@ describe('sortScriptNames', () => {
       'test',
       'posttest',
     ])
-
-    expect(
-      sortScriptNames([
-        /* prettier-ignore */
-        'postprepare',
-        'prepare',
-        'preprepare',
-        'test',
-      ]),
-    ).toEqual([
-      /* prettier-ignore */
-      'preprepare',
-      'prepare',
-      'postprepare',
-      'test',
-    ])
   })
 
   test('ignores unmatched pre/post hooks', () => {
@@ -69,6 +53,26 @@ describe('sortScriptNames', () => {
       /* prettier-ignore */
       'post',
       'pre',
+      'test',
+    ])
+  })
+
+  test('respects default lifecycle scripts', () => {
+    expect(
+      sortScriptNames([
+        /* prettier-ignore */
+        'pare',
+        'postprepare',
+        'prepare',
+        'preprepare',
+        'test',
+      ]),
+    ).toEqual([
+      /* prettier-ignore */
+      'pare',
+      'preprepare',
+      'prepare',
+      'postprepare',
       'test',
     ])
   })
