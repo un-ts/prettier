@@ -7,6 +7,7 @@ exports[`sort-order 1`] = `
   "description": "An opinionated package.json formatter plugin for Prettier",
   "scripts": {
     "bootstrap": "yarn build && tsc --module commonjs --outDir lib/cjs",
+    "prebuild": "tsc --noEmit",
     "build": "ts-node -O '{\\"module\\":\\"commonjs\\"}' build"
   },
   "repository": "git@github.com/un-ts/prettier.git",

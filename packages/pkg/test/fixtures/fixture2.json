@@ -7,7 +7,8 @@
   "author": "JounQin <admin@1stg.me> (https://www.1stG.me)",
   "scripts": {
     "bootstrap": "yarn build && tsc --module commonjs --outDir lib/cjs",
-    "build": "ts-node -O '{\"module\":\"commonjs\"}' build"
+    "build": "ts-node -O '{\"module\":\"commonjs\"}' build",
+    "prebuild": "tsc --noEmit"
   },
   "homepage": "https://github.com/un-ts/prettier/tree/master/packages/pkg",
   "main": "lib/cjs",

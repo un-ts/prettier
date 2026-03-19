@@ -31,6 +31,7 @@ exports[`preprocess 1`] = `
   ],
   "scripts": {
     "bootstrap": "yarn build && tsc --module commonjs --outDir lib/cjs",
+    "prebuild": "tsc --noEmit",
     "build": "ts-node -O '{\\"module\\":\\"commonjs\\"}' build"
   },
   "peerDependencies": {
