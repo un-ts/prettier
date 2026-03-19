@@ -202,6 +202,10 @@ const SqlPlugin: Plugin<AST | string> = {
           value: 'trino',
           description: 'Trino: https://trino.io',
         },
+        {
+          value: 'clickhouse',
+          description: 'ClickHouse: https://clickhouse.com',
+        },
       ],
     },
     keywordCase: {

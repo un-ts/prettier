@@ -37,6 +37,9 @@ const PARSER_OPTIONS: Partial<Record<string, SqlFormatOptions>> = {
   405: {
     language: 'postgresql',
   },
+  495: {
+    language: 'clickhouse',
+  },
 }
 
 describe('parser and printer', () => {

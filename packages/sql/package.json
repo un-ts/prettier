@@ -52,7 +52,7 @@
   "dependencies": {
     "jsox": "^1.2.123",
     "node-sql-parser": "^5.3.10",
-    "sql-formatter": "^15.6.5",
+    "sql-formatter": "^15.7.0",
     "tslib": "^2.8.1"
   },
   "publishConfig": {

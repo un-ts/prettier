@@ -13271,7 +13271,7 @@ __metadata:
   dependencies:
     jsox: "npm:^1.2.123"
     node-sql-parser: "npm:^5.3.10"
-    sql-formatter: "npm:^15.6.5"
+    sql-formatter: "npm:^15.7.0"
     tslib: "npm:^2.8.1"
   peerDependencies:
     prettier: ^3.0.3
@@ -15514,15 +15514,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sql-formatter@npm:^15.6.5":
-  version: 15.6.5
-  resolution: "sql-formatter@npm:15.6.5"
+"sql-formatter@npm:^15.7.0":
+  version: 15.7.0
+  resolution: "sql-formatter@npm:15.7.0"
   dependencies:
     argparse: "npm:^2.0.1"
     nearley: "npm:^2.20.1"
   bin:
     sql-formatter: bin/sql-formatter-cli.cjs
-  checksum: 10c0/2968069abd9231c7933a2f77b29609d40bb82a6a529a5894a41b712d173eeeb193d124e4a841a3e5bd0edfa65e22e5efcd9fb0af786540b762dcd2224026ac17
+  checksum: 10c0/2af1e9deb75c733119f800bdd4c4c4f9e7438165fc082d0c264e4a6295ae641082281b90b5d70f2faac8f0f79ab9b0971124a8aa7d46d5c4837a9e5cd6347bfc
   languageName: node
   linkType: hard
 
