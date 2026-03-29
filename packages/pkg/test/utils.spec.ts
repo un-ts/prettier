@@ -21,6 +21,28 @@ describe('sortScriptNames', () => {
       'test',
       'posttest',
     ])
+
+    expect(
+      sortScriptNames([
+        /* prettier-ignore */
+        'test',
+        'postinstall',
+        'postpack',
+        'posttest',
+        'preinstall',
+        'prepack',
+        'pretest',
+      ]),
+    ).toEqual([
+      /* prettier-ignore */
+      'preinstall',
+      'postinstall',
+      'prepack',
+      'postpack',
+      'pretest',
+      'test',
+      'posttest',
+    ])
   })
 
   test('ignores unmatched pre/post hooks', () => {

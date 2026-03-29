@@ -36,7 +36,20 @@ const getScriptSortProps = (
   // eslint-disable-next-line @typescript-eslint/no-magic-numbers
   if (scriptName.length > 4 && scriptName.startsWith('post')) {
     // eslint-disable-next-line @typescript-eslint/no-magic-numbers
-    const base = scriptName.slice(4)
+    let base = scriptName.slice(4)
+
+    if (allScriptNames.has(base)) {
+      return {
+        base,
+        order: 1,
+      }
+    }
+
+    /*
+     * As a fallback, prefer to sort `post` scripts with unmatched base
+     * right under matching `pre` scripts
+     */
+    base = `pre${base}`
 
     if (allScriptNames.has(base)) {
       return {
