@@ -2,4 +2,4 @@
 "prettier-plugin-pkg": patch
 ---
 
-Fixed the omission where `pre`/`post` scripts without a matching base script weren’t sorted together.
+Fixed an omission in script sorting where default `pre`/`post` lifecycle scripts were treated as unrelated hooks and not sorted together.
