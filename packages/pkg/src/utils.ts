@@ -1,5 +1,23 @@
 import type { ObjectProperty, StringLiteral } from './types.js'
 
+/**
+ * The list of default lifecycle scripts defined by `npm`.
+ * @see https://docs.npmjs.com/cli/v11/using-npm/scripts
+ */
+const DEFAULT_LIFECYCLE_SCRIPTS = new Set([
+  'dependencies',
+  'install',
+  'pack',
+  'prepare',
+  'publish',
+  'restart',
+  'shrinkwrap',
+  'start',
+  'stop',
+  'test',
+  'version',
+])
+
 export function alphabetSort(a: number, b: number): number
 export function alphabetSort(a: string, b: string): number
 export function alphabetSort(a: number | string, b: number | string) {
@@ -17,15 +35,17 @@ const getScriptSortProps = (
   scriptName: string,
   allScriptNames: Set<string>,
 ) => {
-  // 1. Ensuring that `prepare` doesn’t get treated as `pare`
-  if (
-    scriptName.length > 3 &&
-    scriptName.startsWith('pre') &&
-    scriptName !== 'prepare' /* 1 */
-  ) {
+  if (DEFAULT_LIFECYCLE_SCRIPTS.has(scriptName)) {
+    return {
+      base: scriptName,
+      order: 0,
+    }
+  }
+
+  if (scriptName.length > 3 && scriptName.startsWith('pre')) {
     const base = scriptName.slice(3)
 
-    if (allScriptNames.has(base)) {
+    if (allScriptNames.has(base) || DEFAULT_LIFECYCLE_SCRIPTS.has(base)) {
       return {
         base,
         order: -1,
@@ -38,7 +58,7 @@ const getScriptSortProps = (
     // eslint-disable-next-line @typescript-eslint/no-magic-numbers
     const base = scriptName.slice(4)
 
-    if (allScriptNames.has(base)) {
+    if (allScriptNames.has(base) || DEFAULT_LIFECYCLE_SCRIPTS.has(base)) {
       return {
         base,
         order: 1,
