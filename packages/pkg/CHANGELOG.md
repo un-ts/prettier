@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.22.1
+
+### Patch Changes
+
+- [#503](https://github.com/un-ts/prettier/pull/503) [`9e065b9`](https://github.com/un-ts/prettier/commit/9e065b946105a2230d17d601976bb18d6732cba5) Thanks [@porada](https://github.com/porada)! - Fixed an omission in script sorting where default `pre`/`post` lifecycle scripts were treated as unrelated hooks and not sorted together.
+
 ## 0.22.0
 
 ### Minor Changes
