@@ -868,9 +868,9 @@ RUN set -eux; for x in {1..3}; do echo 'foo'; echo 'bar'; echo "$x"; done
 RUN <<EOF
 set -eux
 for x in {1..3}; do
- echo 'foo'
- echo 'bar'
- echo "$x"
+  echo 'foo'
+  echo 'bar'
+  echo "$x"
 done
 EOF
 "
@@ -883,21 +883,21 @@ exports[`parser and printer > should format 384.Dockerfile fixture correctly 1`]
 
 exports[`parser and printer > should format 398.Dockerfile fixture correctly 1`] = `
 "ENV a=1 \\
- b=2 \\
- # comment
- c=3 \\
- d=4 \\
- # comment
- e=5
+  b=2 \\
+  # comment
+  c=3 \\
+  d=4 \\
+  # comment
+  e=5
 "
 `;
 
 exports[`parser and printer > should format 441.Dockerfile fixture correctly with options: {"indent":4} 1`] = `
 "RUN \\
- # install dependencies
- NODE_ENV=production npm install-clean \\
- # cleanup
- && /usr/bin/env bash <(curl -fsSL https://raw.githubusercontent.com/softvisio/scripts/main/env-build-node.sh) cleanup
+    # install dependencies
+    NODE_ENV=production npm install-clean \\
+    # cleanup
+    && /usr/bin/env bash <(curl -fsSL https://raw.githubusercontent.com/softvisio/scripts/main/env-build-node.sh) cleanup
 "
 `;
 
@@ -921,8 +921,8 @@ exports[`parser and printer > should format Dockerfile fixture correctly 1`] = `
 COPY . /app
 WORKDIR /app
 RUN yarn --frozen-lockfile \\
- && yarn build \\
- && find . -name '*.map' -type f -exec rm -f {} \\;
+  && yarn build \\
+  && find . -name '*.map' -type f -exec rm -f {} \\;
 
 # 最终的应用
 FROM abiosoft/caddy
