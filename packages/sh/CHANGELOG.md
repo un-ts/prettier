@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.18.1
+
+### Patch Changes
+
+- [#507](https://github.com/un-ts/prettier/pull/507) [`52a4625`](https://github.com/un-ts/prettier/commit/52a462512c54735f3cdbb8d0bf3988d260eb4be6) Thanks [@reteps](https://github.com/reteps)! - chore: bump `@reteps/dockerfmt` to v0.5.1
+
 ## 0.18.0
 
 ### Minor Changes
