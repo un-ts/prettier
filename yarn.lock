@@ -3778,10 +3778,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reteps/dockerfmt@npm:^0.3.6":
-  version: 0.3.6
-  resolution: "@reteps/dockerfmt@npm:0.3.6"
-  checksum: 10c0/b6ca467ba97ea49071c44d0fbecf131fc8045165e950d0d01372c1834000c58d53f62bff42f09b851f7a9d91899047f071cd8fe57e1fc88fc27e2a3d2bdb214d
+"@reteps/dockerfmt@npm:^0.5.1":
+  version: 0.5.1
+  resolution: "@reteps/dockerfmt@npm:0.5.1"
+  checksum: 10c0/161295c4d307b3bb54c6fa49ab2d53be082fc3303fdbb14e250d5b057cf79beba3c607e6db2df3cbf8b0391c4ba094f8afe4fac7223f3d2688ba22ea108fcb87
   languageName: node
   linkType: hard
 
@@ -13256,7 +13256,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "prettier-plugin-sh@workspace:packages/sh"
   dependencies:
-    "@reteps/dockerfmt": "npm:^0.3.6"
+    "@reteps/dockerfmt": "npm:^0.5.1"
     "@types/common-tags": "npm:^1.8.4"
     common-tags: "npm:^1.8.2"
     sh-syntax: "npm:^0.5.8"
