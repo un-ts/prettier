@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
       - name: Check Branch
         id: branch
@@ -26,7 +26,7 @@ jobs:
           echo "comment=false" >> $GITHUB_OUTPUT
 
       - name: Deploy
-        uses: amondnet/vercel-action@16e87c0a08142b0d0d33b76aeaf20823c381b9b9 # v25
+        uses: amondnet/vercel-action@4b001a441d80e00aeed3680a3719d1d8b95998c5 # v42.2.1
         with:
           vercel-args: ${{ steps.branch.outputs.args }}
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
