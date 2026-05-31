@@ -17,8 +17,7 @@ export interface DockerfilePrintOptions extends ParserOptions<string> {
 }
 
 export interface ShParserOptions
-  extends Partial<ParserOptions<Node>>,
-    ShOptions {
+  extends Partial<ParserOptions<Node>>, ShOptions {
   filepath: string
 }
 
@@ -58,6 +57,7 @@ function hasPragma(text: string) {
    */
 
   // No, we don't support unofficial block comments.
+  // eslint-disable-next-line regexp/no-unused-capturing-group
   const commentLineRegex = /^\s*(#(?<comment>.*))?$/gm
   let lastIndex = -1
 
@@ -69,7 +69,7 @@ function hasPragma(text: string) {
     const match = commentLineRegex.exec(text)
 
     // Found "real" content, EoF, or stuck in a loop.
-    if (match == null || match.index !== lastIndex + 1) {
+    if (match?.index !== lastIndex + 1) {
       return false
     }
 

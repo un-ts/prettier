@@ -1,7 +1,7 @@
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-import { type Options, format } from 'prettier'
+import { format } from 'prettier'
 
 import pkg1 from './fixtures/fixture1.json'
 import pkg2 from './fixtures/fixture2.json'
@@ -60,7 +60,7 @@ test('preprocess', async () => {
       const { version, repository } = JSON.parse(content) as typeof pkg1
       return { repository, version }
     },
-  } as Options)
+  })
 
   expect(output).toMatchSnapshot()
 })

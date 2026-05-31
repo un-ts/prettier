@@ -36,7 +36,6 @@ const SqlPlugin: Plugin<AST | string> = {
   languages,
   parsers: {
     sql: {
-      // eslint-disable-next-line sonarjs/function-return-type
       parse(text, { formatter, type, database }: SqlOptions) {
         return formatter === SQL_FORMATTER
           ? text
