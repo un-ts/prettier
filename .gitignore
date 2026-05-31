@@ -3,7 +3,6 @@
 .*cache
 .changelog
 .type-coverage
-.vercel
 .yarn/*
 !.yarn/plugins
 !.yarn/releases

@@ -4,6 +4,7 @@
   "type": "module",
   "description": "Opinionated but Incredible Prettier plugins.",
   "repository": "git+https://github.com/un-ts/prettier.git",
+  "homepage": "https://prettier.1stG.me",
   "author": "JounQin <admin@1stg.me> (https://www.1stG.me)",
   "license": "MIT",
   "private": true,
