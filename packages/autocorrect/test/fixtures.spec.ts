@@ -27,7 +27,8 @@ describe('parser and printer', () => {
         })
 
         expect(output).toMatchSnapshot()
-      } catch (err: unknown) {
+      } catch (err) {
+        // eslint-disable-next-line vitest/no-conditional-expect
         expect((err as Error).message).toMatchSnapshot()
       }
     })

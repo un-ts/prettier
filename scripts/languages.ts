@@ -72,7 +72,7 @@ const getSupportedLanguages = (
         linguistLanguageId,
         vscodeLanguageIds: [aceMode === 'sh' ? 'shellscript' : aceMode],
         ...rest,
-      })
+      } as SupportLanguage)
       return acc
     },
     [],
