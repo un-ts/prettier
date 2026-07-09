@@ -314,6 +314,15 @@ export const options: Plugin['options'] = {
         ].join('\n'),
       },
       {
+        value: LangVariant.LangZsh,
+        description: [
+          'LangZsh corresponds to the Z shell language, as described at https://www.zsh.org.',
+          'Note that it shares most features with Bash, adding zsh-specific extensions such as parameter modifier chains (e.g. "${0:A:h}").',
+          '',
+          'Its string representation is "zsh".',
+        ].join('\n'),
+      },
+      {
         value: LangVariant.LangAuto,
         description: [
           "LangAuto corresponds to automatic language detection, commonly used by end-user applications like shfmt, which can guess a file's language variant given its filename or shebang.",

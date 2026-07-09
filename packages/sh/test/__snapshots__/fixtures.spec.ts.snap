@@ -912,7 +912,7 @@ CMD mkdir --parents /var/log/nginx && nginx -g "daemon off;"
 "
 `;
 
-exports[`parser and printer > should format 445.sh fixture correctly 1`] = `"reached EOF without closing quote '"`;
+exports[`parser and printer > should format 445.sh fixture correctly 1`] = `"reached EOF without closing quote \`'\`"`;
 
 exports[`parser and printer > should format Dockerfile fixture correctly 1`] = `
 "FROM node:lts-alpine as builder
