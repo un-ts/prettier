@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.19.0
+
+### Minor Changes
+
+- [#512](https://github.com/un-ts/prettier/pull/512) [`733fcfd`](https://github.com/un-ts/prettier/commit/733fcfd56c008a69df9d91d494ea647deca2092f) Thanks [@jjloneman](https://github.com/jjloneman)! - feat: ✨ support `zsh` dialect by upgrading `sh-syntax` to `^0.6.0`
+
 ## 0.18.1
 
 ### Patch Changes
