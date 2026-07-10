@@ -13,6 +13,6 @@ test('fatal parse error with meaningful message', async () => {
   )
   await rejects.toThrow(ParseError)
   await rejects.toThrow(
-    'a command can only contain words and redirects; encountered )',
+    'a command can only contain words and redirects; encountered `)`',
   )
 })
