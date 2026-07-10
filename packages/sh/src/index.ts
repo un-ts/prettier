@@ -97,8 +97,7 @@ const dockerfileParser: Parser<string> = {
 }
 
 let formatDockerfileContents_:
-  | typeof import('@reteps/dockerfmt').formatDockerfileContents
-  | undefined
+  typeof import('@reteps/dockerfmt').formatDockerfileContents | undefined
 
 const getFormatDockerfileContents = async () => {
   if (!formatDockerfileContents_) {
