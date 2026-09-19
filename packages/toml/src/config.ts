@@ -18,13 +18,21 @@ const serializeValue = (value: Exclude<TombiRuleValue, undefined>) =>
 const toKebabCase = (value: string) =>
   value.replaceAll(/[A-Z]/g, char => `-${char.toLowerCase()}`)
 
-/**
- * Build a virtual `tombi.toml` configuration from the resolved Prettier
- * options. Prettier's own `printWidth`, `tabWidth`, `useTabs`, `singleQuote`
- * and `bracketSpacing` options are mapped to their Tombi counterparts.
- */
-export function buildTombiConfig(options: PrettierOptions): string {
-  const rules: Record<string, TombiRuleValue> = {
+/** Resolve the string quote style, inheriting Prettier's `singleQuote`. */
+const resolveStringQuoteStyle = (options: PrettierOptions) =>
+  options.stringQuoteStyle ?? (options.singleQuote ? 'single' : 'double')
+
+/** Resolve inline table spacing, inheriting Prettier's `bracketSpacing`. */
+const resolveInlineTableBraceSpaceWidth = (options: PrettierOptions) =>
+  options.inlineTableBraceSpaceWidth ?? (options.bracketSpacing ? 1 : 0)
+
+/** Resolve the line width, inheriting Prettier's `printWidth`. */
+const resolveLineWidth = (options: PrettierOptions) =>
+  Number.isFinite(options.printWidth) ? options.printWidth : undefined
+
+/** Collect the Tombi `[format.rules]` entries from the Prettier options. */
+function getRules(options: PrettierOptions): Record<string, TombiRuleValue> {
+  return {
     arrayBracketSpaceWidth: options.arrayBracketSpaceWidth,
     arrayCommaSpaceWidth: options.arrayCommaSpaceWidth,
     commentStyle: options.commentStyle,
@@ -34,21 +42,26 @@ export function buildTombiConfig(options: PrettierOptions): string {
     indentSubTables: options.indentSubTables,
     indentTableKeyValuePairs: options.indentTableKeyValuePairs,
     indentWidth: options.tabWidth,
-    inlineTableBraceSpaceWidth:
-      options.inlineTableBraceSpaceWidth ?? (options.bracketSpacing ? 1 : 0),
+    inlineTableBraceSpaceWidth: resolveInlineTableBraceSpaceWidth(options),
     inlineTableCommaSpaceWidth: options.inlineTableCommaSpaceWidth,
     keyValueEqualsSignAlignment: options.keyValueEqualsSignAlignment,
     keyQuoteStyle: options.keyQuoteStyle,
     keyValueEqualsSignSpaceWidth: options.keyValueEqualsSignSpaceWidth,
-    lineWidth: Number.isFinite(options.printWidth)
-      ? options.printWidth
-      : undefined,
-    stringQuoteStyle:
-      options.stringQuoteStyle ?? (options.singleQuote ? 'single' : 'double'),
+    lineWidth: resolveLineWidth(options),
+    stringQuoteStyle: resolveStringQuoteStyle(options),
     tableBlankLines: options.tableBlankLines,
     trailingCommentAlignment: options.trailingCommentAlignment,
     trailingCommentSpaceWidth: options.trailingCommentSpaceWidth,
   }
+}
+
+/**
+ * Build a virtual `tombi.toml` configuration from the resolved Prettier
+ * options. Prettier's own `printWidth`, `tabWidth`, `useTabs`, `singleQuote`
+ * and `bracketSpacing` options are mapped to their Tombi counterparts.
+ */
+export function buildTombiConfig(options: PrettierOptions): string {
+  const rules = getRules(options)
 
   return [
     `toml-version = ${serializeValue(options.tomlVersion ?? 'v1.0.0')}`,
