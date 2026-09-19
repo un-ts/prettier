@@ -42,7 +42,8 @@
   },
   "dependencies": {
     "@dual-bundle/import-meta-resolve": "^4.2.1",
-    "@tombi-toml/wasm-lib": "^1.5.5"
+    "@tombi-toml/wasm-lib": "^1.5.5",
+    "smol-toml": "^1.8.0"
   },
   "publishConfig": {
     "access": "public"

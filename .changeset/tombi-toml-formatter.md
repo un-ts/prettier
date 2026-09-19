@@ -23,4 +23,12 @@ This release requires Node.js `v18.0.0` or later, matching the package's
 `engines` field, because the Tombi WASM module is resolved and loaded with
 `@dual-bundle/import-meta-resolve`.
 
+Tombi's own configuration is now picked up as well: `.tombi.toml`, `tombi.toml`,
+`.config/tombi.toml` and `[tool.tombi]` in `pyproject.toml` are searched from
+the formatted file's directory up to the filesystem root (plus the user and
+system level locations), following
+[Tombi's search priority](https://github.com/tombi-toml/tombi/blob/main/docs/src/routes/docs/configuration.mdx).
+The discovered `[format.rules]` take precedence over the corresponding Prettier
+options.
+
 See the `prettier-plugin-toml` README for the full list of supported options.

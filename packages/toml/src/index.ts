@@ -1,7 +1,12 @@
 import type { Diagnostic } from '@tombi-toml/wasm-lib'
 import type { Plugin } from 'prettier'
 
-import { buildTombiConfig } from './config.js'
+import {
+  getTombiConfig,
+  mergeTombiConfig,
+  serializeTombiConfig,
+} from './config.js'
+import { discoverTombiConfig } from './discover.js'
 import { languages } from './languages.js'
 import { prettierOptionsDefinitions } from './options.js'
 import type { PrettierOptions } from './types.js'
@@ -54,6 +59,27 @@ async function loadTombi(): Promise<Tombi & TombiWasmInit> {
 }
 
 /**
+ * Build the Tombi configuration for a file, merging a discovered `tombi.toml`
+ * (or `[tool.tombi]` in `pyproject.toml`) with the resolved Prettier options.
+ */
+async function resolveConfig(options: PrettierOptions) {
+  const prettierConfig = getTombiConfig(options)
+  const discovered = await discoverTombiConfig(options.filepath)
+
+  return discovered
+    ? {
+        content: serializeTombiConfig(
+          mergeTombiConfig(prettierConfig, discovered.config),
+        ),
+        path: discovered.path,
+      }
+    : {
+        content: serializeTombiConfig(prettierConfig),
+        path: 'tombi.toml',
+      }
+}
+
+/**
  * Format a TOML document with Tombi. Error diagnostics are thrown as a
  * {@link TombiFormatError} so Prettier can render them with a code frame.
  */
@@ -61,7 +87,7 @@ async function format(code: string, options: PrettierOptions) {
   const { format: formatToml } = await loadTombi()
 
   const { formatted, diagnostics } = await formatToml(code, options.filepath, {
-    config: buildTombiConfig(options),
+    config: await resolveConfig(options),
   })
 
   if (formatted == null) {
@@ -96,6 +122,7 @@ const TomlPlugin: Plugin<string> = {
   options: prettierOptionsDefinitions,
 }
 
+export type * from './config.js'
 export type * from './types.js'
 
 export default TomlPlugin

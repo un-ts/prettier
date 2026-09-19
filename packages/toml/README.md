@@ -47,6 +47,26 @@ npx prettier --write foo.toml
 yarn prettier --write foo.toml
 ```
 
+## Configuration
+
+Besides the Prettier options below, this plugin also reads [tombi][]'s own
+configuration following its
+[search priority](https://github.com/tombi-toml/tombi/blob/main/docs/src/routes/docs/configuration.mdx):
+
+1. For every directory from the formatted file's directory up to the filesystem
+   root: `.tombi.toml`, `tombi.toml`, `.config/tombi.toml`, then `[tool.tombi]`
+   in `pyproject.toml`.
+2. User level: `$XDG_CONFIG_HOME/tombi/config.toml`,
+   `~/.config/tombi/config.toml`, plus the platform specific
+   `~/Library/Application Support/tombi/config.toml` (macOS) or
+   `%APPDATA%\tombi\config.toml` (Windows).
+3. System level: `/etc/tombi/config.toml`.
+
+When a configuration file is found, its `[format.rules]` take precedence over
+the corresponding Prettier options, and Prettier options fill in the rules the
+configuration does not set. Tombi's schema lookup stays disabled so formatting
+is deterministic and never hits the network.
+
 ## Parser Options
 
 [prettier][]'s own core options are inherited and mapped to their tombi

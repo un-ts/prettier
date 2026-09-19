@@ -13047,6 +13047,7 @@ __metadata:
   dependencies:
     "@dual-bundle/import-meta-resolve": "npm:^4.2.1"
     "@tombi-toml/wasm-lib": "npm:^1.5.5"
+    smol-toml: "npm:^1.8.0"
   peerDependencies:
     prettier: ^3.0.3
   languageName: unknown
@@ -15016,6 +15017,13 @@ __metadata:
   version: 3.0.0
   resolution: "slash@npm:3.0.0"
   checksum: 10c0/e18488c6a42bdfd4ac5be85b2ced3ccd0224773baae6ad42cfbb9ec74fc07f9fa8396bd35ee638084ead7a2a0818eb5e7151111544d4731ce843019dab4be47b
+  languageName: node
+  linkType: hard
+
+"smol-toml@npm:^1.8.0":
+  version: 1.8.0
+  resolution: "smol-toml@npm:1.8.0"
+  checksum: 10c0/4e01dbfb7c7af142176b037ebedaccccafb8229cc873feaa47c184ee31073d86e30b4b1b0fe9a5a6d083ed3ce21615eda9e81d1f5d779ad8b2e2e9459b900aea
   languageName: node
   linkType: hard
 

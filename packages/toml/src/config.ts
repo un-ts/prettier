@@ -1,15 +1,14 @@
+import { stringify } from 'smol-toml'
+
 import type { PrettierOptions } from './types.js'
 
+/** A primitive Tombi configuration value. */
 type TombiRuleValue = boolean | number | string | undefined
 
-/**
- * Serialize a single TOML value.
- *
- * All supported values are booleans, finite numbers and strings without
- * special characters, so `JSON.stringify` produces valid TOML literals.
- */
-const serializeValue = (value: Exclude<TombiRuleValue, undefined>) =>
-  JSON.stringify(value)
+/** A parsed Tombi configuration. */
+export type TombiConfig = Record<string, unknown>
+
+const DEFAULT_TOML_VERSION = 'v1.0.0'
 
 /**
  * Tombi's configuration is `kebab-case`, while the options are plain
@@ -55,32 +54,62 @@ function getRules(options: PrettierOptions): Record<string, TombiRuleValue> {
   }
 }
 
-/**
- * Build a virtual `tombi.toml` configuration from the resolved Prettier
- * options. Prettier's own `printWidth`, `tabWidth`, `useTabs`, `singleQuote`
- * and `bracketSpacing` options are mapped to their Tombi counterparts.
- */
-export function buildTombiConfig(options: PrettierOptions): string {
-  const rules = getRules(options)
-
-  return [
-    `toml-version = ${serializeValue(options.tomlVersion ?? 'v1.0.0')}`,
-    '',
-    /*
-     * Keep formatting deterministic and offline: schema driven reordering must
-     * not affect Prettier output, and loading the remote schema catalogs would
-     * make every format call hit the network.
-     */
-    '[schema]',
-    'enabled = false',
-    '',
-    '[format.rules]',
-    ...Object.entries(rules)
+/** Convert the camelCase rules to Tombi's `kebab-case` config keys. */
+const toTombiRules = (rules: Record<string, TombiRuleValue>) =>
+  Object.fromEntries(
+    Object.entries(rules)
       .filter(
         (entry): entry is [string, Exclude<TombiRuleValue, undefined>] =>
           entry[1] != null,
       )
-      .map(([key, value]) => `${toKebabCase(key)} = ${serializeValue(value)}`),
-    '',
-  ].join('\n')
+      .map(([key, value]) => [toKebabCase(key), value]),
+  )
+
+/**
+ * Build a Tombi configuration from the resolved Prettier options. Prettier's
+ * own `printWidth`, `tabWidth`, `useTabs`, `singleQuote` and `bracketSpacing`
+ * options are mapped to their Tombi counterparts.
+ *
+ * The schema lookup is disabled so formatting stays deterministic and offline:
+ * the remote schema catalogs would otherwise make every format call hit the
+ * network.
+ */
+export function getTombiConfig(options: PrettierOptions): TombiConfig {
+  return {
+    'toml-version': options.tomlVersion ?? DEFAULT_TOML_VERSION,
+    schema: { enabled: false },
+    format: { rules: toTombiRules(getRules(options)) },
+  }
 }
+
+/**
+ * Merge a discovered `tombi.toml` with the Prettier derived configuration.
+ * Tombi's own configuration takes precedence over the corresponding Prettier
+ * options, while Prettier options fill in the rules the config does not set.
+ */
+export function mergeTombiConfig(
+  prettierConfig: TombiConfig,
+  fileConfig: TombiConfig,
+): TombiConfig {
+  const prettierFormat = prettierConfig.format as
+    { rules?: Record<string, TombiRuleValue> } | undefined
+  const fileFormat = fileConfig.format as
+    { rules?: Record<string, TombiRuleValue> } | undefined
+
+  return {
+    ...prettierConfig,
+    ...fileConfig,
+    format: {
+      ...prettierFormat,
+      ...fileFormat,
+      rules: {
+        ...prettierFormat?.rules,
+        ...fileFormat?.rules,
+      },
+    },
+  }
+}
+
+/** Serialize a Tombi configuration to TOML. */
+export const serializeTombiConfig = (config: TombiConfig): string =>
+  stringify(config)
