@@ -9,6 +9,23 @@ import TomlPlugin from 'prettier-plugin-toml'
 const formatToml = (code: string, filepath: string) =>
   format(code, { filepath, parser: 'toml', plugins: [TomlPlugin] })
 
+const WAIT_TIMEOUT = 10_000
+const TEST_TIMEOUT = 15_000
+
+const waitFor = async (
+  predicate: () => Promise<boolean>,
+  timeout = WAIT_TIMEOUT,
+) => {
+  const deadline = Date.now() + timeout
+  while (Date.now() < deadline) {
+    if (await predicate()) {
+      return
+    }
+    await new Promise(resolve => setTimeout(resolve, 50))
+  }
+  throw new Error('Timed out waiting for the config change to be picked up')
+}
+
 describe('tombi config discovery', () => {
   let dir: string
 
@@ -16,6 +33,8 @@ describe('tombi config discovery', () => {
     // Isolate user level discovery so the tests only depend on the temp dirs.
     const home = await fs.mkdtemp(path.join(os.tmpdir(), 'tombi-home-'))
     process.env.HOME = home
+    process.env.USERPROFILE = home
+    process.env.APPDATA = path.join(home, 'AppData')
     process.env.XDG_CONFIG_HOME = path.join(home, '.config')
     dir = await fs.mkdtemp(path.join(os.tmpdir(), 'tombi-project-'))
   })
@@ -110,4 +129,34 @@ describe('tombi config discovery', () => {
       }),
     ).resolves.toBe('[table]\n    key = 1\n')
   })
+
+  it(
+    'should pick up changes to a discovered config',
+    async () => {
+      const configPath = path.join(dir, 'tombi.toml')
+      await fs.writeFile(
+        configPath,
+        '[format.rules]\nindent-table-key-value-pairs = true\nindent-width = 4\n',
+      )
+      const filepath = path.join(dir, 'a.toml')
+
+      await expect(formatToml('[table]\nkey = 1\n', filepath)).resolves.toBe(
+        '[table]\n    key = 1\n',
+      )
+
+      // Save atomically, like most editors do.
+      await fs.writeFile(
+        `${configPath}.tmp`,
+        '[format.rules]\nindent-table-key-value-pairs = true\nindent-width = 8\n',
+      )
+      await fs.rename(`${configPath}.tmp`, configPath)
+
+      await waitFor(
+        async () =>
+          (await formatToml('[table]\nkey = 1\n', filepath)) ===
+          '[table]\n        key = 1\n',
+      )
+    },
+    TEST_TIMEOUT,
+  )
 })

@@ -83,4 +83,19 @@ describe('tombi config', () => {
 
     expect(getRules(merged)).toMatchObject({ 'indent-width': 8 })
   })
+
+  it('should always disable the schema lookup', () => {
+    const merged = mergeTombiConfig(
+      getTombiConfig(options),
+      {
+        schema: { enabled: true, catalog: { paths: ['https://example.com'] } },
+      },
+      getTombiOverrides(options),
+    )
+
+    expect(merged.schema).toMatchObject({
+      catalog: { paths: ['https://example.com'] },
+      enabled: false,
+    })
+  })
 })

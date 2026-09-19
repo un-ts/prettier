@@ -49,23 +49,34 @@ yarn prettier --write foo.toml
 
 ## Configuration
 
-Besides the Prettier options below, this plugin also reads [tombi][]'s own
-configuration following its
-[search priority](https://github.com/tombi-toml/tombi/blob/main/docs/src/routes/docs/configuration.mdx):
+Besides the options below, this plugin reads [tombi][]'s own configuration,
+following its [search priority][tombi-config]:
 
-1. For every directory from the formatted file's directory up to the filesystem
-   root: `.tombi.toml`, `tombi.toml`, `.config/tombi.toml`, then `[tool.tombi]`
-   in `pyproject.toml`.
-2. User level: `$XDG_CONFIG_HOME/tombi/config.toml`,
+1. **Project** — for each directory from the formatted file's directory up to
+   the filesystem root: `.tombi.toml`, `tombi.toml`, `.config/tombi.toml`, then
+   `[tool.tombi]` in `pyproject.toml`.
+2. **User** — `$XDG_CONFIG_HOME/tombi/config.toml`,
    `~/.config/tombi/config.toml`, plus the platform specific
    `~/Library/Application Support/tombi/config.toml` (macOS) or
    `%APPDATA%\tombi\config.toml` (Windows).
-3. System level: `/etc/tombi/config.toml`.
+3. **System** — `/etc/tombi/config.toml`.
 
-When a configuration file is found, its `[format.rules]` override Prettier's
-defaults, while Prettier options that are explicitly set take precedence over
-the configuration. Tombi's schema lookup stays disabled so formatting is
-deterministic and never hits the network.
+The rules are resolved in order, each step overriding the previous one:
+
+1. Tombi's and Prettier's defaults.
+2. The discovered configuration's `[format.rules]`.
+3. Prettier options that are explicitly set — a value equal to Prettier's
+   default (for example `printWidth: 80`) does not count as explicit.
+4. The discovered configuration's per-file `[[overrides]]`, applied by Tombi
+   last.
+
+### Notes
+
+- Tombi's schema lookup is always disabled, so formatting stays offline and
+  deterministic.
+- Discovered configuration files are cached per directory and watched (best
+  effort), so edits apply without restarting the process. A configuration
+  created in a directory that did not exist yet applies on the next run.
 
 ## Parser Options
 
@@ -150,3 +161,4 @@ Detailed changes for each release are documented in [CHANGELOG.md](./CHANGELOG.m
 [prettier]: https://prettier.io
 [ray]: https://github.com/so1ve
 [tombi]: https://github.com/tombi-toml/tombi
+[tombi-config]: https://tombi-toml.github.io/tombi/docs/configuration

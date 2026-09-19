@@ -1,4 +1,4 @@
-import { existsSync } from 'node:fs'
+import { existsSync, watch, type FSWatcher } from 'node:fs'
 import { readFile } from 'node:fs/promises'
 import { homedir } from 'node:os'
 import path from 'node:path'
@@ -20,6 +20,13 @@ const CONFIG_FILENAMES = [
 ]
 
 const PYPROJECT_FILENAME = 'pyproject.toml'
+
+/** Basenames that change which configuration applies when created or changed. */
+const CONFIG_BASENAMES = new Set([
+  '.tombi.toml',
+  'tombi.toml',
+  PYPROJECT_FILENAME,
+])
 
 /** Project level candidates, for a directory and each of its ancestors. */
 const getProjectCandidates = (directory: string): string[] => {
@@ -64,7 +71,7 @@ const getPlatformCandidates = (home: string): string[] => {
  * User and system level candidates, used as a fallback when no project level
  * configuration is found. Cached because it does not depend on the file.
  *
- * @see https://github.com/tombi-toml/tombi/blob/main/docs/src/routes/docs/configuration.mdx#user-level
+ * @see https://tombi-toml.github.io/tombi/docs/configuration#user-level
  */
 const getGlobalCandidates = (): string[] => {
   if (globalCandidates) {
@@ -81,8 +88,8 @@ const getGlobalCandidates = (): string[] => {
     ...getPlatformCandidates(home),
   ]
 
-  globalCandidates = candidates
-  return candidates
+  globalCandidates = [...new Set(candidates)]
+  return globalCandidates
 }
 
 /** Parse a config file, extracting `[tool.tombi]` from `pyproject.toml`. */
@@ -99,7 +106,7 @@ const parseConfig = (
 }
 
 /** Search the given candidates and return the first usable configuration. */
-async function searchCandidates(
+async function findConfig(
   candidates: Iterable<string>,
 ): Promise<DiscoveredTombiConfig | undefined> {
   for (const candidate of candidates) {
@@ -119,32 +126,108 @@ async function searchCandidates(
   return undefined
 }
 
-const configCache = new Map<
+const projectCache = new Map<
   string,
   Promise<DiscoveredTombiConfig | undefined>
 >()
 let globalConfigCache: Promise<DiscoveredTombiConfig | undefined> | undefined
 
-const getGlobalConfig = () =>
-  (globalConfigCache ??= searchCandidates(getGlobalCandidates()))
+const configWatchers = new Map<string, FSWatcher>()
 
-const discoverConfig = async (directory: string) =>
-  (await searchCandidates(getProjectCandidates(directory))) ?? getGlobalConfig()
+/**
+ * Drop the cached project results whose search traverses `directory`: the
+ * directory itself and every directory below it.
+ */
+const invalidateProjectCache = (directory: string) => {
+  const prefix = directory + path.sep
+  for (const cached of projectCache.keys()) {
+    if (cached === directory || cached.startsWith(prefix)) {
+      projectCache.delete(cached)
+    }
+  }
+}
+
+const invalidateGlobalConfig = () => {
+  globalConfigCache = undefined
+}
+
+/**
+ * Best effort watch of a config file so long-lived consumers (an editor or a
+ * daemon) pick up changes without restarting. The directory is watched rather
+ * than the file because editors usually save atomically by renaming a temporary
+ * file over the target. Watchers stay alive for the process lifetime and are
+ * unref'd so they never keep it running.
+ */
+const watchConfig = (configPath: string, onConfigChange: () => void) => {
+  if (configWatchers.has(configPath)) {
+    return
+  }
+
+  const directory = path.dirname(configPath)
+  const basename = path.basename(configPath)
+
+  try {
+    const watcher = watch(directory, (_event, filename) => {
+      const changed = filename == null ? undefined : path.basename(filename)
+      if (
+        changed == null ||
+        changed === basename ||
+        CONFIG_BASENAMES.has(changed)
+      ) {
+        onConfigChange()
+      }
+    })
+    watcher.on('error', onConfigChange)
+    watcher.unref()
+    configWatchers.set(configPath, watcher)
+  } catch {
+    // Watching is best effort, ignore runtimes that do not support it.
+  }
+}
+
+const getProjectConfig = (directory: string) => {
+  let cached = projectCache.get(directory)
+  if (!cached) {
+    cached = findConfig(getProjectCandidates(directory)).then(config => {
+      if (config) {
+        const configDirectory = path.dirname(config.path)
+        watchConfig(config.path, () => invalidateProjectCache(configDirectory))
+      }
+      return config
+    })
+    projectCache.set(directory, cached)
+  }
+  return cached
+}
+
+/**
+ * The global configuration is a single value resolved from a short, fixed list
+ * of candidates, so all of them are watched: creating a higher priority file
+ * (for example `$XDG_CONFIG_HOME/tombi/config.toml`) has to invalidate it.
+ */
+const watchGlobalCandidates = () => {
+  for (const candidate of getGlobalCandidates()) {
+    watchConfig(candidate, invalidateGlobalConfig)
+  }
+}
+
+const getGlobalConfig = () => {
+  if (!globalConfigCache) {
+    watchGlobalCandidates()
+    globalConfigCache = findConfig(getGlobalCandidates())
+  }
+  return globalConfigCache
+}
 
 /**
  * Discover the Tombi configuration for a file, following Tombi's documented
- * search priority. Results are cached per directory.
+ * search priority. Project results are cached per directory and invalidated
+ * when a config file the directory depends on changes.
  */
-export function discoverTombiConfig(
+export async function discoverTombiConfig(
   filepath: string,
 ): Promise<DiscoveredTombiConfig | undefined> {
   const directory = path.dirname(path.resolve(filepath))
-
-  let cached = configCache.get(directory)
-  if (!cached) {
-    cached = discoverConfig(directory)
-    configCache.set(directory, cached)
-  }
-
-  return cached
+  const project = await getProjectConfig(directory)
+  return project ?? getGlobalConfig()
 }

@@ -66,7 +66,6 @@ const addRule = (
   }
 }
 
-/** All rules derived from the resolved Prettier options. */
 /** `[rule, value, explicitly configured]` tuples for Prettier's core options. */
 const getCoreCandidates = (
   options: PrettierOptions,
@@ -204,13 +203,20 @@ const deepMerge = (...configs: TombiConfig[]): TombiConfig =>
  * Merge a discovered `tombi.toml` with the Prettier derived configuration. The
  * discovered config overrides Prettier's defaults, while explicitly configured
  * Prettier options override the discovered config.
+ *
+ * Tombi's schema lookup is always disabled: this plugin is a formatter, so
+ * schema driven ordering must not affect the output and the remote schema
+ * catalogs must never be fetched.
  */
 export function mergeTombiConfig(
   prettierConfig: TombiConfig,
   fileConfig: TombiConfig,
   prettierOverrides: TombiConfig,
 ): TombiConfig {
-  return deepMerge(prettierConfig, fileConfig, prettierOverrides)
+  const merged = deepMerge(prettierConfig, fileConfig, prettierOverrides)
+  const schema = isPlainObject(merged.schema) ? merged.schema : {}
+
+  return { ...merged, schema: { ...schema, enabled: false } }
 }
 
 /** Serialize a Tombi configuration to TOML. */
