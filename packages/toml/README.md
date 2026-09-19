@@ -4,11 +4,11 @@
 
 Prettier is an opinionated code formatter. It enforces a consistent style by parsing your code and re-printing, taking various rules into account.
 
-This plugin adds support for `toml` through [taplo][].
+This plugin adds support for `toml` through [tombi][].
 
 ## Notice
 
-This plugin is still under development, its printer just wraps [taplo][]'s default printer.
+This plugin is still under development, its printer just wraps [tombi][]'s default printer.
 Of course it should just work, but may not match [prettier][]'s format sometimes.
 
 ## Requirements
@@ -49,33 +49,55 @@ yarn prettier --write foo.toml
 
 ## Parser Options
 
+[prettier][]'s own core options are inherited and mapped to their tombi
+counterparts where they exist:
+
+- `printWidth` → `line-width`
+- `tabWidth` → `indent-width`
+- `useTabs` → `indent-style`
+- `singleQuote` → `string-quote-style`
+- `bracketSpacing` → `inline-table-brace-space-width`
+
+`endOfLine` is handled by [prettier][] itself. All of tombi's other format rules
+are exposed as `toml` options and can be used to override the inherited values:
+
 ```ts
 interface PrettierOptions {
-  // 'Align consecutive entries vertically.'
-  alignEntries: boolean // default `false`
-  // Align consecutive comments after entries and items vertically. This applies
-  // to comments that are after entries or array items.
-  alignComments: boolean // default `true`
-  // Expand arrays to multiple lines that exceed the maximum column width.
-  arrayAutoExpand: boolean // default `true`
-  // Collapse arrays that don't exceed the maximum column width and don't
-  // contain comments.
-  arrayAutoCollapse: boolean // default `true`
-  // Omit white space padding from single-line arrays.
-  compactArrays: boolean // default `true`
-  // Omit white space padding from the start and end of inline tables.
-  compactInlineTables: boolean // default `false`
-  // Omit white space around `=`.
-  compactEntries: boolean // default `false`
-  // Indent based on tables and arrays of tables and their subtables, subtables
-  // out of order are not indented.
-  indentTables: boolean // default `false`
-  // Indent entries under tables.
-  indentEntries: boolean // default `false`
-  // Alphabetically reorder keys that are not separated by empty lines.
-  reorderKeys: boolean // default `false`
-  // The maximum number of allowed blank lines between entries and tables.
-  allowedBlankLines: number // integer, default `1`
+  // The TOML version to use when parsing and formatting.
+  tomlVersion: 'v1.0.0' | 'v1.1.0-preview' | 'v1.1.0' // default `v1.0.0`
+  // The number of spaces inside the brackets of a single line array.
+  arrayBracketSpaceWidth: number // default `0`
+  // The number of spaces after the comma in a single line array.
+  arrayCommaSpaceWidth: number // default `1`
+  // The style used to format comments.
+  commentStyle: 'normalize' | 'preserve' // default `normalize`
+  // The delimiter between date and time.
+  dateTimeDelimiter: 'preserve' | 'space' | 'T' // default `T`
+  // The blank lines limit between groups.
+  groupBlankLinesLimit: number // default `1`
+  // Whether to indent sub-tables.
+  indentSubTables: boolean // default `false`
+  // Whether to indent table key-value pairs.
+  indentTableKeyValuePairs: boolean // default `false`
+  // The number of spaces inside the braces of a single line inline table,
+  // defaults to `bracketSpacing` (`1` or `0`).
+  inlineTableBraceSpaceWidth: number // default `bracketSpacing`
+  // The number of spaces after the comma in a single line inline table.
+  inlineTableCommaSpaceWidth: number // default `1`
+  // Whether to align the equals sign in key-value pairs.
+  keyValueEqualsSignAlignment: boolean // default `false`
+  // The preferred quote character for keys, defaults to `stringQuoteStyle`.
+  keyQuoteStyle: 'double' | 'preserve' | 'single' // default `undefined`
+  // The preferred quote character for strings, defaults to `singleQuote`.
+  stringQuoteStyle: 'double' | 'preserve' | 'single' // default `singleQuote`
+  // Whether to align the trailing comments in key-value pairs.
+  trailingCommentAlignment: boolean // default `false`
+  // The number of spaces around the equals sign in a key-value pair.
+  keyValueEqualsSignSpaceWidth: number // default `1`
+  // The number of blank lines between tables.
+  tableBlankLines: number // default `1`
+  // The number of spaces before a trailing comment.
+  trailingCommentSpaceWidth: number // default `2`
 }
 ```
 
@@ -107,4 +129,4 @@ Detailed changes for each release are documented in [CHANGELOG.md](./CHANGELOG.m
 [mit]: http://opensource.org/licenses/MIT
 [prettier]: https://prettier.io
 [ray]: https://github.com/so1ve
-[taplo]: https://github.com/tamasfe/taplo
+[tombi]: https://github.com/tombi-toml/tombi

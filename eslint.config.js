@@ -5,7 +5,11 @@ import tsdoc from 'eslint-plugin-tsdoc'
 export default [
   ...base,
   {
-    ignores: ['**/src/languages.ts'],
+    ignores: [
+      '**/src/languages.ts',
+      // Intentionally invalid TOML used to test error reporting.
+      'packages/toml/test/fixtures/invalid.toml',
+    ],
   },
   {
     plugins: {

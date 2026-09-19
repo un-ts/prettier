@@ -1,91 +1,168 @@
 import type { SupportOption } from 'prettier'
 
-import type { PrettierTaploOptions } from './types.js'
+import type { PrettierTombiOptions } from './types.js'
 
-/** @see https://github.com/tamasfe/taplo/blob/848722f2c604de68535e5a3e0bb2a2c1d3c7dc74/crates/taplo/src/formatter/mod.rs#L150-L168 */
+/**
+ * Prettier options mapped to the corresponding Tombi `[format.rules]` entries.
+ *
+ * @see https://github.com/tombi-toml/tombi/blob/main/crates/tombi-config/src/format.rs
+ */
 export const prettierOptionsDefinitions = {
-  alignEntries: {
-    name: 'alignEntries',
-    type: 'boolean',
-    category: 'taplo',
-    default: false,
-    description: 'Align consecutive entries vertically.',
+  tomlVersion: {
+    name: 'tomlVersion',
+    type: 'choice',
+    category: 'toml',
+    default: 'v1.0.0',
+    description: 'The TOML version to use when parsing and formatting.',
+    choices: [
+      { value: 'v1.0.0', description: 'TOML v1.0.0' },
+      { value: 'v1.1.0', description: 'TOML v1.1.0' },
+      { value: 'v1.1.0-preview', description: 'TOML v1.1.0 (preview)' },
+    ],
   },
-  alignComments: {
-    name: 'alignComments',
-    type: 'boolean',
-    category: 'taplo',
-    default: true,
-    description:
-      'Align consecutive comments after entries and items vertically. This applies to comments that are after entries or array items.',
-  },
-  arrayAutoExpand: {
-    name: 'arrayAutoExpand',
-    type: 'boolean',
-    category: 'taplo',
-    default: true,
-    description:
-      'Expand arrays to multiple lines that exceed the maximum column width.',
-  },
-  arrayAutoCollapse: {
-    name: 'arrayAutoCollapse',
-    type: 'boolean',
-    category: 'taplo',
-    default: true,
-    description:
-      "Collapse arrays that don't exceed the maximum column width and don't contain comments.",
-  },
-  compactArrays: {
-    name: 'compactArrays',
-    type: 'boolean',
-    category: 'taplo',
-    default: true,
-    description: 'Omit white space padding from single-line arrays.',
-  },
-  compactInlineTables: {
-    name: 'compactInlineTables',
-    type: 'boolean',
-    category: 'taplo',
-    default: false,
-    description:
-      'Omit white space padding from the start and end of inline tables.',
-  },
-  compactEntries: {
-    name: 'compactEntries',
-    type: 'boolean',
-    category: 'taplo',
-    default: false,
-    description: 'Omit white space around `=`.',
-  },
-  indentTables: {
-    name: 'indentTables',
-    type: 'boolean',
-    category: 'taplo',
-    default: false,
-    description:
-      'Indent based on tables and arrays of tables and their subtables, subtables out of order are not indented.',
-  },
-  indentEntries: {
-    name: 'indentEntries',
-    type: 'boolean',
-    category: 'taplo',
-    default: false,
-    description: 'Indent entries under tables.',
-  },
-  reorderKeys: {
-    name: 'reorderKeys',
-    type: 'boolean',
-    category: 'taplo',
-    default: false,
-    description:
-      'Alphabetically reorder keys that are not separated by empty lines.',
-  },
-  allowedBlankLines: {
-    name: 'allowedBlankLines',
+  arrayBracketSpaceWidth: {
+    name: 'arrayBracketSpaceWidth',
     type: 'int',
-    category: 'taplo',
-    default: 1,
+    category: 'toml',
+    default: 0,
+    range: { start: 0, end: 255, step: 1 },
     description:
-      'The maximum number of allowed blank lines between entries and tables.',
+      'The number of spaces inside the brackets of a single line array.',
   },
-} satisfies Record<keyof PrettierTaploOptions, SupportOption>
+  arrayCommaSpaceWidth: {
+    name: 'arrayCommaSpaceWidth',
+    type: 'int',
+    category: 'toml',
+    default: 1,
+    range: { start: 0, end: 255, step: 1 },
+    description: 'The number of spaces after the comma in a single line array.',
+  },
+  commentStyle: {
+    name: 'commentStyle',
+    type: 'choice',
+    category: 'toml',
+    default: 'normalize',
+    description: 'The style used to format comments.',
+    choices: [
+      {
+        value: 'normalize',
+        description: "Normalize comment text following Tombi's rules",
+      },
+      { value: 'preserve', description: 'Preserve the original comment text' },
+    ],
+  },
+  dateTimeDelimiter: {
+    name: 'dateTimeDelimiter',
+    type: 'choice',
+    category: 'toml',
+    default: 'T',
+    description: 'The delimiter between date and time.',
+    choices: [
+      { value: 'T', description: 'Use `T` between date and time' },
+      { value: 'space', description: 'Use a space between date and time' },
+      { value: 'preserve', description: 'Preserve the original delimiter' },
+    ],
+  },
+  groupBlankLinesLimit: {
+    name: 'groupBlankLinesLimit',
+    type: 'int',
+    category: 'toml',
+    default: 1,
+    range: { start: 1, end: 255, step: 1 },
+    description: 'The blank lines limit between groups.',
+  },
+  indentSubTables: {
+    name: 'indentSubTables',
+    type: 'boolean',
+    category: 'toml',
+    default: false,
+    description: 'Whether to indent sub-tables.',
+  },
+  indentTableKeyValuePairs: {
+    name: 'indentTableKeyValuePairs',
+    type: 'boolean',
+    category: 'toml',
+    default: false,
+    description: 'Whether to indent table key-value pairs.',
+  },
+  inlineTableBraceSpaceWidth: {
+    name: 'inlineTableBraceSpaceWidth',
+    type: 'int',
+    category: 'toml',
+    range: { start: 0, end: 255, step: 1 },
+    description:
+      'The number of spaces inside the braces of a single line inline table, defaults to `bracketSpacing` (1 or 0).',
+  },
+  inlineTableCommaSpaceWidth: {
+    name: 'inlineTableCommaSpaceWidth',
+    type: 'int',
+    category: 'toml',
+    default: 1,
+    range: { start: 0, end: 255, step: 1 },
+    description:
+      'The number of spaces after the comma in a single line inline table.',
+  },
+  keyValueEqualsSignAlignment: {
+    name: 'keyValueEqualsSignAlignment',
+    type: 'boolean',
+    category: 'toml',
+    default: false,
+    description: 'Whether to align the equals sign in key-value pairs.',
+  },
+  keyQuoteStyle: {
+    name: 'keyQuoteStyle',
+    type: 'choice',
+    category: 'toml',
+    description:
+      'The preferred quote character for keys, defaults to `stringQuoteStyle`.',
+    choices: [
+      { value: 'double', description: 'Prefer double quotes' },
+      { value: 'single', description: 'Prefer single quotes' },
+      { value: 'preserve', description: 'Preserve the source quote' },
+    ],
+  },
+  stringQuoteStyle: {
+    name: 'stringQuoteStyle',
+    type: 'choice',
+    category: 'toml',
+    description:
+      'The preferred quote character for strings, defaults to `singleQuote` (`single` or `double`).',
+    choices: [
+      { value: 'double', description: 'Prefer double quotes' },
+      { value: 'single', description: 'Prefer single quotes' },
+      { value: 'preserve', description: 'Preserve the source quote' },
+    ],
+  },
+  trailingCommentAlignment: {
+    name: 'trailingCommentAlignment',
+    type: 'boolean',
+    category: 'toml',
+    default: false,
+    description: 'Whether to align the trailing comments in key-value pairs.',
+  },
+  keyValueEqualsSignSpaceWidth: {
+    name: 'keyValueEqualsSignSpaceWidth',
+    type: 'int',
+    category: 'toml',
+    default: 1,
+    range: { start: 0, end: 255, step: 1 },
+    description:
+      'The number of spaces around the equals sign in a key-value pair.',
+  },
+  tableBlankLines: {
+    name: 'tableBlankLines',
+    type: 'int',
+    category: 'toml',
+    default: 1,
+    range: { start: 0, end: 255, step: 1 },
+    description: 'The number of blank lines between tables.',
+  },
+  trailingCommentSpaceWidth: {
+    name: 'trailingCommentSpaceWidth',
+    type: 'int',
+    category: 'toml',
+    default: 2,
+    range: { start: 0, end: 255, step: 1 },
+    description: 'The number of spaces before a trailing comment.',
+  },
+} satisfies Record<keyof PrettierTombiOptions, SupportOption>

@@ -1,0 +1,2 @@
+[project.gui-scripts]
+flexget-headless = "flexget:main"  # This is useful on Windows to avoid a cmd popup
