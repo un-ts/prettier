@@ -75,8 +75,8 @@ The rules are resolved in order, each step overriding the previous one:
 - Tombi's schema lookup is always disabled, so formatting stays offline and
   deterministic.
 - Discovered configuration files are cached per directory and polled (best
-  effort), so edits and newly created files apply without restarting the
-  process.
+  effort), so edits to them apply without restarting the process. A newly
+  created project configuration applies on the next run.
 
 ## Parser Options
 

@@ -1,4 +1,4 @@
-import { stringify } from 'smol-toml'
+import { parse, stringify } from 'smol-toml'
 
 import {
   getTombiConfig,
@@ -98,5 +98,16 @@ describe('tombi config', () => {
       catalog: { paths: ['https://example.com'] },
       enabled: false,
     })
+  })
+
+  it('should ignore prototype-sensitive keys', () => {
+    const merged = mergeTombiConfig(
+      getTombiConfig(options),
+      parse('__proto__ = { polluted = true }\n'),
+      getTombiOverrides(options),
+    )
+
+    // Would be `true` if `__proto__` had been merged as the prototype.
+    expect(merged.polluted).toBeUndefined()
   })
 })

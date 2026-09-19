@@ -185,10 +185,16 @@ export function getTombiOverrides(options: PrettierOptions): TombiConfig {
 const isPlainObject = (value: unknown): value is Record<string, unknown> =>
   typeof value === 'object' && value !== null && !Array.isArray(value)
 
+/** Keys that could mutate the prototype chain when assigned to an object. */
+const UNSAFE_KEYS = new Set(['__proto__', 'constructor', 'prototype'])
+
 /** Recursively merge configs, later ones taking precedence. */
 const deepMerge = (...configs: TombiConfig[]): TombiConfig =>
   configs.reduce<TombiConfig>((result, config) => {
     for (const [key, value] of Object.entries(config)) {
+      if (UNSAFE_KEYS.has(key)) {
+        continue
+      }
       result[key] =
         isPlainObject(value) && isPlainObject(result[key])
           ? deepMerge(result[key], value)

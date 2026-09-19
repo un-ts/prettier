@@ -24,7 +24,6 @@ The parser/printer is now powered by `@tombi-toml/wasm-lib`, which supports TOML
 - Node.js `v18.0.0` or later is required.
 
 Tombi's schema lookup is always disabled, and discovered configuration files are
-watched so edits and newly created files are picked up without restarting the
-process.
+watched so edits to them are picked up without restarting the process.
 
 See the `prettier-plugin-toml` README for the full list of supported options.
