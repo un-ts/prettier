@@ -62,10 +62,10 @@ configuration following its
    `%APPDATA%\tombi\config.toml` (Windows).
 3. System level: `/etc/tombi/config.toml`.
 
-When a configuration file is found, its `[format.rules]` take precedence over
-the corresponding Prettier options, and Prettier options fill in the rules the
-configuration does not set. Tombi's schema lookup stays disabled so formatting
-is deterministic and never hits the network.
+When a configuration file is found, its `[format.rules]` override Prettier's
+defaults, while Prettier options that are explicitly set take precedence over
+the configuration. Tombi's schema lookup stays disabled so formatting is
+deterministic and never hits the network.
 
 ## Parser Options
 

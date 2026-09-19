@@ -70,4 +70,27 @@ describe('tombi config discovery', () => {
       formatToml('key = 1\n', path.join(dir, 'a.toml')),
     ).resolves.toBe('key = 1\n')
   })
+
+  it('should let an explicitly set prettier option override the config', async () => {
+    await fs.writeFile(
+      path.join(dir, 'tombi.toml'),
+      '[format.rules]\nindent-table-key-value-pairs = true\nindent-width = 8\n',
+    )
+    const filepath = path.join(dir, 'a.toml')
+
+    // Prettier's default `tabWidth` does not override the config.
+    await expect(formatToml('[table]\nkey = 1\n', filepath)).resolves.toBe(
+      '[table]\n        key = 1\n',
+    )
+
+    // An explicitly set `tabWidth` does.
+    await expect(
+      format('[table]\nkey = 1\n', {
+        filepath,
+        parser: 'toml',
+        plugins: [TomlPlugin],
+        tabWidth: 4,
+      }),
+    ).resolves.toBe('[table]\n    key = 1\n')
+  })
 })

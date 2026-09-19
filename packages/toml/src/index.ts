@@ -3,6 +3,7 @@ import type { Plugin } from 'prettier'
 
 import {
   getTombiConfig,
+  getTombiOverrides,
   mergeTombiConfig,
   serializeTombiConfig,
 } from './config.js'
@@ -69,7 +70,11 @@ async function resolveConfig(options: PrettierOptions) {
   return discovered
     ? {
         content: serializeTombiConfig(
-          mergeTombiConfig(prettierConfig, discovered.config),
+          mergeTombiConfig(
+            prettierConfig,
+            discovered.config,
+            getTombiOverrides(options),
+          ),
         ),
         path: discovered.path,
       }

@@ -1,5 +1,6 @@
 import {
   getTombiConfig,
+  getTombiOverrides,
   mergeTombiConfig,
   serializeTombiConfig,
 } from '../src/config.js'
@@ -12,6 +13,9 @@ const options = {
   tabWidth: 4,
   useTabs: false,
 } as PrettierOptions
+
+const getRules = (config: unknown) =>
+  (config as { format: { rules: Record<string, unknown> } }).format.rules
 
 describe('tombi config', () => {
   it('should serialize camelCase options to kebab-case tombi rules', () => {
@@ -33,20 +37,50 @@ describe('tombi config', () => {
     expect(ruleKeys.every(key => key === key.toLowerCase())).toBe(true)
   })
 
-  it('should let a discovered config override prettier derived rules', () => {
-    const merged = mergeTombiConfig(getTombiConfig(options), {
-      'toml-version': 'v1.1.0',
-      format: { rules: { 'comment-style': 'preserve', 'line-width': 120 } },
-    })
-
-    expect(merged['toml-version']).toBe('v1.1.0')
-    expect(
-      (merged.format as { rules: Record<string, unknown> }).rules,
-    ).toMatchObject({
-      'comment-style': 'preserve',
+  it('should only put explicitly set options into the overrides', () => {
+    expect(getRules(getTombiOverrides(options))).toMatchObject({
       'indent-width': 4,
-      'line-width': 120,
+      'inline-table-brace-space-width': 0,
+      'line-width': 100,
       'string-quote-style': 'single',
     })
+    expect(getRules(getTombiOverrides(options))).not.toHaveProperty(
+      'comment-style',
+    )
+  })
+
+  it('should let explicit prettier options override a discovered config', () => {
+    const merged = mergeTombiConfig(
+      getTombiConfig(options),
+      {
+        format: {
+          rules: {
+            'comment-style': 'preserve',
+            'indent-width': 2,
+            'line-width': 120,
+          },
+        },
+      },
+      getTombiOverrides(options),
+    )
+
+    expect(getRules(merged)).toMatchObject({
+      // Not set by the user, so the config wins.
+      'comment-style': 'preserve',
+      // Explicitly set by the user, so Prettier wins.
+      'indent-width': 4,
+      'line-width': 100,
+      'string-quote-style': 'single',
+    })
+  })
+
+  it('should let a discovered config override prettier defaults', () => {
+    const merged = mergeTombiConfig(
+      getTombiConfig({ tabWidth: 2 } as PrettierOptions),
+      { format: { rules: { 'indent-width': 8 } } },
+      getTombiOverrides({ tabWidth: 2 } as PrettierOptions),
+    )
+
+    expect(getRules(merged)).toMatchObject({ 'indent-width': 8 })
   })
 })

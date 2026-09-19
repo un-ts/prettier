@@ -28,7 +28,7 @@ Tombi's own configuration is now picked up as well: `.tombi.toml`, `tombi.toml`,
 the formatted file's directory up to the filesystem root (plus the user and
 system level locations), following
 [Tombi's search priority](https://github.com/tombi-toml/tombi/blob/main/docs/src/routes/docs/configuration.mdx).
-The discovered `[format.rules]` take precedence over the corresponding Prettier
-options.
+The discovered `[format.rules]` override Prettier's defaults, while Prettier
+options that are explicitly set take precedence over the discovered config.
 
 See the `prettier-plugin-toml` README for the full list of supported options.
