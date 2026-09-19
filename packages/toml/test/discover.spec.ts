@@ -63,6 +63,23 @@ describe('tombi config discovery', () => {
     ).resolves.toBe('[table]\n    key = 1\n')
   })
 
+  it('should skip a `pyproject.toml` without `[tool.tombi]`', async () => {
+    await fs.writeFile(
+      path.join(dir, 'tombi.toml'),
+      '[format.rules]\nindent-table-key-value-pairs = true\nindent-width = 4\n',
+    )
+    const nested = path.join(dir, 'nested')
+    await fs.mkdir(nested)
+    await fs.writeFile(
+      path.join(nested, 'pyproject.toml'),
+      '[project]\nname = "example"\n',
+    )
+
+    await expect(
+      formatToml('[table]\nkey = 1\n', path.join(nested, 'a.toml')),
+    ).resolves.toBe('[table]\n    key = 1\n')
+  })
+
   it('should ignore an invalid `tombi.toml`', async () => {
     await fs.writeFile(path.join(dir, 'tombi.toml'), 'invalid = =')
 

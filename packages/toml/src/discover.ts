@@ -21,63 +21,67 @@ const CONFIG_FILENAMES = [
 
 const PYPROJECT_FILENAME = 'pyproject.toml'
 
-/**
- * Project level candidates, checked for every directory from the formatted
- * file's directory up to the filesystem root.
- *
- * @see https://github.com/tombi-toml/tombi/blob/main/docs/src/routes/docs/configuration.mdx#project-level
- */
-const getProjectCandidates = (filepath: string): string[] => {
+/** Project level candidates, for a directory and each of its ancestors. */
+const getProjectCandidates = (directory: string): string[] => {
   const candidates: string[] = []
-  let directory = filepath
-    ? path.dirname(path.resolve(filepath))
-    : process.cwd()
+  let current = directory
 
   for (;;) {
     for (const filename of CONFIG_FILENAMES) {
-      candidates.push(path.join(directory, filename))
+      candidates.push(path.join(current, filename))
     }
-    candidates.push(path.join(directory, PYPROJECT_FILENAME))
+    candidates.push(path.join(current, PYPROJECT_FILENAME))
 
-    const parent = path.dirname(directory)
-    if (parent === directory) {
+    const parent = path.dirname(current)
+    if (parent === current) {
       break
     }
-    directory = parent
+    current = parent
   }
 
   return candidates
 }
 
+let globalCandidates: string[] | undefined
+
+/** Platform specific user and system level config locations. */
+const getPlatformCandidates = (home: string): string[] => {
+  if (process.platform === 'darwin') {
+    return [
+      path.join(home, 'Library', 'Application Support', 'tombi', 'config.toml'),
+    ]
+  }
+
+  if (process.platform === 'win32') {
+    const appData = process.env.APPDATA
+    return appData ? [path.join(appData, 'tombi', 'config.toml')] : []
+  }
+
+  return ['/etc/tombi/config.toml']
+}
+
 /**
- * User and system level candidates used as a fallback when no project level
- * configuration is found.
+ * User and system level candidates, used as a fallback when no project level
+ * configuration is found. Cached because it does not depend on the file.
  *
  * @see https://github.com/tombi-toml/tombi/blob/main/docs/src/routes/docs/configuration.mdx#user-level
  */
 const getGlobalCandidates = (): string[] => {
+  if (globalCandidates) {
+    return globalCandidates
+  }
+
   const home = homedir()
-  const candidates: string[] = []
-
   const xdgConfigHome = process.env.XDG_CONFIG_HOME
-  if (xdgConfigHome) {
-    candidates.push(path.join(xdgConfigHome, 'tombi', 'config.toml'))
-  }
-  candidates.push(path.join(home, '.config', 'tombi', 'config.toml'))
+  const candidates = [
+    ...(xdgConfigHome
+      ? [path.join(xdgConfigHome, 'tombi', 'config.toml')]
+      : []),
+    path.join(home, '.config', 'tombi', 'config.toml'),
+    ...getPlatformCandidates(home),
+  ]
 
-  if (process.platform === 'darwin') {
-    candidates.push(
-      path.join(home, 'Library', 'Application Support', 'tombi', 'config.toml'),
-    )
-  } else if (process.platform === 'win32') {
-    const appData = process.env.APPDATA
-    if (appData) {
-      candidates.push(path.join(appData, 'tombi', 'config.toml'))
-    }
-  } else {
-    candidates.push('/etc/tombi/config.toml')
-  }
-
+  globalCandidates = candidates
   return candidates
 }
 
@@ -94,18 +98,10 @@ const parseConfig = (
   return parsed
 }
 
-/**
- * Discover the Tombi configuration for a file, following Tombi's documented
- * search priority.
- */
-export async function discoverTombiConfig(
-  filepath: string,
+/** Search the given candidates and return the first usable configuration. */
+async function searchCandidates(
+  candidates: Iterable<string>,
 ): Promise<DiscoveredTombiConfig | undefined> {
-  const candidates = new Set([
-    ...getProjectCandidates(filepath),
-    ...getGlobalCandidates(),
-  ])
-
   for (const candidate of candidates) {
     if (!existsSync(candidate)) {
       continue
@@ -121,4 +117,34 @@ export async function discoverTombiConfig(
   }
 
   return undefined
+}
+
+const configCache = new Map<
+  string,
+  Promise<DiscoveredTombiConfig | undefined>
+>()
+let globalConfigCache: Promise<DiscoveredTombiConfig | undefined> | undefined
+
+const getGlobalConfig = () =>
+  (globalConfigCache ??= searchCandidates(getGlobalCandidates()))
+
+const discoverConfig = async (directory: string) =>
+  (await searchCandidates(getProjectCandidates(directory))) ?? getGlobalConfig()
+
+/**
+ * Discover the Tombi configuration for a file, following Tombi's documented
+ * search priority. Results are cached per directory.
+ */
+export function discoverTombiConfig(
+  filepath: string,
+): Promise<DiscoveredTombiConfig | undefined> {
+  const directory = path.dirname(path.resolve(filepath))
+
+  let cached = configCache.get(directory)
+  if (!cached) {
+    cached = discoverConfig(directory)
+    configCache.set(directory, cached)
+  }
+
+  return cached
 }
