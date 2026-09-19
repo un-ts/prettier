@@ -1,11 +1,11 @@
 import type { Diagnostic } from '@tombi-toml/wasm-lib'
 import type { Plugin } from 'prettier'
+import { stringify } from 'smol-toml'
 
 import {
   getTombiConfig,
   getTombiOverrides,
   mergeTombiConfig,
-  serializeTombiConfig,
 } from './config.js'
 import { discoverTombiConfig } from './discover.js'
 import { languages } from './languages.js'
@@ -69,7 +69,7 @@ async function resolveConfig(options: PrettierOptions) {
 
   return discovered
     ? {
-        content: serializeTombiConfig(
+        content: stringify(
           mergeTombiConfig(
             prettierConfig,
             discovered.config,
@@ -79,7 +79,7 @@ async function resolveConfig(options: PrettierOptions) {
         path: discovered.path,
       }
     : {
-        content: serializeTombiConfig(prettierConfig),
+        content: stringify(prettierConfig),
         path: 'tombi.toml',
       }
 }

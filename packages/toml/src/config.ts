@@ -1,5 +1,3 @@
-import { stringify } from 'smol-toml'
-
 import { prettierOptionsDefinitions } from './options.js'
 import type { PrettierOptions, PrettierTombiOptions } from './types.js'
 
@@ -218,7 +216,3 @@ export function mergeTombiConfig(
 
   return { ...merged, schema: { ...schema, enabled: false } }
 }
-
-/** Serialize a Tombi configuration to TOML. */
-export const serializeTombiConfig = (config: TombiConfig): string =>
-  stringify(config)

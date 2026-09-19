@@ -1,8 +1,9 @@
+import { stringify } from 'smol-toml'
+
 import {
   getTombiConfig,
   getTombiOverrides,
   mergeTombiConfig,
-  serializeTombiConfig,
 } from '../src/config.js'
 import type { PrettierOptions } from '../src/types.js'
 
@@ -19,7 +20,7 @@ const getRules = (config: unknown) =>
 
 describe('tombi config', () => {
   it('should serialize camelCase options to kebab-case tombi rules', () => {
-    const config = serializeTombiConfig(getTombiConfig(options))
+    const config = stringify(getTombiConfig(options))
 
     expect(config).toContain('line-width = 100')
     expect(config).toContain('indent-width = 4')
