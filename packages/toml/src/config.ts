@@ -12,35 +12,42 @@ const serializeValue = (value: Exclude<TombiRuleValue, undefined>) =>
   JSON.stringify(value)
 
 /**
+ * Tombi's configuration is `kebab-case`, while the options are plain
+ * JavaScript `camelCase` identifiers.
+ */
+const toKebabCase = (value: string) =>
+  value.replaceAll(/[A-Z]/g, char => `-${char.toLowerCase()}`)
+
+/**
  * Build a virtual `tombi.toml` configuration from the resolved Prettier
- * options. Prettier's own `printWidth`, `tabWidth` and `useTabs` options are
- * mapped to their Tombi counterparts.
+ * options. Prettier's own `printWidth`, `tabWidth`, `useTabs`, `singleQuote`
+ * and `bracketSpacing` options are mapped to their Tombi counterparts.
  */
 export function buildTombiConfig(options: PrettierOptions): string {
   const rules: Record<string, TombiRuleValue> = {
-    'array-bracket-space-width': options.arrayBracketSpaceWidth,
-    'array-comma-space-width': options.arrayCommaSpaceWidth,
-    'comment-style': options.commentStyle,
-    'date-time-delimiter': options.dateTimeDelimiter,
-    'group-blank-lines-limit': options.groupBlankLinesLimit,
-    'indent-style': options.useTabs ? 'tab' : 'space',
-    'indent-sub-tables': options.indentSubTables,
-    'indent-table-key-value-pairs': options.indentTableKeyValuePairs,
-    'indent-width': options.tabWidth,
-    'inline-table-brace-space-width':
+    arrayBracketSpaceWidth: options.arrayBracketSpaceWidth,
+    arrayCommaSpaceWidth: options.arrayCommaSpaceWidth,
+    commentStyle: options.commentStyle,
+    dateTimeDelimiter: options.dateTimeDelimiter,
+    groupBlankLinesLimit: options.groupBlankLinesLimit,
+    indentStyle: options.useTabs ? 'tab' : 'space',
+    indentSubTables: options.indentSubTables,
+    indentTableKeyValuePairs: options.indentTableKeyValuePairs,
+    indentWidth: options.tabWidth,
+    inlineTableBraceSpaceWidth:
       options.inlineTableBraceSpaceWidth ?? (options.bracketSpacing ? 1 : 0),
-    'inline-table-comma-space-width': options.inlineTableCommaSpaceWidth,
-    'key-value-equals-sign-alignment': options.keyValueEqualsSignAlignment,
-    'key-quote-style': options.keyQuoteStyle,
-    'key-value-equals-sign-space-width': options.keyValueEqualsSignSpaceWidth,
-    'line-width': Number.isFinite(options.printWidth)
+    inlineTableCommaSpaceWidth: options.inlineTableCommaSpaceWidth,
+    keyValueEqualsSignAlignment: options.keyValueEqualsSignAlignment,
+    keyQuoteStyle: options.keyQuoteStyle,
+    keyValueEqualsSignSpaceWidth: options.keyValueEqualsSignSpaceWidth,
+    lineWidth: Number.isFinite(options.printWidth)
       ? options.printWidth
       : undefined,
-    'string-quote-style':
+    stringQuoteStyle:
       options.stringQuoteStyle ?? (options.singleQuote ? 'single' : 'double'),
-    'table-blank-lines': options.tableBlankLines,
-    'trailing-comment-alignment': options.trailingCommentAlignment,
-    'trailing-comment-space-width': options.trailingCommentSpaceWidth,
+    tableBlankLines: options.tableBlankLines,
+    trailingCommentAlignment: options.trailingCommentAlignment,
+    trailingCommentSpaceWidth: options.trailingCommentSpaceWidth,
   }
 
   return [
@@ -60,7 +67,7 @@ export function buildTombiConfig(options: PrettierOptions): string {
         (entry): entry is [string, Exclude<TombiRuleValue, undefined>] =>
           entry[1] != null,
       )
-      .map(([key, value]) => `${key} = ${serializeValue(value)}`),
+      .map(([key, value]) => `${toKebabCase(key)} = ${serializeValue(value)}`),
     '',
   ].join('\n')
 }
