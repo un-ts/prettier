@@ -1,4 +1,4 @@
-import { existsSync, watch, type FSWatcher } from 'node:fs'
+import { existsSync, watchFile } from 'node:fs'
 import { readFile } from 'node:fs/promises'
 import { homedir } from 'node:os'
 import path from 'node:path'
@@ -21,12 +21,8 @@ const CONFIG_FILENAMES = [
 
 const PYPROJECT_FILENAME = 'pyproject.toml'
 
-/** Basenames that change which configuration applies when created or changed. */
-const CONFIG_BASENAMES = new Set([
-  '.tombi.toml',
-  'tombi.toml',
-  PYPROJECT_FILENAME,
-])
+/** How often discovered config files are polled (in milliseconds). */
+const WATCH_INTERVAL = 500
 
 /** Project level candidates, for a directory and each of its ancestors. */
 const getProjectCandidates = (directory: string): string[] => {
@@ -132,7 +128,7 @@ const projectCache = new Map<
 >()
 let globalConfigCache: Promise<DiscoveredTombiConfig | undefined> | undefined
 
-const configWatchers = new Map<string, FSWatcher>()
+const watchedConfigs = new Set<string>()
 
 /**
  * Drop the cached project results whose search traverses `directory`: the
@@ -152,37 +148,26 @@ const invalidateGlobalConfig = () => {
 }
 
 /**
- * Best effort watch of a config file so long-lived consumers (an editor or a
- * daemon) pick up changes without restarting. The directory is watched rather
- * than the file because editors usually save atomically by renaming a temporary
- * file over the target. Watchers stay alive for the process lifetime and are
- * unref'd so they never keep it running.
+ * Best effort watch of a discovered config file so long-lived consumers (an
+ * editor or a daemon) pick up changes without restarting. `fs.watchFile` polls
+ * the file stat instead of using `fs.watch`, which is unreliable for the atomic
+ * saves editors perform and crashes the process on Windows.
  */
 const watchConfig = (configPath: string, onConfigChange: () => void) => {
-  if (configWatchers.has(configPath)) {
+  if (watchedConfigs.has(configPath)) {
     return
   }
+  watchedConfigs.add(configPath)
 
-  const directory = path.dirname(configPath)
-  const basename = path.basename(configPath)
-
-  try {
-    const watcher = watch(directory, (_event, filename) => {
-      const changed = filename == null ? undefined : path.basename(filename)
-      if (
-        changed == null ||
-        changed === basename ||
-        CONFIG_BASENAMES.has(changed)
-      ) {
+  watchFile(
+    configPath,
+    { interval: WATCH_INTERVAL, persistent: false },
+    (curr, prev) => {
+      if (curr.mtimeMs !== prev.mtimeMs || curr.size !== prev.size) {
         onConfigChange()
       }
-    })
-    watcher.on('error', onConfigChange)
-    watcher.unref()
-    configWatchers.set(configPath, watcher)
-  } catch {
-    // Watching is best effort, ignore runtimes that do not support it.
-  }
+    },
+  )
 }
 
 const getProjectConfig = (directory: string) => {
