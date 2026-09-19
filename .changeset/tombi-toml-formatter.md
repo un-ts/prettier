@@ -19,4 +19,8 @@ to their tombi counterparts: `printWidth` → `line-width`, `tabWidth` →
 `string-quote-style` and `bracketSpacing` → `inline-table-brace-space-width`.
 `endOfLine` keeps being handled by Prettier itself.
 
+This release requires Node.js `v18.0.0` or later, matching the package's
+`engines` field, because the Tombi WASM module is resolved and loaded with
+`@dual-bundle/import-meta-resolve`.
+
 See the `prettier-plugin-toml` README for the full list of supported options.

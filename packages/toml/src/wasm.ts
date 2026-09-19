@@ -6,6 +6,10 @@ import { resolve } from '@dual-bundle/import-meta-resolve'
 const PACKAGE_NAME = '@tombi-toml/wasm-lib'
 const WASM_FILENAME = 'tombi_wasm_bg.wasm'
 
+/**
+ * The absolute URL of the current module, which works in both the ESM and
+ * CommonJS builds.
+ */
 const getParentUrl = () =>
   typeof __filename === 'string'
     ? pathToFileURL(__filename).href
@@ -22,6 +26,10 @@ function resolveWasmUrl(): URL {
   return new URL(WASM_FILENAME, resolve(PACKAGE_NAME, getParentUrl()))
 }
 
+/**
+ * Load the raw `tombi_wasm_bg.wasm` bytes, from the file system when available
+ * and through `fetch` otherwise.
+ */
 export async function loadWasm(): Promise<BufferSource> {
   const wasmUrl = resolveWasmUrl()
   if (wasmUrl.protocol === 'file:') {

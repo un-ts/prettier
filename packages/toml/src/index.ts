@@ -39,6 +39,10 @@ class TombiFormatError extends SyntaxError {
   }
 }
 
+/**
+ * Lazily import and initialize the Tombi WASM module, reusing the same instance
+ * for every subsequent format call.
+ */
 async function loadTombi(): Promise<Tombi & TombiWasmInit> {
   tombiPromise ??= (async () => {
     const tombi = (await import('@tombi-toml/wasm-lib')) as Tombi &
@@ -49,6 +53,10 @@ async function loadTombi(): Promise<Tombi & TombiWasmInit> {
   return tombiPromise
 }
 
+/**
+ * Format a TOML document with Tombi. Error diagnostics are thrown as a
+ * {@link TombiFormatError} so Prettier can render them with a code frame.
+ */
 async function format(code: string, options: PrettierOptions) {
   const { format: formatToml } = await loadTombi()
 
