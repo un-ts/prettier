@@ -157,6 +157,8 @@ interface ShOptions {
   recoverErrors: number
 
   // printer
+  /** Simplify modifies the syntax tree to remove redundant shell syntax. */
+  simplify: boolean
   /**
    * Indent sets the number of spaces used for indentation. If set to 0, tabs
    * will be used instead.
