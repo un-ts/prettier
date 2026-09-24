@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.20.1
+
+### Patch Changes
+
+- [#523](https://github.com/un-ts/prettier/pull/523) [`3a41234`](https://github.com/un-ts/prettier/commit/3a41234393f1a1da49f6e9e3be8d34bdce6a0a30) Thanks [@JounQin](https://github.com/JounQin)! - fix: republish with provenance due to changesets v3 changes
+
 ## 0.20.0
 
 ### Minor Changes
