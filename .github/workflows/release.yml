@@ -41,9 +41,9 @@ jobs:
         id: changesets
         uses: changesets/action@ae32849d5ba541f9ae29e40e22a623bc13562f51 # v2.1.2
         with:
-          commit: 'chore: release package(s)'
-          title: 'chore: release package(s)'
-          publish: yarn release
-          version: yarn run version
+          commit-message: 'chore: release package(s)'
+          pr-title: 'chore: release package(s)'
+          publish-script: yarn release
+          version-script: yarn run version
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
