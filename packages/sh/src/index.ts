@@ -135,7 +135,7 @@ const dockerPrinter: Printer<string> = {
       minify,
       singleLine,
       functionNextLine,
-    }: ShPrinterOptions,
+    }: ShPrintOptions,
   ) {
     const formatDockerfileContents = await getFormatDockerfileContents()
     try {
@@ -232,7 +232,7 @@ const shPrinter: Printer<Node | string> = {
       minify,
       singleLine,
       functionNextLine,
-    }: ShPrinterOptions,
+    }: ShPrintOptions,
   ) {
     return processor(path.node as File, {
       originalText,
