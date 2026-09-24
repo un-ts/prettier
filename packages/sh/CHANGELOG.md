@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.20.2
+
+### Patch Changes
+
+- [#525](https://github.com/un-ts/prettier/pull/525) [`a5ed072`](https://github.com/un-ts/prettier/commit/a5ed07299e50ce01d2b8458d347f483e1c50a8cf) Thanks [@JounQin](https://github.com/JounQin)! - fix: enable `npmPublishProvenance: true` for changesets v3
+
 ## 0.20.1
 
 ### Patch Changes
