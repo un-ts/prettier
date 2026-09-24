@@ -26,6 +26,8 @@ export type { ShPrintOptions }
 export interface ShPrinterOptions extends ShPrintOptions {
   filepath: string
   tabWidth: number
+  /** Simplify modifies the syntax tree to remove redundant shell syntax. */
+  simplify?: boolean
 }
 
 export class ShSyntaxParseError<
@@ -123,6 +125,7 @@ const dockerPrinter: Printer<string> = {
       // printer options
       useTabs,
       tabWidth,
+      simplify,
       indent = useTabs ? 0 : (tabWidth ?? 2),
       binaryNextLine = true,
       switchCaseIndent = true,
@@ -158,6 +161,7 @@ const dockerPrinter: Printer<string> = {
         recoverErrors,
         useTabs,
         tabWidth,
+        simplify,
         indent,
         binaryNextLine,
         switchCaseIndent,
@@ -218,6 +222,7 @@ const shPrinter: Printer<Node | string> = {
       // printer options
       useTabs,
       tabWidth,
+      simplify,
       indent = useTabs ? 0 : tabWidth,
       binaryNextLine = true,
       switchCaseIndent = true,
@@ -238,6 +243,7 @@ const shPrinter: Printer<Node | string> = {
       recoverErrors,
       useTabs,
       tabWidth,
+      simplify,
       indent,
       binaryNextLine,
       switchCaseIndent,
@@ -357,6 +363,13 @@ export const options: Plugin['options'] = {
       'For example, given the input `(foo |`, the result will contain two recovered positions; first, the pipe requires a statement to follow, and as [Stmt.Pos] reports, the entire node is recovered.',
       'Second, the subshell needs to be closed, so [Subshell.Rparen] is recovered.',
     ].join('\n'),
+  },
+  simplify: {
+    category: 'Format',
+    type: 'boolean',
+    default: false,
+    description:
+      'Simplify modifies the syntax tree to remove redundant shell syntax.',
   },
   indent: {
     // since: '0.1.0',
