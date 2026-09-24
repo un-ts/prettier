@@ -30,9 +30,6 @@ export interface ShPrinterOptions extends ShPrintOptions {
   simplify?: boolean
 }
 
-type ShPrintOptionsWithSimplify = Pick<ShPrinterOptions, 'simplify'> &
-  ShPrintOptions
-
 export class ShSyntaxParseError<
   E extends Error = ParseError | SyntaxError,
 > extends SyntaxError {
@@ -138,7 +135,7 @@ const dockerPrinter: Printer<string> = {
       minify,
       singleLine,
       functionNextLine,
-    }: ShPrintOptionsWithSimplify,
+    }: ShPrinterOptions,
   ) {
     const formatDockerfileContents = await getFormatDockerfileContents()
     try {
@@ -235,7 +232,7 @@ const shPrinter: Printer<Node | string> = {
       minify,
       singleLine,
       functionNextLine,
-    }: ShPrintOptionsWithSimplify,
+    }: ShPrinterOptions,
   ) {
     return processor(path.node as File, {
       originalText,
