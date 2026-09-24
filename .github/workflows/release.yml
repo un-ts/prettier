@@ -47,4 +47,3 @@ jobs:
           version-script: yarn run version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          YARN_NPM_PUBLISH_PROVENANCE: true
