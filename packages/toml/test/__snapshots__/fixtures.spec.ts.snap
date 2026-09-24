@@ -14,9 +14,23 @@ exports[`parser and printer > should format fixture1.toml fixture correctly 1`] 
 "[foo]
 asfd = 1
 bar = [
-  'averyloooooooooooooooooooooooooooooooooooooooooooooooooooong',
+  "averyloooooooooooooooooooooooooooooooooooooooooooooooooooong",
   "arrrrrrrrrrrrrrrrrrrrrrrray",
-  'thatexceedsthemaximumcolumnwidth',
+  "thatexceedsthemaximumcolumnwidth"
 ]
+"
+`;
+
+exports[`parser and printer > should format invalid.toml fixture correctly 1`] = `
+"expected ']'
+> 1 | [invalid
+    |         ^
+  2 | key = 
+  3 |"
+`;
+
+exports[`parser and printer > should format pyproject.toml fixture correctly 1`] = `
+"[project.gui-scripts]
+flexget-headless = "flexget:main"  # This is useful on Windows to avoid a cmd popup
 "
 `;

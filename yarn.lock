@@ -2920,6 +2920,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@dual-bundle/import-meta-resolve@npm:^4.2.1":
+  version: 4.2.1
+  resolution: "@dual-bundle/import-meta-resolve@npm:4.2.1"
+  checksum: 10c0/8f1e572c14c4d20ea35734635085213abd13bd440c251309cf8ae5ed1082f6759cefa1c2c52a631f76859c57e26062f78a8cee4acc239c0edc87cd316a5d3b5b
+  languageName: node
+  linkType: hard
+
 "@emnapi/core@npm:1.10.0":
   version: 1.10.0
   resolution: "@emnapi/core@npm:1.10.0"
@@ -4773,19 +4780,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@taplo/core@npm:^0.2.0":
-  version: 0.2.0
-  resolution: "@taplo/core@npm:0.2.0"
-  checksum: 10c0/4bbc3b696c49e267da2dfcd13e7812e5c09febda583856b35569773542e93f9c28a50dab69c635e1d5e11a4de6962ab08e006985fa38d2df1b3ef19d471efa05
-  languageName: node
-  linkType: hard
-
-"@taplo/lib@npm:^0.5.0":
-  version: 0.5.0
-  resolution: "@taplo/lib@npm:0.5.0"
-  dependencies:
-    "@taplo/core": "npm:^0.2.0"
-  checksum: 10c0/0d1ea190586cac09a1c28fc43f807ba843a3313329744aacf49200da909beacbc43e5ebb89677d608b821458ad9378bc3d398c2aa7eff7e567ad59f85cc5ed82
+"@tombi-toml/wasm-lib@npm:^1.5.5":
+  version: 1.5.5
+  resolution: "@tombi-toml/wasm-lib@npm:1.5.5"
+  checksum: 10c0/bec2dc1329c781cc486bb749826a2f16ae8bc7bb5cdd683efee3dd083b5fc2b970b7fa5ead12eedb2a7202e02c59a8e0aca6b787874e56c0a4202414783daaea
   languageName: node
   linkType: hard
 
@@ -13047,7 +13045,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "prettier-plugin-toml@workspace:packages/toml"
   dependencies:
-    "@taplo/lib": "npm:^0.5.0"
+    "@dual-bundle/import-meta-resolve": "npm:^4.2.1"
+    "@tombi-toml/wasm-lib": "npm:^1.5.5"
+    smol-toml: "npm:^1.8.0"
   peerDependencies:
     prettier: ^3.0.3
   languageName: unknown
@@ -15017,6 +15017,13 @@ __metadata:
   version: 3.0.0
   resolution: "slash@npm:3.0.0"
   checksum: 10c0/e18488c6a42bdfd4ac5be85b2ced3ccd0224773baae6ad42cfbb9ec74fc07f9fa8396bd35ee638084ead7a2a0818eb5e7151111544d4731ce843019dab4be47b
+  languageName: node
+  linkType: hard
+
+"smol-toml@npm:^1.8.0":
+  version: 1.8.0
+  resolution: "smol-toml@npm:1.8.0"
+  checksum: 10c0/4e01dbfb7c7af142176b037ebedaccccafb8229cc873feaa47c184ee31073d86e30b4b1b0fe9a5a6d083ed3ce21615eda9e81d1f5d779ad8b2e2e9459b900aea
   languageName: node
   linkType: hard
 
