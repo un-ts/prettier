@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.20.0
+
+### Minor Changes
+
+- [#520](https://github.com/un-ts/prettier/pull/520) [`02f37a2`](https://github.com/un-ts/prettier/commit/02f37a238c99be80c376b5905dd1f7612b4db492) Thanks [@celluj34](https://github.com/celluj34)! - Add a `simplify` option to remove redundant shell syntax.
+
 ## 0.19.0
 
 ### Minor Changes
