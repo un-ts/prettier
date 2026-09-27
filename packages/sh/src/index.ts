@@ -1,3 +1,6 @@
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+
 import type { Parser, ParserOptions, Plugin, Printer } from 'prettier'
 import {
   type File,
@@ -9,7 +12,9 @@ import {
   processor,
 } from 'sh-syntax'
 
-export { languages } from './languages.js'
+import { languages } from './languages.js'
+
+export { languages }
 
 export interface DockerfilePrintOptions extends ParserOptions<string> {
   indent?: number
@@ -46,6 +51,35 @@ export class ShSyntaxParseError<
       this.loc = { start: { column: error.Pos.Col, line: error.Pos.Line } }
     }
   }
+}
+
+const nonShellLanguages = languages.filter(
+  ({ aceMode, name }) =>
+    name !== 'husky' && (aceMode !== 'sh' || name === 'Option List'),
+)
+
+function isNonShellFile(filepath: string | undefined) {
+  if (!filepath) {
+    return false
+  }
+
+  let file = filepath
+  if (file.startsWith('file:')) {
+    try {
+      file = fileURLToPath(file)
+    } catch {
+      return false
+    }
+  }
+
+  const filename = path.basename(file).toLowerCase()
+
+  return nonShellLanguages.some(
+    language =>
+      language.filenames?.some(name => name.toLowerCase() === filename) ||
+      language.extensions?.some(extension => filename.endsWith(extension)) ||
+      language.isSupported?.({ filepath: file }),
+  )
 }
 
 function hasPragma(text: string) {
@@ -125,14 +159,12 @@ const dockerPrinter: Printer<string> = {
       // printer options
       useTabs,
       tabWidth,
-      simplify,
       indent = useTabs ? 0 : (tabWidth ?? 2),
       binaryNextLine = true,
       switchCaseIndent = true,
       spaceRedirects,
       // eslint-disable-next-line sonarjs/deprecation
       keepPadding,
-      minify,
       singleLine,
       functionNextLine,
     }: ShPrintOptions,
@@ -161,13 +193,11 @@ const dockerPrinter: Printer<string> = {
         recoverErrors,
         useTabs,
         tabWidth,
-        simplify,
         indent,
         binaryNextLine,
         switchCaseIndent,
         spaceRedirects: spaceRedirects ?? true,
         keepPadding,
-        minify,
         singleLine,
         functionNextLine,
       })
@@ -234,6 +264,8 @@ const shPrinter: Printer<Node | string> = {
       functionNextLine,
     }: ShPrintOptions,
   ) {
+    const isShell = !isNonShellFile(filepath)
+
     return processor(path.node as File, {
       originalText,
       filepath,
@@ -243,13 +275,13 @@ const shPrinter: Printer<Node | string> = {
       recoverErrors,
       useTabs,
       tabWidth,
-      simplify,
+      simplify: simplify && isShell,
       indent,
       binaryNextLine,
       switchCaseIndent,
       spaceRedirects,
       keepPadding,
-      minify,
+      minify: minify && isShell,
       singleLine,
       functionNextLine,
     })
