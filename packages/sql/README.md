@@ -137,7 +137,7 @@ interface SqlOptions {
   dataTypeCase: 'preserve' | 'upper' | 'lower' // default `preserve`
   functionCase: 'preserve' | 'upper' | 'lower' // default `preserve`
   identifierCase: 'preserve' | 'upper' | 'lower' // default `preserve`, experimental
-  indentStyle: 'standard' | 'tabularLeft' | 'tabularRight' // default `standard`
+  indentStyle: 'standard' | 'tabularLeft' | 'tabularRight' // default `standard`, deprecated
   logicalOperatorNewline: 'before' | 'after' // default `before`
   expressionWidth: number // default `50`
   linesBetweenQueries: number // default `1`
