@@ -306,6 +306,7 @@ const SqlPlugin: Plugin<AST | string> = {
       // since: '0.7.0',
       category: 'Format',
       type: 'choice',
+      // deprecated: '0.19.2',
       default: 'standard',
       description: `Switches between different indentation styles for \`sql-formatter\`.
 
