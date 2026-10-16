@@ -16,26 +16,16 @@ const testCase = async (script: string) => {
   expect(locEnd(node)).toBe(script.length)
 }
 
+const cases: Array<[description: string, script: string]> = [
+  ['simple commands', 'echo "simple"'],
+  ['if statements', 'if [ "$1" = "test" ]; then\n  echo "test"\nfi'],
+  ['function definitions', 'function say_hello() {\n  echo "Hello"\n}'],
+  [
+    'more complex constructs',
+    'for i in $(seq 1 3); do\n  if [ "$i" -eq 2 ]; then\n    echo "Found $i"\n  fi\ndone',
+  ],
+]
+
 describe('Parser location functions', () => {
-  it('should handle simple commands', () => {
-    const script = 'echo "simple"'
-    return testCase(script)
-  })
-
-  it('should handle if statements', () => {
-    const script = 'if [ "$1" = "test" ]; then\n  echo "test"\nfi'
-    return testCase(script)
-  })
-
-  it('should handle function definitions', async () => {
-    const script = 'function say_hello() {\n  echo "Hello"\n}'
-    return testCase(script)
-  })
-
-  it('should handle more complex constructs', async () => {
-    // Add test for a more complex example, e.g. with loops and nesting
-    const script =
-      'for i in $(seq 1 3); do\n  if [ "$i" -eq 2 ]; then\n    echo "Found $i"\n  fi\ndone'
-    return testCase(script)
-  })
+  it.each(cases)('should handle %s', (_description, script) => testCase(script))
 })
