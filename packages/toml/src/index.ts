@@ -1,4 +1,4 @@
-import type { Diagnostic } from '@tombi-toml/lib'
+import { type Diagnostic, format as formatToml } from '@tombi-toml/lib'
 import type { Plugin } from 'prettier'
 import { stringify } from 'smol-toml'
 
@@ -13,10 +13,6 @@ import { prettierOptionsDefinitions } from './options.js'
 import type { PrettierOptions } from './types.js'
 
 const PLUGIN_NAME = 'toml'
-
-type Tombi = typeof import('@tombi-toml/lib')
-
-let tombiPromise: Promise<Tombi> | undefined
 
 /** Error thrown when Tombi reports one or more error level diagnostics. */
 class TombiFormatError extends SyntaxError {
@@ -33,16 +29,6 @@ class TombiFormatError extends SyntaxError {
       },
     }
   }
-}
-
-/**
- * Lazily import the Tombi native module, reusing the same instance for every
- * subsequent format call. The import is deferred so that merely loading the
- * Prettier plugin does not require the platform specific binary to be present.
- */
-async function loadTombi(): Promise<Tombi> {
-  tombiPromise ??= import('@tombi-toml/lib')
-  return tombiPromise
 }
 
 /**
@@ -75,8 +61,6 @@ async function resolveConfig(options: PrettierOptions) {
  * {@link TombiFormatError} so Prettier can render them with a code frame.
  */
 async function format(code: string, options: PrettierOptions) {
-  const { format: formatToml } = await loadTombi()
-
   const { formatted, diagnostics } = await formatToml(code, options.filepath, {
     config: await resolveConfig(options),
   })
