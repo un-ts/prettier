@@ -10,6 +10,7 @@ concurrency:
 
 permissions:
   contents: read
+  id-token: write
 
 jobs:
   ci:
@@ -54,7 +55,7 @@ jobs:
       - name: Codecov
         uses: codecov/codecov-action@303a32d7a59b442fa8d48b6a1cc6825c09c847a5 # v7.1.1
         with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+          use_oidc: true
 
       - name: Run codacy-coverage-reporter
         # bad Windows -- https://github.com/codacy/codacy-coverage-reporter-action/issues/91
