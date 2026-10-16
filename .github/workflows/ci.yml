@@ -10,6 +10,7 @@ concurrency:
 
 permissions:
   contents: read
+  id-token: write
 
 jobs:
   ci:
@@ -32,7 +33,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Setup Node.js ${{ matrix.node }}
-        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: ${{ matrix.node }}
           cache: yarn
@@ -40,17 +41,21 @@ jobs:
       - name: Install Dependencies
         run: yarn --immutable
 
-      - name: Build, Lint and Test
-        run: |
-          yarn build
-          yarn run-p lint test typecov
+      - name: Build and Test
+        run: yarn run-p build test
+        env:
+          PARSER_NO_WATCH: true
+
+      - name: Lint and Type Coverage
+        if: ${{ matrix.node >= 24 }}
+        run: yarn run-p lint typecov
         env:
           PARSER_NO_WATCH: true
 
       - name: Codecov
         uses: codecov/codecov-action@303a32d7a59b442fa8d48b6a1cc6825c09c847a5 # v7.1.1
         with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+          use_oidc: true
 
       - name: Run codacy-coverage-reporter
         # bad Windows -- https://github.com/codacy/codacy-coverage-reporter-action/issues/91
