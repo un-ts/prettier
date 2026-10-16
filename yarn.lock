@@ -3034,13 +3034,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dual-bundle/import-meta-resolve@npm:^4.2.1":
-  version: 4.2.1
-  resolution: "@dual-bundle/import-meta-resolve@npm:4.2.1"
-  checksum: 10c0/8f1e572c14c4d20ea35734635085213abd13bd440c251309cf8ae5ed1082f6759cefa1c2c52a631f76859c57e26062f78a8cee4acc239c0edc87cd316a5d3b5b
-  languageName: node
-  linkType: hard
-
 "@emnapi/core@npm:1.10.0":
   version: 1.10.0
   resolution: "@emnapi/core@npm:1.10.0"
@@ -4893,10 +4886,92 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tombi-toml/wasm-lib@npm:^1.5.5":
-  version: 1.5.5
-  resolution: "@tombi-toml/wasm-lib@npm:1.5.5"
-  checksum: 10c0/bec2dc1329c781cc486bb749826a2f16ae8bc7bb5cdd683efee3dd083b5fc2b970b7fa5ead12eedb2a7202e02c59a8e0aca6b787874e56c0a4202414783daaea
+"@tombi-toml/lib-darwin-arm64@npm:1.8.4":
+  version: 1.8.4
+  resolution: "@tombi-toml/lib-darwin-arm64@npm:1.8.4"
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@tombi-toml/lib-darwin-x64@npm:1.8.4":
+  version: 1.8.4
+  resolution: "@tombi-toml/lib-darwin-x64@npm:1.8.4"
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@tombi-toml/lib-linux-arm64-musl@npm:1.8.4":
+  version: 1.8.4
+  resolution: "@tombi-toml/lib-linux-arm64-musl@npm:1.8.4"
+  conditions: os=linux & cpu=arm64 & libc=musl
+  languageName: node
+  linkType: hard
+
+"@tombi-toml/lib-linux-arm64@npm:1.8.4":
+  version: 1.8.4
+  resolution: "@tombi-toml/lib-linux-arm64@npm:1.8.4"
+  conditions: os=linux & cpu=arm64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@tombi-toml/lib-linux-x64-musl@npm:1.8.4":
+  version: 1.8.4
+  resolution: "@tombi-toml/lib-linux-x64-musl@npm:1.8.4"
+  conditions: os=linux & cpu=x64 & libc=musl
+  languageName: node
+  linkType: hard
+
+"@tombi-toml/lib-linux-x64@npm:1.8.4":
+  version: 1.8.4
+  resolution: "@tombi-toml/lib-linux-x64@npm:1.8.4"
+  conditions: os=linux & cpu=x64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@tombi-toml/lib-win32-arm64@npm:1.8.4":
+  version: 1.8.4
+  resolution: "@tombi-toml/lib-win32-arm64@npm:1.8.4"
+  conditions: os=win32 & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@tombi-toml/lib-win32-x64@npm:1.8.4":
+  version: 1.8.4
+  resolution: "@tombi-toml/lib-win32-x64@npm:1.8.4"
+  conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@tombi-toml/lib@npm:^1.8.4":
+  version: 1.8.4
+  resolution: "@tombi-toml/lib@npm:1.8.4"
+  dependencies:
+    "@tombi-toml/lib-darwin-arm64": "npm:1.8.4"
+    "@tombi-toml/lib-darwin-x64": "npm:1.8.4"
+    "@tombi-toml/lib-linux-arm64": "npm:1.8.4"
+    "@tombi-toml/lib-linux-arm64-musl": "npm:1.8.4"
+    "@tombi-toml/lib-linux-x64": "npm:1.8.4"
+    "@tombi-toml/lib-linux-x64-musl": "npm:1.8.4"
+    "@tombi-toml/lib-win32-arm64": "npm:1.8.4"
+    "@tombi-toml/lib-win32-x64": "npm:1.8.4"
+  dependenciesMeta:
+    "@tombi-toml/lib-darwin-arm64":
+      optional: true
+    "@tombi-toml/lib-darwin-x64":
+      optional: true
+    "@tombi-toml/lib-linux-arm64":
+      optional: true
+    "@tombi-toml/lib-linux-arm64-musl":
+      optional: true
+    "@tombi-toml/lib-linux-x64":
+      optional: true
+    "@tombi-toml/lib-linux-x64-musl":
+      optional: true
+    "@tombi-toml/lib-win32-arm64":
+      optional: true
+    "@tombi-toml/lib-win32-x64":
+      optional: true
+  checksum: 10c0/a3f0fd3f2fef7ff593605fb9ecd0cf2f48e1387d51de5f1482c7e309d137c4fa857ae466f115485500a12f487c4507fad4933ec4e2c9a7fc09a2190ee06c8487
   languageName: node
   linkType: hard
 
@@ -13023,8 +13098,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "prettier-plugin-toml@workspace:packages/toml"
   dependencies:
-    "@dual-bundle/import-meta-resolve": "npm:^4.2.1"
-    "@tombi-toml/wasm-lib": "npm:^1.5.5"
+    "@tombi-toml/lib": "npm:^1.8.4"
     smol-toml: "npm:^1.8.0"
   peerDependencies:
     prettier: ^3.0.3

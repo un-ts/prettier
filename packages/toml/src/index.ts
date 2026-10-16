@@ -1,4 +1,4 @@
-import type { Diagnostic } from '@tombi-toml/wasm-lib'
+import { type Diagnostic, format as formatToml } from '@tombi-toml/lib'
 import type { Plugin } from 'prettier'
 import { stringify } from 'smol-toml'
 
@@ -11,22 +11,8 @@ import { discoverTombiConfig } from './discover.js'
 import { languages } from './languages.js'
 import { prettierOptionsDefinitions } from './options.js'
 import type { PrettierOptions } from './types.js'
-import { loadWasm } from './wasm.js'
 
 const PLUGIN_NAME = 'toml'
-
-type Tombi = typeof import('@tombi-toml/wasm-lib')
-
-/**
- * The published `@tombi-toml/wasm-lib` type declaration re-exports
- * `./tombi_wasm` without a file extension, which `moduleResolution: node16`
- * cannot follow, so `initSync` is missing from the inferred module type.
- */
-interface TombiWasmInit {
-  initSync(module: { module: BufferSource | WebAssembly.Module }): unknown
-}
-
-let tombiPromise: Promise<Tombi & TombiWasmInit> | undefined
 
 /** Error thrown when Tombi reports one or more error level diagnostics. */
 class TombiFormatError extends SyntaxError {
@@ -43,20 +29,6 @@ class TombiFormatError extends SyntaxError {
       },
     }
   }
-}
-
-/**
- * Lazily import and initialize the Tombi WASM module, reusing the same instance
- * for every subsequent format call.
- */
-async function loadTombi(): Promise<Tombi & TombiWasmInit> {
-  tombiPromise ??= (async () => {
-    const tombi = (await import('@tombi-toml/wasm-lib')) as Tombi &
-      TombiWasmInit
-    tombi.initSync({ module: await loadWasm() })
-    return tombi
-  })()
-  return tombiPromise
 }
 
 /**
@@ -89,8 +61,6 @@ async function resolveConfig(options: PrettierOptions) {
  * {@link TombiFormatError} so Prettier can render them with a code frame.
  */
 async function format(code: string, options: PrettierOptions) {
-  const { format: formatToml } = await loadTombi()
-
   const { formatted, diagnostics } = await formatToml(code, options.filepath, {
     config: await resolveConfig(options),
   })
