@@ -74,13 +74,13 @@
     "serialize-javascript": "^7.0.7",
     "simple-git-hooks": "^2.13.1",
     "sirv-cli": "^3.0.1",
-    "size-limit": "^14.0.0",
+    "size-limit": "^14.2.0",
     "size-limit-preset-node-lib": "^0.5.0",
     "tsx": "^4.23.0",
     "type-coverage": "^2.29.7",
     "vite": "^8.1.4",
     "vitest": "^5.0.0",
-    "yarn-berry-deduplicate": "^7.0.0"
+    "yarn-berry-deduplicate": "^7.1.0"
   },
   "resolutions": {
     "prettier": "^3.9.4",
