@@ -279,7 +279,6 @@ export const sort = (props: ObjectProperty[], options: FormatOptions) => {
   let { packageSortOrder, packageSortOrderPreset } = options
 
   const defaultSortOrder =
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     (packageSortOrderPreset && DEFAULT_SORT_ORDERS[packageSortOrderPreset]) ||
     []
 
