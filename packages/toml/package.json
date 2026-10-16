@@ -12,7 +12,7 @@
   "funding": "https://opencollective.com/unts",
   "license": "MIT",
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=20.0.0"
   },
   "main": "./lib/index.cjs",
   "types": "./index.d.cts",
@@ -41,8 +41,7 @@
     "prettier": "^3.0.3"
   },
   "dependencies": {
-    "@dual-bundle/import-meta-resolve": "^4.2.1",
-    "@tombi-toml/wasm-lib": "^1.5.5",
+    "@tombi-toml/lib": "^1.8.4",
     "smol-toml": "^1.8.0"
   },
   "publishConfig": {
