@@ -1,5 +1,24 @@
 # Change Log
 
+## 4.0.0
+
+### Major Changes
+
+- [#530](https://github.com/un-ts/prettier/pull/530) [`85af9a9`](https://github.com/un-ts/prettier/commit/85af9a95ab748014750fd48c4c87bed34bd7459d) Thanks [@JounQin](https://github.com/JounQin)! - feat(prettier-plugin-toml)!: migrate from `@tombi-toml/wasm-lib` to [`@tombi-toml/lib`](https://www.npmjs.com/package/@tombi-toml/lib)
+
+  Tombi is now loaded through its prebuilt native Node.js binding instead of the
+  WebAssembly build. The WASM loading shim is gone, so the plugin no longer has to
+  resolve and read the ~6.6 MB `tombi_wasm_bg.wasm` file on first format, and the
+  `@dual-bundle/import-meta-resolve` dependency is dropped.
+
+  - `@tombi-toml/lib` ships platform specific binaries (Linux, macOS and Windows
+    on `x64`/`arm64`, including musl) as optional dependencies.
+  - Node.js `v20.0.0` or later is required, matching the engine range declared by
+    `@tombi-toml/lib`.
+
+  The exposed options, the configuration discovery and the formatting behaviour
+  itself are unchanged.
+
 ## 3.0.2
 
 ### Patch Changes
