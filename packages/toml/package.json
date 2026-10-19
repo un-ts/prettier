@@ -41,7 +41,7 @@
     "prettier": "^3.0.3"
   },
   "dependencies": {
-    "tombit": "^0.1.1"
+    "tombit": "^0.1.3"
   },
   "publishConfig": {
     "access": "public"
