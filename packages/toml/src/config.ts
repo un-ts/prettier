@@ -28,31 +28,19 @@ const RULE_OPTION_NAMES = (
 const toKebabCase = (value: string) =>
   value.replaceAll(/[A-Z]/g, char => `-${char.toLowerCase()}`)
 
-/** Resolve the line width, inheriting Prettier's `printWidth`. */
-const resolveLineWidth = (options: PrettierOptions) =>
-  Number.isFinite(options.printWidth) ? options.printWidth : undefined
-
-/** Resolve the indentation style, inheriting Prettier's `useTabs`. */
-const resolveIndentStyle = (options: PrettierOptions) =>
-  options.useTabs ? 'tab' : 'space'
-
-/** Resolve the string quote style, inheriting Prettier's `singleQuote`. */
-const resolveStringQuoteStyle = (options: PrettierOptions) =>
-  options.stringQuoteStyle ?? (options.singleQuote ? 'single' : 'double')
-
-/** Resolve inline table spacing, inheriting Prettier's `bracketSpacing`. */
-const resolveInlineTableBraceSpaceWidth = (options: PrettierOptions) =>
-  options.inlineTableBraceSpaceWidth ?? (options.bracketSpacing ? 1 : 0)
-
 /** The rules derived from Prettier's own core options. */
 const getCoreRules = (
   options: PrettierOptions,
 ): Record<string, TombiRuleValue> => ({
-  lineWidth: resolveLineWidth(options),
+  lineWidth: Number.isFinite(options.printWidth)
+    ? options.printWidth
+    : undefined,
   indentWidth: options.tabWidth,
-  indentStyle: resolveIndentStyle(options),
-  stringQuoteStyle: resolveStringQuoteStyle(options),
-  inlineTableBraceSpaceWidth: resolveInlineTableBraceSpaceWidth(options),
+  indentStyle: options.useTabs ? 'tab' : 'space',
+  stringQuoteStyle:
+    options.stringQuoteStyle ?? (options.singleQuote ? 'single' : 'double'),
+  inlineTableBraceSpaceWidth:
+    options.inlineTableBraceSpaceWidth ?? (options.bracketSpacing ? 1 : 0),
 })
 
 /** All rules derived from the resolved Prettier options. */

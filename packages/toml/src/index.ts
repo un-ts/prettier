@@ -40,11 +40,12 @@ class TombiFormatError extends SyntaxError {
  */
 async function format(code: string, options: PrettierOptions) {
   // Prettier may omit the filepath; a synthetic name still allows discovery.
-  const filepath = options.filepath || 'stdin.toml'
-  const { formatted, diagnostics } = await formatToml(code, filepath, {
+  const { formatted, diagnostics } = await formatToml(
+    code,
+    options.filepath || 'stdin.toml',
     // Prettier's options are authoritative; tombi.toml supplies the rest.
-    overrideConfig: getTombiConfig(options),
-  })
+    { overrideConfig: getTombiConfig(options) },
+  )
 
   if (formatted == null) {
     const diagnostic =
