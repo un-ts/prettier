@@ -62,4 +62,31 @@ describe('tombi config', () => {
     ).toBe('v1.1.0')
     expect(getTombiConfig(defaults).schema).toEqual({ enabled: false })
   })
+  it('should map useTabs and explicit quote/spacing overrides', () => {
+    expect(
+      getRules(
+        getTombiConfig({
+          ...defaults,
+          useTabs: true,
+          stringQuoteStyle: 'preserve',
+          inlineTableBraceSpaceWidth: 2,
+        } as PrettierOptions),
+      ),
+    ).toMatchObject({
+      'indent-style': 'tab',
+      'inline-table-brace-space-width': 2,
+      'string-quote-style': 'preserve',
+    })
+  })
+
+  it('should leave the line width unset when Prettier has none', () => {
+    expect(
+      getRules(
+        getTombiConfig({
+          ...defaults,
+          printWidth: undefined,
+        } as unknown as PrettierOptions),
+      ),
+    ).not.toHaveProperty('line-width')
+  })
 })
