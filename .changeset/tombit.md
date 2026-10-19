@@ -1,8 +1,8 @@
 ---
-"prettier-plugin-toml": major
+"prettier-plugin-toml": minor
 ---
 
-feat(prettier-plugin-toml)!: load tombi through [`tombit`](https://www.npmjs.com/package/tombit)
+feat(prettier-plugin-toml): load tombi through [`tombit`](https://www.npmjs.com/package/tombit)
 
 `tombit` wraps the same `tombi-lib` crate and keeps configuration discovery and
 merging in Rust, so the plugin no longer ships `smol-toml` or a JavaScript
