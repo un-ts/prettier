@@ -7,12 +7,6 @@ type TombiRuleValue = boolean | number | string | undefined
 /** A Tombi configuration fragment. */
 export type TombiConfig = Record<string, unknown>
 
-const DEFAULT_TOML_VERSION = 'v1.0.0'
-
-/** [Prettier core defaults](https://prettier.io/docs/en/options). */
-const DEFAULT_PRINT_WIDTH = 80
-const DEFAULT_TAB_WIDTH = 2
-
 /**
  * Options that map directly to a Tombi rule. `toml-version` is a top level
  * option, while `stringQuoteStyle` and `inlineTableBraceSpaceWidth` also derive
@@ -50,27 +44,15 @@ const resolveStringQuoteStyle = (options: PrettierOptions) =>
 const resolveInlineTableBraceSpaceWidth = (options: PrettierOptions) =>
   options.inlineTableBraceSpaceWidth ?? (options.bracketSpacing ? 1 : 0)
 
-/** `[rule, value, explicitly configured]` tuples for Prettier's core options. */
+/** `[rule, value]` pairs for Prettier's core options. */
 const getCoreCandidates = (
   options: PrettierOptions,
-): Array<[string, TombiRuleValue, boolean]> => [
-  [
-    'lineWidth',
-    resolveLineWidth(options),
-    options.printWidth !== DEFAULT_PRINT_WIDTH,
-  ],
-  ['indentWidth', options.tabWidth, options.tabWidth !== DEFAULT_TAB_WIDTH],
-  ['indentStyle', resolveIndentStyle(options), options.useTabs === true],
-  [
-    'stringQuoteStyle',
-    resolveStringQuoteStyle(options),
-    options.singleQuote || options.stringQuoteStyle !== undefined,
-  ],
-  [
-    'inlineTableBraceSpaceWidth',
-    resolveInlineTableBraceSpaceWidth(options),
-    !options.bracketSpacing || options.inlineTableBraceSpaceWidth !== undefined,
-  ],
+): Array<[string, TombiRuleValue]> => [
+  ['lineWidth', resolveLineWidth(options)],
+  ['indentWidth', options.tabWidth],
+  ['indentStyle', resolveIndentStyle(options)],
+  ['stringQuoteStyle', resolveStringQuoteStyle(options)],
+  ['inlineTableBraceSpaceWidth', resolveInlineTableBraceSpaceWidth(options)],
 ]
 
 /** All rules derived from the resolved Prettier options. */
@@ -106,12 +88,21 @@ const toTombiRules = (rules: Record<string, TombiRuleValue>) =>
  * output. The discovered configuration still supplies the rules the plugin
  * does not expose, and its `[[overrides]]` are applied by Tombi last.
  *
+ * `toml-version` is only overridden when `tomlVersion` is set: it changes how
+ * the source is parsed, so a project's discovered configuration decides unless
+ * the user explicitly chooses a version.
+ *
  * The schema lookup is disabled so formatting stays deterministic and offline.
  */
 export function getTombiConfig(options: PrettierOptions): TombiConfig {
-  return {
-    'toml-version': options.tomlVersion ?? DEFAULT_TOML_VERSION,
+  const config: TombiConfig = {
     schema: { enabled: false },
     format: { rules: toTombiRules(getAllRules(options)) },
   }
+
+  if (options.tomlVersion) {
+    config['toml-version'] = options.tomlVersion
+  }
+
+  return config
 }

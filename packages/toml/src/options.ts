@@ -12,8 +12,8 @@ export const prettierOptionsDefinitions = {
     name: 'tomlVersion',
     type: 'choice',
     category: 'toml',
-    default: 'v1.0.0',
-    description: 'The TOML version to use when parsing and formatting.',
+    description:
+      "The TOML version to use when parsing and formatting. Defaults to the discovered configuration (or Tombi's default).",
     choices: [
       { value: 'v1.0.0', description: 'TOML v1.0.0' },
       { value: 'v1.1.0', description: 'TOML v1.1.0' },

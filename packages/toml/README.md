@@ -78,6 +78,10 @@ you also use the tombi CLI or the VS Code extension, set `line-width` in
 output — with no configuration at all, Prettier defaults to `80` while tombi
 has no line width limit.
 
+`toml-version` is the exception: it is only overridden when the `tomlVersion`
+option is set, because it decides how the source is parsed, not just how it is
+formatted.
+
 ### Notes
 
 - Tombi's schema lookup is always disabled, so formatting stays offline and

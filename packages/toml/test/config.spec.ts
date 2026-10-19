@@ -52,8 +52,8 @@ describe('tombi config', () => {
     ).toMatchObject({ 'comment-style': 'preserve' })
   })
 
-  it('should default the toml version and always disable the schema', () => {
-    expect(getTombiConfig(defaults)['toml-version']).toBe('v1.0.0')
+  it('should only override the toml version when it is set', () => {
+    expect(getTombiConfig(defaults)['toml-version']).toBeUndefined()
     expect(
       getTombiConfig({
         ...defaults,

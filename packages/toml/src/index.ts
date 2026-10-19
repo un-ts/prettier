@@ -30,8 +30,9 @@ class TombiFormatError extends SyntaxError {
  * Format a TOML document with Tombi. Tombi discovers the configuration itself
  * (`.tombi.toml`, `tombi.toml`, `.config/tombi.toml` and `[tool.tombi]` in
  * `pyproject.toml` from the file's directory upward, then the user and system
- * configurations); the Prettier options that were explicitly configured are
- * merged on top.
+ * configurations). Prettier's resolved options, including its defaults, are
+ * merged on top; `toml-version` is only overridden when the `tomlVersion`
+ * option is set.
  *
  * The schema lookup is always disabled: this plugin is a formatter, so schema
  * driven ordering must not affect the output and the remote schema catalogs
