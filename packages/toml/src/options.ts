@@ -12,8 +12,8 @@ export const prettierOptionsDefinitions = {
     name: 'tomlVersion',
     type: 'choice',
     category: 'toml',
-    default: 'v1.0.0',
-    description: 'The TOML version to use when parsing and formatting.',
+    description:
+      "The TOML version to use when parsing and formatting. Defaults to the discovered configuration (or Tombi's default).",
     choices: [
       { value: 'v1.0.0', description: 'TOML v1.0.0' },
       { value: 'v1.1.0', description: 'TOML v1.1.0' },
@@ -24,7 +24,6 @@ export const prettierOptionsDefinitions = {
     name: 'arrayBracketSpaceWidth',
     type: 'int',
     category: 'toml',
-    default: 0,
     range: { start: 0, end: 255, step: 1 },
     description:
       'The number of spaces inside the brackets of a single line array.',
@@ -33,7 +32,6 @@ export const prettierOptionsDefinitions = {
     name: 'arrayCommaSpaceWidth',
     type: 'int',
     category: 'toml',
-    default: 1,
     range: { start: 0, end: 255, step: 1 },
     description: 'The number of spaces after the comma in a single line array.',
   },
@@ -41,7 +39,6 @@ export const prettierOptionsDefinitions = {
     name: 'commentStyle',
     type: 'choice',
     category: 'toml',
-    default: 'normalize',
     description: 'The style used to format comments.',
     choices: [
       {
@@ -55,7 +52,6 @@ export const prettierOptionsDefinitions = {
     name: 'dateTimeDelimiter',
     type: 'choice',
     category: 'toml',
-    default: 'T',
     description: 'The delimiter between date and time.',
     choices: [
       { value: 'T', description: 'Use `T` between date and time' },
@@ -67,7 +63,6 @@ export const prettierOptionsDefinitions = {
     name: 'groupBlankLinesLimit',
     type: 'int',
     category: 'toml',
-    default: 1,
     range: { start: 1, end: 255, step: 1 },
     description: 'The blank lines limit between groups.',
   },
@@ -75,14 +70,12 @@ export const prettierOptionsDefinitions = {
     name: 'indentSubTables',
     type: 'boolean',
     category: 'toml',
-    default: false,
     description: 'Whether to indent sub-tables.',
   },
   indentTableKeyValuePairs: {
     name: 'indentTableKeyValuePairs',
     type: 'boolean',
     category: 'toml',
-    default: false,
     description: 'Whether to indent table key-value pairs.',
   },
   inlineTableBraceSpaceWidth: {
@@ -97,7 +90,6 @@ export const prettierOptionsDefinitions = {
     name: 'inlineTableCommaSpaceWidth',
     type: 'int',
     category: 'toml',
-    default: 1,
     range: { start: 0, end: 255, step: 1 },
     description:
       'The number of spaces after the comma in a single line inline table.',
@@ -106,7 +98,6 @@ export const prettierOptionsDefinitions = {
     name: 'keyValueEqualsSignAlignment',
     type: 'boolean',
     category: 'toml',
-    default: false,
     description: 'Whether to align the equals sign in key-value pairs.',
   },
   keyQuoteStyle: {
@@ -137,14 +128,12 @@ export const prettierOptionsDefinitions = {
     name: 'trailingCommentAlignment',
     type: 'boolean',
     category: 'toml',
-    default: false,
     description: 'Whether to align the trailing comments in key-value pairs.',
   },
   keyValueEqualsSignSpaceWidth: {
     name: 'keyValueEqualsSignSpaceWidth',
     type: 'int',
     category: 'toml',
-    default: 1,
     range: { start: 0, end: 255, step: 1 },
     description:
       'The number of spaces around the equals sign in a key-value pair.',
@@ -153,7 +142,6 @@ export const prettierOptionsDefinitions = {
     name: 'tableBlankLines',
     type: 'int',
     category: 'toml',
-    default: 1,
     range: { start: 0, end: 255, step: 1 },
     description: 'The number of blank lines between tables.',
   },
@@ -161,7 +149,6 @@ export const prettierOptionsDefinitions = {
     name: 'trailingCommentSpaceWidth',
     type: 'int',
     category: 'toml',
-    default: 2,
     range: { start: 0, end: 255, step: 1 },
     description: 'The number of spaces before a trailing comment.',
   },

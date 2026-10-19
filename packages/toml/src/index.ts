@@ -1,13 +1,7 @@
-import { type Diagnostic, format as formatToml } from '@tombi-toml/lib'
 import type { Plugin } from 'prettier'
-import { stringify } from 'smol-toml'
+import { type Diagnostic, format as formatToml } from 'tombit'
 
-import {
-  getTombiConfig,
-  getTombiOverrides,
-  mergeTombiConfig,
-} from './config.js'
-import { discoverTombiConfig } from './discover.js'
+import { getTombiConfig } from './config.js'
 import { languages } from './languages.js'
 import { prettierOptionsDefinitions } from './options.js'
 import type { PrettierOptions } from './types.js'
@@ -16,6 +10,7 @@ const PLUGIN_NAME = 'toml'
 
 /** Error thrown when Tombi reports one or more error level diagnostics. */
 class TombiFormatError extends SyntaxError {
+  declare cause: Diagnostic
   declare loc: { start: { line: number; column: number } }
 
   constructor(diagnostic: Diagnostic) {
@@ -32,38 +27,25 @@ class TombiFormatError extends SyntaxError {
 }
 
 /**
- * Build the Tombi configuration for a file, merging a discovered `tombi.toml`
- * (or `[tool.tombi]` in `pyproject.toml`) with the resolved Prettier options.
- */
-async function resolveConfig(options: PrettierOptions) {
-  const prettierConfig = getTombiConfig(options)
-  const discovered = await discoverTombiConfig(options.filepath)
-
-  return discovered
-    ? {
-        content: stringify(
-          mergeTombiConfig(
-            prettierConfig,
-            discovered.config,
-            getTombiOverrides(options),
-          ),
-        ),
-        path: discovered.path,
-      }
-    : {
-        content: stringify(prettierConfig),
-        path: 'tombi.toml',
-      }
-}
-
-/**
- * Format a TOML document with Tombi. Error diagnostics are thrown as a
- * {@link TombiFormatError} so Prettier can render them with a code frame.
+ * Format a TOML document with Tombi. Tombi discovers the configuration itself
+ * (`.tombi.toml`, `tombi.toml`, `.config/tombi.toml` and `[tool.tombi]` in
+ * `pyproject.toml` from the file's directory upward, then the user and system
+ * configurations). Prettier's resolved options, including its defaults, are
+ * merged on top; `toml-version` is only overridden when the `tomlVersion`
+ * option is set.
+ *
+ * The schema lookup is always disabled: this plugin is a formatter, so schema
+ * driven ordering must not affect the output and the remote schema catalogs
+ * must never be fetched.
  */
 async function format(code: string, options: PrettierOptions) {
-  const { formatted, diagnostics } = await formatToml(code, options.filepath, {
-    config: await resolveConfig(options),
-  })
+  // Prettier may omit the filepath; a synthetic name still allows discovery.
+  const { formatted, diagnostics } = await formatToml(
+    code,
+    options.filepath || 'stdin.toml',
+    // Prettier's options are authoritative; tombi.toml supplies the rest.
+    { overrideConfig: getTombiConfig(options) },
+  )
 
   if (formatted == null) {
     const diagnostic =

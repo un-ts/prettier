@@ -1,5 +1,7 @@
 import { format } from 'prettier'
 
+import { prettierOptionsDefinitions } from '../src/options.js'
+
 import TomlPlugin from 'prettier-plugin-toml'
 
 const formatToml = (
@@ -45,5 +47,13 @@ describe('prettier core options', () => {
         stringQuoteStyle: 'double',
       }),
     ).resolves.toBe('value = "text"\n')
+  })
+})
+
+describe('plugin options', () => {
+  it('should not declare defaults so the discovered config can supply them', () => {
+    for (const definition of Object.values(prettierOptionsDefinitions)) {
+      expect(definition).not.toHaveProperty('default')
+    }
   })
 })

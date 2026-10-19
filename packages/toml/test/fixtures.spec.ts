@@ -1,4 +1,5 @@
 import fs from 'node:fs'
+import os from 'node:os'
 import path from 'node:path'
 
 import { format } from 'prettier'
@@ -7,6 +8,20 @@ import TomlPlugin from 'prettier-plugin-toml'
 
 describe('parser and printer', () => {
   const fixtures = path.resolve(import.meta.dirname, 'fixtures')
+  it('should format without a filepath', async () => {
+    const cwd = process.cwd()
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'tombit-'))
+    process.chdir(dir)
+
+    try {
+      await expect(
+        format('a=1\n', { parser: 'toml', plugins: [TomlPlugin] }),
+      ).resolves.toBe('a = 1\n')
+    } finally {
+      process.chdir(cwd)
+    }
+  })
+
   for (const relativeFilepath of fs.readdirSync(fixtures)) {
     const filepath = path.resolve(fixtures, relativeFilepath)
     const input = fs.readFileSync(filepath, 'utf8')
