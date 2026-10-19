@@ -1,0 +1,18 @@
+---
+"prettier-plugin-toml": major
+---
+
+feat(prettier-plugin-toml)!: load tombi through [`tombit`](https://www.npmjs.com/package/tombit)
+
+`tombit` wraps the same `tombi-lib` crate and keeps configuration discovery and
+merging in Rust, so the plugin no longer ships `smol-toml` or a JavaScript
+discovery/caching layer. Explicit Prettier options are passed as
+`overrideConfig`; everything else follows the project's own `tombi.toml`
+(or `[tool.tombi]` in `pyproject.toml`) and the user/system configurations.
+
+Precedence change: for the rules this plugin exposes, Prettier's resolved
+options — including Prettier's own defaults — now take precedence over a
+discovered `tombi.toml`. The discovered configuration still supplies the rules
+the plugin does not expose, and its `[[overrides]]` are applied by Tombi last.
+Diagnostics now carry a `range`, so syntax errors keep rendering their code
+frame.

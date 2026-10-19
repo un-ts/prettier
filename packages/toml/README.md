@@ -50,7 +50,9 @@ yarn prettier --write foo.toml
 ## Configuration
 
 Besides the options below, this plugin reads [tombi][]'s own configuration,
-following its [search priority][tombi-config]:
+following its [search priority][tombi-config]. Discovery and merging are
+delegated to [`tombit`](https://www.npmjs.com/package/tombit), which performs
+the search in Rust:
 
 1. **Project** — for each directory from the formatted file's directory up to
    the filesystem root: `.tombi.toml`, `tombi.toml`, `.config/tombi.toml`, then
@@ -63,20 +65,25 @@ following its [search priority][tombi-config]:
 
 The rules are resolved in order, each step overriding the previous one:
 
-1. Tombi's and Prettier's defaults.
-2. The discovered configuration's `[format.rules]`.
-3. Prettier options that are explicitly set — a value equal to Prettier's
-   default (for example `printWidth: 80`) does not count as explicit.
-4. The discovered configuration's per-file `[[overrides]]`, applied by Tombi
+1. Prettier's resolved options, including its own defaults, for every rule this
+   plugin exposes.
+2. The discovered configuration's rules that this plugin does not expose.
+3. The discovered configuration's per-file `[[overrides]]`, applied by Tombi
    last.
+
+Prettier's options are authoritative, so a `tombi.toml` `line-width` that
+differs from Prettier's `printWidth` does not change this plugin's output. If
+you also use the tombi CLI or the VS Code extension, set `line-width` in
+`tombi.toml` to the same value as `printWidth` so both produce the same
+output — with no configuration at all, Prettier defaults to `80` while tombi
+has no line width limit.
 
 ### Notes
 
 - Tombi's schema lookup is always disabled, so formatting stays offline and
   deterministic.
-- Discovered configuration files are cached per directory and polled (best
-  effort), so edits to them apply without restarting the process. A newly
-  created project configuration applies on the next run.
+- Resolved configurations are cached and invalidated when the configuration
+  file or its directory changes, so edits apply without restarting the process.
 
 ## Parser Options
 

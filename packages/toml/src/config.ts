@@ -4,7 +4,7 @@ import type { PrettierOptions, PrettierTombiOptions } from './types.js'
 /** A primitive Tombi configuration value. */
 type TombiRuleValue = boolean | number | string | undefined
 
-/** A parsed Tombi configuration. */
+/** A Tombi configuration fragment. */
 export type TombiConfig = Record<string, unknown>
 
 const DEFAULT_TOML_VERSION = 'v1.0.0'
@@ -34,9 +34,6 @@ const RULE_OPTION_NAMES = (
 const toKebabCase = (value: string) =>
   value.replaceAll(/[A-Z]/g, char => `-${char.toLowerCase()}`)
 
-const getOptionDefault = (name: keyof PrettierTombiOptions) =>
-  (prettierOptionsDefinitions[name] as { default?: unknown }).default
-
 /** Resolve the line width, inheriting Prettier's `printWidth`. */
 const resolveLineWidth = (options: PrettierOptions) =>
   Number.isFinite(options.printWidth) ? options.printWidth : undefined
@@ -52,17 +49,6 @@ const resolveStringQuoteStyle = (options: PrettierOptions) =>
 /** Resolve inline table spacing, inheriting Prettier's `bracketSpacing`. */
 const resolveInlineTableBraceSpaceWidth = (options: PrettierOptions) =>
   options.inlineTableBraceSpaceWidth ?? (options.bracketSpacing ? 1 : 0)
-
-const addRule = (
-  rules: Record<string, TombiRuleValue>,
-  name: string,
-  value: TombiRuleValue,
-  condition: boolean,
-) => {
-  if (condition) {
-    rules[name] = value
-  }
-}
 
 /** `[rule, value, explicitly configured]` tuples for Prettier's core options. */
 const getCoreCandidates = (
@@ -102,40 +88,6 @@ function getAllRules(options: PrettierOptions): Record<string, TombiRuleValue> {
   return rules
 }
 
-/** Core rules that differ from Prettier's own defaults. */
-function getExplicitCoreRules(
-  options: PrettierOptions,
-): Record<string, TombiRuleValue> {
-  const rules: Record<string, TombiRuleValue> = {}
-
-  for (const [name, value, condition] of getCoreCandidates(options)) {
-    addRule(rules, name, value, condition)
-  }
-
-  return rules
-}
-
-/**
- * The explicit core rules plus every explicitly configured plugin option. They
- * take precedence over a discovered `tombi.toml`.
- */
-function getOverrideRules(
-  options: PrettierOptions,
-): Record<string, TombiRuleValue> {
-  const rules = getExplicitCoreRules(options)
-
-  for (const name of RULE_OPTION_NAMES) {
-    addRule(
-      rules,
-      name,
-      options[name],
-      options[name] !== undefined && options[name] !== getOptionDefault(name),
-    )
-  }
-
-  return rules
-}
-
 const toTombiRules = (rules: Record<string, TombiRuleValue>) =>
   Object.fromEntries(
     Object.entries(rules)
@@ -147,13 +99,14 @@ const toTombiRules = (rules: Record<string, TombiRuleValue>) =>
   )
 
 /**
- * Build a Tombi configuration from the resolved Prettier options. Prettier's
- * own `printWidth`, `tabWidth`, `useTabs`, `singleQuote` and `bracketSpacing`
- * options are mapped to their Tombi counterparts.
+ * The complete Tombi configuration derived from Prettier's resolved options.
  *
- * The schema lookup is disabled so formatting stays deterministic and offline:
- * the remote schema catalogs would otherwise make every format call hit the
- * network.
+ * Prettier's options are authoritative: its own defaults are included, so a
+ * `tombi.toml` rule that Prettier also exposes does not silently change the
+ * output. The discovered configuration still supplies the rules the plugin
+ * does not expose, and its `[[overrides]]` are applied by Tombi last.
+ *
+ * The schema lookup is disabled so formatting stays deterministic and offline.
  */
 export function getTombiConfig(options: PrettierOptions): TombiConfig {
   return {
@@ -161,64 +114,4 @@ export function getTombiConfig(options: PrettierOptions): TombiConfig {
     schema: { enabled: false },
     format: { rules: toTombiRules(getAllRules(options)) },
   }
-}
-
-/**
- * The rules that were explicitly configured through Prettier options. They
- * take precedence over a discovered `tombi.toml`.
- */
-export function getTombiOverrides(options: PrettierOptions): TombiConfig {
-  const overrides: TombiConfig = {
-    format: { rules: toTombiRules(getOverrideRules(options)) },
-  }
-
-  if (
-    options.tomlVersion !== undefined &&
-    options.tomlVersion !== DEFAULT_TOML_VERSION
-  ) {
-    overrides['toml-version'] = options.tomlVersion
-  }
-
-  return overrides
-}
-
-const isPlainObject = (value: unknown): value is Record<string, unknown> =>
-  typeof value === 'object' && value !== null && !Array.isArray(value)
-
-/** Keys that could mutate the prototype chain when assigned to an object. */
-const UNSAFE_KEYS = new Set(['__proto__', 'constructor', 'prototype'])
-
-/** Recursively merge configs, later ones taking precedence. */
-const deepMerge = (...configs: TombiConfig[]): TombiConfig =>
-  configs.reduce<TombiConfig>((result, config) => {
-    for (const [key, value] of Object.entries(config)) {
-      if (UNSAFE_KEYS.has(key)) {
-        continue
-      }
-      result[key] =
-        isPlainObject(value) && isPlainObject(result[key])
-          ? deepMerge(result[key], value)
-          : value
-    }
-    return result
-  }, {})
-
-/**
- * Merge a discovered `tombi.toml` with the Prettier derived configuration. The
- * discovered config overrides Prettier's defaults, while explicitly configured
- * Prettier options override the discovered config.
- *
- * Tombi's schema lookup is always disabled: this plugin is a formatter, so
- * schema driven ordering must not affect the output and the remote schema
- * catalogs must never be fetched.
- */
-export function mergeTombiConfig(
-  prettierConfig: TombiConfig,
-  fileConfig: TombiConfig,
-  prettierOverrides: TombiConfig,
-): TombiConfig {
-  const merged = deepMerge(prettierConfig, fileConfig, prettierOverrides)
-  const schema = isPlainObject(merged.schema) ? merged.schema : {}
-
-  return { ...merged, schema: { ...schema, enabled: false } }
 }

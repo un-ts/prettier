@@ -4892,92 +4892,164 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tombi-toml/lib-darwin-arm64@npm:1.8.4":
-  version: 1.8.4
-  resolution: "@tombi-toml/lib-darwin-arm64@npm:1.8.4"
+"@tombit/binding-android-arm-eabi@npm:0.1.1":
+  version: 0.1.1
+  resolution: "@tombit/binding-android-arm-eabi@npm:0.1.1"
+  conditions: os=android & cpu=arm
+  languageName: node
+  linkType: hard
+
+"@tombit/binding-android-arm64@npm:0.1.1":
+  version: 0.1.1
+  resolution: "@tombit/binding-android-arm64@npm:0.1.1"
+  conditions: os=android & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@tombit/binding-darwin-arm64@npm:0.1.1":
+  version: 0.1.1
+  resolution: "@tombit/binding-darwin-arm64@npm:0.1.1"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@tombi-toml/lib-darwin-x64@npm:1.8.4":
-  version: 1.8.4
-  resolution: "@tombi-toml/lib-darwin-x64@npm:1.8.4"
+"@tombit/binding-darwin-x64@npm:0.1.1":
+  version: 0.1.1
+  resolution: "@tombit/binding-darwin-x64@npm:0.1.1"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@tombi-toml/lib-linux-arm64-musl@npm:1.8.4":
-  version: 1.8.4
-  resolution: "@tombi-toml/lib-linux-arm64-musl@npm:1.8.4"
-  conditions: os=linux & cpu=arm64 & libc=musl
+"@tombit/binding-freebsd-x64@npm:0.1.1":
+  version: 0.1.1
+  resolution: "@tombit/binding-freebsd-x64@npm:0.1.1"
+  conditions: os=freebsd & cpu=x64
   languageName: node
   linkType: hard
 
-"@tombi-toml/lib-linux-arm64@npm:1.8.4":
-  version: 1.8.4
-  resolution: "@tombi-toml/lib-linux-arm64@npm:1.8.4"
+"@tombit/binding-linux-arm-gnueabihf@npm:0.1.1":
+  version: 0.1.1
+  resolution: "@tombit/binding-linux-arm-gnueabihf@npm:0.1.1"
+  conditions: os=linux & cpu=arm
+  languageName: node
+  linkType: hard
+
+"@tombit/binding-linux-arm-musleabihf@npm:0.1.1":
+  version: 0.1.1
+  resolution: "@tombit/binding-linux-arm-musleabihf@npm:0.1.1"
+  conditions: os=linux & cpu=arm
+  languageName: node
+  linkType: hard
+
+"@tombit/binding-linux-arm64-gnu@npm:0.1.1":
+  version: 0.1.1
+  resolution: "@tombit/binding-linux-arm64-gnu@npm:0.1.1"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@tombi-toml/lib-linux-x64-musl@npm:1.8.4":
-  version: 1.8.4
-  resolution: "@tombi-toml/lib-linux-x64-musl@npm:1.8.4"
-  conditions: os=linux & cpu=x64 & libc=musl
+"@tombit/binding-linux-arm64-musl@npm:0.1.1":
+  version: 0.1.1
+  resolution: "@tombit/binding-linux-arm64-musl@npm:0.1.1"
+  conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"@tombi-toml/lib-linux-x64@npm:1.8.4":
-  version: 1.8.4
-  resolution: "@tombi-toml/lib-linux-x64@npm:1.8.4"
+"@tombit/binding-linux-loong64-gnu@npm:0.1.1":
+  version: 0.1.1
+  resolution: "@tombit/binding-linux-loong64-gnu@npm:0.1.1"
+  conditions: os=linux & cpu=loong64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@tombit/binding-linux-loong64-musl@npm:0.1.1":
+  version: 0.1.1
+  resolution: "@tombit/binding-linux-loong64-musl@npm:0.1.1"
+  conditions: os=linux & cpu=loong64 & libc=musl
+  languageName: node
+  linkType: hard
+
+"@tombit/binding-linux-ppc64-gnu@npm:0.1.1":
+  version: 0.1.1
+  resolution: "@tombit/binding-linux-ppc64-gnu@npm:0.1.1"
+  conditions: os=linux & cpu=ppc64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@tombit/binding-linux-ppc64-musl@npm:0.1.1":
+  version: 0.1.1
+  resolution: "@tombit/binding-linux-ppc64-musl@npm:0.1.1"
+  conditions: os=linux & cpu=ppc64 & libc=musl
+  languageName: node
+  linkType: hard
+
+"@tombit/binding-linux-riscv64-gnu@npm:0.1.1":
+  version: 0.1.1
+  resolution: "@tombit/binding-linux-riscv64-gnu@npm:0.1.1"
+  conditions: os=linux & cpu=riscv64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@tombit/binding-linux-riscv64-musl@npm:0.1.1":
+  version: 0.1.1
+  resolution: "@tombit/binding-linux-riscv64-musl@npm:0.1.1"
+  conditions: os=linux & cpu=riscv64 & libc=musl
+  languageName: node
+  linkType: hard
+
+"@tombit/binding-linux-s390x-gnu@npm:0.1.1":
+  version: 0.1.1
+  resolution: "@tombit/binding-linux-s390x-gnu@npm:0.1.1"
+  conditions: os=linux & cpu=s390x & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@tombit/binding-linux-x64-gnu@npm:0.1.1":
+  version: 0.1.1
+  resolution: "@tombit/binding-linux-x64-gnu@npm:0.1.1"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@tombi-toml/lib-win32-arm64@npm:1.8.4":
-  version: 1.8.4
-  resolution: "@tombi-toml/lib-win32-arm64@npm:1.8.4"
+"@tombit/binding-linux-x64-musl@npm:0.1.1":
+  version: 0.1.1
+  resolution: "@tombit/binding-linux-x64-musl@npm:0.1.1"
+  conditions: os=linux & cpu=x64 & libc=musl
+  languageName: node
+  linkType: hard
+
+"@tombit/binding-openharmony-arm64@npm:0.1.1":
+  version: 0.1.1
+  resolution: "@tombit/binding-openharmony-arm64@npm:0.1.1"
+  conditions: os=openharmony & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@tombit/binding-openharmony-x64@npm:0.1.1":
+  version: 0.1.1
+  resolution: "@tombit/binding-openharmony-x64@npm:0.1.1"
+  conditions: os=openharmony & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@tombit/binding-win32-arm64-msvc@npm:0.1.1":
+  version: 0.1.1
+  resolution: "@tombit/binding-win32-arm64-msvc@npm:0.1.1"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"@tombi-toml/lib-win32-x64@npm:1.8.4":
-  version: 1.8.4
-  resolution: "@tombi-toml/lib-win32-x64@npm:1.8.4"
-  conditions: os=win32 & cpu=x64
+"@tombit/binding-win32-ia32-msvc@npm:0.1.1":
+  version: 0.1.1
+  resolution: "@tombit/binding-win32-ia32-msvc@npm:0.1.1"
+  conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
-"@tombi-toml/lib@npm:^1.8.4":
-  version: 1.8.4
-  resolution: "@tombi-toml/lib@npm:1.8.4"
-  dependencies:
-    "@tombi-toml/lib-darwin-arm64": "npm:1.8.4"
-    "@tombi-toml/lib-darwin-x64": "npm:1.8.4"
-    "@tombi-toml/lib-linux-arm64": "npm:1.8.4"
-    "@tombi-toml/lib-linux-arm64-musl": "npm:1.8.4"
-    "@tombi-toml/lib-linux-x64": "npm:1.8.4"
-    "@tombi-toml/lib-linux-x64-musl": "npm:1.8.4"
-    "@tombi-toml/lib-win32-arm64": "npm:1.8.4"
-    "@tombi-toml/lib-win32-x64": "npm:1.8.4"
-  dependenciesMeta:
-    "@tombi-toml/lib-darwin-arm64":
-      optional: true
-    "@tombi-toml/lib-darwin-x64":
-      optional: true
-    "@tombi-toml/lib-linux-arm64":
-      optional: true
-    "@tombi-toml/lib-linux-arm64-musl":
-      optional: true
-    "@tombi-toml/lib-linux-x64":
-      optional: true
-    "@tombi-toml/lib-linux-x64-musl":
-      optional: true
-    "@tombi-toml/lib-win32-arm64":
-      optional: true
-    "@tombi-toml/lib-win32-x64":
-      optional: true
-  checksum: 10c0/a3f0fd3f2fef7ff593605fb9ecd0cf2f48e1387d51de5f1482c7e309d137c4fa857ae466f115485500a12f487c4507fad4933ec4e2c9a7fc09a2190ee06c8487
+"@tombit/binding-win32-x64-msvc@npm:0.1.1":
+  version: 0.1.1
+  resolution: "@tombit/binding-win32-x64-msvc@npm:0.1.1"
+  conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
@@ -12719,8 +12791,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "prettier-plugin-toml@workspace:packages/toml"
   dependencies:
-    "@tombi-toml/lib": "npm:^1.8.4"
-    smol-toml: "npm:^1.8.0"
+    tombit: "npm:^0.1.1"
   peerDependencies:
     prettier: ^3.0.3
   languageName: unknown
@@ -14613,13 +14684,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"smol-toml@npm:^1.8.0":
-  version: 1.9.1
-  resolution: "smol-toml@npm:1.9.1"
-  checksum: 10c0/8acccf7bbc063f29405f58f5014ab39bf4eb9d7f0e000e5e3f140f7d4d6ead5696681a7c15260d1f2910213012c0af43b31a05bf94f704b0bdf39989fba08c02
-  languageName: node
-  linkType: hard
-
 "source-map-js@npm:^1.2.1, source-map-js@npm:^1.2.2":
   version: 1.2.2
   resolution: "source-map-js@npm:1.2.2"
@@ -15055,6 +15119,84 @@ __metadata:
     "@sindresorhus/base62": "npm:^1.0.0"
     reserved-identifiers: "npm:^1.0.0"
   checksum: 10c0/569b49f43b5aaaa20677e67f0f1cdcff344855149934cfb80c793c7ac7c30e191b224bc81cab40fb57641af9ca73795c78053c164a2addc617671e2d22c13a4a
+  languageName: node
+  linkType: hard
+
+"tombit@npm:^0.1.1":
+  version: 0.1.1
+  resolution: "tombit@npm:0.1.1"
+  dependencies:
+    "@tombit/binding-android-arm-eabi": "npm:0.1.1"
+    "@tombit/binding-android-arm64": "npm:0.1.1"
+    "@tombit/binding-darwin-arm64": "npm:0.1.1"
+    "@tombit/binding-darwin-x64": "npm:0.1.1"
+    "@tombit/binding-freebsd-x64": "npm:0.1.1"
+    "@tombit/binding-linux-arm-gnueabihf": "npm:0.1.1"
+    "@tombit/binding-linux-arm-musleabihf": "npm:0.1.1"
+    "@tombit/binding-linux-arm64-gnu": "npm:0.1.1"
+    "@tombit/binding-linux-arm64-musl": "npm:0.1.1"
+    "@tombit/binding-linux-loong64-gnu": "npm:0.1.1"
+    "@tombit/binding-linux-loong64-musl": "npm:0.1.1"
+    "@tombit/binding-linux-ppc64-gnu": "npm:0.1.1"
+    "@tombit/binding-linux-ppc64-musl": "npm:0.1.1"
+    "@tombit/binding-linux-riscv64-gnu": "npm:0.1.1"
+    "@tombit/binding-linux-riscv64-musl": "npm:0.1.1"
+    "@tombit/binding-linux-s390x-gnu": "npm:0.1.1"
+    "@tombit/binding-linux-x64-gnu": "npm:0.1.1"
+    "@tombit/binding-linux-x64-musl": "npm:0.1.1"
+    "@tombit/binding-openharmony-arm64": "npm:0.1.1"
+    "@tombit/binding-openharmony-x64": "npm:0.1.1"
+    "@tombit/binding-win32-arm64-msvc": "npm:0.1.1"
+    "@tombit/binding-win32-ia32-msvc": "npm:0.1.1"
+    "@tombit/binding-win32-x64-msvc": "npm:0.1.1"
+  dependenciesMeta:
+    "@tombit/binding-android-arm-eabi":
+      optional: true
+    "@tombit/binding-android-arm64":
+      optional: true
+    "@tombit/binding-darwin-arm64":
+      optional: true
+    "@tombit/binding-darwin-x64":
+      optional: true
+    "@tombit/binding-freebsd-x64":
+      optional: true
+    "@tombit/binding-linux-arm-gnueabihf":
+      optional: true
+    "@tombit/binding-linux-arm-musleabihf":
+      optional: true
+    "@tombit/binding-linux-arm64-gnu":
+      optional: true
+    "@tombit/binding-linux-arm64-musl":
+      optional: true
+    "@tombit/binding-linux-loong64-gnu":
+      optional: true
+    "@tombit/binding-linux-loong64-musl":
+      optional: true
+    "@tombit/binding-linux-ppc64-gnu":
+      optional: true
+    "@tombit/binding-linux-ppc64-musl":
+      optional: true
+    "@tombit/binding-linux-riscv64-gnu":
+      optional: true
+    "@tombit/binding-linux-riscv64-musl":
+      optional: true
+    "@tombit/binding-linux-s390x-gnu":
+      optional: true
+    "@tombit/binding-linux-x64-gnu":
+      optional: true
+    "@tombit/binding-linux-x64-musl":
+      optional: true
+    "@tombit/binding-openharmony-arm64":
+      optional: true
+    "@tombit/binding-openharmony-x64":
+      optional: true
+    "@tombit/binding-win32-arm64-msvc":
+      optional: true
+    "@tombit/binding-win32-ia32-msvc":
+      optional: true
+    "@tombit/binding-win32-x64-msvc":
+      optional: true
+  checksum: 10c0/853ec8bd34815490e0308f0caa9e56d780692426955112e627edcc97266bed37e692bda612da216f1434bb8842eefd2a63bb047844d9a0ab89cbf5c35de38c37
   languageName: node
   linkType: hard
 
