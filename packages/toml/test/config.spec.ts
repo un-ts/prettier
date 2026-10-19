@@ -52,6 +52,17 @@ describe('tombi config', () => {
     ).toMatchObject({ 'comment-style': 'preserve' })
   })
 
+  it('should keep an explicitly set plugin option even when it matches the old default', () => {
+    expect(
+      getRules(
+        getTombiConfig({
+          ...defaults,
+          commentStyle: 'normalize',
+        } as PrettierOptions),
+      ),
+    ).toMatchObject({ 'comment-style': 'normalize' })
+  })
+
   it('should only override the toml version when it is set', () => {
     expect(getTombiConfig(defaults)['toml-version']).toBeUndefined()
     expect(

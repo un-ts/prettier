@@ -65,22 +65,23 @@ the search in Rust:
 
 The rules are resolved in order, each step overriding the previous one:
 
-1. Prettier's resolved options, including its own defaults, for every rule this
-   plugin exposes.
-2. The discovered configuration's rules that this plugin does not expose.
+1. Prettier's core options (`printWidth`, `tabWidth`, `useTabs`, `singleQuote`,
+   `bracketSpacing`) and any plugin option the user explicitly sets.
+2. The discovered configuration's rules, including the plugin options the user
+   did not set.
 3. The discovered configuration's per-file `[[overrides]]`, applied by Tombi
    last.
 
-Prettier's options are authoritative, so a `tombi.toml` `line-width` that
-differs from Prettier's `printWidth` does not change this plugin's output. If
-you also use the tombi CLI or the VS Code extension, set `line-width` in
-`tombi.toml` to the same value as `printWidth` so both produce the same
-output — with no configuration at all, Prettier defaults to `80` while tombi
-has no line width limit.
+Prettier's core options are always resolved, so they win over `tombi.toml`: a
+`tombi.toml` `line-width` that differs from Prettier's `printWidth` does not
+change this plugin's output. If you also use the tombi CLI or the VS Code
+extension, set `line-width` in `tombi.toml` to the same value as `printWidth`
+so both produce the same output — with no configuration at all, Prettier
+defaults to `80` while tombi has no line width limit.
 
-`toml-version` is the exception: it is only overridden when the `tomlVersion`
-option is set, because it decides how the source is parsed, not just how it is
-formatted.
+The plugin's own options have no defaults: when they are not set, the
+discovered configuration (or Tombi's default) decides. `toml-version` follows
+the same rule because it decides how the source is parsed.
 
 ### Notes
 
