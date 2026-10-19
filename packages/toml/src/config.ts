@@ -44,24 +44,20 @@ const resolveStringQuoteStyle = (options: PrettierOptions) =>
 const resolveInlineTableBraceSpaceWidth = (options: PrettierOptions) =>
   options.inlineTableBraceSpaceWidth ?? (options.bracketSpacing ? 1 : 0)
 
-/** `[rule, value]` pairs for Prettier's core options. */
-const getCoreCandidates = (
+/** The rules derived from Prettier's own core options. */
+const getCoreRules = (
   options: PrettierOptions,
-): Array<[string, TombiRuleValue]> => [
-  ['lineWidth', resolveLineWidth(options)],
-  ['indentWidth', options.tabWidth],
-  ['indentStyle', resolveIndentStyle(options)],
-  ['stringQuoteStyle', resolveStringQuoteStyle(options)],
-  ['inlineTableBraceSpaceWidth', resolveInlineTableBraceSpaceWidth(options)],
-]
+): Record<string, TombiRuleValue> => ({
+  lineWidth: resolveLineWidth(options),
+  indentWidth: options.tabWidth,
+  indentStyle: resolveIndentStyle(options),
+  stringQuoteStyle: resolveStringQuoteStyle(options),
+  inlineTableBraceSpaceWidth: resolveInlineTableBraceSpaceWidth(options),
+})
 
 /** All rules derived from the resolved Prettier options. */
 function getAllRules(options: PrettierOptions): Record<string, TombiRuleValue> {
-  const rules: Record<string, TombiRuleValue> = {}
-
-  for (const [name, value] of getCoreCandidates(options)) {
-    rules[name] = value
-  }
+  const rules = getCoreRules(options)
 
   for (const name of RULE_OPTION_NAMES) {
     rules[name] = options[name]

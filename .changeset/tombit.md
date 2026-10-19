@@ -15,5 +15,7 @@ options — including Prettier's own defaults — now take precedence over a
 discovered `tombi.toml`. The discovered configuration still supplies the rules
 the plugin does not expose, and its `[[overrides]]` are applied by Tombi last.
 `toml-version` is only overridden when `tomlVersion` is set, because it
-decides how the source is parsed. Diagnostics now carry a `range`, so syntax
-errors keep rendering their code frame.
+decides how the source is parsed. Formatting a string without a `filepath`
+now works: configuration discovery starts from the current directory.
+Diagnostics now carry a `range`, so syntax errors keep rendering their code
+frame.
