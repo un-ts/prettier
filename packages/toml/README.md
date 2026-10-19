@@ -63,18 +63,21 @@ the search in Rust:
    `%APPDATA%\tombi\config.toml` (Windows).
 3. **System** — `/etc/tombi/config.toml`.
 
-The rules are resolved in order, each step overriding the previous one:
+The rules are resolved in ascending priority, each step overriding the previous
+one:
 
-1. Prettier's core options (`printWidth`, `tabWidth`, `useTabs`, `singleQuote`,
-   `bracketSpacing`) and any plugin option the user explicitly sets.
-2. The discovered configuration's rules, including the plugin options the user
-   did not set.
+1. The discovered configuration's base rules, including the plugin options the
+   user did not set.
+2. Prettier's core options (`printWidth`, `tabWidth`, `useTabs`, `singleQuote`,
+   `bracketSpacing`) and any plugin option the user explicitly sets, passed as
+   `overrideConfig`.
 3. The discovered configuration's per-file `[[overrides]]`, applied by Tombi
    last.
 
-Prettier's core options are always resolved, so they win over `tombi.toml`: a
-`tombi.toml` `line-width` that differs from Prettier's `printWidth` does not
-change this plugin's output. If you also use the tombi CLI or the VS Code
+Prettier's core options are always resolved, so they win over the discovered
+base rules (a matching `[[overrides]]` can still override them, because Tombi
+applies overrides last): a `tombi.toml` `line-width` that differs from
+Prettier's `printWidth` does not change this plugin's output. If you also use the tombi CLI or the VS Code
 extension, set `line-width` in `tombi.toml` to the same value as `printWidth`
 so both produce the same output — with no configuration at all, Prettier
 defaults to `80` while tombi has no line width limit.
