@@ -80,8 +80,10 @@ so both produce the same output — with no configuration at all, Prettier
 defaults to `80` while tombi has no line width limit.
 
 The plugin's own options have no defaults: when they are not set, the
-discovered configuration (or Tombi's default) decides. `toml-version` follows
-the same rule because it decides how the source is parsed.
+discovered configuration (or Tombi's default) decides, except
+`stringQuoteStyle` and `inlineTableBraceSpaceWidth`, which derive from
+Prettier's `singleQuote`/`bracketSpacing`. `toml-version` follows the same rule
+because it decides how the source is parsed.
 
 ### Notes
 
@@ -101,46 +103,52 @@ counterparts where they exist:
 - `singleQuote` → `string-quote-style`
 - `bracketSpacing` → `inline-table-brace-space-width`
 
-`endOfLine` is handled by [prettier][] itself. All of tombi's other format rules
-are exposed as `toml` options and can be used to override the inherited values:
+`endOfLine` is handled by [prettier][] itself. All of tombi's other format
+rules are exposed as `toml` options. They have no defaults: setting one
+overrides the discovered configuration, while leaving it unset lets
+`tombi.toml` (or Tombi's own default) decide — except `stringQuoteStyle` and
+`inlineTableBraceSpaceWidth`, which derive from the core options above.
 
 ```ts
 interface PrettierOptions {
-  // The TOML version to use when parsing and formatting.
-  tomlVersion: 'v1.0.0' | 'v1.1.0-preview' | 'v1.1.0' // default `v1.0.0`
+  // The TOML version to use when parsing and formatting; follows the
+  // discovered configuration when unset.
+  tomlVersion?: 'v1.0.0' | 'v1.1.0-preview' | 'v1.1.0'
   // The number of spaces inside the brackets of a single line array.
-  arrayBracketSpaceWidth: number // default `0`
+  arrayBracketSpaceWidth?: number
   // The number of spaces after the comma in a single line array.
-  arrayCommaSpaceWidth: number // default `1`
+  arrayCommaSpaceWidth?: number
   // The style used to format comments.
-  commentStyle: 'normalize' | 'preserve' // default `normalize`
+  commentStyle?: 'normalize' | 'preserve'
   // The delimiter between date and time.
-  dateTimeDelimiter: 'preserve' | 'space' | 'T' // default `T`
+  dateTimeDelimiter?: 'preserve' | 'space' | 'T'
   // The blank lines limit between groups.
-  groupBlankLinesLimit: number // default `1`
+  groupBlankLinesLimit?: number
   // Whether to indent sub-tables.
-  indentSubTables: boolean // default `false`
+  indentSubTables?: boolean
   // Whether to indent table key-value pairs.
-  indentTableKeyValuePairs: boolean // default `false`
-  // The number of spaces inside the braces of a single line inline table,
-  // defaults to `bracketSpacing` (`1` or `0`).
-  inlineTableBraceSpaceWidth: number // default `bracketSpacing`
+  indentTableKeyValuePairs?: boolean
+  // The number of spaces inside the braces of a single line inline table;
+  // derives from `bracketSpacing` (`1` or `0`) when unset.
+  inlineTableBraceSpaceWidth?: number
   // The number of spaces after the comma in a single line inline table.
-  inlineTableCommaSpaceWidth: number // default `1`
+  inlineTableCommaSpaceWidth?: number
   // Whether to align the equals sign in key-value pairs.
-  keyValueEqualsSignAlignment: boolean // default `false`
-  // The preferred quote character for keys, defaults to `stringQuoteStyle`.
-  keyQuoteStyle: 'double' | 'preserve' | 'single' // default `undefined`
-  // The preferred quote character for strings, defaults to `singleQuote`.
-  stringQuoteStyle: 'double' | 'preserve' | 'single' // default `singleQuote`
+  keyValueEqualsSignAlignment?: boolean
+  // The preferred quote character for keys; follows `stringQuoteStyle` when
+  // unset.
+  keyQuoteStyle?: 'double' | 'preserve' | 'single'
+  // The preferred quote character for strings; derives from `singleQuote`
+  // when unset.
+  stringQuoteStyle?: 'double' | 'preserve' | 'single'
   // Whether to align the trailing comments in key-value pairs.
-  trailingCommentAlignment: boolean // default `false`
+  trailingCommentAlignment?: boolean
   // The number of spaces around the equals sign in a key-value pair.
-  keyValueEqualsSignSpaceWidth: number // default `1`
+  keyValueEqualsSignSpaceWidth?: number
   // The number of blank lines between tables.
-  tableBlankLines: number // default `1`
+  tableBlankLines?: number
   // The number of spaces before a trailing comment.
-  trailingCommentSpaceWidth: number // default `2`
+  trailingCommentSpaceWidth?: number
 }
 ```
 
